@@ -1,0 +1,172 @@
+#body-basic {
+    background-color: #00192D;
+    /* background-color: rgb(75, 109, 137); */
+    height: 1300px;
+}
+
+.container .space,
+.container .logo,
+.container .activity,
+.container .bank,
+.container .bankLogin,
+.container .bankLogout,
+.container .eventText,
+.container .displayCoins,
+.container .displayGems,
+.container .greenPosition,
+.container .redPosition,
+.container .brownPosition,
+.container .pinkPosition,
+.container .chestAwardIcon1,
+.container .chestAwardIcon2,
+.container .stockRoom1,
+.container .stockRoom2,
+.container .message1,
+.container .message2,
+.container .monster {
+    position: absolute;
+}
+
+.container {
+    position: absolute;
+    background-image: url("../img/space.png");
+    background-size: contain;
+    width: 1280px;
+    height: 800px;
+    left: 80px;
+    top: 0px;
+}
+
+.container .space {
+    width: 1200px;
+    height: 810px;
+}
+
+.container .logo {
+    width: 200px;
+    height: 60px;
+    left: 30px;
+    top: 20px;
+}
+
+.container .activity {
+    right: 610px;
+    top: 25px;
+}
+
+.container .bank {
+    right: 430px;
+    top: 15px;
+}
+
+.container .bankLogin {
+    right: 250px;
+    top: 25px;
+}
+
+.container .bankLogout {
+    right: 70px;
+    top: 15px;
+}
+
+.container .eventText {
+    top: 200px;
+    left: 350px;
+}
+
+.container .displayCoins {
+    right: 250px;
+    top: 230px;
+}
+
+.container .displayGems {
+    right: 40px;
+    top: 230px;
+}
+
+.container .greenPosition {
+    left: 70px;
+    top: 580px;
+}
+
+.container .redPosition {
+    left: 370px;
+    top: 580px;
+}
+
+.container .brownPosition {
+    left: 670px;
+    top: 580px;
+}
+
+.container .pinkPosition {
+    left: 970px;
+    top: 580px;
+}
+
+.readyChest1 {
+    left: -20px;
+    top: 380px;
+    position: absolute;
+}
+
+.readyChest2 {
+    left: 280px;
+    top: 380px;
+    position: absolute;
+}
+
+.readyChest3 {
+    left: 580px;
+    top: 380px;
+    position: absolute;
+}
+
+.readyChest4 {
+    left: 880px;
+    top: 380px;
+    position: absolute;
+}
+
+.container .chestAwardIcon1 {
+    top: 780px;
+    left: 300px;
+}
+
+.container .chestAwardIcon2 {
+    top: 780px;
+    left: 900px;
+}
+
+.container .stockRoom1 {
+    top: 880px;
+    left: 50px;
+}
+
+.container .stockRoom2 {
+    top: 880px;
+    right: 20px;
+}
+
+.container .message1 {
+    color: aliceblue;
+    font-family: "微軟正黑體";
+    font-size: 28px;
+    top: 980px;
+    left: 200px;
+}
+
+.container .message2 {
+    color: aliceblue;
+    font-family: "微軟正黑體";
+    font-size: 28px;
+    top: 980px;
+    right: 100px;
+}
+
+.container .monster {
+    width: 350px;
+    height: 350px;
+    top: 1080px;
+    left: 130px;
+}
