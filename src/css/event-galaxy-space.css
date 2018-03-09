@@ -173,6 +173,12 @@ li {
     left: 30px;
 }
 
+.container .slideshow-text {
+    top: 1450px;
+    left: 340px;
+    width: 100px;
+}
+
 .container .monster {
     width: 350px;
     height: 350px;
@@ -214,7 +220,8 @@ li {
 
 .container .service .service-message,
 .container .service .url1,
-.container .service .url2 {
+.container .service .url2,
+.container .award {
     color: aliceblue;
     font-size: 22px;
     font-family: "微軟正黑體";
@@ -312,6 +319,30 @@ li {
         top: 850px;
         right: 130px;
         width: 25%;
+    }
+    .container .slideshow {
+        top: 1020px;
+        left: 10px;
+    }
+    .container .nature {
+        width: 150px;
+        height: 150px;
+    }
+    .container .award {
+        top: -20px;
+        font-size: 15px;
+    }
+    .container .next {
+        top: 1020px;
+        left: 400px;
+        width: 80px;
+        height: 80px;
+    }
+    .container .previous {
+        top: 1120px;
+        left: 400px;
+        width: 80px;
+        height: 80px;
     }
     .container .monster {
         width: 300px;
@@ -445,6 +476,31 @@ li {
         font-size: 17px;
         top: 915px;
         left: 65px;
+    }
+    .container .slideshow {
+        top: 1000px;
+        left: 20px;
+    }
+    .container .nature {
+        width: 100px;
+        height: 100px;
+    }
+    .container .slideshow-text {
+        top: 1200px;
+        left: 200px;
+        width: 100px;
+    }
+    .container .next {
+        top: 1020px;
+        left: 300px;
+        width: 60px;
+        height: 60px;
+    }
+    .container .previous {
+        top: 1080px;
+        left: 300px;
+        width: 60px;
+        height: 60px;
     }
     .container .monster {
         width: 200px;

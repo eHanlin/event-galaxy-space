@@ -1,11 +1,14 @@
 $(() => {
-  let myShow = w3.slideshow('.nature', 2000)
+  let nature = w3.slideshow('.nature', 2000)
+  let award = w3.slideshow('.award', 2000)
 
   $('.next').on('click', event => {
-    myShow.next()
+    nature.next()
+    award.next()
   })
 
   $('.previous').on('click', event => {
-    myShow.previous()
+    nature.previous()
+    award.previous()
   })
 })
