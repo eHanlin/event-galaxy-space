@@ -9,7 +9,8 @@ img,
 span,
 a,
 ul,
-li {
+li,
+p {
     position: absolute;
 }
 
@@ -168,6 +169,50 @@ li {
     right: 150px;
 }
 
+.container .border-box1,
+.container .border-box2,
+.container .border-box3,
+.container .border-box4 {
+    border: 2px solid yellow;
+    border-radius: 5px;
+    width: 175px;
+    height: 170px;
+}
+
+.container .border-box1 {
+    top: 1120px;
+    right: 340px;
+}
+
+.container .border-box2 {
+    top: 1120px;
+    right: 140px;
+}
+
+.container .border-box3 {
+    top: 1315px;
+    right: 340px;
+}
+
+.container .border-box4 {
+    top: 1315px;
+    right: 140px;
+}
+
+.container .right {
+    top: 1265px;
+    right: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.container .left {
+    top: 1265px;
+    right: 520px;
+    width: 100px;
+    height: 100px;
+}
+
 .container .slideshow {
     top: 1110px;
     left: 30px;
@@ -320,6 +365,41 @@ li {
         right: 130px;
         width: 25%;
     }
+    .container .border-box1,
+    .container .border-box2,
+    .container .border-box3,
+    .container .border-box4 {
+        width: 175px;
+        height: 170px;
+    }
+    .container .border-box1 {
+        top: 950px;
+        right: 260px;
+    }
+    .container .border-box2 {
+        top: 950px;
+        right: 60px;
+    }
+    .container .border-box3 {
+        top: 1145px;
+        right: 260px;
+    }
+    .container .border-box4 {
+        top: 1145px;
+        right: 60px;
+    }
+    .container .right {
+        top: 1165px;
+        right: -20px;
+        width: 80px;
+        height: 80px;
+    }
+    .container .left {
+        top: 1165px;
+        right: 440px;
+        width: 80px;
+        height: 80px;
+    }
     .container .slideshow {
         top: 1020px;
         left: 10px;
@@ -329,8 +409,9 @@ li {
         height: 150px;
     }
     .container .award {
-        top: -20px;
-        font-size: 15px;
+        top: -160px;
+        left: -60px;
+        font-size: 17px;
     }
     .container .next {
         top: 1020px;
@@ -486,9 +567,44 @@ li {
         height: 100px;
     }
     .container .slideshow-text {
-        top: 1200px;
-        left: 200px;
+        top: 1330px;
+        left: 260px;
         width: 100px;
+    }
+    .container .border-box1,
+    .container .border-box2,
+    .container .border-box3,
+    .container .border-box4 {
+        width: 125px;
+        height: 120px;
+    }
+    .container .border-box1 {
+        top: 1350px;
+        right: 190px;
+    }
+    .container .border-box2 {
+        top: 1350px;
+        right: 50px;
+    }
+    .container .border-box3 {
+        top: 1490px;
+        right: 190px;
+    }
+    .container .border-box4 {
+        top: 1490px;
+        right: 50px;
+    }
+    .container .right {
+        top: 1470px;
+        right: 0px;
+        width: 50px;
+        height: 50px;
+    }
+    .container .left {
+        top: 1470px;
+        right: 325px;
+        width: 50px;
+        height: 50px;
     }
     .container .next {
         top: 1020px;
