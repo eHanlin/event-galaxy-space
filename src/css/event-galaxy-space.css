@@ -7,6 +7,7 @@
 div,
 img,
 span,
+button,
 a,
 ul,
 li,
@@ -124,6 +125,47 @@ p {
     top: -190px;
     position: absolute;
     width: 190%;
+}
+
+.container .start-btn,
+.container .upgrade-btn,
+.container .ready-btn {
+    background-color: #008cba;
+    top: -220px;
+    height: 40px;
+    width: 80px;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(2, 49, 91);
+    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
+}
+
+.container .start-btn {
+    left: -5px;
+}
+
+.container .upgrade-btn {
+    left: 90px;
+}
+
+.container .ready-btn {
+    left: 45px;
+}
+
+.container .openNow-btn {
+    background-color: #41b547;
+    top: 40px;
+    left: 30px;
+    height: 35px;
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(2, 49, 91);
+    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
 }
 
 /* ============================> 寶箱 <============================ */
@@ -329,6 +371,30 @@ p {
     }
     .container .platform-pink {
         left: 800px;
+    }
+    .container .start-btn,
+    .container .upgrade-btn,
+    .container .ready-btn {
+        top: -210px;
+        height: 35px;
+        width: 70px;
+        font-size: 20px;
+    }
+    .container .start-btn {
+        left: -20px;
+    }
+    .container .upgrade-btn {
+        left: 75px;
+    }
+    .container .ready-btn {
+        left: 25px;
+    }
+    .container .openNow-btn {
+        top: 20px;
+        left: 20px;
+        height: 30px;
+        width: 90px;
+        font-size: 16px;
     }
     .container .chestAwardIcon1 {
         top: 650px;
@@ -542,6 +608,30 @@ p {
     .container .platform-pink {
         top: 770px;
         left: 260px;
+    }
+    .container .start-btn,
+    .container .upgrade-btn,
+    .container .ready-btn {
+        top: -220px;
+        height: 30px;
+        width: 60px;
+        font-size: 18px;
+    }
+    .container .start-btn {
+        left: -40px;
+    }
+    .container .upgrade-btn {
+        left: 40px;
+    }
+    .container .ready-btn {
+        left: 0px;
+    }
+    .container .openNow-btn {
+        top: -25px;
+        left: -10px;
+        height: 25px;
+        width: 80px;
+        font-size: 14px;
     }
     .container .chestAwardIcon1 {
         top: 850px;
