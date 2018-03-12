@@ -12,7 +12,7 @@ $(() => {
   })
 
   ajaxGet(
-    'http://127.0.0.1:8080/chest/5a2f6c354cedfd0007b485f7',
+    'http://127.0.0.1:8080/chest/5a2f7b8a4cedfd0007b48603',
     null,
     data => {
       console.log(data)
