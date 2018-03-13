@@ -1,4 +1,4 @@
-define(function () {
+define(() => {
   require.config({
     shim: {
       bootstrap: ['jquery'],
