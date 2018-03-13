@@ -1,6 +1,6 @@
-require(['config'], function () {
-  require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], function ($) {
-    require(['ajax'], (ajax) => {
+require(['config'], () => {
+  require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], $ => {
+    require(['ajax'], ajax => {
       ajax('GET', 'http://localhost:9090/currencyBank/transaction')
         .then((jsonData) => {
           return jsonData.content
@@ -13,7 +13,9 @@ require(['config'], function () {
             pagination: true
           })
 
-          $('section .fixed-table-container').css({border: 0})
+          $('section .fixed-table-container').css({
+            border: 0
+          })
         })
     })
   })

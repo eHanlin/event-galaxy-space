@@ -350,7 +350,7 @@ p {
 
 /* ============================================> iPad ============================================>*/
 
-@media screen and (max-width:1080px) {
+@media screen and (max-width:1280px) {
     #body-basic {
         height: 1500px;
     }
@@ -589,7 +589,7 @@ p {
 
 /* ============================================> iPhone ============================================>*/
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:960px) {
     #body-basic {
         height: 1700px;
     }
