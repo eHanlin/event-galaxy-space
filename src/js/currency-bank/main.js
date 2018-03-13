@@ -6,11 +6,10 @@ require(['config'], function () {
           return jsonData.content
         })
         .then((transactions) => {
-
           $('#table').bootstrapTable({
             data: transactions,
             striped: true,
-            pageSize: 10,
+            pageSize: 5,
             pagination: true
           })
 
