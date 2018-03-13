@@ -124,10 +124,40 @@ p {
     left: 1000px;
 }
 
-.readyChest1 {
-    left: -75px;
+.chest1 {
+    top: -160px;
+    left: -30px;
+}
+
+.chest2 {
+    top: -155px;
+    left: -37px;
+}
+
+.chest3 {
+    top: -150px;
+    left: -45px;
+}
+
+.chest4 {
+    top: -167px;
+    left: -52px;
+}
+
+.chest5 {
     top: -190px;
-    position: absolute;
+    left: -58px;
+}
+
+.chest6 {
+    top: -190px;
+    left: -78px;
+    width: 190%;
+}
+
+.readyChest6 {
+    top: -190px;
+    left: -75px;
     width: 190%;
 }
 
@@ -376,6 +406,36 @@ p {
     .container .platform-pink {
         left: 800px;
     }
+    .chest1 {
+        top: -160px;
+        left: -35px;
+        width: 135%;
+    }
+    .chest2 {
+        top: -150px;
+        left: -34px;
+        width: 135%;
+    }
+    .chest3 {
+        top: -145px;
+        left: -42px;
+        width: 143%;
+    }
+    .chest4 {
+        top: -158px;
+        left: -42px;
+        width: 147%;
+    }
+    .chest5 {
+        top: -185px;
+        left: -54px;
+        width: 165%;
+    }
+    .chest6 {
+        top: -200px;
+        left: -80px;
+        width: 200%;
+    }
     .container .start-btn,
     .container .upgrade-btn,
     .container .ready-btn {
@@ -612,6 +672,31 @@ p {
     .container .platform-pink {
         top: 770px;
         left: 260px;
+    }
+    .chest1 {
+        top: -160px;
+        left: -35px;
+        width: 135%;
+    }
+    .chest2 {
+        top: -150px;
+        left: -34px;
+        width: 135%;
+    }
+    .chest3 {
+        top: -155px;
+        left: -48px;
+    }
+    .chest4 {
+        top: -160px;
+        left: -50px;
+    }
+    .chest5 {
+        top: -188px;
+        left: -59px;
+    }
+    .chest6 {
+        top: -195px;
     }
     .container .start-btn,
     .container .upgrade-btn,
