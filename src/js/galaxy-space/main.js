@@ -5,13 +5,15 @@ require.config({
 
   paths: {
     jquery: ['../lib/jquery-3.3.1.min'],
-    dialog: ['../lib/dialog-plus'],
     w3: ['../lib/w3'],
     ajax: ['../module-utils/ajax'],
+    swal: ['../lib/sweetalert2'],
     popup: ['../module-utils/popup'],
-    'event-chest': ['./event-chest'],
-    'event-click-link': ['./event-click-link'],
-    'event-galaxy-space': ['./event-galaxy-space']
+    eventChest: ['./event-chest'],
+    eventClickLink: ['./event-click-link'],
+    eventGalaxySpace: ['./event-galaxy-space'],
+    eventSlideShow: ['./event-slide-show'],
+    eventAward: ['./event-award']
   },
 
   map: {
@@ -21,10 +23,27 @@ require.config({
   }
 })
 
-require(['jquery', 'w3', 'dialog', 'popup',
-  'event-chest', 'event-click-link', 'event-galaxy-space'], ($, w3, dialog, popup) => {
-  $('.start-btn').on('click', () => {
-    let d = popup.confirm('不', 'ydddddddddd')
-    d.showModal()
+require(
+  [
+    'jquery',
+    'w3',
+    'ajax',
+    'popup',
+    'eventChest',
+    'eventClickLink',
+    'eventGalaxySpace',
+    'eventSlideShow',
+    'eventAward'
+  ], ($,
+      w3,
+      ajax,
+      popup,
+      eventChest,
+      eventClickLink,
+      eventGalaxySpace,
+      eventSlideShow,
+      eventAward) => {
+    $('.start-btn').on('click', function () {
+      popup.confirm('測試','GG');
+    })
   })
-})

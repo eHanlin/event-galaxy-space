@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery'], $ => {
   return function (type, url, data) {
     if (type !== 'GET') {
       data = JSON.stringify(data)

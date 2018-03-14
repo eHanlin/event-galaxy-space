@@ -1,29 +1,33 @@
-#body-basic {
+#galaxy-space-body {
   background-color: #00192D;
   /* background-color: rgb(75, 109, 137); */
   height: 1600px;
 }
 
-div,
-img,
-span,
-button,
-a,
-ul,
-li,
-p {
+#galaxy-space-body main {
+  position: absolute;
+}
+
+.container div,
+.container section,
+.container img,
+.container span,
+.container button,
+.container a,
+.container ul,
+.container li,
+.container p {
   position: absolute;
 }
 
 .horizontal-center {
-  top: 0px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .container {
-  background-image: url("../img/space.png");
-  background-repeat: no-repeat;
+  background: url("../img/space.png") no-repeat;
   background-size: contain;
   width: 1280px;
   height: 800px;
@@ -93,7 +97,7 @@ p {
 
 /* ============================================> iPad ============================================>*/
 @media screen and (max-width: 1280px) {
-  #body-basic {
+  #galaxy-space-body {
     height: 1500px;
   }
 
@@ -138,7 +142,7 @@ p {
 
 /* ============================================> iPhone ============================================>*/
 @media screen and (max-width: 960px) {
-  #body-basic {
+  #galaxy-space-body {
     height: 1700px;
   }
 
