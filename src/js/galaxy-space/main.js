@@ -4,22 +4,40 @@ require.config({
   },
 
   paths: {
-    'jquery': ['../lib/jquery-3.3.1.min'],
+    jquery: ['../lib/jquery-3.3.1.min'],
     jqueryConfirm: ['../lib/jquery-confirm.min'],
-    'w3': ['../lib/w3'],
-    'ajax': ['../module-utils/ajax'],
+    w3: ['../lib/w3'],
+    ajax: ['../module-utils/ajax'],
     popup: ['../module-utils/popup'],
-    'event-chest': ['./event-chest'],
-    'event-click-link': ['./event-click-link'],
-    'event-galaxy-space': ['./event-galaxy-space']
+    eventChest: ['./event-chest'],
+    eventClickLink: ['./event-click-link'],
+    eventGalaxySpace: ['./event-galaxy-space'],
+    eventSlideShow: ['./event-slide-show'],
+    eventAward: ['./event-award']
   }
 })
 
-require(['jquery', 'w3', 'ajax', 'jqueryConfirm', 'popup',
-  'event-chest', 'event-click-link', 'event-galaxy-space'], ($, w3, ajax, jqueryConfirm, popup) => {
-  $('.start-btn').on('click', () => {
-    $.alert(popup.alert('GG', 'yy', () => {
-      console.log('power')
-    }))
-  })
-})
+require(
+  [
+    'jquery',
+    'jqueryConfirm',
+    'w3',
+    'ajax',
+    'popup',
+    'eventChest',
+    'eventClickLink',
+    'eventGalaxySpace',
+    'eventSlideShow',
+    'eventAward'
+  ], (
+    $,
+    jqueryConfirm,
+    w3,
+    ajax,
+    popup,
+    eventChest,
+    eventClickLink,
+    eventGalaxySpace,
+    eventSlideShow,
+    eventAward
+  ) => {})

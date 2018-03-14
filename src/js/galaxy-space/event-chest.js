@@ -1,6 +1,6 @@
 define(['jquery'], $ => {
   $(() => {
-    //$('.start-btn').css('display', 'none')
+    $('.start-btn').css('display', 'none')
     $('.upgrade-btn').css('display', 'none')
     $('.ready-btn').css('display', 'none')
     $('.open-now-btn').css('display', 'none')

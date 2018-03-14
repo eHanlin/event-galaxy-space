@@ -1,6 +1,6 @@
-define(function () {
+define(() => {
   return {
-    confirm: function (title, content, confirmFn) {
+    confirm: (title, content, confirmFn) => {
       return {
         title: '<h5>' + title + '</h5>',
         content: '<span style=\'font-size: 20px\'>' + content + '</span>',
@@ -19,9 +19,9 @@ define(function () {
       }
     },
 
-    alert: function (title, content, confirmFn) {
+    alert: (title, content, confirmFn) => {
       if (!confirmFn) {
-        confirmFn = function () {}
+        confirmFn = () => {}
       }
 
       return {
