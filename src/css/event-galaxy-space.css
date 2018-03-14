@@ -1,7 +1,7 @@
 #body-basic {
-    background-color: #00192D;
-    /* background-color: rgb(75, 109, 137); */
-    height: 1600px;
+  background-color: #00192D;
+  /* background-color: rgb(75, 109, 137); */
+  height: 1600px;
 }
 
 div,
@@ -12,179 +12,200 @@ a,
 ul,
 li,
 p {
-    position: absolute;
+  position: absolute;
 }
 
 .horizontal-center {
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .container {
-    background-image: url("../img/space.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 1280px;
-    height: 800px;
+  background-image: url("../img/space.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1280px;
+  height: 800px;
 }
 
 .container .logo {
-    width: 200px;
-    height: 60px;
-    left: 30px;
-    top: 20px;
+  width: 200px;
+  height: 60px;
+  left: 30px;
+  top: 20px;
 }
 
 .container .activity {
-    right: 610px;
-    top: 25px;
+  right: 610px;
+  top: 25px;
 }
 
 .container .bank {
-    right: 430px;
-    top: 15px;
+  right: 430px;
+  top: 15px;
 }
 
 .container .my-class {
-    cursor: pointer;
-    right: 250px;
-    top: 25px;
+  cursor: pointer;
+  right: 250px;
+  top: 25px;
 }
 
 .container .free {
-    cursor: pointer;
-    right: 70px;
-    top: 15px;
+  cursor: pointer;
+  right: 70px;
+  top: 15px;
 }
 
 .container .fb {
-    width: 4%;
-    right: 5px;
-    top: 35px;
-    cursor: pointer;
-    transform: rotate(-8deg);
-    -webkit-transform: rotate(-8deg);
+  width: 4%;
+  right: 5px;
+  top: 35px;
+  cursor: pointer;
+  transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
 }
 
 .container .line {
-    width: 4%;
-    right: 5px;
-    top: 110px;
-    cursor: pointer;
-    transform: rotate(8deg);
-    -webkit-transform: rotate(8deg)
+  width: 4%;
+  right: 5px;
+  top: 110px;
+  cursor: pointer;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg)
 }
 
 .container .event-text {
-    top: 200px;
-    left: 350px;
+  top: 200px;
+  left: 350px;
 }
 
 .container .display-coins {
-    right: 250px;
-    top: 230px;
+  right: 250px;
+  top: 230px;
 }
 
 .container .display-gems {
-    right: 40px;
-    top: 230px;
+  right: 40px;
+  top: 230px;
 }
 
 /* ============================================> iPad ============================================>*/
-@media screen and (max-width:1280px) {
-    #body-basic {
-        height: 1500px;
-    }
-    .container {
-        width: 980px;
-    }
-    .container .fb {
-        width: 5%;
-    }
-    .container .line {
-        width: 5%;
-    }
-    .container .activity,
-    .container .bank,
-    .container .my-class,
-    .container .free {
-        width: 15%;
-    }
-    .container .activity {
-        right: 600px;
-        top: 35px;
-    }
-    .container .display-coins {
-        right: 40px;
-        top: 190px;
-        width: 17%;
-    }
-    .container .display-gems {
-        right: 40px;
-        top: 260px;
-        width: 17%;
-    }
+@media screen and (max-width: 1280px) {
+  #body-basic {
+    height: 1500px;
+  }
+
+  .container {
+    width: 980px;
+  }
+
+  .container .fb {
+    width: 5%;
+  }
+
+  .container .line {
+    width: 5%;
+  }
+
+  .container .activity,
+  .container .bank,
+  .container .my-class,
+  .container .free {
+    width: 15%;
+  }
+
+  .container .activity {
+    right: 600px;
+    top: 35px;
+  }
+
+  .container .display-coins {
+    right: 40px;
+    top: 190px;
+    width: 17%;
+  }
+
+  .container .display-gems {
+    right: 40px;
+    top: 260px;
+    width: 17%;
+  }
 }
+
 /* ============================================> iPad ============================================>*/
 
 /* ============================================> iPhone ============================================>*/
-@media screen and (max-width:960px) {
-    #body-basic {
-        height: 1700px;
-    }
-    .container {
-        width: 375px;
-    }
-    .container .logo {
-        width: 100px;
-        height: 26px;
-        top: 10px;
-    }
-    .container .fb {
-        top: 105px;
-        width: 8%;
-    }
-    .container .line {
-        top: 145px;
-        width: 8%;
-    }
-    .container .bank,
-    .container .my-class {
-        width: 20%;
-    }
-    .container .activity {
-        width: 23%;
-        left: 30px;
-        top: 100px;
-        transform: rotate(8deg);
-        -webkit-transform: rotate(8deg);
-    }
-    .container .bank {
-        left: 140px;
-        top: 100px;
-        transform: rotate(-8deg);
-        -webkit-transform: rotate(-8deg);
-    }
-    .container .my-class {
-        left: 240px;
-        top: 100px;
-    }
-    .container .free {
-        display: none;
-    }
-    .container .event-text {
-        display: none;
-    }
-    .container .display-coins {
-        right: 200px;
-        top: 210px;
-        width: 30%;
-    }
-    .container .display-gems {
-        right: 50px;
-        top: 210px;
-        width: 30%;
-    }
+@media screen and (max-width: 960px) {
+  #body-basic {
+    height: 1700px;
+  }
+
+  .container {
+    width: 375px;
+  }
+
+  .container .logo {
+    width: 100px;
+    height: 26px;
+    top: 10px;
+  }
+
+  .container .fb {
+    top: 105px;
+    width: 8%;
+  }
+
+  .container .line {
+    top: 145px;
+    width: 8%;
+  }
+
+  .container .bank,
+  .container .my-class {
+    width: 20%;
+  }
+
+  .container .activity {
+    width: 23%;
+    left: 30px;
+    top: 100px;
+    transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
+  }
+
+  .container .bank {
+    left: 140px;
+    top: 100px;
+    transform: rotate(-8deg);
+    -webkit-transform: rotate(-8deg);
+  }
+
+  .container .my-class {
+    left: 240px;
+    top: 100px;
+  }
+
+  .container .free {
+    display: none;
+  }
+
+  .container .event-text {
+    display: none;
+  }
+
+  .container .display-coins {
+    right: 200px;
+    top: 210px;
+    width: 30%;
+  }
+
+  .container .display-gems {
+    right: 50px;
+    top: 210px;
+    width: 30%;
+  }
 }
+
 /* ============================================> iPhone ============================================>*/
