@@ -1,0 +1,448 @@
+/* ============================> 禮物 <============================ */
+.container .chest-award-icon1 {
+    top: 780px;
+    left: 300px;
+}
+
+.container .chest-award-icon2 {
+    top: 780px;
+    left: 900px;
+}
+
+.container .stock-room1 {
+    top: 880px;
+    left: 50px;
+}
+
+.container .stock-room2 {
+    top: 880px;
+    right: 20px;
+}
+
+.container .message1 {
+    color: aliceblue;
+    font-family: "微軟正黑體";
+    font-size: 32px;
+    top: 980px;
+    left: 130px;
+}
+
+.container .message2 {
+    color: aliceblue;
+    font-family: "微軟正黑體";
+    font-size: 32px;
+    top: 980px;
+    right: 60px;
+}
+
+.container .return-btn {
+    top: 1040px;
+    right: 150px;
+}
+
+.container .border-box1,
+.container .border-box2,
+.container .border-box3,
+.container .border-box4 {
+    border: 2px solid yellow;
+    border-radius: 5px;
+    width: 175px;
+    height: 170px;
+}
+
+.container .border-box1 {
+    top: 1120px;
+    right: 340px;
+}
+
+.container .border-box2 {
+    top: 1120px;
+    right: 140px;
+}
+
+.container .border-box3 {
+    top: 1315px;
+    right: 340px;
+}
+
+.container .border-box4 {
+    top: 1315px;
+    right: 140px;
+}
+
+.container .right {
+    top: 1265px;
+    right: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.container .left {
+    top: 1265px;
+    right: 520px;
+    width: 100px;
+    height: 100px;
+}
+
+.container .slide-show {
+    top: 1110px;
+    left: 30px;
+}
+
+.container .slide-show-text {
+    top: 1450px;
+    left: 340px;
+    width: 100px;
+}
+
+.container .monster {
+    width: 350px;
+    height: 350px;
+    top: 1080px;
+    left: 160px;
+}
+
+.container .next {
+    top: 1120px;
+    left: 500px;
+    width: 100px;
+    height: 100px;
+}
+
+.container .previous {
+    top: 1220px;
+    left: 500px;
+    width: 100px;
+    height: 100px;
+}
+
+.container .service .service-message {
+    top: 1520px;
+    left: 350px;
+    width: 680px;
+}
+
+.container .service .url1 {
+    top: 1570px;
+    left: 440px;
+    width: 180px;
+}
+
+.container .service .url2 {
+    top: 1570px;
+    left: 690px;
+    width: 180px;
+}
+
+.container .service .service-message,
+.container .service .url1,
+.container .service .url2,
+.container .award {
+    color: aliceblue;
+    font-size: 22px;
+    font-family: "微軟正黑體";
+}
+
+/* ============================> 禮物 <============================ */
+
+/* ============================================> iPad ============================================>*/
+@media screen and (max-width: 1280px) {
+    .container .chest-award-icon1 {
+        top: 650px;
+        left: 220px;
+        width: 6%;
+    }
+
+    .container .chest-award-icon2 {
+        top: 650px;
+        left: 700px;
+        width: 6%;
+    }
+
+    .container .stock-room1 {
+        top: 740px;
+        left: 30px;
+        width: 45%;
+    }
+
+    .container .stock-room2 {
+        top: 740px;
+        right: 30px;
+        width: 45%;
+    }
+
+    .container .message1 {
+        font-size: 25px;
+        top: 810px;
+        left: 70px;
+    }
+
+    .container .message2 {
+        font-size: 25px;
+        top: 810px;
+        right: 40px;
+    }
+
+    .container .return-btn {
+        top: 850px;
+        right: 130px;
+        width: 25%;
+    }
+
+    .container .border-box1,
+    .container .border-box2,
+    .container .border-box3,
+    .container .border-box4 {
+        width: 175px;
+        height: 170px;
+    }
+
+    .container .border-box1 {
+        top: 950px;
+        right: 260px;
+    }
+
+    .container .border-box2 {
+        top: 950px;
+        right: 60px;
+    }
+
+    .container .border-box3 {
+        top: 1145px;
+        right: 260px;
+    }
+
+    .container .border-box4 {
+        top: 1145px;
+        right: 60px;
+    }
+
+    .container .right {
+        top: 1165px;
+        right: -20px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .container .left {
+        top: 1165px;
+        right: 440px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .container .slide-show {
+        top: 1020px;
+        left: 10px;
+    }
+
+    .container .nature {
+        width: 150px;
+        height: 150px;
+    }
+
+    .container .award {
+        top: -160px;
+        left: -60px;
+        font-size: 17px;
+    }
+
+    .container .next {
+        top: 1020px;
+        left: 400px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .container .previous {
+        top: 1120px;
+        left: 400px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .container .monster {
+        width: 300px;
+        height: 300px;
+        top: 980px;
+        left: 120px;
+    }
+
+    .container .service .service-message {
+        top: 1400px;
+        left: 250px;
+        width: 680px;
+    }
+
+    .container .service .url1 {
+        top: 1440px;
+        left: 320px;
+        width: 180px;
+    }
+
+    .container .service .url2 {
+        top: 1440px;
+        left: 540px;
+        width: 180px;
+    }
+
+    .container .service .service-message,
+    .container .service .url1,
+    .container .service .url2 {
+        color: aliceblue;
+        font-size: 18px;
+        font-family: "微軟正黑體";
+    }
+}
+/* ============================================> iPad ============================================>*/
+
+/* ============================================> iPhone ============================================>*/
+@media screen and (max-width: 960px) {
+    .container .chest-award-icon1 {
+        top: 850px;
+        left: 180px;
+        width: 6%;
+    }
+
+    .container .stock-room1 {
+        top: 880px;
+        left: 100px;
+        width: 50%;
+    }
+
+    .container .message1 {
+        font-size: 17px;
+        top: 915px;
+        left: 65px;
+    }
+
+    .container .slide-show {
+        top: 1000px;
+        left: 20px;
+    }
+
+    .container .nature {
+        width: 100px;
+        height: 100px;
+    }
+
+    .container .slide-show-text {
+        top: 1330px;
+        left: 260px;
+        width: 100px;
+    }
+
+    .container .border-box1,
+    .container .border-box2,
+    .container .border-box3,
+    .container .border-box4 {
+        width: 125px;
+        height: 120px;
+    }
+
+    .container .border-box1 {
+        top: 1350px;
+        right: 190px;
+    }
+
+    .container .border-box2 {
+        top: 1350px;
+        right: 50px;
+    }
+
+    .container .border-box3 {
+        top: 1490px;
+        right: 190px;
+    }
+
+    .container .border-box4 {
+        top: 1490px;
+        right: 50px;
+    }
+
+    .container .right {
+        top: 1470px;
+        right: 0px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .container .left {
+        top: 1470px;
+        right: 325px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .container .next {
+        top: 1020px;
+        left: 300px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .container .previous {
+        top: 1080px;
+        left: 300px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .container .monster {
+        width: 200px;
+        height: 200px;
+        top: 970px;
+        left: 100px;
+    }
+
+    .container .chest-award-icon2 {
+        top: 1200px;
+        left: 180px;
+        width: 6%;
+    }
+
+    .container .stock-room2 {
+        top: 1230px;
+        left: 100px;
+        width: 50%;
+    }
+
+    .container .message2 {
+        font-size: 17px;
+        top: 1280px;
+        left: 60px;
+    }
+
+    .container .return-btn {
+        top: 1320px;
+        right: 115px;
+        width: 35%;
+    }
+
+    .container .service .service-message {
+        top: 1660px;
+        left: 50px;
+        width: 680px;
+    }
+
+    .container .service .url1 {
+        top: 1690px;
+        left: 100px;
+        width: 180px;
+    }
+
+    .container .service .url2 {
+        top: 1690px;
+        left: 240px;
+        width: 180px;
+    }
+
+    .container .service .service-message,
+    .container .service .url1,
+    .container .service .url2 {
+        color: aliceblue;
+        font-size: 10px;
+        font-family: "微軟正黑體";
+    }
+}
+/* ============================================> iPhone ============================================>*/

@@ -46,7 +46,7 @@ p {
     top: 15px;
 }
 
-.container .myClass {
+.container .my-class {
     cursor: pointer;
     right: 250px;
     top: 25px;
@@ -76,280 +76,22 @@ p {
     -webkit-transform: rotate(8deg)
 }
 
-.container .eventText {
+.container .event-text {
     top: 200px;
     left: 350px;
 }
 
-.container .displayCoins {
+.container .display-coins {
     right: 250px;
     top: 230px;
 }
 
-.container .displayGems {
+.container .display-gems {
     right: 40px;
     top: 230px;
 }
 
-/* ============================> 寶箱 <============================ */
-
-.container .greenPosition,
-.container .redPosition,
-.container .brownPosition,
-.container .pinkPosition {
-    width: 100%;
-    top: -15px;
-    left: -5px;
-}
-
-.container .platform {
-    top: 550px;
-    width: 167px;
-    height: 200px;
-}
-
-.container .platform-green {
-    left: 100px;
-}
-
-.container .platform-red {
-    left: 400px;
-}
-
-.container .platform-brown {
-    left: 700px;
-}
-
-.container .platform-pink {
-    left: 1000px;
-}
-
-.chest1 {
-    top: -160px;
-    left: -30px;
-}
-
-.chest2 {
-    top: -155px;
-    left: -37px;
-}
-
-.chest3 {
-    top: -150px;
-    left: -45px;
-}
-
-.chest4 {
-    top: -167px;
-    left: -52px;
-}
-
-.chest5 {
-    top: -190px;
-    left: -58px;
-}
-
-.chest6 {
-    top: -190px;
-    left: -78px;
-    width: 190%;
-}
-
-.readyChest6 {
-    top: -190px;
-    left: -75px;
-    width: 190%;
-}
-
-.container .start-btn,
-.container .upgrade-btn,
-.container .ready-btn {
-    background-color: #008cba;
-    top: -220px;
-    height: 40px;
-    width: 80px;
-    font-size: 25px;
-    cursor: pointer;
-    outline: none;
-    color: white;
-    border: 2px solid rgb(2, 49, 91);
-    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
-}
-
-.container .start-btn {
-    left: -5px;
-}
-
-.container .upgrade-btn {
-    left: 90px;
-}
-
-.container .ready-btn {
-    left: 45px;
-}
-
-.container .openNow-btn {
-    background-color: #41b547;
-    top: 40px;
-    left: 30px;
-    height: 35px;
-    width: 100px;
-    font-size: 20px;
-    cursor: pointer;
-    outline: none;
-    color: white;
-    border: 2px solid rgb(2, 49, 91);
-    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
-}
-
-/* ============================> 寶箱 <============================ */
-
-.container .chestAwardIcon1 {
-    top: 780px;
-    left: 300px;
-}
-
-.container .chestAwardIcon2 {
-    top: 780px;
-    left: 900px;
-}
-
-.container .stockRoom1 {
-    top: 880px;
-    left: 50px;
-}
-
-.container .stockRoom2 {
-    top: 880px;
-    right: 20px;
-}
-
-.container .message1 {
-    color: aliceblue;
-    font-family: "微軟正黑體";
-    font-size: 32px;
-    top: 980px;
-    left: 130px;
-}
-
-.container .message2 {
-    color: aliceblue;
-    font-family: "微軟正黑體";
-    font-size: 32px;
-    top: 980px;
-    right: 60px;
-}
-
-.container .returnBtn {
-    top: 1040px;
-    right: 150px;
-}
-
-.container .border-box1,
-.container .border-box2,
-.container .border-box3,
-.container .border-box4 {
-    border: 2px solid yellow;
-    border-radius: 5px;
-    width: 175px;
-    height: 170px;
-}
-
-.container .border-box1 {
-    top: 1120px;
-    right: 340px;
-}
-
-.container .border-box2 {
-    top: 1120px;
-    right: 140px;
-}
-
-.container .border-box3 {
-    top: 1315px;
-    right: 340px;
-}
-
-.container .border-box4 {
-    top: 1315px;
-    right: 140px;
-}
-
-.container .right {
-    top: 1265px;
-    right: 40px;
-    width: 100px;
-    height: 100px;
-}
-
-.container .left {
-    top: 1265px;
-    right: 520px;
-    width: 100px;
-    height: 100px;
-}
-
-.container .slideshow {
-    top: 1110px;
-    left: 30px;
-}
-
-.container .slideshow-text {
-    top: 1450px;
-    left: 340px;
-    width: 100px;
-}
-
-.container .monster {
-    width: 350px;
-    height: 350px;
-    top: 1080px;
-    left: 160px;
-}
-
-.container .next {
-    top: 1120px;
-    left: 500px;
-    width: 100px;
-    height: 100px;
-}
-
-.container .previous {
-    top: 1220px;
-    left: 500px;
-    width: 100px;
-    height: 100px;
-}
-
-.container .service .service-message {
-    top: 1520px;
-    left: 350px;
-    width: 680px;
-}
-
-.container .service .url1 {
-    top: 1570px;
-    left: 440px;
-    width: 180px;
-}
-
-.container .service .url2 {
-    top: 1570px;
-    left: 690px;
-    width: 180px;
-}
-
-.container .service .service-message,
-.container .service .url1,
-.container .service .url2,
-.container .award {
-    color: aliceblue;
-    font-size: 22px;
-    font-family: "微軟正黑體";
-}
-
 /* ============================================> iPad ============================================>*/
-
 @media screen and (max-width:1280px) {
     #body-basic {
         height: 1500px;
@@ -365,7 +107,7 @@ p {
     }
     .container .activity,
     .container .bank,
-    .container .myClass,
+    .container .my-class,
     .container .free {
         width: 15%;
     }
@@ -373,222 +115,20 @@ p {
         right: 600px;
         top: 35px;
     }
-    .container .displayCoins {
+    .container .display-coins {
         right: 40px;
         top: 190px;
         width: 17%;
     }
-    .container .displayGems {
+    .container .display-gems {
         right: 40px;
         top: 260px;
         width: 17%;
     }
-    .container .greenPosition,
-    .container .redPosition,
-    .container .brownPosition,
-    .container .pinkPosition {
-        width: 100%;
-        top: -35px;
-        left: -10px;
-    }
-    .container .platform {
-        width: 145px;
-    }
-    .container .platform-green {
-        left: 60px;
-    }
-    .container .platform-red {
-        left: 305px;
-    }
-    .container .platform-brown {
-        left: 555px;
-    }
-    .container .platform-pink {
-        left: 800px;
-    }
-    .chest1 {
-        top: -160px;
-        left: -35px;
-        width: 135%;
-    }
-    .chest2 {
-        top: -150px;
-        left: -34px;
-        width: 135%;
-    }
-    .chest3 {
-        top: -145px;
-        left: -42px;
-        width: 143%;
-    }
-    .chest4 {
-        top: -158px;
-        left: -42px;
-        width: 147%;
-    }
-    .chest5 {
-        top: -185px;
-        left: -54px;
-        width: 165%;
-    }
-    .chest6 {
-        top: -200px;
-        left: -80px;
-        width: 200%;
-    }
-    .container .start-btn,
-    .container .upgrade-btn,
-    .container .ready-btn {
-        top: -210px;
-        height: 35px;
-        width: 70px;
-        font-size: 20px;
-    }
-    .container .start-btn {
-        left: -20px;
-    }
-    .container .upgrade-btn {
-        left: 75px;
-    }
-    .container .ready-btn {
-        left: 25px;
-    }
-    .container .openNow-btn {
-        top: 20px;
-        left: 20px;
-        height: 30px;
-        width: 90px;
-        font-size: 16px;
-    }
-    .container .chestAwardIcon1 {
-        top: 650px;
-        left: 220px;
-        width: 6%;
-    }
-    .container .chestAwardIcon2 {
-        top: 650px;
-        left: 700px;
-        width: 6%;
-    }
-    .container .stockRoom1 {
-        top: 740px;
-        left: 30px;
-        width: 45%;
-    }
-    .container .stockRoom2 {
-        top: 740px;
-        right: 30px;
-        width: 45%;
-    }
-    .container .message1 {
-        font-size: 25px;
-        top: 810px;
-        left: 70px;
-    }
-    .container .message2 {
-        font-size: 25px;
-        top: 810px;
-        right: 40px;
-    }
-    .container .returnBtn {
-        top: 850px;
-        right: 130px;
-        width: 25%;
-    }
-    .container .border-box1,
-    .container .border-box2,
-    .container .border-box3,
-    .container .border-box4 {
-        width: 175px;
-        height: 170px;
-    }
-    .container .border-box1 {
-        top: 950px;
-        right: 260px;
-    }
-    .container .border-box2 {
-        top: 950px;
-        right: 60px;
-    }
-    .container .border-box3 {
-        top: 1145px;
-        right: 260px;
-    }
-    .container .border-box4 {
-        top: 1145px;
-        right: 60px;
-    }
-    .container .right {
-        top: 1165px;
-        right: -20px;
-        width: 80px;
-        height: 80px;
-    }
-    .container .left {
-        top: 1165px;
-        right: 440px;
-        width: 80px;
-        height: 80px;
-    }
-    .container .slideshow {
-        top: 1020px;
-        left: 10px;
-    }
-    .container .nature {
-        width: 150px;
-        height: 150px;
-    }
-    .container .award {
-        top: -160px;
-        left: -60px;
-        font-size: 17px;
-    }
-    .container .next {
-        top: 1020px;
-        left: 400px;
-        width: 80px;
-        height: 80px;
-    }
-    .container .previous {
-        top: 1120px;
-        left: 400px;
-        width: 80px;
-        height: 80px;
-    }
-    .container .monster {
-        width: 300px;
-        height: 300px;
-        top: 980px;
-        left: 120px;
-    }
-    .container .service .service-message {
-        top: 1400px;
-        left: 250px;
-        width: 680px;
-    }
-    .container .service .url1 {
-        top: 1440px;
-        left: 320px;
-        width: 180px;
-    }
-    .container .service .url2 {
-        top: 1440px;
-        left: 540px;
-        width: 180px;
-    }
-    .container .service .service-message,
-    .container .service .url1,
-    .container .service .url2 {
-        color: aliceblue;
-        font-size: 18px;
-        font-family: "微軟正黑體";
-    }
 }
-
 /* ============================================> iPad ============================================>*/
 
 /* ============================================> iPhone ============================================>*/
-
 @media screen and (max-width:960px) {
     #body-basic {
         height: 1700px;
@@ -610,7 +150,7 @@ p {
         width: 8%;
     }
     .container .bank,
-    .container .myClass {
+    .container .my-class {
         width: 20%;
     }
     .container .activity {
@@ -626,223 +166,25 @@ p {
         transform: rotate(-8deg);
         -webkit-transform: rotate(-8deg);
     }
-    .container .myClass {
+    .container .my-class {
         left: 240px;
         top: 100px;
     }
     .container .free {
         display: none;
     }
-    .container .eventText {
+    .container .event-text {
         display: none;
     }
-    .container .displayCoins {
+    .container .display-coins {
         right: 200px;
         top: 210px;
         width: 30%;
     }
-    .container .displayGems {
+    .container .display-gems {
         right: 50px;
         top: 210px;
         width: 30%;
     }
-    .container .greenPosition,
-    .container .redPosition,
-    .container .brownPosition,
-    .container .pinkPosition {
-        width: 100%;
-        top: -70px;
-        left: -25px;
-    }
-    .container .platform {
-        width: 110px;
-    }
-    .container .platform-green {
-        top: 500px;
-        left: 70px;
-    }
-    .container .platform-red {
-        top: 500px;
-        left: 260px;
-    }
-    .container .platform-brown {
-        top: 770px;
-        left: 70px;
-    }
-    .container .platform-pink {
-        top: 770px;
-        left: 260px;
-    }
-    .chest1 {
-        top: -163px;
-        left: -44px;
-    }
-    .chest2 {
-        top: -156px;
-        left: -43px;
-    }
-    .chest3 {
-        top: -155px;
-        left: -48px;
-    }
-    .chest4 {
-        top: -160px;
-        left: -50px;
-    }
-    .chest5 {
-        top: -188px;
-        left: -59px;
-    }
-    .chest6 {
-        top: -195px;
-    }
-    .container .start-btn,
-    .container .upgrade-btn,
-    .container .ready-btn {
-        top: -220px;
-        height: 30px;
-        width: 60px;
-        font-size: 18px;
-    }
-    .container .start-btn {
-        left: -40px;
-    }
-    .container .upgrade-btn {
-        left: 40px;
-    }
-    .container .ready-btn {
-        left: 0px;
-    }
-    .container .openNow-btn {
-        top: -25px;
-        left: -10px;
-        height: 25px;
-        width: 80px;
-        font-size: 14px;
-    }
-    .container .chestAwardIcon1 {
-        top: 850px;
-        left: 180px;
-        width: 6%;
-    }
-    .container .stockRoom1 {
-        top: 880px;
-        left: 100px;
-        width: 50%;
-    }
-    .container .message1 {
-        font-size: 17px;
-        top: 915px;
-        left: 65px;
-    }
-    .container .slideshow {
-        top: 1000px;
-        left: 20px;
-    }
-    .container .nature {
-        width: 100px;
-        height: 100px;
-    }
-    .container .slideshow-text {
-        top: 1330px;
-        left: 260px;
-        width: 100px;
-    }
-    .container .border-box1,
-    .container .border-box2,
-    .container .border-box3,
-    .container .border-box4 {
-        width: 125px;
-        height: 120px;
-    }
-    .container .border-box1 {
-        top: 1350px;
-        right: 190px;
-    }
-    .container .border-box2 {
-        top: 1350px;
-        right: 50px;
-    }
-    .container .border-box3 {
-        top: 1490px;
-        right: 190px;
-    }
-    .container .border-box4 {
-        top: 1490px;
-        right: 50px;
-    }
-    .container .right {
-        top: 1470px;
-        right: 0px;
-        width: 50px;
-        height: 50px;
-    }
-    .container .left {
-        top: 1470px;
-        right: 325px;
-        width: 50px;
-        height: 50px;
-    }
-    .container .next {
-        top: 1020px;
-        left: 300px;
-        width: 60px;
-        height: 60px;
-    }
-    .container .previous {
-        top: 1080px;
-        left: 300px;
-        width: 60px;
-        height: 60px;
-    }
-    .container .monster {
-        width: 200px;
-        height: 200px;
-        top: 970px;
-        left: 100px;
-    }
-    .container .chestAwardIcon2 {
-        top: 1200px;
-        left: 180px;
-        width: 6%;
-    }
-    .container .stockRoom2 {
-        top: 1230px;
-        left: 100px;
-        width: 50%;
-    }
-    .container .message2 {
-        font-size: 17px;
-        top: 1280px;
-        left: 60px;
-    }
-    .container .returnBtn {
-        top: 1320px;
-        right: 115px;
-        width: 35%;
-    }
-    .container .service .service-message {
-        top: 1660px;
-        left: 50px;
-        width: 680px;
-    }
-    .container .service .url1 {
-        top: 1690px;
-        left: 100px;
-        width: 180px;
-    }
-    .container .service .url2 {
-        top: 1690px;
-        left: 240px;
-        width: 180px;
-    }
-    .container .service .service-message,
-    .container .service .url1,
-    .container .service .url2 {
-        color: aliceblue;
-        font-size: 10px;
-        font-family: "微軟正黑體";
-    }
 }
-
 /* ============================================> iPhone ============================================>*/

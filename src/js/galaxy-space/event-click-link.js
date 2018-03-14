@@ -12,11 +12,11 @@ define(['jquery'], $ => {
       window.open('/index.html', 'ehanlin')
       return false
     })
-    $('.myClass').on('click', () => {
+    $('.my-class').on('click', () => {
       window.open('/my/owned/Courses.html', 'myClass')
       return false
     })
-    $('.myClass').on('click', () => {
+    $('.my-class').on('click', () => {
       window.open('/my/owned/Courses.html', 'myClass')
       return false
     })

@@ -5,7 +5,6 @@ define(function () {
         title: '<h5>' + title + '</h5>',
         content: '<span style=\'font-size: 20px\'>' + content + '</span>',
         useBootstrap: false,
-        theme: 'supervan',
         buttons: {
           cancelButton: {
             text: '再想想',
@@ -28,12 +27,11 @@ define(function () {
       return {
         title: title,
         content: content,
+        boxWidth: '800px',
         useBootstrap: false,
-        theme: 'supervan',
-        boxWidth: '65%',
         buttons: {
           confirmButton: {
-            text: '確認',
+            text: '!!!!',
             btnClass: 'btn-blue',
             action: confirmFn
           }

@@ -1,0 +1,304 @@
+/* ============================> 寶箱 <============================ */
+.container .green-position,
+.container .red-position,
+.container .brown-position,
+.container .pink-position {
+    width: 100%;
+    top: -15px;
+    left: -5px;
+}
+
+.container .platform {
+    top: 550px;
+    width: 167px;
+    height: 200px;
+}
+
+.container .platform-green {
+    left: 100px;
+}
+
+.container .platform-red {
+    left: 400px;
+}
+
+.container .platform-brown {
+    left: 700px;
+}
+
+.container .platform-pink {
+    left: 1000px;
+}
+
+.chest1 {
+    top: -160px;
+    left: -30px;
+}
+
+.chest2 {
+    top: -155px;
+    left: -37px;
+}
+
+.chest3 {
+    top: -150px;
+    left: -45px;
+}
+
+.chest4 {
+    top: -167px;
+    left: -52px;
+}
+
+.chest5 {
+    top: -190px;
+    left: -58px;
+}
+
+.chest6 {
+    top: -190px;
+    left: -78px;
+    width: 190%;
+}
+
+.readyChest6 {
+    top: -190px;
+    left: -75px;
+    width: 190%;
+}
+
+.container .start-btn,
+.container .upgrade-btn,
+.container .ready-btn {
+    background-color: #008cba;
+    top: -220px;
+    height: 40px;
+    width: 80px;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(2, 49, 91);
+    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
+}
+
+.container .start-btn {
+    left: -5px;
+}
+
+.container .upgrade-btn {
+    left: 90px;
+}
+
+.container .ready-btn {
+    left: 45px;
+}
+
+.container .open-now-btn {
+    background-color: #41b547;
+    top: 40px;
+    left: 30px;
+    height: 35px;
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(2, 49, 91);
+    box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
+}
+
+/* ============================> 寶箱 <============================ */
+
+/* ============================================> iPad ============================================>*/
+@media screen and (max-width: 1280px) {
+    .container .green-position,
+    .container .red-position,
+    .container .brown-position,
+    .container .pink-position {
+        width: 100%;
+        top: -35px;
+        left: -10px;
+    }
+
+    .container .platform {
+        width: 145px;
+    }
+
+    .container .platform-green {
+        left: 60px;
+    }
+
+    .container .platform-red {
+        left: 305px;
+    }
+
+    .container .platform-brown {
+        left: 555px;
+    }
+
+    .container .platform-pink {
+        left: 800px;
+    }
+
+    .chest1 {
+        top: -160px;
+        left: -35px;
+        width: 135%;
+    }
+
+    .chest2 {
+        top: -150px;
+        left: -34px;
+        width: 135%;
+    }
+
+    .chest3 {
+        top: -145px;
+        left: -42px;
+        width: 143%;
+    }
+
+    .chest4 {
+        top: -158px;
+        left: -42px;
+        width: 147%;
+    }
+
+    .chest5 {
+        top: -185px;
+        left: -54px;
+        width: 165%;
+    }
+
+    .chest6 {
+        top: -200px;
+        left: -80px;
+        width: 200%;
+    }
+
+    .container .start-btn,
+    .container .upgrade-btn,
+    .container .ready-btn {
+        top: -210px;
+        height: 35px;
+        width: 70px;
+        font-size: 20px;
+    }
+
+    .container .start-btn {
+        left: -20px;
+    }
+
+    .container .upgrade-btn {
+        left: 75px;
+    }
+
+    .container .ready-btn {
+        left: 25px;
+    }
+
+    .container .open-now-btn {
+        top: 20px;
+        left: 20px;
+        height: 30px;
+        width: 90px;
+        font-size: 16px;
+    }
+}
+
+/* ============================================> iPad ============================================>*/
+
+/* ============================================> iPhone ============================================>*/
+@media screen and (max-width: 960px) {
+    .container .green-position,
+    .container .red-position,
+    .container .brown-position,
+    .container .pink-position {
+        width: 100%;
+        top: -70px;
+        left: -25px;
+    }
+
+    .container .platform {
+        width: 110px;
+    }
+
+    .container .platform-green {
+        top: 500px;
+        left: 70px;
+    }
+
+    .container .platform-red {
+        top: 500px;
+        left: 260px;
+    }
+
+    .container .platform-brown {
+        top: 770px;
+        left: 70px;
+    }
+
+    .container .platform-pink {
+        top: 770px;
+        left: 260px;
+    }
+
+    .chest1 {
+        top: -163px;
+        left: -44px;
+    }
+
+    .chest2 {
+        top: -156px;
+        left: -43px;
+    }
+
+    .chest3 {
+        top: -155px;
+        left: -48px;
+    }
+
+    .chest4 {
+        top: -160px;
+        left: -50px;
+    }
+
+    .chest5 {
+        top: -188px;
+        left: -59px;
+    }
+
+    .chest6 {
+        top: -195px;
+    }
+
+    .container .start-btn,
+    .container .upgrade-btn,
+    .container .ready-btn {
+        top: -220px;
+        height: 30px;
+        width: 60px;
+        font-size: 18px;
+    }
+
+    .container .start-btn {
+        left: -40px;
+    }
+
+    .container .upgrade-btn {
+        left: 40px;
+    }
+
+    .container .ready-btn {
+        left: 0px;
+    }
+
+    .container .open-now-btn {
+        top: -25px;
+        left: -10px;
+        height: 25px;
+        width: 80px;
+        font-size: 14px;
+    }
+}
