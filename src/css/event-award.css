@@ -47,33 +47,57 @@
 .container .border-box4 {
   border: 2px solid yellow;
   border-radius: 5px;
-  width: 190px;
-  height: 175px;
+  width: 200px;
+  height: 190px;
 }
 
-.container .award-box .block1 {
+.container .border-box1 {
+  top: 30px;
+}
+
+.container .border-box2 {
+  top: 30px;
+  left: 250px;
+}
+
+.container .border-box3 {
+  top: 230px;
+}
+
+.container .border-box4 {
+  top: 230px;
+  left: 250px;
+}
+
+.container .award-box .block {
   top: 1080px;
   left: 715px;
 }
 
-.container .border-box1 {}
-
-.container .border-box2 {
-  left: 210px;
+.container .award-box .block img {
+  width: 75%;
+  left: 25px;
 }
 
-.container .border-box3 {
-  top: 220px;
+.container .award-box .block span {
+  color: antiquewhite;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  top: 160px;
+  left: 30px;
 }
 
-.container .border-box4 {
-  top: 220px;
-  left: 210px;
+.container .award-box .block .awardSum {
+  color: antiquewhite;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  top: 160px;
+  left: 135px;
 }
 
 .container .right {
   top: 1265px;
-  right: 30px;
+  right: 20px;
   width: 100px;
   height: 100px;
 }
@@ -188,36 +212,46 @@
   .container .border-box2,
   .container .border-box3,
   .container .border-box4 {
-    width: 175px;
+    width: 176px;
     height: 170px;
   }
   .container .border-box1 {
-    top: 950px;
-    right: 260px;
+    top: 25px;
   }
   .container .border-box2 {
-    top: 950px;
-    right: 60px;
+    top: 25px;
+    left: 230px;
   }
   .container .border-box3 {
-    top: 1145px;
-    right: 260px;
+    top: 210px;
   }
   .container .border-box4 {
-    top: 1145px;
-    right: 60px;
+    top: 210px;
+    left: 230px;
+  }
+  .container .award-box .block {
+    top: 880px;
+    left: 510px;
+  }
+  .container .award-box .block img {
+    width: 70%;
+    left: 25px;
+  }
+  .container .award-box .block span,
+  .container .award-box .block .awardSum {
+    top: 140px;
   }
   .container .right {
-    top: 1165px;
-    right: -20px;
-    width: 80px;
-    height: 80px;
+    top: 1060px;
+    right: -10px;
+    width: 70px;
+    height: 70px;
   }
   .container .left {
-    top: 1165px;
-    right: 440px;
-    width: 80px;
-    height: 80px;
+    top: 1060px;
+    right: 430px;
+    width: 70px;
+    height: 70px;
   }
   .container .slide-show {
     top: 1020px;
@@ -311,24 +345,42 @@
   .container .border-box2,
   .container .border-box3,
   .container .border-box4 {
-    width: 125px;
-    height: 120px;
+    width: 130px;
+    height: 135px;
   }
   .container .border-box1 {
-    top: 1350px;
-    right: 190px;
+    top: 25px;
+    left: 50px;
   }
   .container .border-box2 {
-    top: 1350px;
-    right: 50px;
+    top: 25px;
+    left: 190px;
   }
   .container .border-box3 {
-    top: 1490px;
-    right: 190px;
+    top: 170px;
+    left: 50px;
   }
   .container .border-box4 {
-    top: 1490px;
-    right: 50px;
+    top: 170px;
+    left: 190px;
+  }
+  .container .award-box .block {
+    top: 1320px;
+    left: 5px;
+  }
+  .container .award-box .block img {
+    width: 75%;
+    left: 17px;
+  }
+  .container .award-box .block span {
+    font-size: 14px;
+    top: 110px;
+    left: 20px;
+  }
+  .container .award-box .block .awardSum {
+    font-size: 14px;
+    top: 110px;
+    left: 95px;
   }
   .container .right {
     top: 1470px;
@@ -338,7 +390,7 @@
   }
   .container .left {
     top: 1470px;
-    right: 325px;
+    right: 318px;
     width: 50px;
     height: 50px;
   }

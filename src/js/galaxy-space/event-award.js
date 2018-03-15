@@ -4,16 +4,25 @@ define(['jquery'], $ => {
       .then((data) => {
         let index = 0
         let awards = data.content
-        console.log(awards)
 
         for (let award in awards) {
           let awardId = award.split('#')[0]
           let value = awards[award]
-          console.log(awardId)
-          console.log(value)
+          let awardBlock = $('.award-box li:eq(' + index + ')')
+          let awardImg = `<img src='./img/award/${awardId}.png' />`
 
-          $('.award-box .block1:eq('index')')
+          awardBlock.append(awardImg)
+          awardBlock.append(`<span class="awardSum">${value}</span>`)
+          index++
         }
       })
+  })
+  let slide = w3.slideshow('.block', 0)
+
+  $('.right').on('click', event => {
+    slide.next()
+  })
+  $('.left').on('click', event => {
+    slide.previous()
   })
 })

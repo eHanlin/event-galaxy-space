@@ -35,15 +35,15 @@ require(
     'eventSlideShow',
     'eventAward'
   ], ($,
-      w3,
-      ajax,
-      popup,
-      eventChest,
-      eventClickLink,
-      eventGalaxySpace,
-      eventSlideShow,
-      eventAward) => {
-    $('.start-btn').on('click', function () {
-      popup.confirm('測試','GG');
-    })
+    w3,
+    ajax,
+    popup,
+    eventChest,
+    eventClickLink,
+    eventGalaxySpace,
+    eventSlideShow,
+    eventAward) => {
+  $('.start-btn').on('click', function () {
+    popup.confirm('測試', 'GG')
   })
+})
