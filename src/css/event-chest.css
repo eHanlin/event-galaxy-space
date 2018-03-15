@@ -1,4 +1,5 @@
 /* ============================> 寶箱 <============================ */
+
 .container .green-position,
 .container .red-position,
 .container .brown-position,
@@ -14,19 +15,19 @@
   height: 200px;
 }
 
-.container .platform-green {
+.container .platform-GREEN {
   left: 100px;
 }
 
-.container .platform-red {
+.container .platform-RED {
   left: 400px;
 }
 
-.container .platform-brown {
+.container .platform-BROWN {
   left: 700px;
 }
 
-.container .platform-pink {
+.container .platform-PINK {
   left: 1000px;
 }
 
@@ -82,6 +83,14 @@
   box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
 }
 
+.container .countdown {
+  color: bisque;
+  font-size: 18px;
+  font-family: "微軟正黑體";
+  top: -165px;
+  left: 20px;
+}
+
 .container .start-btn {
   left: -5px;
 }
@@ -111,6 +120,7 @@
 /* ============================> 寶箱 <============================ */
 
 /* ============================================> iPad ============================================>*/
+
 @media screen and (max-width: 1280px) {
   .container .green-position,
   .container .red-position,
@@ -120,63 +130,55 @@
     top: -35px;
     left: -10px;
   }
-
   .container .platform {
     width: 145px;
   }
-
-  .container .platform-green {
+  .container .platform-GREEN {
     left: 60px;
   }
-
-  .container .platform-red {
+  .container .platform-RED {
     left: 305px;
   }
-
-  .container .platform-brown {
+  .container .platform-BROWN {
     left: 555px;
   }
-
-  .container .platform-pink {
+  .container .platform-PINK {
     left: 800px;
   }
-
   .chest1 {
     top: -160px;
     left: -35px;
     width: 135%;
   }
-
   .chest2 {
     top: -150px;
     left: -34px;
     width: 135%;
   }
-
   .chest3 {
     top: -145px;
     left: -42px;
     width: 143%;
   }
-
   .chest4 {
     top: -158px;
     left: -42px;
     width: 147%;
   }
-
   .chest5 {
     top: -185px;
     left: -54px;
     width: 165%;
   }
-
   .chest6 {
     top: -200px;
     left: -80px;
     width: 200%;
   }
-
+  .container .countdown {
+    font-size: 17px;
+    left: 10px;
+  }
   .container .start-btn,
   .container .upgrade-btn,
   .container .ready-btn {
@@ -185,19 +187,15 @@
     width: 70px;
     font-size: 20px;
   }
-
   .container .start-btn {
     left: -20px;
   }
-
   .container .upgrade-btn {
     left: 75px;
   }
-
   .container .ready-btn {
     left: 25px;
   }
-
   .container .open-now-btn {
     top: 20px;
     left: 20px;
@@ -210,6 +208,7 @@
 /* ============================================> iPad ============================================>*/
 
 /* ============================================> iPhone ============================================>*/
+
 @media screen and (max-width: 960px) {
   .container .green-position,
   .container .red-position,
@@ -219,60 +218,52 @@
     top: -70px;
     left: -25px;
   }
-
   .container .platform {
     width: 110px;
   }
-
-  .container .platform-green {
+  .container .platform-GREEN {
     top: 500px;
     left: 70px;
   }
-
-  .container .platform-red {
+  .container .platform-RED {
     top: 500px;
     left: 260px;
   }
-
-  .container .platform-brown {
+  .container .platform-BROWN {
     top: 770px;
     left: 70px;
   }
-
-  .container .platform-pink {
+  .container .platform-PINK {
     top: 770px;
     left: 260px;
   }
-
   .chest1 {
     top: -163px;
     left: -44px;
   }
-
   .chest2 {
     top: -156px;
     left: -43px;
   }
-
   .chest3 {
     top: -155px;
     left: -48px;
   }
-
   .chest4 {
     top: -160px;
     left: -50px;
   }
-
   .chest5 {
     top: -188px;
     left: -59px;
   }
-
   .chest6 {
     top: -195px;
   }
-
+  .container .countdown {
+    font-size: 14px;
+    left: -15px;
+  }
   .container .start-btn,
   .container .upgrade-btn,
   .container .ready-btn {
@@ -281,19 +272,15 @@
     width: 60px;
     font-size: 18px;
   }
-
   .container .start-btn {
     left: -40px;
   }
-
   .container .upgrade-btn {
     left: 40px;
   }
-
   .container .ready-btn {
     left: 0px;
   }
-
   .container .open-now-btn {
     top: -25px;
     left: -10px;

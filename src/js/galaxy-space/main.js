@@ -1,6 +1,7 @@
 require.config({
   shim: {
-    dialog: ['jquery']
+    dialog: ['jquery'],
+    jqueryCountDown: ['jquery']
   },
 
   paths: {
@@ -9,11 +10,13 @@ require.config({
     ajax: ['../module-utils/ajax'],
     swal: ['../lib/sweetalert2'],
     popup: ['../module-utils/popup'],
+    jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     eventChest: ['./event-chest'],
     eventClickLink: ['./event-click-link'],
     eventGalaxySpace: ['./event-galaxy-space'],
     eventSlideShow: ['./event-slide-show'],
-    eventAward: ['./event-award']
+    eventAward: ['./event-award'],
+    eventCountdown: ['./event-countdown']
   },
 
   map: {
@@ -29,21 +32,23 @@ require(
     'w3',
     'ajax',
     'popup',
+    'jqueryCountDown',
     'eventChest',
     'eventClickLink',
     'eventGalaxySpace',
     'eventSlideShow',
-    'eventAward'
-  ], ($,
+    'eventAward',
+    'eventCountdown'
+  ], (
+    $,
     w3,
     ajax,
     popup,
+    jqueryCountDown,
     eventChest,
     eventClickLink,
     eventGalaxySpace,
     eventSlideShow,
-    eventAward) => {
-  $('.start-btn').on('click', function () {
-    popup.confirm('測試', 'GG')
-  })
-})
+    eventAward,
+    eventCountdown
+  ) => {})

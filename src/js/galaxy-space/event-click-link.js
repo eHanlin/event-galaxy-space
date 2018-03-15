@@ -16,12 +16,12 @@ define(['jquery'], $ => {
       window.open('/my/owned/Courses.html', 'myClass')
       return false
     })
-    $('.my-class').on('click', () => {
-      window.open('/my/owned/Courses.html', 'myClass')
-      return false
-    })
     $('.free').on('click', () => {
       window.open('/type/TRIAL/SalesPlans.html', 'free')
+      return false
+    })
+    $('.return-btn').on('click', () => {
+      window.open('/Events/winner_info.html?id=space', 'returnAward')
       return false
     })
   })

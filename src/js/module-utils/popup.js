@@ -15,8 +15,9 @@ define(['swal'], (swal) => {
         } else if (
           result.dismiss === swal.DismissReason.cancel
         ) {
-          if (cancel)
+          if (cancel) {
             cancel()
+          }
         }
       })
     },
@@ -27,7 +28,7 @@ define(['swal'], (swal) => {
         text: content,
         allowOutsideClick: false,
         width: '100%',
-        confirmButtonText: '確認',
+        confirmButtonText: '確認'
       }).then(confirm)
     }
   }
