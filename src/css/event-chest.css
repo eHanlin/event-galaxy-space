@@ -71,16 +71,12 @@
 .container .start-btn,
 .container .upgrade-btn,
 .container .ready-btn {
-  background-color: #008cba;
   top: -220px;
   height: 40px;
   width: 80px;
   font-size: 25px;
   cursor: pointer;
   outline: none;
-  color: white;
-  border: 2px solid rgb(2, 49, 91);
-  box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
 }
 
 .container .countdown {
@@ -104,17 +100,13 @@
 }
 
 .container .open-now-btn {
-  background-color: #41b547;
   top: 40px;
-  left: 30px;
-  height: 35px;
-  width: 100px;
+  left: 48px;
+  height: 65px;
+  width: 65px;
   font-size: 20px;
   cursor: pointer;
   outline: none;
-  color: white;
-  border: 2px solid rgb(2, 49, 91);
-  box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6), 4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
 }
 
 /* ============================> 寶箱 <============================ */

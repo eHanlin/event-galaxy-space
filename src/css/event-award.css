@@ -45,8 +45,6 @@
 .container .border-box2,
 .container .border-box3,
 .container .border-box4 {
-  border: 2px solid yellow;
-  border-radius: 5px;
   width: 200px;
   height: 190px;
 }
@@ -61,12 +59,32 @@
 }
 
 .container .border-box3 {
-  top: 230px;
+  top: 250px;
 }
 
 .container .border-box4 {
-  top: 230px;
+  top: 250px;
   left: 250px;
+}
+
+.container .border1 {
+  top: 1120px;
+  left: 745px;
+}
+
+.container .border2 {
+  top: 1120px;
+  left: 965px;
+}
+
+.container .border3 {
+  top: 1340px;
+  left: 745px;
+}
+
+.container .border4 {
+  top: 1340px;
+  left: 965px;
 }
 
 .container .award-box .block {
@@ -96,17 +114,17 @@
 }
 
 .container .right {
-  top: 1265px;
-  right: 20px;
+  top: 1288px;
+  right: 25px;
   width: 100px;
-  height: 100px;
+  height: 90px;
 }
 
 .container .left {
-  top: 1265px;
+  top: 1288px;
   right: 520px;
   width: 100px;
-  height: 100px;
+  height: 90px;
 }
 
 .container .slide-show {
@@ -142,19 +160,19 @@
 }
 
 .container .service .service-message {
-  top: 1520px;
+  top: 1580px;
   left: 350px;
   width: 680px;
 }
 
 .container .service .url1 {
-  top: 1570px;
+  top: 1620px;
   left: 440px;
   width: 180px;
 }
 
 .container .service .url2 {
-  top: 1570px;
+  top: 1620px;
   left: 690px;
   width: 180px;
 }
@@ -164,7 +182,7 @@
 .container .service .url2,
 .container .award {
   color: aliceblue;
-  font-size: 22px;
+  font-size: 20px;
   font-family: "微軟正黑體";
 }
 
@@ -216,18 +234,38 @@
     height: 170px;
   }
   .container .border-box1 {
-    top: 25px;
+    top: 30px;
   }
   .container .border-box2 {
-    top: 25px;
-    left: 230px;
+    top: 30px;
+    left: 240px;
   }
   .container .border-box3 {
-    top: 210px;
+    top: 245px;
   }
   .container .border-box4 {
-    top: 210px;
-    left: 230px;
+    top: 245px;
+    left: 240px;
+  }
+  .container .border1 {
+    top: 920px;
+    left: 535px;
+    width: 20%;
+  }
+  .container .border2 {
+    top: 920px;
+    left: 745px;
+    width: 20%;
+  }
+  .container .border3 {
+    top: 1135px;
+    left: 535px;
+    width: 20%;
+  }
+  .container .border4 {
+    top: 1135px;
+    left: 745px;
+    width: 20%;
   }
   .container .award-box .block {
     top: 880px;
@@ -242,13 +280,13 @@
     top: 140px;
   }
   .container .right {
-    top: 1060px;
-    right: -10px;
+    top: 1090px;
+    right: -15px;
     width: 70px;
     height: 70px;
   }
   .container .left {
-    top: 1060px;
+    top: 1090px;
     right: 430px;
     width: 70px;
     height: 70px;
@@ -350,19 +388,43 @@
   }
   .container .border-box1 {
     top: 25px;
-    left: 50px;
+    left: 45px;
   }
   .container .border-box2 {
     top: 25px;
-    left: 190px;
+    left: 210px;
   }
   .container .border-box3 {
-    top: 170px;
+    top: 185px;
     left: 50px;
   }
   .container .border-box4 {
-    top: 170px;
-    left: 190px;
+    top: 185px;
+    left: 210px;
+  }
+  .container .border1 {
+    top: 1350px;
+    left: 40px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border2 {
+    top: 1350px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border3 {
+    top: 1515px;
+    left: 40px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border4 {
+    top: 1515px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
   }
   .container .award-box .block {
     top: 1320px;
@@ -383,14 +445,13 @@
     left: 95px;
   }
   .container .right {
-    top: 1470px;
-    right: 0px;
+    top: 1480px;
     width: 50px;
     height: 50px;
   }
   .container .left {
-    top: 1470px;
-    right: 318px;
+    top: 1480px;
+    right: 320px;
     width: 50px;
     height: 50px;
   }
@@ -433,7 +494,7 @@
     width: 35%;
   }
   .container .service .service-message {
-    top: 1660px;
+    top: 1670px;
     left: 50px;
     width: 680px;
   }
