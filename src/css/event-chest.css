@@ -72,8 +72,7 @@
 .container .upgrade-btn,
 .container .ready-btn {
   top: -220px;
-  height: 40px;
-  width: 80px;
+  width: 45%;
   font-size: 25px;
   cursor: pointer;
   outline: none;
@@ -84,7 +83,7 @@
   font-size: 18px;
   font-family: "微軟正黑體";
   top: -165px;
-  left: 20px;
+  left: 40px;
 }
 
 .container .start-btn {
@@ -169,21 +168,19 @@
   }
   .container .countdown {
     font-size: 17px;
-    left: 10px;
+    left: 20px;
   }
   .container .start-btn,
   .container .upgrade-btn,
   .container .ready-btn {
     top: -210px;
-    height: 35px;
-    width: 70px;
     font-size: 20px;
   }
   .container .start-btn {
     left: -20px;
   }
   .container .upgrade-btn {
-    left: 75px;
+    left: 80px;
   }
   .container .ready-btn {
     left: 25px;
@@ -254,7 +251,7 @@
   }
   .container .countdown {
     font-size: 14px;
-    left: -15px;
+    left: -8px;
   }
   .container .start-btn,
   .container .upgrade-btn,

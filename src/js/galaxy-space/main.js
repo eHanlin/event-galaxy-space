@@ -16,7 +16,8 @@ require.config({
     eventGalaxySpace: ['./event-galaxy-space'],
     eventSlideShow: ['./event-slide-show'],
     eventAward: ['./event-award'],
-    eventCountdown: ['./event-countdown']
+    eventCountdown: ['./event-countdown'],
+    eventDetermine: ['./event-determine']
   },
 
   map: {
@@ -38,7 +39,8 @@ require(
     'eventGalaxySpace',
     'eventSlideShow',
     'eventAward',
-    'eventCountdown'
+    'eventCountdown',
+    'eventDetermine'
   ], (
     $,
     w3,
@@ -50,5 +52,6 @@ require(
     eventGalaxySpace,
     eventSlideShow,
     eventAward,
-    eventCountdown
+    eventCountdown,
+    eventDetermine
   ) => {})

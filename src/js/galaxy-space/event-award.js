@@ -1,4 +1,5 @@
-define(['jquery'], $ => {
+define(['jquery'], ($) => {
+  let slide = w3.slideshow('.block', 0)
   require(['ajax'], ajax => {
     ajax('GET', 'http://127.0.0.1:8080/chest/award')
       .then((data) => {
@@ -17,7 +18,6 @@ define(['jquery'], $ => {
         }
       })
   })
-  let slide = w3.slideshow('.block', 0)
 
   $('.right').on('click', event => {
     slide.next()

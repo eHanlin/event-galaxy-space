@@ -1,11 +1,6 @@
 define(['jquery', 'popup'], ($, popup) => {
   require(['ajax'], ajax => {
     $(() => {
-      $('.start-btn').css('display', 'none')
-      $('.upgrade-btn').css('display', 'none')
-      $('.ready-btn').css('display', 'none')
-      $('.open-now-btn').css('display', 'none')
-
       ajax('GET', 'http://127.0.0.1:8080/chest/')
         .then(data => {
           let chests = data.content
@@ -15,6 +10,11 @@ define(['jquery', 'popup'], ($, popup) => {
             let chestLevel = chest.level
             let chestStatus = chest.status
             let platformColor = chest.colorPlatform
+            let platformTarget = $(`.platform-${platformColor}`)
+            let countdownTarget = $(`.platform-${platformColor} .countdown`)
+            let startBtnTarget = $(`.platform-${platformColor} .start-btn`)
+            let upgradeBtnTarget = $(`.platform-${platformColor} .upgrade-btn`)
+            let readyBtnTarget = $(`.platform-${platformColor} .ready-btn`)
 
             $(`.platform-${platformColor}`)
               .append(`<img class="chest${chestLevel}" title="chest${chestLevel}" src="./img/chest/chest${chestLevel}.png">`)
@@ -24,17 +24,22 @@ define(['jquery', 'popup'], ($, popup) => {
             /* 啟動寶箱 */
             $(`.platform-${platformColor} .start-btn`).on('click', () => {
               popup.dialog('確定要啟動寶箱嗎？', '', () => {
-                ajax('GET', `http://localhost:8080/chest/coolDownTime/${chestId}`)
-                  .then((data) => {
-                    let countdownTarget = $(`.platform-${platformColor} .countdown`)
-                    let chestImg = $(`.platform-${platformColor} .chest${chestLevel}`)
-                    let seconds = data.content
-
-                    $(`.platform-${platformColor} .start-btn`).css('display', 'none')
-                    $(`.platform-${platformColor} .upgrade-btn`).css('display', 'none')
-                    $(`.platform-${platformColor} .chest${chestLevel}`).css('filter', 'grayscale(100%)')
-                    require(['eventCountdown'], eventCountdown => {
-                      eventCountdown.countdownFunc(seconds, countdownTarget, chestImg)
+                ajax('PUT', `http://localhost:8080/chest/status/${chestId}`, {
+                  status: 'UNLOCKING'
+                })
+                  .then(() => {
+                    require(['eventDetermine'], eventDetermine => {
+                      eventDetermine(
+                        chestStatus,
+                        platformColor,
+                        chestLevel,
+                        chestId,
+                        startBtnTarget,
+                        upgradeBtnTarget,
+                        platformTarget,
+                        countdownTarget,
+                        readyBtnTarget
+                      )
                     })
                   })
               })
