@@ -34,26 +34,36 @@
 }
 
 .container .logo {
-  width: 200px;
-  height: 60px;
+  width: 24%;
   left: 30px;
   top: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .logo_375 {
+  width: 13.4%;
+  left: 29px;
+  top: 21.5px;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .container .logoFlag {
   width: 28%;
-  left: 230px;
-  top: 10px;
+  left: 245px;
+  top: 25px;
   transform: rotate(-8deg);
   -webkit-transform: rotate(-8deg);
 }
 
-.container .activity,
-.container .bank,
-.container .my-class,
-.container .free,
-.container .fb,
-.container .line {
+.container .activity:hover,
+.container .bank:hover,
+.container .my-class:hover,
+.container .free:hover,
+.container .fb:hover,
+.container .line:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -139,13 +149,17 @@
     width: 980px;
   }
   .container .logo {
-    width: 180px;
-    height: 40px;
+    width: 23%;
+  }
+  .container .logo_375 {
+    width: 13%;
+    left: 29px;
+    top: 21.5px;
   }
   .container .logoFlag {
     width: 25%;
-    left: 210px;
-    top: 10px;
+    left: 215px;
+    top: 20px;
   }
   .container .fb {
     width: 4%;
@@ -207,10 +221,12 @@
     width: 375px;
   }
   .container .logo {
-    width: 100px;
-    height: 20px;
-    top: 20px;
-    left: 40px;
+    display: none;
+  }
+  .container .logo_375 {
+    width: 38%;
+    left: 20px;
+    top: 10px;
   }
   .container .logoFlag {
     width: 50%;

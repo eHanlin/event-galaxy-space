@@ -39,6 +39,7 @@
 .container .return-btn {
   top: 1040px;
   right: 150px;
+  cursor: pointer;
 }
 
 .container .border-box1,
@@ -113,12 +114,21 @@
   left: 135px;
 }
 
+.container .right:hover,
+.container .left:hover,
+.container .next:hover,
+.container .previous:hover,
+.container .return-btn:hover {
+  opacity: 0.6;
+}
+
 .container .right {
   top: 1288px;
   right: 25px;
   width: 100px;
   height: 90px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .container .left {
@@ -127,6 +137,7 @@
   width: 100px;
   height: 90px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .container .slide-show {
@@ -155,6 +166,7 @@
   width: 100px;
   height: 100px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .container .previous {
@@ -163,6 +175,7 @@
   width: 100px;
   height: 100px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .container .service .service-message {
@@ -389,7 +402,7 @@
     width: 100px;
     height: 100px;
   }
-  .container .slide-show-text .award{
+  .container .slide-show-text .award {
     color: black;
     top: 1120px;
     left: 160px;

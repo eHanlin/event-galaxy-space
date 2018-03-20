@@ -16,6 +16,7 @@
 }
 
 .container .platform-GREEN {
+  top: 600px;
   left: 100px;
 }
 
@@ -24,6 +25,7 @@
 }
 
 .container .platform-BROWN {
+  top: 600px;
   left: 700px;
 }
 
@@ -66,6 +68,13 @@
   top: -190px;
   left: -75px;
   width: 190%;
+}
+
+.container .start-btn:hover,
+.container .upgrade-btn:hover,
+.container .ready-btn:hover,
+.container .open-now-btn:hover {
+  opacity: 0.6;
 }
 
 .container .start-btn,
@@ -125,15 +134,19 @@
     width: 145px;
   }
   .container .platform-GREEN {
+    top: 550px;
     left: 60px;
   }
   .container .platform-RED {
+    top: 500px;
     left: 305px;
   }
   .container .platform-BROWN {
+    top: 550px;
     left: 555px;
   }
   .container .platform-PINK {
+    top: 500px;
     left: 800px;
   }
   .chest1 {
@@ -211,7 +224,7 @@
     width: 110px;
   }
   .container .platform-GREEN {
-    top: 500px;
+    top: 530px;
     left: 70px;
   }
   .container .platform-RED {
@@ -219,7 +232,7 @@
     left: 260px;
   }
   .container .platform-BROWN {
-    top: 770px;
+    top: 800px;
     left: 70px;
   }
   .container .platform-PINK {
