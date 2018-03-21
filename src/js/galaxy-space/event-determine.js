@@ -13,6 +13,13 @@ define(['jquery'], $ => {
     if (status === 'UNLOCKING') {
       console.log('UNLOCKING')
       $(`.platform-${platformColor} .chest${chestLevel}`).attr('data-status', 'UNLOCKING')
+
+      if (chestLevel === 5) {
+        countdownTarget.css('top', '-180px')
+      } else if (chestLevel === 6) {
+        countdownTarget.css('top', '-190px')
+      }
+
       require(['ajax'], ajax => {
         ajax('GET', `http://localhost:8080/chest/coolDownTime/${chestId}`)
           .then(data => {

@@ -33,6 +33,22 @@
   height: 800px;
 }
 
+.container .userStatus .name {
+  color: azure;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  left: 1150px;
+  width: 50px;
+}
+
+.container .userStatus .studentCard {
+  color: azure;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  left: 1020px;
+  width: 50px;
+}
+
 .container .logo {
   width: 24%;
   left: 30px;
@@ -148,6 +164,16 @@
   .container {
     width: 980px;
   }
+  .container .userStatus .name {
+    font-size: 18px;
+    left: 850px;
+    width: 50px;
+  }
+  .container .userStatus .studentCard {
+    font-size: 18px;
+    left: 720px;
+    width: 50px;
+  }
   .container .logo {
     width: 23%;
   }
@@ -219,6 +245,16 @@
   }
   .container {
     width: 375px;
+  }
+  .container .userStatus .name {
+    font-size: 12px;
+    left: 300px;
+    width: 50px;
+  }
+  .container .userStatus .studentCard {
+    font-size: 12px;
+    left: 220px;
+    width: 50px;
   }
   .container .logo {
     display: none;

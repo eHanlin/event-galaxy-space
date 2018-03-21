@@ -85,6 +85,7 @@
   font-size: 25px;
   cursor: pointer;
   outline: none;
+  z-index: 1;
 }
 
 .container .countdown {
@@ -115,6 +116,7 @@
   font-size: 20px;
   cursor: pointer;
   outline: none;
+  z-index: 1;
 }
 
 /* ============================> 寶箱 <============================ */

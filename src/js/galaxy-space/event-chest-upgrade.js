@@ -20,27 +20,22 @@ define(['jquery', 'popup'], ($, popup) => {
           $(`.platform-${platformColor} .start-btn`).css('display', '')
           $(`.platform-${platformColor} .upgrade-btn`).css('display', '')
 
-          /* 啟動寶箱 */
-          $(`.platform-${platformColor} .start-btn`).on('click', () => {
-            popup.dialog('確定要啟動寶箱嗎？', '', () => {
-              ajax('PUT', `http://localhost:8080/chest/status/${chestId}`, {
-                status: 'UNLOCKING'
-              })
-                .then(() => {
-                  require(['eventDetermine'], eventDetermine => {
-                    eventDetermine(
-                      chestStatus,
-                      platformColor,
-                      chestLevel,
-                      chestId,
-                      startBtnTarget,
-                      upgradeBtnTarget,
-                      platformTarget,
-                      countdownTarget,
-                      readyBtnTarget
-                    )
+          /* 寶箱升級 */
+          $(`.platform-${platformColor} .upgrade-btn`).on('click', event => {
+            popup.dialog('確定要升級寶箱嗎？', '', () => {
+              let putData = {
+                level: chestLevel + 1
+              }
+              require(['ajax'], ajax => {
+                ajax('PUT', `http://localhost:8080/chest/upgrade/${chestId}`, putData)
+                  .then((data) => {
+                    console.log(data)
+                    ajax('GET', 'http://localhost:9090/currencyBank/totalAssets/one')
+                      .then(data => {
+                        console.log(data)
+                      })
                   })
-                })
+              })
             })
           })
         }

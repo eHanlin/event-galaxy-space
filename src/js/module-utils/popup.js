@@ -6,6 +6,7 @@ define(['swal'], (swal) => {
         text: content,
         showCancelButton: true,
         allowOutsideClick: false,
+        background: '#A9D0F5 url(./img/popup.png)',
         width: '100%',
         confirmButtonText: '確認',
         cancelButtonText: '再想想'

@@ -17,7 +17,8 @@ require.config({
     eventSlideShow: ['./event-slide-show'],
     eventAward: ['./event-award'],
     eventCountdown: ['./event-countdown'],
-    eventDetermine: ['./event-determine']
+    eventDetermine: ['./event-determine'],
+    eventChestUpgrade: ['./event-chest-upgrade']
   },
 
   map: {
@@ -40,7 +41,8 @@ require(
     'eventSlideShow',
     'eventAward',
     'eventCountdown',
-    'eventDetermine'
+    'eventDetermine',
+    'eventChestUpgrade'
   ], (
     $,
     w3,
@@ -53,5 +55,6 @@ require(
     eventSlideShow,
     eventAward,
     eventCountdown,
-    eventDetermine
+    eventDetermine,
+    eventChestUpgrade
   ) => {})
