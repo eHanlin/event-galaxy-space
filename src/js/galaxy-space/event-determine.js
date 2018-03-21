@@ -5,7 +5,7 @@ define(['require', 'jquery'], (require, $) => {
   ) => {
     if (chest.status === 'UNLOCKING') {
       console.log('UNLOCKING')
-      targets.platformChest.attr('data-status', 'UNLOCKING')
+      $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')
 
       if (chest.level === 5) {
         targets.countdown.css('top', '-180px')
@@ -16,15 +16,14 @@ define(['require', 'jquery'], (require, $) => {
       let ajax = require('ajax')
       ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
         .then(data => {
-          console.log(targets.chest)
           let seconds = data.content
           targets.startBtn.css('display', 'none')
           targets.upgradeBtn.css('display', 'none')
-          targets.platformChest.css('display', 'none')
+          targets.platformChest.css('filter', 'grayscale(100%)')
 
-          // require(['eventCountdown'], (eventCountdown) => {
-          //   eventCountdown.countdownFunc(seconds, chest, targets)
-          // })
+          require(['eventCountdown'], (eventCountdown) => {
+            eventCountdown.countdownFunc(seconds, chest, targets)
+          })
         })
     }
   }
