@@ -25,7 +25,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
     },
 
     ready: (chest, targets) => {
-      console.log(this)
+      console.log('READY')
       targets.countdown.css('display', 'none')
       targets.startBtn.css('display', 'none')
       targets.upgradeBtn.css('display', 'none')
@@ -33,6 +33,13 @@ define(['jquery', 'ajax'], ($, ajax) => {
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
       targets.platformChest.attr('src', `./img/chest/readyChest${chest.level}.png`)
+    },
+
+    open: (chest, targets, seconds) => {
+      console.log('OPEN')
+      targets.openNowBtn.css('display', 'none')
+      targets.countdown.css('display', 'none')
+      targets.platformChest.remove()
     }
   }
 })

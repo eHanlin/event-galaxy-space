@@ -65,8 +65,14 @@ require(['jquery', 'ajax'], ($, ajax) => {
           eventDetermine(chest, targets)
         })
 
+        /* 啟動按鈕 */
         require(['eventChestStart'], eventChestStart => {
           targets.startBtn.on('click', eventChestStart.bind(eventChestStart, chest, targets))
+        })
+
+        /* 立即開啟按鈕 */
+        require(['eventChestOpenNow'], (eventChestOpenNow) => {
+          targets.openNowBtn.on('click', eventChestOpenNow.bind(eventChestOpenNow, chest, targets))
         })
       }
     })
