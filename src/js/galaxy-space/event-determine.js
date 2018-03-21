@@ -1,39 +1,31 @@
-define(['jquery'], $ => {
+define(['require', 'jquery'], (require, $) => {
   return (
-    status,
-    platformColor,
-    chestLevel,
-    chestId,
-    startBtnTarget,
-    upgradeBtnTarget,
-    platformTarget,
-    countdownTarget,
-    readyBtnTarget
+    chest,
+    targets
   ) => {
-    if (status === 'UNLOCKING') {
+    if (chest.status === 'UNLOCKING') {
       console.log('UNLOCKING')
-      $(`.platform-${platformColor} .chest${chestLevel}`).attr('data-status', 'UNLOCKING')
+      targets.platformChest.attr('data-status', 'UNLOCKING')
 
-      if (chestLevel === 5) {
-        countdownTarget.css('top', '-180px')
-      } else if (chestLevel === 6) {
-        countdownTarget.css('top', '-190px')
+      if (chest.level === 5) {
+        targets.countdown.css('top', '-180px')
+      } else if (chest.level === 6) {
+        targets.countdown.css('top', '-190px')
       }
 
-      require(['ajax'], ajax => {
-        ajax('GET', `http://localhost:8080/chest/coolDownTime/${chestId}`)
-          .then(data => {
-            let seconds = data.content
+      let ajax = require('ajax')
+      ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
+        .then(data => {
+          console.log(targets.chest)
+          let seconds = data.content
+          targets.startBtn.css('display', 'none')
+          targets.upgradeBtn.css('display', 'none')
+          targets.platformChest.css('display', 'none')
 
-            startBtnTarget.css('display', 'none')
-            upgradeBtnTarget.css('display', 'none')
-            $(`.platform-${platformColor} .chest${chestLevel}`).css('filter', 'grayscale(100%)')
-
-            require(['eventCountdown'], eventCountdown => {
-              eventCountdown.countdownFunc(seconds, platformTarget, countdownTarget, readyBtnTarget, chestLevel, platformColor)
-            })
-          })
-      })
+          // require(['eventCountdown'], (eventCountdown) => {
+          //   eventCountdown.countdownFunc(seconds, chest, targets)
+          // })
+        })
     }
   }
 })

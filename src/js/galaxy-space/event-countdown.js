@@ -1,18 +1,20 @@
 define(['jquery'], $ => {
   return {
-    countdownFunc: (seconds, platformTarget, countdownTarget, readyBtnTarget, chestLevel, platformColor) => {
+    countdownFunc: (seconds, chest, targets) => {
+      console.log('countDown')
       require(['jqueryCountDown'], jqueryCountDown => {
-        countdownTarget.countDown({
+        console.log('countDown')
+        targets.chest.countDown({
           timeInSecond: 10,
           displayTpl: '{hour}時{minute}分{second}秒',
           limit: 'hour',
           // 倒數計時完 callback
           callback: (event) => {
-            countdownTarget.css('display', 'none')
-            readyBtnTarget.removeAttr('style')
-            $(`.platform-${platformColor} .chest${chestLevel}`).removeAttr('style')
-            $(`.platform-${platformColor} .chest${chestLevel}`).attr('data-status', 'READY')
-            $(`.platform-${platformColor} .chest${chestLevel}`).attr('src', `./img/chest/readyChest${chestLevel}.png`)
+            targets.countdown.css('display', 'none')
+            targets.readyBtn.removeAttr('style')
+            targets.chest.removeAttr('style')
+            targets.chest.attr('data-status', 'READY')
+            targets.chest.attr('src', `./img/chest/readyChest${chest.level}.png`)
           }
         })
       })

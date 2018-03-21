@@ -1,7 +1,10 @@
 require.config({
   shim: {
     dialog: ['jquery'],
-    jqueryCountDown: ['jquery']
+    jqueryCountDown: ['jquery'],
+    w3: {
+      exports: 'w3'
+    }
   },
 
   paths: {
@@ -28,33 +31,34 @@ require.config({
   }
 })
 
-require(
-  [
-    'jquery',
-    'w3',
-    'ajax',
-    'popup',
-    'jqueryCountDown',
-    'eventChest',
-    'eventClickLink',
-    'eventGalaxySpace',
-    'eventSlideShow',
-    'eventAward',
-    'eventCountdown',
-    'eventDetermine',
-    'eventChestUpgrade'
-  ], (
-    $,
-    w3,
-    ajax,
-    popup,
-    jqueryCountDown,
-    eventChest,
-    eventClickLink,
-    eventGalaxySpace,
-    eventSlideShow,
-    eventAward,
-    eventCountdown,
-    eventDetermine,
-    eventChestUpgrade
-  ) => {})
+require(['jquery', 'ajax'], ($, ajax) => {
+  require(['eventSlideShow'])
+  require(['eventAward'])
+
+  ajax('GET', 'http://127.0.0.1:8080/chest/')
+    .then(data => {
+      let chests = data.content
+      for (let index in chests) {
+        console.log(index)
+        let chest = chests[index]
+        let platformColor = chest.colorPlatform
+        let targets = {}
+
+        targets.platform = $(`.platform-${platformColor}`)
+        targets.countdown = $(`.platform-${platformColor} .countdown`)
+        targets.startBtn = $(`.platform-${platformColor} .start-btn`)
+        targets.upgradeBtn = $(`.platform-${platformColor} .upgrade-btn`)
+        targets.readyBtn = $(`.platform-${platformColor} .ready-btn`)
+        targets.platformChest = $(`.platform-${platformColor} .chest${chest.level}`)
+
+        targets.platform
+          .append(`<img class="chest${chest.level}" title="chest${chest.level}" src="./img/chest/chest${chest.level}.png">`)
+        targets.startBtn.css('display', '')
+        targets.upgradeBtn.css('display', '')
+
+        require(['eventDetermine'], eventDetermine => {
+          eventDetermine(chest, targets)
+        })
+      }
+    })
+})

@@ -1,4 +1,4 @@
-define(['jquery'], $ => {
+define(['jquery', 'w3'], ($, w3) => {
   $(() => {
     let nature = w3.slideshow('.nature', 2000)
     let award = w3.slideshow('.award', 2000)
