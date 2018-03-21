@@ -23,8 +23,9 @@ require.config({
     eventDetermine: ['./event-determine'],
     eventChestUpgrade: ['./event-chest-upgrade'],
     eventChestStart: ['./event-chest-start'],
-    eventChestOpen: ['./event-chest-open'],
-    eventChestOpenNow: ['./event-chest-open-now']
+    eventChestReady: ['./event-chest-ready'],
+    eventChestOpenNow: ['./event-chest-open-now'],
+    eventStatusDo: ['./event-status-do']
   },
 
   map: {
@@ -53,6 +54,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
         targets.startBtn = $(`.platform-${chest.colorPlatform} .start-btn`)
         targets.upgradeBtn = $(`.platform-${chest.colorPlatform} .upgrade-btn`)
         targets.readyBtn = $(`.platform-${chest.colorPlatform} .ready-btn`)
+        targets.openNowBtn = $(`.platform-${chest.colorPlatform} .open-now-btn`)
         targets.platformChest = $(`.platform-${chest.colorPlatform} .chest${chest.level}`)
 
         targets.startBtn.css('display', '')
@@ -60,6 +62,12 @@ require(['jquery', 'ajax'], ($, ajax) => {
 
         require(['eventDetermine'], eventDetermine => {
           eventDetermine(chest, targets)
+        })
+
+        require(['eventChestStart'], eventChestStart => {
+          targets.startBtn.on('click', () => {
+            eventChestStart.bind(eventChestStart, chest, targets)
+          })
         })
       }
     })
