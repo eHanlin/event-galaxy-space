@@ -38,6 +38,7 @@ require.config({
 require(['jquery', 'ajax'], ($, ajax) => {
   require(['eventSlideShow'])
   require(['eventAward'])
+  require(['eventGalaxySpace'])
 
   ajax('GET', 'http://127.0.0.1:8080/chest/')
     .then(data => {
@@ -65,9 +66,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
         })
 
         require(['eventChestStart'], eventChestStart => {
-          targets.startBtn.on('click', () => {
-            eventChestStart.bind(eventChestStart, chest, targets)
-          })
+          targets.startBtn.on('click', eventChestStart.bind(eventChestStart, chest, targets))
         })
       }
     })

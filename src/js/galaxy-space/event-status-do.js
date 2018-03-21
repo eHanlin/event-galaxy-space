@@ -18,8 +18,8 @@ define(['jquery', 'ajax'], ($, ajax) => {
           targets.openNowBtn.removeAttr('style')
           targets.platformChest.css('filter', 'grayscale(100%)')
 
-          require(['eventCountdown'], (eventCountdown) => {
-            eventCountdown(seconds, chest, targets)
+          require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
+            eventCountdown(seconds, chest, targets, eventChestReady)
           })
         })
     },
