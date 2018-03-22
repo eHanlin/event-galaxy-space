@@ -1,5 +1,9 @@
 define(['jquery', 'ajax'], ($, ajax) => {
   return {
+    Locked: (chest, targets) => {
+      console.log('LOCKED')
+    },
+
     unLocking: (chest, targets) => {
       console.log('UNLOCKING')
       $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')
@@ -13,8 +17,9 @@ define(['jquery', 'ajax'], ($, ajax) => {
       ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
-          targets.startBtn.css('display', 'none')
-          targets.upgradeBtn.css('display', 'none')
+          targets.startBtn.remove()
+          targets.upgradeBtn.remove()
+          targets.readyBtn.remove()
           targets.openNowBtn.removeAttr('style')
           targets.platformChest.css('filter', 'grayscale(100%)')
 
@@ -35,7 +40,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       targets.platformChest.attr('src', `./img/chest/readyChest${chest.level}.png`)
     },
 
-    open: (chest, targets, seconds) => {
+    open: (chest, targets) => {
       console.log('OPEN')
       targets.openNowBtn.css('display', 'none')
       targets.countdown.css('display', 'none')

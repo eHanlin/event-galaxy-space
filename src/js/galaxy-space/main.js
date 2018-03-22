@@ -12,6 +12,7 @@ require.config({
     w3: ['../lib/w3'],
     ajax: ['../module-utils/ajax'],
     swal: ['../lib/sweetalert2'],
+    countUp: ['../lib/countUp.min'],
     popup: ['../module-utils/popup'],
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     eventChest: ['./event-chest'],
@@ -25,7 +26,8 @@ require.config({
     eventChestStart: ['./event-chest-start'],
     eventChestReady: ['./event-chest-ready'],
     eventChestOpenNow: ['./event-chest-open-now'],
-    eventStatusDo: ['./event-status-do']
+    eventStatusDo: ['./event-status-do'],
+    eventCountUp: ['./event-count-up']
   },
 
   map: {

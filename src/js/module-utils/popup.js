@@ -28,6 +28,7 @@ define(['swal'], (swal) => {
         title: title,
         text: content,
         allowOutsideClick: false,
+        background: '#A9D0F5 url(./img/popup.png)',
         width: '100%',
         confirmButtonText: '確認'
       }).then(confirm)
