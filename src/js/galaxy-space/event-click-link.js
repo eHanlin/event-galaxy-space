@@ -24,5 +24,9 @@ define(['jquery'], $ => {
       window.open('/Events/winner_info.html?id=space', 'returnAward')
       return false
     })
+    $('.shareBtn').on('click', () => {
+      window.open('https://docs.google.com/forms/d/1UywZQWyOc4XMPIfFKs8I2UpCa30dRXX164LYNs7zwss/', 'share')
+      return false
+    })
   })
 })

@@ -33,20 +33,44 @@
   height: 800px;
 }
 
-.container .userStatus .name {
+.container .userStatus .name,
+.container .userStatus .studentCard,
+.container .userStatus .phoneCall {
   color: azure;
   font-family: "微軟正黑體";
-  font-size: 20px;
-  left: 1150px;
+  font-size: 18px;
+}
+
+.container .userStatus .meteor1 {
+  left: 900px;
+  top: 8px;
+  height: 45px;
+  width: 110px;
+}
+
+.container .userStatus .meteor2 {
+  left: 900px;
+  top: 38px;
+  height: 45px;
+  width: 110px;
+}
+
+.container .userStatus .name {
+  left: 1020px;
+  top: 25px;
   width: 50px;
 }
 
 .container .userStatus .studentCard {
-  color: azure;
-  font-family: "微軟正黑體";
-  font-size: 20px;
-  left: 1020px;
+  left: 920px;
+  top: 25px;
   width: 50px;
+}
+
+.container .userStatus .phoneCall {
+  left: 920px;
+  top: 55px;
+  width: 300px;
 }
 
 .container .logo {
@@ -67,7 +91,7 @@
 
 .container .logoFlag {
   width: 28%;
-  left: 245px;
+  left: 300px;
   top: 25px;
   transform: rotate(-8deg);
   -webkit-transform: rotate(-8deg);
@@ -86,25 +110,25 @@
 .container .activity {
   width: 10%;
   right: 550px;
-  top: 15px;
+  top: 105px;
 }
 
 .container .bank {
   width: 10%;
   right: 390px;
-  top: 30px;
+  top: 120px;
 }
 
 .container .my-class {
   width: 10%;
   right: 230px;
-  top: 15px;
+  top: 105px;
 }
 
 .container .free {
   width: 10%;
   right: 70px;
-  top: 30px;
+  top: 120px;
 }
 
 .container .fb {
@@ -165,14 +189,27 @@
     width: 980px;
   }
   .container .userStatus .name {
-    font-size: 18px;
-    left: 850px;
+    font-size: 16px;
+    left: 760px;
+    top: 25px;
     width: 50px;
   }
   .container .userStatus .studentCard {
-    font-size: 18px;
-    left: 720px;
+    font-size: 16px;
+    left: 670px;
+    top: 25px;
     width: 50px;
+  }
+  .container .userStatus .phoneCall {
+    font-size: 16px;
+    top: 55px;
+    left: 670px;
+  }
+  .container .userStatus .meteor1 {
+    left: 650px;
+  }
+  .container .userStatus .meteor2 {
+    left: 650px;
   }
   .container .logo {
     width: 23%;
@@ -184,8 +221,8 @@
   }
   .container .logoFlag {
     width: 25%;
-    left: 215px;
-    top: 20px;
+    left: 255px;
+    top: 30px;
   }
   .container .fb {
     width: 4%;
@@ -203,15 +240,12 @@
   }
   .container .activity {
     right: 420px;
-    top: 15px;
   }
   .container .my-class {
     right: 180px;
-    top: 15px;
   }
   .container .bank {
     right: 300px;
-    top: 35px;
   }
   .container .display-coins {
     left: 40px;
@@ -248,13 +282,30 @@
   }
   .container .userStatus .name {
     font-size: 12px;
-    left: 300px;
-    width: 50px;
+    top: 22px;
+    left: 265px;
   }
   .container .userStatus .studentCard {
     font-size: 12px;
-    left: 220px;
-    width: 50px;
+    top: 22px;
+    left: 205px;
+  }
+  .container .userStatus .phoneCall {
+    font-size: 12px;
+    top: 42px;
+    left: 205px;
+  }
+  .container .userStatus .meteor1 {
+    width: 90px;
+    height: 35px;
+    left: 190px;
+    top: 8px;
+  }
+  .container .userStatus .meteor2 {
+    width: 90px;
+    height: 35px;
+    left: 190px;
+    top: 30px;
   }
   .container .logo {
     display: none;
@@ -266,18 +317,18 @@
   }
   .container .logoFlag {
     width: 50%;
-    left: 160px;
-    top: 10px;
-    transform: rotate(6deg);
-    -webkit-transform: rotate(6deg);
+    left: 100px;
+    top: 60px;
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
   }
   .container .fb {
-    top: 85px;
+    top: 105px;
     left: 310px;
     width: 8%;
   }
   .container .line {
-    top: 130px;
+    top: 145px;
     width: 8%;
   }
   .container .bank,
@@ -287,19 +338,19 @@
   .container .activity {
     width: 23%;
     left: 30px;
-    top: 70px;
+    top: 120px;
     transform: rotate(8deg);
     -webkit-transform: rotate(8deg);
   }
   .container .bank {
     left: 130px;
-    top: 100px;
+    top: 130px;
     transform: rotate(-8deg);
     -webkit-transform: rotate(-8deg);
   }
   .container .my-class {
     left: 220px;
-    top: 70px;
+    top: 120px;
   }
   .container .free {
     display: none;
@@ -309,23 +360,23 @@
   }
   .container .display-coins {
     left: 60px;
-    top: 200px;
+    top: 230px;
     width: 120px;
   }
   .container .display-gems {
     left: 220px;
-    top: 200px;
+    top: 230px;
     width: 120px;
   }
   .container .totalAssets .coins {
     font-size: 18px;
     left: 102px;
-    top: 207px;
+    top: 237px;
   }
   .container .totalAssets .gems {
     font-size: 18px;
     left: 262px;
-    top: 207px;
+    top: 237px;
   }
 }
 

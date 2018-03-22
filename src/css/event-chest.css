@@ -226,19 +226,19 @@
     width: 110px;
   }
   .container .platform-GREEN {
-    top: 530px;
+    top: 560px;
     left: 70px;
   }
   .container .platform-RED {
-    top: 500px;
+    top: 530px;
     left: 260px;
   }
   .container .platform-BROWN {
-    top: 800px;
+    top: 830px;
     left: 70px;
   }
   .container .platform-PINK {
-    top: 770px;
+    top: 800px;
     left: 260px;
   }
   .chest1 {
@@ -271,8 +271,8 @@
   .container .start-btn,
   .container .upgrade-btn,
   .container .ready-btn {
-    top: -220px;
-    height: 30px;
+    top: -200px;
+    height: 35px;
     width: 60px;
     font-size: 18px;
   }

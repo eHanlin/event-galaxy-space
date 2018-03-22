@@ -178,29 +178,49 @@
   cursor: pointer;
 }
 
-.container .service .service-message {
+.container .service {
+  background: rgb(126, 206, 244, 0.9);
+  border-radius: 300px;
   top: 1580px;
+  height: 250px;
+  width: 100%;
+}
+
+.container .service .service-message {
+  top: 40px;
   left: 350px;
   width: 680px;
 }
 
-.container .service .url1 {
-  top: 1620px;
-  left: 440px;
-  width: 180px;
+.container .service .service-message2 {
+  top: 100px;
+  left: 350px;
+  width: 680px;
 }
 
-.container .service .url2 {
-  top: 1620px;
-  left: 690px;
-  width: 180px;
+.container .service .shareBox {
+  top: 10px;
+  left: 280px;
+  width: 5%;
+  transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+}
+
+.container .service .shareBtn {
+  top: 190px;
+  left: 600px;
+  width: 12%;
+  cursor: pointer;
+}
+
+.container .service .shareBtn:hover {
+  opacity: 0.6;
 }
 
 .container .service .service-message,
-.container .service .url1,
-.container .service .url2,
+.container .service .service-message2,
 .container .award {
-  color: aliceblue;
+  color: black;
   font-size: 20px;
   font-family: "微軟正黑體";
 }
@@ -349,27 +369,28 @@
     width: 120px;
     z-index: 1;
   }
+  .container .service {
+    top: 1350px;
+    height: 200px;
+  }
   .container .service .service-message {
-    top: 1400px;
+    top: 30px;
+    left: 305px;
+    font-size: 17px;
+  }
+  .container .service .service-message2 {
+    top: 85px;
+    left: 305px;
+    font-size: 17px;
+    width: 500px;
+  }
+  .container .service .shareBox {
+    top: 10px;
     left: 250px;
-    width: 680px;
   }
-  .container .service .url1 {
-    top: 1440px;
-    left: 320px;
-    width: 180px;
-  }
-  .container .service .url2 {
-    top: 1440px;
-    left: 540px;
-    width: 180px;
-  }
-  .container .service .service-message,
-  .container .service .url1,
-  .container .service .url2 {
-    color: aliceblue;
-    font-size: 18px;
-    font-family: "微軟正黑體";
+  .container .service .shareBtn {
+    top: 150px;
+    left: 460px;
   }
 }
 
@@ -522,27 +543,30 @@
     right: 115px;
     width: 35%;
   }
+  .container .service {
+    top: 1680px;
+    height: 150px;
+  }
   .container .service .service-message {
-    top: 1670px;
-    left: 50px;
-    width: 680px;
-  }
-  .container .service .url1 {
-    top: 1690px;
-    left: 100px;
-    width: 180px;
-  }
-  .container .service .url2 {
-    top: 1690px;
-    left: 240px;
-    width: 180px;
-  }
-  .container .service .service-message,
-  .container .service .url1,
-  .container .service .url2 {
-    color: aliceblue;
+    top: 15px;
+    left: 120px;
     font-size: 10px;
-    font-family: "微軟正黑體";
+  }
+  .container .service .service-message2 {
+    top: 55px;
+    left: 120px;
+    font-size: 10px;
+    width: 200px;
+  }
+  .container .service .shareBox {
+    top: 5px;
+    left: 80px;
+    width: 8%;
+  }
+  .container .service .shareBtn {
+    top: 115px;
+    left: 160px;
+    width: 20%;
   }
 }
 
