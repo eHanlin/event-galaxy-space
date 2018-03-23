@@ -6,7 +6,7 @@ define(['swal'], (swal) => {
         text: content,
         showCancelButton: true,
         allowOutsideClick: false,
-        background: '#A9D0F5 url(./img/popup.png)',
+        background: 'url(./img/popup/comfirm.png) repeat center center / contain',
         width: '100%',
         confirmButtonText: '確認',
         cancelButtonText: '再想想'
@@ -28,7 +28,7 @@ define(['swal'], (swal) => {
         title: title,
         text: content,
         allowOutsideClick: false,
-        background: '#A9D0F5 url(./img/popup.png)',
+        background: 'url(./img/popup/comfirm.png) repeat center center / contain',
         width: '100%',
         confirmButtonText: '確認'
       }).then(confirm)
