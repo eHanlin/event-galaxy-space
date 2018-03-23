@@ -13,7 +13,7 @@ require.config({
     ajax: ['../module-utils/ajax'],
     swal: ['../lib/sweetalert2'],
     countUp: ['../lib/countUp.min'],
-    popup: ['../module-utils/popup'],
+    confirmPopup: ['../module-utils/confirm-popup'],
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     eventChest: ['./event-chest'],
     eventClickLink: ['./event-click-link'],
@@ -76,6 +76,10 @@ require(['jquery', 'ajax'], ($, ajax) => {
         /* 立即開啟按鈕 */
         require(['eventChestOpenNow'], (eventChestOpenNow) => {
           targets.openNowBtn.on('click', eventChestOpenNow.bind(eventChestOpenNow, chest, targets))
+        })
+
+        require(['eventChestUpgrade'], eventChestUpgrade => {
+          targets.upgradeBtn.on('click', eventChestUpgrade.tip.bind(eventChestUpgrade.tip, chest))
         })
       }
     })
