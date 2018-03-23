@@ -8,9 +8,18 @@ define(['require', 'jquery', 'w3'], (require, $, w3) => {
 
       for (let award in awards) {
         let awardId = award.split('#')[0]
+        let indexId = awardId.split('award')[1]
         let value = awards[award]
         let awardBlock = $('.award-box li:eq(' + index + ')')
-        let awardImg = `<img src='./img/award/${awardId}.png' />`
+        let awardImg
+
+        if (indexId < 10) {
+          awardImg = `<img src='./img/award/award0${indexId}.png' />`
+        }
+
+        if (indexId > 10) {
+          awardImg = `<img src='./img/award/${awardId}.png' />`
+        }
 
         awardBlock.append(awardImg)
         awardBlock.append(`<span class="awardSum">${value}</span>`)
