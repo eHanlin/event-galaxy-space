@@ -17,9 +17,9 @@ define(['jquery', 'ajax'], ($, ajax) => {
       ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
-          targets.startBtn.remove()
-          targets.upgradeBtn.remove()
-          targets.readyBtn.remove()
+          targets.startBtn.css('display', 'none')
+          targets.upgradeBtn.css('display', 'none')
+          targets.readyBtn.css('display', 'none')
           targets.openNowBtn.removeAttr('style')
           targets.platformChest.css('filter', 'grayscale(100%)')
 

@@ -38,6 +38,7 @@ require.config({
 })
 
 require(['jquery', 'ajax'], ($, ajax) => {
+  /* 一開始沒有return function的 js 必須在這裡require */
   require(['eventSlideShow'])
   require(['eventAward'])
   require(['eventGalaxySpace'])
@@ -63,6 +64,8 @@ require(['jquery', 'ajax'], ($, ajax) => {
 
         targets.startBtn.css('display', '')
         targets.upgradeBtn.css('display', '')
+
+        targets.readyBtn.on('click', () => console.log('OPEN'))
 
         require(['eventDetermine'], eventDetermine => {
           eventDetermine(chest, targets)
