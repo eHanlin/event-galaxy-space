@@ -1,8 +1,11 @@
 define(['jquery', 'ajax'], ($, ajax) => {
   return {
-    Locked: (chest, targets) => {
+    locked: (chest, targets) => {
       console.log('LOCKED')
+      targets.startBtn.css('display', '')
+      targets.upgradeBtn.css('display', '')
     },
+
     unLocking: (chest, targets) => {
       console.log('UNLOCKING')
       $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')

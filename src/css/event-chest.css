@@ -4,68 +4,62 @@
 .container .brown-position,
 .container .pink-position {
   width: 100%;
-  top: -15px;
-  left: -5px;
+  bottom: 0;
 }
 
 .container .platform {
-  top: 550px;
   width: 167px;
-  height: 200px;
+  height: 330px;
 }
 
 .container .platform-GREEN {
-  top: 600px;
+  top: 390px;
   left: 100px;
 }
 
 .container .platform-RED {
+  top: 330px;
   left: 400px;
 }
 
 .container .platform-BROWN {
-  top: 600px;
+  top: 390px;
   left: 700px;
 }
 
 .container .platform-PINK {
+  top: 330px;
   left: 1000px;
 }
 
 .chest1 {
-  top: -160px;
-  left: -30px;
+  bottom: 56px;
+  left: -28px;
 }
 
 .chest2 {
-  top: -155px;
-  left: -37px;
+  bottom: 56px;
+  left: -30px;
 }
 
 .chest3 {
-  top: -150px;
-  left: -45px;
+  bottom: 56px;
+  left: -38px;
 }
 
 .chest4 {
-  top: -167px;
-  left: -52px;
+  bottom: 46px;
+  left: -45px;
 }
 
 .chest5 {
-  top: -190px;
-  left: -58px;
+  bottom: 47px;
+  left: -53px;
 }
 
 .chest6 {
-  top: -190px;
-  left: -78px;
-  width: 190%;
-}
-
-.ready-chest6 {
-  top: -190px;
-  left: -75px;
+  bottom: 46px;
+  left: -74px;
   width: 190%;
 }
 
@@ -79,7 +73,6 @@
 .container .start-btn,
 .container .upgrade-btn,
 .container .ready-btn {
-  top: -220px;
   width: 45%;
   font-size: 25px;
   cursor: pointer;
@@ -87,20 +80,8 @@
   z-index: 1;
 }
 
-.container .countdown {
-  color: bisque;
-  font-size: 20px;
-  font-family: "微軟正黑體";
-  top: -165px;
-  left: 20px;
-}
-
-.container .start-btn {
-  left: -5px;
-}
-
 .container .upgrade-btn {
-  left: 90px;
+  right: 0;
 }
 
 .container .ready-btn {
@@ -108,185 +89,182 @@
 }
 
 .container .open-now-btn {
-  top: 40px;
-  left: 48px;
-  height: 65px;
-  width: 65px;
-  font-size: 20px;
+  bottom: 20px;
+  left: 42px;
+  width: 50%;
   cursor: pointer;
   outline: none;
   z-index: 1;
 }
 
+.container .countdown {
+  color: bisque;
+  font-size: 22px;
+  font-family: "微軟正黑體", fantasy;
+  top: 20px;
+  left: 20px;
+}
+
 /* ============================> 寶箱 <============================ */
 
-/* ============================================> iPad ============================================>*/
+/* ============================> iPad <============================ */
 
 @media screen and (max-width: 1280px) {
-  .container .green-position,
-  .container .red-position,
-  .container .brown-position,
-  .container .pink-position {
-    top: -35px;
-    left: -10px;
-  }
+
   .container .platform {
+    height: 295px;
     width: 145px;
   }
+
   .container .platform-GREEN {
-    top: 550px;
+    top: 330px;
     left: 60px;
   }
+
   .container .platform-RED {
-    top: 500px;
+    top: 275px;
     left: 305px;
   }
+
   .container .platform-BROWN {
-    top: 550px;
+    top: 330px;
     left: 555px;
   }
+
   .container .platform-PINK {
-    top: 500px;
+    top: 275px;
     left: 800px;
   }
+
   .chest1 {
-    top: -160px;
-    left: -35px;
+    bottom: 53px;
+    left: -26px;
     width: 135%;
   }
+
   .chest2 {
-    top: -150px;
-    left: -34px;
+    bottom: 52px;
+    left: -26px;
     width: 135%;
   }
+
   .chest3 {
-    top: -145px;
-    left: -42px;
+    bottom: 52px;
+    left: -30px;
     width: 143%;
   }
+
   .chest4 {
-    top: -158px;
-    left: -42px;
+    bottom: 45px;
+    left: -32px;
     width: 147%;
   }
+
   .chest5 {
-    top: -185px;
-    left: -54px;
+    bottom: 46px;
+    left: -44px;
     width: 165%;
   }
+
   .chest6 {
-    top: -185px;
-    left: -75px;
+    bottom: 41px;
+    left: -65px;
   }
-  .container .countdown {
-    font-size: 18px;
-    left: 20px;
-  }
-  .container .start-btn,
-  .container .upgrade-btn,
+
   .container .ready-btn {
-    top: -210px;
+    left: 37px;
+  }
+
+  .container .open-now-btn {
+    left: 38px;
+  }
+
+  .container .countdown {
     font-size: 20px;
   }
-  .container .start-btn {
-    left: -20px;
-  }
-  .container .upgrade-btn {
-    left: 80px;
-  }
-  .container .ready-btn {
-    left: 25px;
-  }
-  .container .open-now-btn {
-    top: 20px;
-    left: 20px;
-    height: 30px;
-    width: 90px;
-    font-size: 16px;
-  }
 }
 
-/* ============================================> iPad ============================================>*/
+/* ============================> iPad <============================ */
 
-/* ============================================> iPhone ============================================>*/
+/* ============================> iPhone <============================ */
 
 @media screen and (max-width: 960px) {
-  .container .green-position,
-  .container .red-position,
-  .container .brown-position,
-  .container .pink-position {
-    width: 100%;
-    top: -70px;
-    left: -25px;
-  }
+
   .container .platform {
+    height: 220px;
     width: 110px;
   }
+
   .container .platform-GREEN {
-    top: 560px;
-    left: 70px;
+    top: 335px;
+    left: 55px;
   }
+
   .container .platform-RED {
-    top: 530px;
-    left: 260px;
+    top: 300px;
+    left: 238px;
   }
+
   .container .platform-BROWN {
-    top: 830px;
-    left: 70px;
+    top: 590px;
+    left: 55px;
   }
+
   .container .platform-PINK {
-    top: 800px;
-    left: 260px;
+    top: 540px;
+    left: 238px;
   }
+
   .chest1 {
-    top: -163px;
-    left: -44px;
+    bottom: 39px;
+    left: -18px;
   }
+
   .chest2 {
-    top: -156px;
-    left: -43px;
+    bottom: 39px;
+    left: -19px;
   }
+
   .chest3 {
-    top: -155px;
-    left: -48px;
+    bottom: 39px;
+    left: -24px;
   }
+
   .chest4 {
-    top: -160px;
+    bottom: 30px;
+    left: -24px;
+  }
+
+  .chest5 {
+    bottom: 32px;
+    left: -33px;
+  }
+
+  .chest6 {
+    bottom: 32px;
     left: -50px;
   }
-  .chest5 {
-    top: -188px;
-    left: -59px;
-  }
-  .chest6 {
-    top: -185px;
-  }
-  .container .countdown {
-    font-size: 14px;
-    left: -8px;
-  }
+
   .container .start-btn,
   .container .upgrade-btn,
   .container .ready-btn {
-    top: -200px;
-    height: 35px;
-    width: 60px;
-    font-size: 18px;
+    width: 47%;
   }
-  .container .start-btn {
-    left: -40px;
-  }
-  .container .upgrade-btn {
-    left: 40px;
-  }
+
   .container .ready-btn {
-    left: 0px;
+    left: 27px;
   }
+
   .container .open-now-btn {
-    top: -25px;
-    left: -10px;
-    height: 25px;
-    width: 80px;
-    font-size: 14px;
+    bottom: 16px;
+    left: 27px;
+    width: 55%;
+  }
+
+  .container .countdown {
+    font-size: 17px;
+    left: 2px;
   }
 }
+
+/* ============================> iPhone <============================ */

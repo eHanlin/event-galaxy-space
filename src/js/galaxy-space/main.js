@@ -62,9 +62,6 @@ require(['jquery', 'ajax'], ($, ajax) => {
         targets.openNowBtn = $(`.platform-${chest.colorPlatform} .open-now-btn`)
         targets.platformChest = $(`.platform-${chest.colorPlatform} .chest${chest.level}`)
 
-        targets.startBtn.css('display', '')
-        targets.upgradeBtn.css('display', '')
-
         targets.readyBtn.on('click', () => console.log('OPEN'))
 
         require(['eventDetermine'], eventDetermine => {
@@ -82,7 +79,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
         })
 
         require(['eventChestUpgrade'], eventChestUpgrade => {
-          targets.upgradeBtn.on('click', eventChestUpgrade.tip.bind(eventChestUpgrade.tip, chest))
+          targets.upgradeBtn.on('click', eventChestUpgrade.tip.bind(eventChestUpgrade.tip, chest, targets))
         })
       }
     })

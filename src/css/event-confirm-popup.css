@@ -12,7 +12,6 @@
 
 .confirm-popup-btn {
   border-radius: 5px;
-  margin-top: 0;
   margin-right: 20px;
   color: #604417;
   font-size: 20px;
@@ -23,10 +22,17 @@
   outline: 0;
 }
 
-.confirm-popup-btn-ok {
+.confirm-popup-btn-dialog {
+  margin-top: 0;
   background: #fff79e;
 }
 
+.confirm-popup-btn-ok {
+  margin-top: 30px;
+  background: #fff79e;
+}
+
+.confirm-popup-btn-dialog:hover,
 .confirm-popup-btn-ok:hover {
   background: #604417;
   color: #ffffff;
@@ -35,6 +41,7 @@
 }
 
 .confirm-popup-btn-cancel {
+  margin-top: 0;
   background: #bbfcec;
 }
 
@@ -44,6 +51,17 @@
   border: solid #bbfcec 2px;
   text-decoration: none;
 }
+
+.confirm-popup-content {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.confirm-popup-chest-gif {
+  max-height: 80%;
+}
+
+/* ============================> Grid layout <============================ */
 
 .confirm-grid-container {
   height: 230px;
@@ -63,7 +81,7 @@
   max-height: 100%;
 }
 
-.confirm-grid-container .text-block1 {
+.confirm-grid-container .content-block1 {
   grid-column: 3;
   grid-row: 1;
   color: #217dbb;
@@ -71,18 +89,20 @@
   font-weight: bolder;
 }
 
-.confirm-grid-container .text-block2 {
+.confirm-grid-container .content-block2 {
   text-align: left;
   grid-column: 3;
   grid-row: 2;
 }
 
-.confirm-grid-container .text-block3 {
+.confirm-grid-container .content-block3 {
   text-align: left;
   grid-column: 3;
   grid-row: 3;
   font-size: 88%;
 }
+
+/* ============================> Grid layout <============================ */
 
 @media screen and (max-width: 980px) {
   .confirm-grid-container {

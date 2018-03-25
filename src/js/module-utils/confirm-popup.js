@@ -11,19 +11,17 @@ define(['jquery', 'swal'], ($, swal) => {
         customClass: 'confirm-popup-modal',
         buttonsStyling: false,
         confirmButtonText: '確定',
-        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-ok',
+        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-dialog',
         cancelButtonText: '我再想想',
         cancelButtonClass: 'confirm-popup-btn confirm-popup-btn-cancel',
         reverseButtons: true,
         onOpen: () => {
           $('.swal2-header').remove()
         }
-      }).then(function (result) {
-        if (result.value) {
+      }).then((result) => {
+        if (result.value && okFn) {
           okFn()
-        } else if (
-          result.dismiss === swal.DismissReason.cancel
-        ) {
+        } else if (result.dismiss === swal.DismissReason.cancel) {
           if (cancelFn) {
             cancelFn()
           }
@@ -31,15 +29,22 @@ define(['jquery', 'swal'], ($, swal) => {
       })
     },
 
-    confirm: (title, content, confirm) => {
+    ok: (title, content, okFn) => {
       return swal({
         title: title,
-        html: content,
+        html: `<span class="confirm-popup-content">${content}</span>`,
         allowOutsideClick: false,
         background: 'url(./img/popup/confirm.png) repeat center center / contain',
         width: '100%',
-        confirmButtonText: '確認'
-      }).then(confirm)
+        customClass: 'confirm-popup-modal',
+        buttonsStyling: false,
+        confirmButtonText: '我瞭解了',
+        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-ok'
+      }).then((result) => {
+        if (result.value && okFn) {
+          okFn()
+        }
+      })
     }
   }
 })
