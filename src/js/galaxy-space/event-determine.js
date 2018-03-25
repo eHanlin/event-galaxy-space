@@ -1,8 +1,5 @@
 define(['require', 'jquery', 'eventStatusDo'], (require, $, eventStatusDo) => {
-  return (
-    chest,
-    targets
-  ) => {
+  return (chest, targets) => {
     if (chest.status === 'UNLOCKING') {
       eventStatusDo.unLocking(chest, targets)
     } else if (chest.status === 'READY') {

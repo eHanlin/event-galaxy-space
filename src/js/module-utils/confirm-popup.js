@@ -1,23 +1,31 @@
-define(['swal'], (swal) => {
+define(['jquery', 'swal'], ($, swal) => {
   return {
-    dialog: (title, content, confirm, cancel) => {
+    dialog: (content, okFn, cancelFn) => {
       return swal({
-        title: title,
-        text: content,
+        title: '',
+        html: content,
         showCancelButton: true,
         allowOutsideClick: false,
-        background: 'url(./img/popup/comfirm.png) repeat center center / contain',
+        background: 'url(./img/popup/confirm.png) repeat center center / contain',
         width: '100%',
-        confirmButtonText: '確認',
-        cancelButtonText: '再想想'
+        customClass: 'confirm-popup-modal',
+        buttonsStyling: false,
+        confirmButtonText: '確定',
+        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-ok',
+        cancelButtonText: '我再想想',
+        cancelButtonClass: 'confirm-popup-btn confirm-popup-btn-cancel',
+        reverseButtons: true,
+        onOpen: () => {
+          $('.swal2-header').remove()
+        }
       }).then(function (result) {
         if (result.value) {
-          confirm()
+          okFn()
         } else if (
           result.dismiss === swal.DismissReason.cancel
         ) {
-          if (cancel) {
-            cancel()
+          if (cancelFn) {
+            cancelFn()
           }
         }
       })
@@ -26,9 +34,9 @@ define(['swal'], (swal) => {
     confirm: (title, content, confirm) => {
       return swal({
         title: title,
-        text: content,
+        html: content,
         allowOutsideClick: false,
-        background: 'url(./img/popup/comfirm.png) repeat center center / contain',
+        background: 'url(./img/popup/confirm.png) repeat center center / contain',
         width: '100%',
         confirmButtonText: '確認'
       }).then(confirm)

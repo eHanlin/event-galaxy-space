@@ -3,7 +3,6 @@ define(['jquery', 'ajax'], ($, ajax) => {
     Locked: (chest, targets) => {
       console.log('LOCKED')
     },
-
     unLocking: (chest, targets) => {
       console.log('UNLOCKING')
       $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')
@@ -22,7 +21,6 @@ define(['jquery', 'ajax'], ($, ajax) => {
           targets.readyBtn.css('display', 'none')
           targets.openNowBtn.removeAttr('style')
           targets.platformChest.css('filter', 'grayscale(100%)')
-
           require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
             eventCountdown(seconds, chest, targets, eventChestReady)
           })

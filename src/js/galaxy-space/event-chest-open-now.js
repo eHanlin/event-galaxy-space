@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'popup', 'eventStatusDo'], ($, ajax, popup, eventStatusDo) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup, eventStatusDo) => {
   return (chest, targets) => {
     let seconds
     ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
@@ -14,7 +14,7 @@ define(['jquery', 'ajax', 'popup', 'eventStatusDo'], ($, ajax, popup, eventStatu
         let remainHours = Math.ceil(seconds / everySecondsHour)
         let deductGems = remainHours * consume.everyHourDeductGems
 
-        popup.dialog(`立即開啟寶箱需花費${deductGems}個寶石`, `確定要立即開啟寶箱嗎？`, () => {
+      confirmPopup.dialog(`立即開啟寶箱需花費${deductGems}個寶石`, `確定要立即開啟寶箱嗎？`, () => {
           ajax('PUT', `http://localhost:8080/chest/open/immediately/${chest.id}`, {
             deductGems: deductGems
           }).then(data => {
@@ -30,7 +30,7 @@ define(['jquery', 'ajax', 'popup', 'eventStatusDo'], ($, ajax, popup, eventStatu
             console.log(insufficientGems)
 
             if (insufficientGems < 0) {
-              popup.confirm(`你的寶石不足${insufficientGems * -1}個`, `欠一屁股債了~ 快做題吧 !`, () => {})
+              confirmPopup.confirm(`你的寶石不足${insufficientGems * -1}個`, `欠一屁股債了~ 快做題吧 !`, () => {})
               return false
             }
 

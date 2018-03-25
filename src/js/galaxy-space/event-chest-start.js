@@ -1,6 +1,6 @@
-define(['jquery', 'ajax', 'popup', 'eventStatusDo'], ($, ajax, popup, eventStatusDo) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup, eventStatusDo) => {
   return (chest, targets) => {
-    popup.dialog('確定要啟動寶箱嗎？', '', () => {
+    confirmPopup.dialog('確定要啟動寶箱嗎？', '', () => {
       let statusData = {
         status: 'UNLOCKING'
       }

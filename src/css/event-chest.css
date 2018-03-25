@@ -1,5 +1,4 @@
 /* ============================> 寶箱 <============================ */
-
 .container .green-position,
 .container .red-position,
 .container .brown-position,
@@ -64,7 +63,7 @@
   width: 190%;
 }
 
-.readyChest6 {
+.ready-chest6 {
   top: -190px;
   left: -75px;
   width: 190%;
@@ -128,7 +127,6 @@
   .container .red-position,
   .container .brown-position,
   .container .pink-position {
-    width: 100%;
     top: -35px;
     left: -10px;
   }
@@ -177,9 +175,8 @@
     width: 165%;
   }
   .chest6 {
-    top: -200px;
-    left: -80px;
-    width: 200%;
+    top: -185px;
+    left: -75px;
   }
   .container .countdown {
     font-size: 18px;
@@ -262,7 +259,7 @@
     left: -59px;
   }
   .chest6 {
-    top: -195px;
+    top: -185px;
   }
   .container .countdown {
     font-size: 14px;
