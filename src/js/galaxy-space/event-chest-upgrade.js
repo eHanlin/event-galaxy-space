@@ -9,9 +9,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let needCoins = data['coins']
         let needGems = data['gems']
 
-        //let title = `<span class="confirm-popup-info">Lv${chest.level} -> Lv${upLevel}</span>`
+        // let title = `<span class="confirm-popup-info">Lv${chest.level} -> Lv${upLevel}</span>`
         let content = `
-          <div>
           <div class="confirm-grid-container">
             <div class="image-block1">
               <img class="image-block1-chest" src="./img/chest/chest6.png">
@@ -25,7 +24,6 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
               升級至 Lv2 寶箱嗎？
             </div>
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
-          </div>
           </div>
           `
 

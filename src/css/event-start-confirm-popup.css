@@ -1,0 +1,69 @@
+.start-confirm-grid-container {
+  height: 250px;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 15% 10% 60% 15%;
+  font-size: 23px;
+  font-weight: bolder;
+  grid-gap: 2px; 
+}
+
+.start-confirm-grid-container .content-block1 {
+  grid-column: 2;
+  grid-row: 1;
+  color: #217dbb;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block2 {
+  grid-column: 2;
+  grid-row: 2;
+  color: #217dbb;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block3 {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 5% 18% 18% 18% 18% 18% 5%;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block3 .img-block1 {
+  display: grid;
+  grid-template-rows: 33% 34% 33%;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block3 .img-block1 .left-btn {
+  grid-column: 1;
+  grid-row: 2;
+  width: 50px;
+}
+
+.start-confirm-grid-container .content-block3 img[class^="img-award"] {
+  width: 145px;
+} 
+
+.start-confirm-grid-container .content-block3 .img-block7 {
+  display: grid;
+  grid-template-rows: 33% 34% 33%;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block3 .img-block7 .right-btn {
+  grid-column: 1;
+  grid-row: 2;
+  width: 50px;
+}
+
+.start-confirm-grid-container .content-block4 {
+  grid-column: 2;
+  grid-row: 4;
+  color: #217dbb;
+  font-size: 18px;
+  font-weight: bolder;
+}

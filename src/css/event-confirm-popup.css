@@ -20,6 +20,7 @@
   border: solid #604417 2px;
   text-decoration: none;
   outline: 0;
+  cursor: pointer;
 }
 
 .confirm-popup-btn-dialog {

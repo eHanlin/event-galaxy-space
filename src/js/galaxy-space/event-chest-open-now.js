@@ -14,7 +14,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
         let remainHours = Math.ceil(seconds / everySecondsHour)
         let deductGems = remainHours * consume.everyHourDeductGems
 
-      confirmPopup.dialog(`立即開啟寶箱需花費${deductGems}個寶石`, `確定要立即開啟寶箱嗎？`, () => {
+        confirmPopup.dialog(`<h2>立即開啟寶箱需花費${deductGems}個寶石</h2><h3>確定要立即開啟寶箱嗎？<h3>`, () => {
           ajax('PUT', `http://localhost:8080/chest/open/immediately/${chest.id}`, {
             deductGems: deductGems
           }).then(data => {
@@ -24,10 +24,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
             let statusData = {
               status: 'OPEN'
             }
-
-            console.log('originalGems: ' + originalGems)
-            console.log('finalGems: ' + finalGems)
-            console.log(insufficientGems)
 
             if (insufficientGems < 0) {
               confirmPopup.confirm(`你的寶石不足${insufficientGems * -1}個`, `欠一屁股債了~ 快做題吧 !`, () => {})
@@ -41,7 +37,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
               eventCountUp('gems', originalGems, finalGems)
             })
           })
-        })
+        }, () => { /* 取消 */ })
       })
   }
 })

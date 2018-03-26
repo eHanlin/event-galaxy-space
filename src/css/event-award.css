@@ -377,30 +377,34 @@
   }
   .container .next {
     top: 920px;
-    left: 370px;
+    left: 390px;
     width: 80px;
     height: 80px;
   }
   .container .previous {
     top: 1000px;
-    left: 370px;
+    left: 390px;
     width: 80px;
     height: 80px;
   }
   .container .slide-show-text {
-    top: 1123px;
-    left: 188px;
-    width: 146px;
-    height: 108px;
-    z-index: 1;
+    top: 1130px;
+    left: 192px;
+    width: 150px;
+    height: 122px;
   }
-  .container .slide-show-text .award {
+  .container .slide-show-text .award,
+  .container .slide-show-text .needChestLv,
+  .container .slide-show-text .quantity {
     font-size: 15px;
   }
+  .container .slide-show-text .awardNotice {
+    font-size: 12px;
+  }
   .container .monster {
-    width: 420px;
-    height: 350px;
-    top: 940px;
+    width: 430px;
+    height: 400px;
+    top: 920px;
     left: 40px;
   }
   .container .service {
@@ -456,12 +460,6 @@
     top: -40px;
     width: 100px;
     height: 100px;
-  }
-  .container .slide-show-text .award {
-    color: black;
-    top: 1120px;
-    left: 160px;
-    width: 100px;
   }
   .container .border-box1,
   .container .border-box2,
@@ -550,6 +548,9 @@
     left: 260px;
     width: 60px;
     height: 60px;
+  }
+  .container .slide-show-text {
+    display: none;
   }
   .container .monster {
     width: 250px;

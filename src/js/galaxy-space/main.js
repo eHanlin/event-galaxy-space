@@ -78,6 +78,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
           targets.openNowBtn.on('click', eventChestOpenNow.bind(eventChestOpenNow, chest, targets))
         })
 
+        /* 升級按鈕 */
         require(['eventChestUpgrade'], eventChestUpgrade => {
           targets.upgradeBtn.on('click', eventChestUpgrade.tip.bind(eventChestUpgrade.tip, chest, targets))
         })

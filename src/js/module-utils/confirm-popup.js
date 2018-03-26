@@ -45,6 +45,23 @@ define(['jquery', 'swal'], ($, swal) => {
           okFn()
         }
       })
+    },
+
+    startDialog: (content, okFn, cancelFn) => {
+      return swal({
+        html: content,
+        showCancelButton: true,
+        allowOutsideClick: false,
+        background: 'url(./img/popup/confirm.png) repeat center center / contain',
+        width: '100%',
+        customClass: 'confirm-popup-modal',
+        buttonsStyling: false,
+        confirmButtonText: '確定',
+        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-dialog',
+        cancelButtonText: '我再想想',
+        cancelButtonClass: 'confirm-popup-btn confirm-popup-btn-cancel',
+        reverseButtons: true
+      })
     }
   }
 })

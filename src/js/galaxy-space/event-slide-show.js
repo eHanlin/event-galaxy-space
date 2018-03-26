@@ -23,7 +23,17 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
              <span class="quantity">庫存狀況：${howMany}</span>
              <span class="needChestLv">所在寶箱：Lv${needChestLv}</span>
              <span class="awardNotice">此為示意圖，實際款式請以實體為主</span>`)
+
+        // if (window.matchMedia('(max-width: 1280px)')) {
+        //   console.log('=============')
+        //   $('.slide-show-text')
+        //     .append(
+        //       `<span class="award">${title}</span>
+        //        <span class="quantity">庫存狀況：${howMany}</span>
+        //        <span class="needChestLv">所在寶箱：Lv${needChestLv}</span>`)
+        // }
       }
+
       let nature = w3.slideshow('.nature', 3000)
       let award = w3.slideshow('.award', 3000)
       let needChestLv = w3.slideshow('.needChestLv', 3000)
