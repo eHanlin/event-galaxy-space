@@ -47,14 +47,17 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`, {level: upLevel})
+          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`, {
+            level: upLevel
+          })
         }
       })
       .then(jsonData => {
         let successGif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         confirmPopup.ok('升級成功', successGif)
-
-        console.log(jsonData)
+        targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
+        targets.platformChest.attr('title', `chest${upLevel}`)
+        targets.platformChest.attr('class', `chest${upLevel}`)
       })
   }
 

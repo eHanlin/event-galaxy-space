@@ -60,7 +60,18 @@ define(['jquery', 'swal'], ($, swal) => {
         confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-dialog',
         cancelButtonText: '我再想想',
         cancelButtonClass: 'confirm-popup-btn confirm-popup-btn-cancel',
-        reverseButtons: true
+        reverseButtons: true,
+        onOpen: () => {
+          console.log('onOpen()')
+        }
+      }).then((result) => {
+        if (result.value && okFn) {
+          okFn()
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          if (cancelFn) {
+            cancelFn()
+          }
+        }
       })
     }
   }

@@ -6,7 +6,6 @@ define(['require', 'jquery', 'w3'], (require, $, w3) => {
       let index = 0
       let awards = data.content
 
-      console.log(data)
       for (let award in awards) {
         let awardId = award.split('#')[0]
         let indexId = awardId.split('award')[1]

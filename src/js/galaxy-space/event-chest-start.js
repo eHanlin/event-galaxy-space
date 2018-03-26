@@ -1,6 +1,8 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup, eventStatusDo) => {
   return (chest, targets) => {
-    let content = `
+    let content
+    if (chest.level >= 3) {
+      content = `
     <div class="start-confirm-grid-container">
         <div class="content-block1">
           <span class="content-text1">寶箱準備啟動中...</span>
@@ -37,13 +39,23 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
           <span class="content-text3">你確定要啟動這個寶箱嗎？</span>
         </div>
     </div>`
+    }
 
+    if (chest.level < 3) {
+      content = `
+      <div>
+          <h2>寶箱準備啟動中...</h2>
+          <h3>你確定要啟動這個寶箱嗎？</h3>
+      </div>
+      `
+    }
+
+    let statusData = {
+      status: 'UNLOCKING'
+    }
     confirmPopup.dialog(content, () => {
-      let statusData = {
-        status: 'UNLOCKING'
-      }
       ajax('PUT', `http://localhost:8080/chest/status/${chest.id}`, statusData)
         .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
-    }, () => { /* 取消 */ })
+    })
   }
 })
