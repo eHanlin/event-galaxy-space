@@ -11,9 +11,9 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
         // let title = `<span class="confirm-popup-info">Lv${chest.level} -> Lv${upLevel}</span>`
         let content = `
-          <div class="confirm-grid-container">
+          <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="./img/chest/chest6.png">
+              <img class="image-block1-chest" src="./img/chest/chest${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv1 -> Lv2</span>
@@ -25,7 +25,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             </div>
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
-          `
+        `
 
         // let content = `<div>你確定要花費 <span class="confirm-popup-info"> ${needCoins}
         //   <span class="confirm-popup-warning">個 e 幣</span>、 ${needGems} <span class="confirm-popup-warning">個 寶石 </span></span>
@@ -53,8 +53,17 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         }
       })
       .then(jsonData => {
-        let successGif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
-        confirmPopup.ok('升級成功', successGif)
+        console.log(jsonData)
+        let content = jsonData.content
+        let source = content[0].source
+        console.log(source)
+        let gif
+        if (source.indexOf('true') > 0)
+          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+        else
+          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
+
+        confirmPopup.ok('升級成功', gif)
         targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
         targets.platformChest.attr('title', `chest${upLevel}`)
         targets.platformChest.attr('class', `chest${upLevel}`)

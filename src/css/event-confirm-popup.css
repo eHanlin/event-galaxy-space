@@ -29,7 +29,6 @@
 }
 
 .confirm-popup-btn-ok {
-  margin-top: 30px;
   background: #fff79e;
 }
 
@@ -42,7 +41,6 @@
 }
 
 .confirm-popup-btn-cancel {
-  margin-top: 0;
   background: #bbfcec;
 }
 
@@ -56,15 +54,35 @@
 .confirm-popup-content {
   font-size: 25px;
   font-weight: bolder;
+  max-height: 250px;
+}
+
+/* ============================> Grid ok layout <============================ */
+.confirm-grid-ok-container {
+  height: 230px;
+  display: grid;
+  grid-template-rows: 30px 200px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.confirm-grid-ok-container .header-block1 {
+  grid-row: 1;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.confirm-grid-ok-container .content-block1 {
+  grid-row: 2;
 }
 
 .confirm-popup-chest-gif {
-  max-height: 80%;
+  height: 210px;
 }
 
-/* ============================> Grid layout <============================ */
+/* ============================> Grid Dialog layout <============================ */
 
-.confirm-grid-container {
+.confirm-grid-upgrade-container {
   height: 230px;
   display: grid;
   grid-template-columns: 19% 30% 32% 19%;
@@ -73,16 +91,17 @@
   font-weight: bolder;
 }
 
-.confirm-grid-container .image-block1 {
+.confirm-grid-upgrade-container .image-block1 {
   grid-column: 2;
   grid-row: 1 / span 3;
 }
 
-.confirm-grid-container .image-block1-chest {
+.confirm-grid-upgrade-container .image-block1-chest {
   max-height: 100%;
+  filter: url('#silhouette');
 }
 
-.confirm-grid-container .content-block1 {
+.confirm-grid-upgrade-container .content-block1 {
   grid-column: 3;
   grid-row: 1;
   color: #217dbb;
@@ -90,23 +109,23 @@
   font-weight: bolder;
 }
 
-.confirm-grid-container .content-block2 {
+.confirm-grid-upgrade-container .content-block2 {
   text-align: left;
   grid-column: 3;
   grid-row: 2;
 }
 
-.confirm-grid-container .content-block3 {
+.confirm-grid-upgrade-container .content-block3 {
   text-align: left;
   grid-column: 3;
   grid-row: 3;
   font-size: 88%;
 }
 
-/* ============================> Grid layout <============================ */
+/* ============================> Grid Dialog layout <============================ */
 
 @media screen and (max-width: 980px) {
-  .confirm-grid-container {
+  .confirm-grid-upgrade-container {
     grid-template-columns: 1% 39% 59% 1%;
     grid-template-rows: repeat(3, 1fr);
     font-size: 23px;
@@ -114,21 +133,21 @@
 }
 
 @media screen and (max-width: 700px) {
-  .confirm-grid-container {
+  .confirm-grid-upgrade-container {
     font-size: 20px;
   }
 
-  .confirm-grid-container .image-block1-chest {
+  .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 78%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .confirm-grid-container {
+  .confirm-grid-upgrade-container {
     grid-template-columns: 1% 1% 97% 1%;
   }
 
-  .confirm-grid-container .image-block1-chest {
+  .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 0;
   }
 

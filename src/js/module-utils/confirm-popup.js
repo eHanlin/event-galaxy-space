@@ -31,15 +31,23 @@ define(['jquery', 'swal'], ($, swal) => {
 
     ok: (title, content, okFn) => {
       return swal({
-        title: title,
-        html: `<span class="confirm-popup-content">${content}</span>`,
+        title: ``,
+        html: `
+          <div class="confirm-grid-ok-container">
+            <div class="header-block1">${title}</div>
+            <div class="content-block1 ">${content}</div>
+          </div> 
+        `,
         allowOutsideClick: false,
         background: 'url(./img/popup/confirm.png) repeat center center / contain',
         width: '100%',
         customClass: 'confirm-popup-modal',
         buttonsStyling: false,
         confirmButtonText: '我瞭解了',
-        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-ok'
+        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-ok',
+        onOpen: () => {
+          $('.swal2-header').remove()
+        }
       }).then((result) => {
         if (result.value && okFn) {
           okFn()
