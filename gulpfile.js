@@ -65,7 +65,7 @@ function buildJS () {
   let deferred = Q.defer()
 
   Q.fcall(function () {
-    return templateUtil.logStream(babelJS(['src/js/*.js']))
+    return templateUtil.logStream(babelJS(['dist/js/*.js']))
   })
     .then(function () {
       return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))
@@ -77,7 +77,7 @@ function buildJS () {
   return deferred.promise
 }
 
-gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
+gulp.task('minifyJs', minifyJs('dist/js/**/*.js'))
 gulp.task('package', function () {
   var deferred = Q.defer()
   Q.fcall(function () {
