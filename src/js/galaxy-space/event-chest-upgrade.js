@@ -47,25 +47,27 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`, {
-            level: upLevel
-          })
+          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {
         let content = jsonData.content
-        let source = content[0].source
-        let gif
+        let memo = content[0].memo
+        let title, gif
+        console.log(memo)
 
-        if (source.indexOf('true') > 0) {
+        if (memo.levelUpSuccess === "ture" > 0) {
+          title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {
+          title = '升級失敗'
           gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
         }
 
-        confirmPopup.ok('升級成功', gif, () => {
+        confirmPopup.ok(title, gif, () => {
           window.location.reload()
         })
+
         targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
         targets.platformChest.attr('class', `chest${upLevel}`)
         targets.upgradeBtn.css('display', 'none')

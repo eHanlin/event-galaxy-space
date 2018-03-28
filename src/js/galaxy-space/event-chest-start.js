@@ -44,7 +44,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
           .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
     }, () => { /* 取消 */ },
       () => {
-        ajax('GET', `http://127.0.0.1:8080/chest/condition/chest${chest.level}`)
+        ajax('GET', `http://localhost:8080/chest/condition/chest${chest.level}`)
           .then(data => {
             let conditions = data.content
             let awards = conditions.content.awards
