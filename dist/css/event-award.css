@@ -1,0 +1,608 @@
+/* ============================> 禮物 <============================ */
+
+.container .chest-award-icon1 {
+  top: 780px;
+  left: 300px;
+}
+
+.container .chest-award-icon2 {
+  top: 780px;
+  left: 900px;
+}
+
+.container .stock-room1 {
+  top: 880px;
+  left: 50px;
+}
+
+.container .stock-room2 {
+  top: 880px;
+  right: 20px;
+}
+
+.container .message1 {
+  color: aliceblue;
+  font-family: "微軟正黑體";
+  font-size: 32px;
+  top: 980px;
+  left: 130px;
+}
+
+.container .message2 {
+  color: aliceblue;
+  font-family: "微軟正黑體";
+  font-size: 32px;
+  top: 980px;
+  right: 60px;
+}
+
+.container .return-btn {
+  top: 1040px;
+  right: 150px;
+  cursor: pointer;
+}
+
+.container .border-box1,
+.container .border-box2,
+.container .border-box3,
+.container .border-box4 {
+  width: 200px;
+  height: 190px;
+}
+
+.container .border-box1 {
+  top: 30px;
+}
+
+.container .border-box2 {
+  top: 30px;
+  left: 250px;
+}
+
+.container .border-box3 {
+  top: 250px;
+}
+
+.container .border-box4 {
+  top: 250px;
+  left: 250px;
+}
+
+.container .border1 {
+  top: 1120px;
+  left: 745px;
+}
+
+.container .border2 {
+  top: 1120px;
+  left: 965px;
+}
+
+.container .border3 {
+  top: 1340px;
+  left: 745px;
+}
+
+.container .border4 {
+  top: 1340px;
+  left: 965px;
+}
+
+.container .award-box .block {
+  top: 1080px;
+  left: 715px;
+}
+
+.container .award-box .block img {
+  width: 75%;
+  left: 25px;
+}
+
+.container .award-box .block span {
+  color: antiquewhite;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  top: 160px;
+  left: 30px;
+}
+
+.container .award-box .block .awardSum {
+  color: antiquewhite;
+  font-family: "微軟正黑體";
+  font-size: 20px;
+  top: 160px;
+  left: 135px;
+}
+
+.container .right:hover,
+.container .left:hover,
+.container .next:hover,
+.container .previous:hover,
+.container .return-btn:hover {
+  opacity: 0.6;
+}
+
+.container .right {
+  top: 1288px;
+  right: 25px;
+  width: 100px;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .left {
+  top: 1288px;
+  right: 520px;
+  width: 100px;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .slide-show {
+  top: 1110px;
+  left: 30px;
+}
+
+.container .slide-show-text {
+  top: 1380px;
+  left: 276px;
+  width: 178px;
+  height: 128px;
+  z-index: 1;
+}
+
+.container .slide-show-text .award {
+  color: black;
+  font-size: 17px;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+.container .slide-show-text .needChestLv {
+  color: black;
+  font-size: 17px;
+  top: 45px;
+  left: 0px;
+  z-index: 1;
+}
+
+.container .slide-show-text .quantity {
+  color: black;
+  font-size: 17px;
+  top: 67.5px;
+  left: 0px;
+  z-index: 1;
+}
+
+.container .slide-show-text .awardNotice {
+  color: brown;
+  font-size: 15px;
+  top: 90px;
+  left: 0px;
+  z-index: 1;
+}
+
+.container .monster {
+  width: 500px;
+  height: 420px;
+  top: 1160px;
+  left: 100px;
+}
+
+.container .next {
+  top: 1120px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .previous {
+  top: 1220px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .service {
+  background: rgb(126, 206, 244, 0.9);
+  border-radius: 300px;
+  top: 1580px;
+  height: 250px;
+  width: 100%;
+}
+
+.container .service .service-message {
+  top: 40px;
+  left: 350px;
+  width: 680px;
+}
+
+.container .service .service-message2 {
+  top: 100px;
+  left: 350px;
+  width: 680px;
+}
+
+.container .service .shareBox {
+  top: 10px;
+  left: 280px;
+  width: 5%;
+  transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+}
+
+.container .service .shareBtn {
+  top: 190px;
+  left: 600px;
+  width: 12%;
+  cursor: pointer;
+}
+
+.container .service .shareBtn:hover {
+  opacity: 0.6;
+}
+
+.container .service .service-message,
+.container .service .service-message2 {
+  color: black;
+  font-size: 20px;
+  font-family: "微軟正黑體";
+}
+
+/* ============================> 禮物 <============================ */
+
+/* ============================================> iPad ============================================>*/
+
+@media screen and (max-width: 1280px) {
+  .container .chest-award-icon1 {
+    top: 650px;
+    left: 220px;
+    width: 6%;
+  }
+  .container .chest-award-icon2 {
+    top: 650px;
+    left: 700px;
+    width: 6%;
+  }
+  .container .stock-room1 {
+    top: 740px;
+    left: 30px;
+    width: 45%;
+  }
+  .container .stock-room2 {
+    top: 740px;
+    right: 30px;
+    width: 45%;
+  }
+  .container .message1 {
+    font-size: 25px;
+    top: 810px;
+    left: 70px;
+  }
+  .container .message2 {
+    font-size: 25px;
+    top: 810px;
+    right: 40px;
+  }
+  .container .return-btn {
+    top: 850px;
+    right: 130px;
+    width: 25%;
+  }
+  .container .border-box1,
+  .container .border-box2,
+  .container .border-box3,
+  .container .border-box4 {
+    width: 176px;
+    height: 170px;
+  }
+  .container .border-box1 {
+    top: 30px;
+  }
+  .container .border-box2 {
+    top: 30px;
+    left: 240px;
+  }
+  .container .border-box3 {
+    top: 245px;
+  }
+  .container .border-box4 {
+    top: 245px;
+    left: 240px;
+  }
+  .container .border1 {
+    top: 920px;
+    left: 535px;
+    width: 20%;
+  }
+  .container .border2 {
+    top: 920px;
+    left: 745px;
+    width: 20%;
+  }
+  .container .border3 {
+    top: 1135px;
+    left: 535px;
+    width: 20%;
+  }
+  .container .border4 {
+    top: 1135px;
+    left: 745px;
+    width: 20%;
+  }
+  .container .award-box .block {
+    top: 880px;
+    left: 510px;
+  }
+  .container .award-box .block img {
+    width: 70%;
+    left: 25px;
+  }
+  .container .award-box .block span,
+  .container .award-box .block .awardSum {
+    top: 140px;
+  }
+  .container .right {
+    top: 1090px;
+    right: -15px;
+    width: 70px;
+    height: 70px;
+  }
+  .container .left {
+    top: 1090px;
+    right: 430px;
+    width: 70px;
+    height: 70px;
+  }
+  .container .slide-show {
+    top: 1020px;
+    left: 10px;
+  }
+  .container .nature {
+    top: -110px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .award {
+    top: -160px;
+    left: -60px;
+    font-size: 17px;
+  }
+  .container .next {
+    top: 920px;
+    left: 390px;
+    width: 80px;
+    height: 80px;
+  }
+  .container .previous {
+    top: 1000px;
+    left: 390px;
+    width: 80px;
+    height: 80px;
+  }
+  .container .slide-show-text {
+    top: 1130px;
+    left: 192px;
+    width: 156px;
+    height: 122px;
+  }
+  .container .slide-show-text .award,
+  .container .slide-show-text .needChestLv,
+  .container .slide-show-text .quantity {
+    font-size: 15px;
+  }
+  .container .slide-show-text .awardNotice {
+    font-size: 12px;
+  }
+  .container .monster {
+    width: 430px;
+    height: 400px;
+    top: 920px;
+    left: 40px;
+  }
+  .container .service {
+    top: 1350px;
+    height: 200px;
+  }
+  .container .service .service-message {
+    top: 30px;
+    left: 305px;
+    font-size: 17px;
+  }
+  .container .service .service-message2 {
+    top: 85px;
+    left: 305px;
+    font-size: 17px;
+    width: 500px;
+  }
+  .container .service .shareBox {
+    top: 10px;
+    left: 250px;
+  }
+  .container .service .shareBtn {
+    top: 150px;
+    left: 460px;
+  }
+}
+
+/* ============================================> iPad ============================================>*/
+
+/* ============================================> iPhone ============================================>*/
+
+@media screen and (max-width: 960px) {
+  .container .chest-award-icon1 {
+    top: 850px;
+    left: 180px;
+    width: 6%;
+  }
+  .container .stock-room1 {
+    top: 880px;
+    left: 100px;
+    width: 50%;
+  }
+  .container .message1 {
+    font-size: 17px;
+    top: 915px;
+    left: 65px;
+  }
+  .container .slide-show {
+    top: 1000px;
+    left: 20px;
+  }
+  .container .nature {
+    top: -40px;
+    width: 100px;
+    height: 100px;
+  }
+  .container .border-box1,
+  .container .border-box2,
+  .container .border-box3,
+  .container .border-box4 {
+    width: 130px;
+    height: 135px;
+  }
+  .container .border-box1 {
+    top: 25px;
+    left: 45px;
+  }
+  .container .border-box2 {
+    top: 25px;
+    left: 210px;
+  }
+  .container .border-box3 {
+    top: 185px;
+    left: 50px;
+  }
+  .container .border-box4 {
+    top: 185px;
+    left: 210px;
+  }
+  .container .border1 {
+    top: 1350px;
+    left: 40px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border2 {
+    top: 1350px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border3 {
+    top: 1515px;
+    left: 40px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .border4 {
+    top: 1515px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
+  }
+  .container .award-box .block {
+    top: 1320px;
+    left: 5px;
+  }
+  .container .award-box .block img {
+    width: 75%;
+    left: 17px;
+  }
+  .container .award-box .block span {
+    font-size: 14px;
+    top: 110px;
+    left: 20px;
+  }
+  .container .award-box .block .awardSum {
+    font-size: 14px;
+    top: 110px;
+    left: 95px;
+  }
+  .container .right {
+    top: 1480px;
+    width: 50px;
+    height: 50px;
+  }
+  .container .left {
+    top: 1480px;
+    right: 320px;
+    width: 50px;
+    height: 50px;
+  }
+  .container .next {
+    top: 945px;
+    left: 260px;
+    width: 60px;
+    height: 60px;
+  }
+  .container .previous {
+    top: 1005px;
+    left: 260px;
+    width: 60px;
+    height: 60px;
+  }
+  .container .slide-show-text {
+    display: none;
+  }
+  .container .monster {
+    width: 250px;
+    height: 200px;
+    top: 990px;
+    left: 65px;
+  }
+  .container .chest-award-icon2 {
+    top: 1200px;
+    left: 180px;
+    width: 6%;
+  }
+  .container .stock-room2 {
+    top: 1230px;
+    left: 100px;
+    width: 50%;
+  }
+  .container .message2 {
+    font-size: 17px;
+    top: 1280px;
+    left: 60px;
+  }
+  .container .return-btn {
+    top: 1320px;
+    right: 115px;
+    width: 35%;
+  }
+  .container .service {
+    top: 1680px;
+    height: 150px;
+  }
+  .container .service .service-message {
+    top: 15px;
+    left: 120px;
+    font-size: 10px;
+  }
+  .container .service .service-message2 {
+    top: 55px;
+    left: 120px;
+    font-size: 10px;
+    width: 200px;
+  }
+  .container .service .shareBox {
+    top: 5px;
+    left: 80px;
+    width: 8%;
+  }
+  .container .service .shareBtn {
+    top: 115px;
+    left: 160px;
+    width: 20%;
+  }
+}
+
+/* ============================================> iPhone ============================================>*/

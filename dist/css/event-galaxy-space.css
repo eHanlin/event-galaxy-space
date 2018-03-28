@@ -1,0 +1,382 @@
+#galaxy-space-body {
+  background-color: #00192D;
+  /* background-color: rgb(75, 109, 137); */
+  height: 1650px;
+}
+
+#galaxy-space-body main {
+  position: absolute;
+}
+
+.container div,
+.container img,
+.container span,
+.container button,
+.container a,
+.container ul,
+.container li,
+.container p {
+  position: absolute;
+}
+
+.horizontal-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container {
+  background: url("../img/space.png") no-repeat;
+  background-size: contain;
+  width: 1280px;
+  height: 800px;
+}
+
+.container .userStatus .name,
+.container .userStatus .studentCard,
+.container .userStatus .phoneCall {
+  color: azure;
+  font-family: "微軟正黑體";
+  font-size: 18px;
+}
+
+.container .userStatus .meteor1 {
+  left: 900px;
+  top: 8px;
+  height: 45px;
+  width: 110px;
+}
+
+.container .userStatus .meteor2 {
+  left: 900px;
+  top: 38px;
+  height: 45px;
+  width: 110px;
+}
+
+.container .userStatus .name {
+  left: 1020px;
+  top: 25px;
+  width: 50px;
+}
+
+.container .userStatus .studentCard {
+  left: 920px;
+  top: 25px;
+  width: 50px;
+}
+
+.container .userStatus .phoneCall {
+  left: 920px;
+  top: 55px;
+  width: 300px;
+}
+
+.container .logo {
+  width: 24%;
+  left: 30px;
+  top: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .logo_375 {
+  width: 13.4%;
+  left: 29px;
+  top: 21.5px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .logoFlag {
+  width: 28%;
+  left: 300px;
+  top: 25px;
+  transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
+}
+
+.container .activity:hover,
+.container .bank:hover,
+.container .my-class:hover,
+.container .free:hover,
+.container .fb:hover,
+.container .line:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.container .activity {
+  width: 10%;
+  right: 550px;
+  top: 105px;
+}
+
+.container .bank {
+  width: 10%;
+  right: 390px;
+  top: 120px;
+}
+
+.container .my-class {
+  width: 10%;
+  right: 230px;
+  top: 105px;
+}
+
+.container .free {
+  width: 10%;
+  right: 70px;
+  top: 120px;
+}
+
+.container .fb {
+  width: 4%;
+  right: 5px;
+  top: 35px;
+  transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
+}
+
+.container .line {
+  width: 4%;
+  right: 5px;
+  top: 110px;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg)
+}
+
+.container .event-text {
+  top: 100px;
+  left: 32px;
+  width: 25%;
+}
+
+.container .display-coins {
+  left: 50px;
+  top: 200px;
+}
+
+.container .display-gems {
+  left: 290px;
+  top: 202px;
+}
+
+.container .totalAssets #coins {
+  color: maroon;
+  font-size: 22px;
+  font-family: "微軟正黑體";
+  left: 120px;
+  top: 216px;
+}
+
+.container .totalAssets #gems {
+  color: maroon;
+  font-size: 22px;
+  font-family: "微軟正黑體";
+  left: 360px;
+  top: 216px;
+}
+
+/* ============================================> iPad ============================================>*/
+
+@media screen and (max-width: 1280px) {
+  #galaxy-space-body {
+    height: 1500px;
+  }
+  .container {
+    width: 980px;
+  }
+  .container .userStatus .name {
+    font-size: 16px;
+    left: 760px;
+    top: 25px;
+    width: 50px;
+  }
+  .container .userStatus .studentCard {
+    font-size: 16px;
+    left: 670px;
+    top: 25px;
+    width: 50px;
+  }
+  .container .userStatus .phoneCall {
+    font-size: 16px;
+    top: 55px;
+    left: 670px;
+  }
+  .container .userStatus .meteor1 {
+    left: 650px;
+  }
+  .container .userStatus .meteor2 {
+    left: 650px;
+  }
+  .container .logo {
+    width: 23%;
+  }
+  .container .logo_375 {
+    width: 13%;
+    left: 29px;
+    top: 21.5px;
+  }
+  .container .logoFlag {
+    width: 25%;
+    left: 255px;
+    top: 30px;
+  }
+  .container .fb {
+    width: 4%;
+    top: 20px;
+  }
+  .container .line {
+    width: 4%;
+    top: 80px;
+  }
+  .container .activity,
+  .container .bank,
+  .container .my-class,
+  .container .free {
+    width: 10%;
+  }
+  .container .activity {
+    right: 420px;
+  }
+  .container .my-class {
+    right: 180px;
+  }
+  .container .bank {
+    right: 300px;
+  }
+  .container .display-coins {
+    left: 40px;
+    top: 170px;
+    width: 180px;
+  }
+  .container .display-gems {
+    left: 270px;
+    top: 172px;
+    width: 180px;
+  }
+  .container .totalAssets #coins {
+    font-size: 21px;
+    left: 110px;
+    top: 186px;
+  }
+  .container .totalAssets #gems {
+    font-size: 21px;
+    left: 340px;
+    top: 186px;
+  }
+}
+
+/* ============================================> iPad ============================================>*/
+
+/* ============================================> iPhone ============================================>*/
+
+@media screen and (max-width: 960px) {
+  #galaxy-space-body {
+    height: 1700px;
+  }
+  .container {
+    width: 375px;
+  }
+  .container .userStatus .name {
+    font-size: 12px;
+    top: 22px;
+    left: 265px;
+  }
+  .container .userStatus .studentCard {
+    font-size: 12px;
+    top: 22px;
+    left: 205px;
+  }
+  .container .userStatus .phoneCall {
+    font-size: 12px;
+    top: 42px;
+    left: 205px;
+  }
+  .container .userStatus .meteor1 {
+    width: 90px;
+    height: 35px;
+    left: 190px;
+    top: 8px;
+  }
+  .container .userStatus .meteor2 {
+    width: 90px;
+    height: 35px;
+    left: 190px;
+    top: 30px;
+  }
+  .container .logo {
+    display: none;
+  }
+  .container .logo_375 {
+    width: 38%;
+    left: 20px;
+    top: 10px;
+  }
+  .container .logoFlag {
+    width: 50%;
+    left: 100px;
+    top: 60px;
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+  }
+  .container .fb {
+    top: 105px;
+    left: 310px;
+    width: 8%;
+  }
+  .container .line {
+    top: 145px;
+    width: 8%;
+  }
+  .container .bank,
+  .container .my-class {
+    width: 20%;
+  }
+  .container .activity {
+    width: 23%;
+    left: 30px;
+    top: 120px;
+    transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
+  }
+  .container .bank {
+    left: 130px;
+    top: 130px;
+    transform: rotate(-8deg);
+    -webkit-transform: rotate(-8deg);
+  }
+  .container .my-class {
+    left: 220px;
+    top: 120px;
+  }
+  .container .free {
+    display: none;
+  }
+  .container .event-text {
+    display: none;
+  }
+  .container .display-coins {
+    left: 60px;
+    top: 230px;
+    width: 120px;
+  }
+  .container .display-gems {
+    left: 220px;
+    top: 230px;
+    width: 120px;
+  }
+  .container .totalAssets #coins {
+    font-size: 18px;
+    left: 102px;
+    top: 237px;
+  }
+  .container .totalAssets #gems {
+    font-size: 18px;
+    left: 262px;
+    top: 237px;
+  }
+}
+
+/* ============================================> iPhone ============================================>*/

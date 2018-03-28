@@ -1,0 +1,163 @@
+.confirm-popup-modal {
+  height: 390px;
+}
+
+.confirm-popup-warning {
+  color: red;
+}
+
+.confirm-popup-info {
+  color: #217dbb;
+}
+
+.confirm-popup-btn {
+  border-radius: 5px;
+  margin-right: 20px;
+  color: #604417;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 5px 50px;
+  border: solid #604417 2px;
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.confirm-popup-btn-dialog {
+  margin-top: 0;
+  background: #fff79e;
+}
+
+.confirm-popup-btn-ok {
+  background: #fff79e;
+}
+
+.confirm-popup-btn-dialog:hover,
+.confirm-popup-btn-ok:hover {
+  background: #604417;
+  color: #ffffff;
+  border: solid #fff79e 2px;
+  text-decoration: none;
+}
+
+.confirm-popup-btn-cancel {
+  background: #bbfcec;
+}
+
+.confirm-popup-btn-cancel:hover {
+  background: #604417;
+  color: #ffffff;
+  border: solid #bbfcec 2px;
+  text-decoration: none;
+}
+
+.confirm-popup-content {
+  font-size: 25px;
+  font-weight: bolder;
+  max-height: 250px;
+}
+
+/* ============================> Grid ok layout <============================ */
+.confirm-grid-ok-container {
+  height: 230px;
+  display: grid;
+  grid-template-rows: 30px 200px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.confirm-grid-ok-container .header-block1 {
+  grid-row: 1;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.confirm-grid-ok-container .content-block1 {
+  grid-row: 2;
+}
+
+.confirm-popup-chest-gif {
+  height: 210px;
+}
+
+/* ============================> Grid Dialog layout <============================ */
+
+.confirm-grid-upgrade-container {
+  height: 230px;
+  display: grid;
+  grid-template-columns: 19% 30% 32% 19%;
+  grid-template-rows: repeat(3, 1fr);
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+.confirm-grid-upgrade-container .image-block1 {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+}
+
+.confirm-grid-upgrade-container .image-block1-chest {
+  max-height: 100%;
+  filter: url('#silhouette');
+}
+
+.confirm-grid-upgrade-container .content-block1 {
+  grid-column: 3;
+  grid-row: 1;
+  color: #217dbb;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+.confirm-grid-upgrade-container .content-block2 {
+  text-align: left;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.confirm-grid-upgrade-container .content-block3 {
+  text-align: left;
+  grid-column: 3;
+  grid-row: 3;
+  font-size: 88%;
+}
+
+/* ============================> Grid Dialog layout <============================ */
+
+@media screen and (max-width: 980px) {
+  .confirm-grid-upgrade-container {
+    grid-template-columns: 1% 39% 59% 1%;
+    grid-template-rows: repeat(3, 1fr);
+    font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .confirm-grid-upgrade-container {
+    font-size: 20px;
+  }
+
+  .confirm-grid-upgrade-container .image-block1-chest {
+    max-height: 78%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .confirm-grid-upgrade-container {
+    grid-template-columns: 1% 1% 97% 1%;
+  }
+
+  .confirm-grid-upgrade-container .image-block1-chest {
+    max-height: 0;
+  }
+
+  .confirm-popup-btn {
+    border-radius: 5px;
+    margin-top: 0;
+    margin-right: 5px;
+    color: #604417;
+    font-size: 19px;
+    font-weight: bolder;
+    padding: 5px 25px;
+  }
+}
