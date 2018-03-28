@@ -58,14 +58,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let source = content[0].source
         console.log(source)
         let gif
-        if (source.indexOf('true') > 0)
+        if (source.indexOf('true') > 0) {
           gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
-        else
+        } else {
           gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
+        }
 
         confirmPopup.ok('升級成功', gif)
         targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
-        targets.platformChest.attr('title', `chest${upLevel}`)
         targets.platformChest.attr('class', `chest${upLevel}`)
       })
   }

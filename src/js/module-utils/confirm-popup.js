@@ -1,6 +1,6 @@
 define(['jquery', 'swal'], ($, swal) => {
   return {
-    dialog: (content, okFn, cancelFn) => {
+    dialog: (content, okFn, cancelFn, onOpenFn) => {
       return swal({
         title: '',
         html: content,
@@ -17,6 +17,9 @@ define(['jquery', 'swal'], ($, swal) => {
         reverseButtons: true,
         onOpen: () => {
           $('.swal2-header').remove()
+          if (onOpenFn) {
+            onOpenFn()
+          }
         }
       }).then((result) => {
         if (result.value && okFn) {
@@ -51,34 +54,6 @@ define(['jquery', 'swal'], ($, swal) => {
       }).then((result) => {
         if (result.value && okFn) {
           okFn()
-        }
-      })
-    },
-
-    startDialog: (content, okFn, cancelFn) => {
-      return swal({
-        html: content,
-        showCancelButton: true,
-        allowOutsideClick: false,
-        background: 'url(./img/popup/confirm.png) repeat center center / contain',
-        width: '100%',
-        customClass: 'confirm-popup-modal',
-        buttonsStyling: false,
-        confirmButtonText: '確定',
-        confirmButtonClass: 'confirm-popup-btn confirm-popup-btn-dialog',
-        cancelButtonText: '我再想想',
-        cancelButtonClass: 'confirm-popup-btn confirm-popup-btn-cancel',
-        reverseButtons: true,
-        onOpen: () => {
-          console.log('onOpen()')
-        }
-      }).then((result) => {
-        if (result.value && okFn) {
-          okFn()
-        } else if (result.dismiss === swal.DismissReason.cancel) {
-          if (cancelFn) {
-            cancelFn()
-          }
         }
       })
     }
