@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const templateUtil = require('gulp-template-util')
+const replace = require('gulp-replace')
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify-es').default
 const del = require('del')
@@ -77,6 +78,19 @@ function buildJS () {
   return deferred.promise
 }
 
+function devToTest () {
+  return gulp
+    .src(['src/js/**/*.js'])
+    .pipe(
+      replace('http://localhost:8080', function () {
+        let dev = 'http://test.ehanlin.com.tw'
+        return dev
+      })
+    )
+    .pipe(gulp.dest('src'))
+}
+
+gulp.task('devToTest', devToTest)
 gulp.task('minifyJs', minifyJs('dist/js/**/*.js'))
 gulp.task('package', function () {
   var deferred = Q.defer()
