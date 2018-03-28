@@ -1,7 +1,7 @@
 #!/bin/bash
 test="http://test.ehanlin.com.tw/event/api/Deploy"
 production="http://www.ehanlin.com.tw/event/api/Deploy"
-repository="{\"Repository\":\"event-galaxy-space\",\"Tag\":\"${TRAVIS_TAG}\",\"Owner\":\"eHanlin\",\"Password\":\"${EHANLIN_PW}\",\"Name\":\"galaxy-space\"}"
+repository="{\"Repository\":\"event-galaxy-space\",\"Tag\":\"${TRAVIS_TAG}\",\"Owner\":\"eHanlin\",\"Password\":\"${EHANLIN_PW}\",\"Name\":\"galaxySpace\"}"
 contentTypeJson="Content-Type: application/json"
 
 case "${TRAVIS_TAG}" in
