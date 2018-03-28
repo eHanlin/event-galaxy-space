@@ -1,9 +1,1 @@
-define(['jquery', 'ajax', 'eventStatusDo'], ($, ajax, eventStatusDo) => {
-  return (chest, targets) => {
-    let statusData = {
-      status: 'READY'
-    }
-    ajax('PUT', `http://localhost:8080/chest/status/${chest.id}`, statusData)
-      .then(eventStatusDo.ready.bind(eventStatusDo.ready, chest, targets))
-  }
-})
+define(["jquery","ajax","eventStatusDo"],($,ajax,eventStatusDo)=>(chest,targets)=>{ajax("PUT",`http://localhost:8080/chest/status/${chest.id}`,{status:"READY"}).then(eventStatusDo.ready.bind(eventStatusDo.ready,chest,targets))});
