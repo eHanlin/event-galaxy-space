@@ -83,11 +83,21 @@ function devToTest () {
     .src(['src/js/**/*.js'])
     .pipe(
       replace('http://localhost:8080', function () {
-        let dev = 'http://test.ehanlin.com.tw'
+        let dev = 'https://test.ehanlin.com.tw'
         return dev
       })
     )
-    .pipe(gulp.dest('src'))
+    .pipe(
+      replace('http://localhost:9090', function () {
+        let dev = 'https://test.ehanlin.com.tw'
+        return dev
+      })
+    )
+    .pipe(replace('http://127.0.0.1:8080', function () {
+      let dev = 'https://test.ehanlin.com.tw'
+      return dev
+    }))
+    .pipe(gulp.dest('src/js'))
 }
 
 gulp.task('devToTest', devToTest)

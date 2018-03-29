@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
   eventChestUpgrade.tip = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
+    ajax('GET', `https://test.ehanlin.com.tw/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let needCoins = data['coins']
@@ -39,7 +39,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
   eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
-    ajax('GET', `http://localhost:8080/chest/checkBalance/level${upLevel}`, null)
+    ajax('GET', `https://test.ehanlin.com.tw/chest/checkBalance/level${upLevel}`, null)
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
@@ -47,7 +47,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`, {
+          return ajax('PUT', `https://test.ehanlin.com.tw/currencyBank/chest/levelUp/${chest.id}`, {
             level: upLevel
           })
         }

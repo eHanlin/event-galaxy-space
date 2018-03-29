@@ -1,1 +1,13 @@
-define(["require","jquery","eventStatusDo"],(require,$,eventStatusDo)=>(chest,targets)=>{"LOCKED"===chest.status?eventStatusDo.locked(chest,targets):"UNLOCKING"===chest.status?eventStatusDo.unLocking(chest,targets):"READY"===chest.status?eventStatusDo.ready(chest,targets):"OPEN"===chest.status&&eventStatusDo.open(chest,targets)});
+define(['require', 'jquery', 'eventStatusDo'], (require, $, eventStatusDo) => {
+  return (chest, targets) => {
+    if (chest.status === 'LOCKED') {
+      eventStatusDo.locked(chest, targets)
+    } else if (chest.status === 'UNLOCKING') {
+      eventStatusDo.unLocking(chest, targets)
+    } else if (chest.status === 'READY') {
+      eventStatusDo.ready(chest, targets)
+    } else if (chest.status === 'OPEN') {
+      eventStatusDo.open(chest, targets)
+    }
+  }
+})
