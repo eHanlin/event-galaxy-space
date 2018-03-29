@@ -1,6 +1,9 @@
 define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', '/ms-user-status/userStatus')
+  console.log('============ 1 ============')
+  ajax('GET', 'https://test.ehanlin.com.tw/ms-user-status/userStatus')
     .then((data) => {
+      console.log('============ 2 ============')
       console.log(data)
+      console.log('============ 2 ============')
     })
 })
