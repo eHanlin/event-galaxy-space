@@ -5,7 +5,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       let studentCard = data.studentCard
 
       console.log('========= 我就是id ========')
-      console.log(data)
+      console.log(data.id)
       console.log('========= 我就是id ========')
       $('.userStatus .name').append(`${name}`)
       $('.userStatus .studentCard').append(`${studentCard}`)
