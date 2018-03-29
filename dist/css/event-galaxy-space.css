@@ -26,7 +26,7 @@
 }
 
 .container {
-  background: url(".https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/space.png") no-repeat;
+  background: url("https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/space.png") no-repeat;
   background-size: contain;
   width: 1280px;
   height: 800px;

@@ -20,16 +20,16 @@ function copyStaticTask (destination) {
   return function () {
     return gulp
       .src(
-        [
-          'src/*.html',
-          'src/js/**/*.js',
-          'src/img/**/*.png',
-          'src/img/**/*.gif',
-          'src/img/**/*.svg',
-          'src/css/**/*.css'
-        ], {
-          base: 'src'
-        }
+      [
+        'src/*.html',
+        'src/js/**/*.js',
+        'src/img/**/*.png',
+        'src/img/**/*.gif',
+        'src/img/**/*.svg',
+        'src/css/**/*.css'
+      ], {
+        base: 'src'
+      }
       )
       .pipe(gulp.dest(destination))
   }
@@ -64,7 +64,9 @@ function minifyImage (sourceImage) {
     return gulp
       .src(sourceImage, basePath)
       .pipe(cache(imageMin({
-        use: [pngquant({speed: 7})]
+        use: [pngquant({
+          speed: 7
+        })]
       })))
       .pipe(gulp.dest(dist))
   }
