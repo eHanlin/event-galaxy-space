@@ -44,7 +44,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
   require(['eventGalaxySpace'])
   require(['eventClickLink'])
 
-  ajax('GET', '/chest')
+  ajax('GET', `/chest/`)
     .then(data => {
       let chests = data.content
       for (let index in chests) {

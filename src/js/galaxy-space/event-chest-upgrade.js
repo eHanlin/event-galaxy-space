@@ -48,6 +48,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let memo = content[0].memo
         let title, gif
 
+        console.log(memo)
+        console.log(memo.levelUpSuccess)
         if (memo.levelUpSuccess === "true") {
           title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`

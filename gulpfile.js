@@ -125,14 +125,14 @@ function buildEnvToDev () {
       base: './'
     })
     .pipe(
-      replace(/[`]\/(chest)\/([\w-/${.}]+)`/g, function (match, p1, p2) {
+      replace(/[`]\/(chest)\/([\w-/${.}]*)`/g, function (match, p1, p2) {
         let dev = `\`http://localhost:8080/${p1}/${p2}\``
         console.log(`chest domain => ${match} to ${dev}`)
         return dev
       })
     )
     .pipe(
-      replace(/[`]\/(currencyBank)\/([\w-/${.}]+)`/g, function (match, p1, p2) {
+      replace(/[`]\/(currencyBank)\/([\w-/${.}]*)`/g, function (match, p1, p2) {
         let dev = `\`http://localhost:9090/${p1}/${p2}\``
         console.log(`currencyBank domain => ${match} to ${dev}`)
         return dev
