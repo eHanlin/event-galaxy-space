@@ -67,6 +67,7 @@
   top: 25px;
   width: 50px;
   cursor: pointer;
+  z-index: 1;
 }
 
 .container .userStatus .logout {

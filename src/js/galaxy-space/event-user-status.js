@@ -12,13 +12,17 @@ define(['jquery', 'ajax'], ($, ajax) => {
       $('.userStatus .logout').append(`登出`)
     })
 
+  $('.userStatus .logout').on('click', () => {
+    ajax('PUT', 'https://test.ehanlin.com.tw/Users/521d946be4b0d765448570bd/!logout')
+      .then(() => {
+        window.location = 'https://' + window.location.hostname
+      })
+  })
+
   $('.userStatus .name').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
   })
   $('.userStatus .studentCard').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
-  })
-  $('.userStatus .logout').on('click', () => {
-
   })
 })
