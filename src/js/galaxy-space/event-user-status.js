@@ -7,6 +7,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log('========= 我就是id ========')
       console.log(data.id)
       console.log('========= 我就是id ========')
+      console.log(`ex: ${data.id} 加e幣寶石或寶箱`)
 
       $('.userStatus .login').css('display', 'none')
       $('.userStatus .name').append(`${name}`)
@@ -26,5 +27,8 @@ define(['jquery', 'ajax'], ($, ajax) => {
   })
   $('.userStatus .studentCard').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
+  })
+  $('.userStatus .login').on('click', () => {
+    window.location.href = '/Users/login.html'
   })
 })

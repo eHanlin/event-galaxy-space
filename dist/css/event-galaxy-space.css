@@ -35,7 +35,8 @@
 .container .userStatus .name,
 .container .userStatus .studentCard,
 .container .userStatus .phoneCall,
-.container .userStatus .logout {
+.container .userStatus .logout,
+.container .userStatus .login {
   color: azure;
   font-family: "微軟正黑體";
   font-size: 18px;
