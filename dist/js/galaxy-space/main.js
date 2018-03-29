@@ -27,7 +27,8 @@ require.config({
     eventChestReady: ['./event-chest-ready'],
     eventChestOpenNow: ['./event-chest-open-now'],
     eventStatusDo: ['./event-status-do'],
-    eventCountUp: ['./event-count-up']
+    eventCountUp: ['./event-count-up'],
+    eventUserStatus: ['./event-user-status']
   },
 
   map: {
@@ -43,6 +44,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
   require(['eventAward'])
   require(['eventGalaxySpace'])
   require(['eventClickLink'])
+  require(['eventUserStatus'])
 
   ajax('GET', '/chest')
     .then(data => {
