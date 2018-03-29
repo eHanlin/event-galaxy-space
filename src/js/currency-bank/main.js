@@ -1,7 +1,7 @@
 require(['config'], () => {
   require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], $ => {
     require(['ajax'], ajax => {
-      ajax('GET', 'https://test.ehanlin.com.tw/currencyBank/transaction')
+      ajax('GET', '/currencyBank/transaction')
         .then((jsonData) => {
           return jsonData.content
         })

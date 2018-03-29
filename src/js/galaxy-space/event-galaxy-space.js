@@ -1,5 +1,5 @@
 define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', 'https://test.ehanlin.com.tw/currencyBank/totalAssets/one')
+  ajax('GET', '/currencyBank/totalAssets/one')
     .then(data => {
       $('#coins').append(data.content.coins)
       $('#gems').append(data.content.gems)

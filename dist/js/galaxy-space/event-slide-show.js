@@ -1,5 +1,5 @@
 define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
-  ajax('GET', `https://test.ehanlin.com.tw/chest/award/conditions`)
+  ajax('GET', `/chest/award/conditions`)
     .then(data => {
       let awards = data.content
       for (let index in awards) {

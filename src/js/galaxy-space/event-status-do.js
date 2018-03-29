@@ -15,7 +15,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log('UNLOCKING')
       $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')
 
-      ajax('GET', `https://test.ehanlin.com.tw/chest/coolDownTime/${chest.id}`)
+      ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
           targets.startBtn.css('display', 'none')
