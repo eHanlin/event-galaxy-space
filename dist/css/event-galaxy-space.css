@@ -182,7 +182,7 @@
   top: 202px;
 }
 
-.container .totalAssets #coins {
+.container .total-assets #coins {
   color: maroon;
   font-size: 22px;
   font-family: "微軟正黑體";
@@ -190,7 +190,7 @@
   top: 216px;
 }
 
-.container .totalAssets #gems {
+.container .total-assets #gems {
   color: maroon;
   font-size: 22px;
   font-family: "微軟正黑體";
@@ -288,12 +288,12 @@
     top: 172px;
     width: 180px;
   }
-  .container .totalAssets #coins {
+  .container .total-assets #coins {
     font-size: 21px;
     left: 110px;
     top: 186px;
   }
-  .container .totalAssets #gems {
+  .container .total-assets #gems {
     font-size: 21px;
     left: 340px;
     top: 186px;
@@ -409,12 +409,12 @@
     top: 230px;
     width: 120px;
   }
-  .container .totalAssets #coins {
+  .container .total-assets #coins {
     font-size: 18px;
     left: 102px;
     top: 237px;
   }
-  .container .totalAssets #gems {
+  .container .total-assets #gems {
     font-size: 18px;
     left: 262px;
     top: 237px;

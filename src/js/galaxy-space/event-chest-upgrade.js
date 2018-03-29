@@ -45,6 +45,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
       })
       .then(jsonData => {
         let content = jsonData.content
+        let memo
+        let title, gif
         console.log(content)
         if (content.isActivation && content.isActivation === 'false') {
           confirmPopup.ok('Oooooops 非正式會員喔',
@@ -54,9 +56,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
         }
 
-        let memo = content[0].memo
-        let title, gif
-
+        memo = content[0].memo
         if (memo.levelUpSuccess === 'true') {
           title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
