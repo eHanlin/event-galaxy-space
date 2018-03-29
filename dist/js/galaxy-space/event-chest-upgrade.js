@@ -50,17 +50,17 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
         if (memo.levelUpSuccess === "true") {
           title = '升級成功'
-          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+          gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {
           title = '升級失敗'
-          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
+          gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
         }
 
         confirmPopup.ok(title, gif, () => {
           window.location.reload()
         })
 
-        targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
+        targets.platformChest.attr('src', `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png`)
         targets.platformChest.attr('class', `chest${upLevel}`)
         targets.upgradeBtn.css('display', 'none')
         targets.startBtn.css('left', '27%')

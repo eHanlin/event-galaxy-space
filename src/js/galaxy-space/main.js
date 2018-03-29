@@ -53,7 +53,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
 
         targets.platform = $(`.platform-${chest.colorPlatform}`)
         targets.platform
-          .append(`<img class="chest${chest.level}" src="./img/chest/chest${chest.level}.png">`)
+          .append(`<img class="chest${chest.level}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-spachttps://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${chest.level}.png">`)
 
         targets.countdown = $(`.platform-${chest.colorPlatform} .countdown`)
         targets.startBtn = $(`.platform-${chest.colorPlatform} .start-btn`)
