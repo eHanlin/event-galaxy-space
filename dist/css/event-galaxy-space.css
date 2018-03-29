@@ -66,6 +66,12 @@
   width: 50px;
 }
 
+.container .userStatus .logout {
+  left: 1120px;
+  top: 25px;
+  width: 50px;
+}
+
 .container .userStatus .phoneCall {
   left: 920px;
   top: 55px;
@@ -199,6 +205,12 @@
     top: 25px;
     width: 50px;
   }
+  .container .userStatus .logout {
+    font-size: 16px;
+    left: 860px;
+    top: 25px;
+    width: 50px;
+  }
   .container .userStatus .phoneCall {
     font-size: 16px;
     top: 55px;
@@ -288,6 +300,11 @@
     font-size: 12px;
     top: 22px;
     left: 205px;
+  }
+  .container .userStatus .logout {
+    font-size: 12px;
+    top: 22px;
+    left: 325px;
   }
   .container .userStatus .phoneCall {
     font-size: 12px;

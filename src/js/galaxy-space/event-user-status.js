@@ -4,7 +4,11 @@ define(['jquery', 'ajax'], ($, ajax) => {
       let name = data.name
       let studentCard = data.studentCard
 
+      console.log('========= 我就是id ========')
+      console.log(data)
+      console.log('========= 我就是id ========')
       $('.userStatus .name').append(`${name}`)
       $('.userStatus .studentCard').append(`${studentCard}`)
+      $('.userStatus .logout').append(`登出`)
     })
 })
