@@ -63,11 +63,18 @@
   cursor: pointer;
 }
 
-.container .userStatus .studentCard,
-.container .userStatus .login {
+.container .userStatus .studentCard {
   left: 920px;
   top: 25px;
   width: 50px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.container .userStatus .login {
+  left: 920px;
+  top: 25px;
+  width: 100px;
   cursor: pointer;
   z-index: 1;
 }
@@ -206,12 +213,17 @@
     top: 25px;
     width: 50px;
   }
-  .container .userStatus .studentCard,
-  .container .userStatus .login {
+  .container .userStatus .studentCard {
     font-size: 16px;
     left: 670px;
     top: 25px;
     width: 50px;
+  }
+  .container .userStatus .login {
+    font-size: 16px;
+    left: 670px;
+    top: 25px;
+    width: 80px;
   }
   .container .userStatus .logout {
     font-size: 16px;
@@ -304,7 +316,11 @@
     top: 22px;
     left: 265px;
   }
-  .container .userStatus .studentCard,
+  .container .userStatus .studentCard {
+    font-size: 12px;
+    top: 22px;
+    left: 205px;
+  }
   .container .userStatus .login {
     font-size: 12px;
     top: 22px;
