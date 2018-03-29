@@ -34,7 +34,8 @@
 
 .container .userStatus .name,
 .container .userStatus .studentCard,
-.container .userStatus .phoneCall {
+.container .userStatus .phoneCall,
+.container .userStatus .logout {
   color: azure;
   font-family: "微軟正黑體";
   font-size: 18px;
@@ -67,7 +68,7 @@
 }
 
 .container .userStatus .logout {
-  left: 1120px;
+  left: 1100px;
   top: 25px;
   width: 50px;
 }
@@ -207,7 +208,7 @@
   }
   .container .userStatus .logout {
     font-size: 16px;
-    left: 860px;
+    left: 840px;
     top: 25px;
     width: 50px;
   }
@@ -304,7 +305,7 @@
   .container .userStatus .logout {
     font-size: 12px;
     top: 22px;
-    left: 325px;
+    left: 315px;
   }
   .container .userStatus .phoneCall {
     font-size: 12px;
