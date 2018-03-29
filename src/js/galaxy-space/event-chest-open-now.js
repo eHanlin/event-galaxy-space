@@ -5,7 +5,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
       .then(data => {
         seconds = data.content
 
-        console.log(seconds)
         return ajax('GET', `https://test.ehanlin.com.tw/chest/condition/openImmediately`)
       }).then(data => {
         let openImmediatelyData = data.content
