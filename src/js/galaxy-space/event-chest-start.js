@@ -17,11 +17,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
           </div>
 
           <div class="img-block-left-btn">
-            <img class="left-btn" src="./img/previous.png">
+            <img class="left-btn" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/previous.png">
           </div>
 
           <div class="img-block-right-btn">
-            <img class="right-btn" src="./img/next.png">
+            <img class="right-btn" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/next.png">
           </div>
 
           <div class="content-block4">
@@ -64,23 +64,23 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
 
               if (awardIndex < 5) {
                 awardsImg1 += `
-                  <img class="img-award${awardIndex}" src="./img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock1 = `<div class="img-block-award block1">${awardsImg1}</div>`
               } else if (awardIndex >= 5 && awardIndex < 10) {
                 awardsImg2 += `
-                  <img class="img-award${awardIndex}" src="./img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock2 = `<div class="img-block-award block2">${awardsImg2}</div>`
               } else if (awardIndex >= 10 && awardIndex < 15) {
                 awardsImg3 += `
-                  <img class="img-award${awardIndex}" src="./img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock3 = `<div class="img-block-award block3">${awardsImg3}</div>`
               } else if (awardIndex >= 15 && awardIndex < 20) {
                 awardsImg4 += `
-                  <img class="img-award${awardIndex}" src="./img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock4 = `<div class="img-block-award block4">${awardsImg4}</div>`
               } else if (awardIndex >= 20 && awardIndex < 25) {
                 awardsImg5 += `
-                  <img class="img-award${awardIndex}" src="./img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock5 = `<div class="img-block-award block5">${awardsImg5}</div>`
               }
             }

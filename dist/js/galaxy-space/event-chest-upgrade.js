@@ -13,7 +13,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="./img/chest/chest${upLevel}.png">
+              <img class="image-block1-chest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
