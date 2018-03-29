@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
   eventChestUpgrade.tip = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `/chest/condition/level${upLevel}`, null)
+    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let needCoins = data['coins']
@@ -32,7 +32,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
   eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
-    ajax('GET', `/chest/checkBalance/level${upLevel}`, null)
+    ajax('GET', `http://localhost:8080/chest/checkBalance/level${upLevel}`, null)
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
@@ -40,17 +40,24 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
+          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {
         let content = jsonData.content
+        console.log(content)
+        if (content.isActivation && content.isActivation === 'false') {
+          confirmPopup.ok('Oooooops 非正式會員喔',
+            ` 試用會員無法升級囉！
+              趕快開通課程，開高級寶箱吧 <a href="https://test.ehanlin.com.tw/courses_map.html"></a>`)
+        } else if (content.isLevelUpSucceeded && content.isLevelUpSucceeded === 'true') {
+          confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
+        }
+
         let memo = content[0].memo
         let title, gif
 
-        console.log(memo)
-        console.log(memo.levelUpSuccess)
-        if (memo.levelUpSuccess === "true") {
+        if (memo.levelUpSuccess === 'true') {
           title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {
@@ -58,7 +65,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
         }
 
-        confirmPopup.ok(title, gif, () => {
+        confirmPopup.gifImage(title, gif, () => {
           window.location.reload()
         })
 

@@ -40,11 +40,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
     }
 
     confirmPopup.dialog(content, () => {
-      ajax('PUT', `/chest/status/${chest.id}`, statusData)
+      ajax('PUT', `http://localhost:8080/chest/status/${chest.id}`, statusData)
           .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
     }, () => { /* 取消 */ },
       () => {
-        ajax('GET', `/chest/condition/chest${chest.level}`)
+        ajax('GET', `http://localhost:8080/chest/condition/chest${chest.level}`)
           .then(data => {
             let conditions = data.content
             let awards = conditions.content.awards

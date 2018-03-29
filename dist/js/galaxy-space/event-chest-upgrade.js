@@ -37,7 +37,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
           let title = 'Oooooops 餘額不足喔！'
-          confirmPopup.ok(title, insufficientMessage)
+          confirmPopup.gifImage(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
           return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
@@ -58,7 +58,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
         }
 
-        confirmPopup.ok(title, gif, () => {
+        confirmPopup.gifImage(title, gif, () => {
           window.location.reload()
         })
 

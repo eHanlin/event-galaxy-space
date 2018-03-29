@@ -1,12 +1,9 @@
-define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', '/currencyBank/totalAssets/one')
+define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {
+  ajax('GET', `/currencyBank/totalAssets/one`)
     .then(data => {
-      $('#coins').append(data.content.coins)
-      $('#gems').append(data.content.gems)
+      let finalCoins = data.content.coins
+      let finalGems = data.content.gems
+      eventCountUp('coins', 0, finalCoins)
+      eventCountUp('gems', 0, finalGems)
     })
-
-  // ajax('GET', 'https://www.ehanlin.com.tw/ms-user-status/userStatus')
-  //   .then(data => {
-  //     console.log(data)
-  //   })
 })

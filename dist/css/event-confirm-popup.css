@@ -28,13 +28,13 @@
   background: #fff79e;
 }
 
-.confirm-popup-btn-ok {
+.confirm-popup-btn-gif {
   margin-top: 1px;
   background: #fff79e;
 }
 
 .confirm-popup-btn-dialog:hover,
-.confirm-popup-btn-ok:hover {
+.confirm-popup-btn-gif:hover {
   background: #604417;
   color: #ffffff;
   border: solid #fff79e 2px;
@@ -59,7 +59,7 @@
 }
 
 /* ============================> Grid ok layout <============================ */
-.confirm-grid-ok-container {
+.confirm-grid-gif-container {
   height: 235px;
   display: grid;
   grid-template-rows: 30px 200px;
@@ -67,14 +67,14 @@
   font-weight: normal;
 }
 
-.confirm-grid-ok-container .header-block1 {
+.confirm-grid-gif-container .header-block1 {
   grid-row: 1;
   margin-bottom: 1px;
   font-size: 28px;
   font-weight: bolder;
 }
 
-.confirm-grid-ok-container .content-block1 {
+.confirm-grid-gif-container .content-block1 {
   grid-row: 2;
 }
 
