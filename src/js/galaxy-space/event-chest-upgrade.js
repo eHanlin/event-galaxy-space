@@ -13,7 +13,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="./img/chest/chest${upLevel}.png">
+              <img class="image-block1-chest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
@@ -58,15 +58,15 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let gif
 
         if (source.indexOf('true') > 0) {
-          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+          gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {
-          gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
+          gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${upLevel}.gif">`
         }
 
         confirmPopup.ok('升級成功', gif, () => {
           window.location.reload()
         })
-        targets.platformChest.attr('src', `./img/chest/chest${upLevel}.png`)
+        targets.platformChest.attr('src', `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png`)
         targets.platformChest.attr('class', `chest${upLevel}`)
         targets.upgradeBtn.css('display', 'none')
         targets.startBtn.css('left', '27%')

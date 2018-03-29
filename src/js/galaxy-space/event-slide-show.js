@@ -17,7 +17,7 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
         if (quantity > 0) {
           howMany = '還有貨喔'
         }
-        $('.slide-show').append(`<img class="nature" src="./img/award/${awardId}.png">`)
+        $('.slide-show').append(`<img class="nature" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${awardId}.png">`)
         $('.slide-show-text')
           .append(
             `<span class="award">${title}</span>

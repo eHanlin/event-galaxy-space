@@ -6,7 +6,7 @@ define(['jquery', 'swal'], ($, swal) => {
         html: content,
         showCancelButton: true,
         allowOutsideClick: false,
-        background: 'url(./img/popup/confirm.png) repeat center center / contain',
+        background: 'url(https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/popup/confirm.png) repeat center center / contain',
         width: '100%',
         customClass: 'confirm-popup-modal',
         buttonsStyling: false,
@@ -42,7 +42,7 @@ define(['jquery', 'swal'], ($, swal) => {
           </div> 
         `,
         allowOutsideClick: false,
-        background: 'url(./img/popup/confirm.png) repeat center center / contain',
+        background: 'url(https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/popup/confirm.png) repeat center center / contain',
         width: '100%',
         customClass: 'confirm-popup-modal',
         buttonsStyling: false,
