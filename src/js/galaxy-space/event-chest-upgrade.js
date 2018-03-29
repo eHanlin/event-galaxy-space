@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
   eventChestUpgrade.tip = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
+    ajax('GET', `/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let needCoins = data['coins']
@@ -26,20 +26,13 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
         `
-
-        // let content = `<div>你確定要花費 <span class="confirm-popup-info"> ${needCoins}
-        //   <span class="confirm-popup-warning">個 e 幣</span>、 ${needGems} <span class="confirm-popup-warning">個 寶石 </span></span>
-        //   升級至 Lv2 寶箱嗎？`
-        //
-        // content += `請注意:高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>`
-
         confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade, chest, targets))
       })
   }
 
   eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
-    ajax('GET', `http://localhost:8080/chest/checkBalance/level${upLevel}`, null)
+    ajax('GET', `/chest/checkBalance/level${upLevel}`, null)
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
@@ -47,16 +40,15 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`)
+          return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {
         let content = jsonData.content
         let memo = content[0].memo
         let title, gif
-        console.log(memo)
 
-        if (memo.levelUpSuccess === "ture" > 0) {
+        if (memo.levelUpSuccess === "true") {
           title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="./img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {

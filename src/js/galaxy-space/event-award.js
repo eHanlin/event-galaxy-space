@@ -1,7 +1,7 @@
 define(['require', 'jquery', 'w3'], (require, $, w3) => {
   let slide = w3.slideshow('.block', 0)
   let ajax = require('ajax')
-  ajax('GET', 'http://127.0.0.1:8080/chest/award')
+  ajax('GET', `/chest/award`)
     .then((data) => {
       let index = 0
       let awards = data.content

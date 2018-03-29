@@ -1,1 +1,22 @@
-define(["countUp"],CountUp=>(function(id,start,end){new CountUp(id,start,end,0,3,{useEasing:!0,useGrouping:!0,separator:""}).start()}));
+define(['countUp'], CountUp => {
+  return function (id, start, end) {
+    let options = {
+      useEasing: true,
+      useGrouping: true,
+      separator: ''
+    }
+
+    let decimal = 0
+    let transitionDuration = 3
+    let transition = new CountUp(
+      id,
+      start,
+      end,
+      decimal,
+      transitionDuration,
+      options
+    )
+
+    transition.start()
+  }
+})

@@ -1,12 +1,12 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup) => {
   return (chest, targets) => {
     let seconds
-    ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
+    ajax('GET', `/chest/coolDownTime/${chest.id}`)
       .then(data => {
         seconds = data.content
 
         console.log(seconds)
-        return ajax('GET', `http://localhost:8080/chest/condition/openImmediately`)
+        return ajax('GET', `/chest/condition/openImmediately`)
       }).then(data => {
       let openImmediatelyData = data.content
       let consume = openImmediatelyData['content']
@@ -15,7 +15,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
       let deductGems = remainHours * consume.everyHourDeductGems
 
       confirmPopup.dialog(`<h2>立即開啟寶箱需花費${deductGems}個寶石</h2><h3>確定要立即開啟寶箱嗎？<h3>`, () => {
-        ajax('PUT', `http://localhost:8080/chest/open/immediately/${chest.id}`, {
+        ajax('PUT', `/chest/open/immediately/${chest.id}`, {
           deductGems: deductGems
         }).then(data => {
           let originalGems = $('#gems').text()

@@ -10,6 +10,7 @@ const cleanCSS = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify-es').default
 const del = require('del')
+const Q = require('q')
 const basePath = {
   base: 'src'
 }
@@ -35,13 +36,13 @@ function copyStaticTask (destination) {
 }
 
 function clean (source) {
-  return function () {
+  return function clean () {
     return del([source])
   }
 }
 
 function minifyJs (sourceJS) {
-  return function () {
+  return function minifyJs () {
     return gulp
       .src(sourceJS, {
         base: 'babel-temp'
@@ -59,8 +60,7 @@ function minifyJs (sourceJS) {
 
 /* 壓縮圖片 */
 function minifyImage (sourceImage) {
-  console.log('=======> minifyImage <=======')
-  return function () {
+  return function minifyImage () {
     return gulp
       .src(sourceImage, basePath)
       .pipe(cache(imageMin({
@@ -70,8 +70,8 @@ function minifyImage (sourceImage) {
   }
 }
 
-function babelJS (sourceJS) {
-  return function () {
+function babelJs (sourceJS) {
+  return function babelJs () {
     return gulp
       .src(sourceJS, basePath)
       .pipe(babel())
@@ -83,7 +83,7 @@ function buildJS () {
   let deferred = Q.defer()
 
   Q.fcall(function () {
-    return templateUtil.logStream(babelJS(['dist/js/*.js']))
+    return templateUtil.logStream(babelJs(['dist/js/*.js']))
   })
     .then(function () {
       return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))
@@ -95,7 +95,7 @@ function buildJS () {
   return deferred.promise
 }
 
-function devToBuildEnv () {
+function buildDevToEnv () {
   return gulp
     .src(['src/js/galaxy-space/*.js'], {
       base: './'
@@ -141,7 +141,7 @@ function buildEnvToDev () {
 
 /* 合併 CSS */
 function concatCss () {
-  return function () {
+  return function concatCss () {
     return gulp.src('src/css/*.css', basePath)
       .pipe(concat('ehanlin-space-all.css'))
       .pipe(cleanCSS())
@@ -165,14 +165,14 @@ gulp.task('concatCss', function () {
 })
 gulp.task('minifyImage', minifyImage('src/img/**/*.png'))
 gulp.task('buildEnvToDev', buildEnvToDev)
-gulp.task('devToBuildEnv', devToBuildEnv)
+gulp.task('buildDevToEnv', buildDevToEnv)
 gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
 gulp.task('package', function () {
   var deferred = Q.defer()
   Q.fcall(function () {
     return templateUtil.logPromise(clean(dist))
   }).then(function () {
-    return templateUtil.logStream(devToBuildEnv)
+    return templateUtil.logStream(buildDevToEnv)
   }).then(function () {
     return templateUtil.logStream(copyStaticTask('dist'))
   }).then(function () {
