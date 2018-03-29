@@ -11,4 +11,14 @@ define(['jquery', 'ajax'], ($, ajax) => {
       $('.userStatus .studentCard').append(`${studentCard}`)
       $('.userStatus .logout').append(`登出`)
     })
+
+  $('.userStatus .name').on('click', () => {
+    window.location.href = '/my/owned/Courses.html'
+  })
+  $('.userStatus .studentCard').on('click', () => {
+    window.location.href = '/my/owned/Courses.html'
+  })
+  $('.userStatus .logout').on('click', () => {
+
+  })
 })

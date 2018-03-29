@@ -59,18 +59,21 @@
   left: 1020px;
   top: 25px;
   width: 50px;
+  cursor: pointer;
 }
 
 .container .userStatus .studentCard {
   left: 920px;
   top: 25px;
   width: 50px;
+  cursor: pointer;
 }
 
 .container .userStatus .logout {
   left: 1100px;
   top: 25px;
   width: 50px;
+  cursor: pointer;
 }
 
 .container .userStatus .phoneCall {
