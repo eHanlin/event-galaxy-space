@@ -28,7 +28,7 @@ require.config({
     eventChestOpenNow: ['./event-chest-open-now'],
     eventStatusDo: ['./event-status-do'],
     eventCountUp: ['./event-count-up'],
-    eventUserStatus: ['.event-user-status']
+    eventUserStatus: ['./event-user-status']
   },
 
   map: {
