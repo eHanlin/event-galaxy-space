@@ -7,6 +7,8 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log('========= 我就是id ========')
       console.log(data.id)
       console.log('========= 我就是id ========')
+
+      $('.userStatus .login').css('display', 'none')
       $('.userStatus .name').append(`${name}`)
       $('.userStatus .studentCard').append(`${studentCard}`)
       $('.userStatus .logout').append(`登出`)
