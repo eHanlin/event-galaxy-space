@@ -166,8 +166,8 @@ gulp.task('concatCss', function () {
   return deferred.promise
 })
 gulp.task('minifyImage', minifyImage('src/img/**/*.png'))
-gulp.task('buildEnvToDev', buildEnvToDev)
-gulp.task('buildDevToEnv', devToBuildEnv)
+gulp.task('buildEnvToDev', buildEnvToDev) // 開發
+gulp.task('buildDevToEnv', devToBuildEnv) // 正式 & 測試
 gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
 gulp.task('package', function () {
   var deferred = Q.defer()

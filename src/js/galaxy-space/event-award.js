@@ -5,8 +5,9 @@ define(['require', 'jquery', 'w3'], (require, $, w3) => {
     .then((data) => {
       let index = 0
       let awards = data.content
+      let award
 
-      for (let award in awards) {
+      for (award in awards) {
         let awardId = award.split('#')[0]
         let indexId = awardId.split('award')[1]
         let value = awards[award]

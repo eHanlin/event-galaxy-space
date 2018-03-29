@@ -28,7 +28,8 @@ require.config({
     eventChestOpenNow: ['./event-chest-open-now'],
     eventStatusDo: ['./event-status-do'],
     eventCountUp: ['./event-count-up'],
-    eventUserStatus: ['./event-user-status']
+    eventUserStatus: ['./event-user-status'],
+    eventChestOpen: ['./event-chest-open']
   },
 
   map: {
@@ -46,7 +47,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
   require(['eventClickLink'])
   require(['eventUserStatus'])
 
-  ajax('GET', `/chest/`)
+  ajax('GET', `http://localhost:8080/chest/`)
     .then(data => {
       let chests = data.content
       for (let index in chests) {
@@ -70,6 +71,8 @@ require(['jquery', 'ajax'], ($, ajax) => {
           eventDetermine(chest, targets)
         })
 
+        /* requireJs進來，click後綁定自己將參數(chest, targets)傳入 */
+
         /* 啟動按鈕 */
         require(['eventChestStart'], eventChestStart => {
           targets.startBtn.on('click', eventChestStart.bind(eventChestStart, chest, targets))
@@ -83,6 +86,11 @@ require(['jquery', 'ajax'], ($, ajax) => {
         /* 升級按鈕 */
         require(['eventChestUpgrade'], eventChestUpgrade => {
           targets.upgradeBtn.on('click', eventChestUpgrade.tip.bind(eventChestUpgrade.tip, chest, targets))
+        })
+
+        /* 開啟寶箱 */
+        require(['eventChestOpen'], eventChestOpen => {
+          targets.readyBtn.on('click', eventChestOpen.bind(eventChestOpen, chest, targets))
         })
       }
     })

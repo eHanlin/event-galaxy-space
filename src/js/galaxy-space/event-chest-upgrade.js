@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
   eventChestUpgrade.tip = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `/chest/condition/level${upLevel}`, null)
+    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let needCoins = data['coins']
@@ -32,7 +32,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
   eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
-    ajax('GET', `/chest/checkBalance/level${upLevel}`, null)
+    ajax('GET', `http://localhost:8080/chest/checkBalance/level${upLevel}`, null)
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
@@ -40,7 +40,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok(title, insufficientMessage)
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
+          return ajax('PUT', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {
@@ -50,7 +50,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
         console.log(memo)
         console.log(memo.levelUpSuccess)
-        if (memo.levelUpSuccess === "true") {
+        if (memo.levelUpSuccess === 'true') {
           title = '升級成功'
           gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
         } else {
