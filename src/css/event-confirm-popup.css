@@ -16,7 +16,7 @@
   color: #604417;
   font-size: 20px;
   font-weight: bolder;
-  padding: 5px 50px;
+  padding: 3px 50px;
   border: solid #604417 2px;
   text-decoration: none;
   outline: 0;
@@ -29,6 +29,7 @@
 }
 
 .confirm-popup-btn-ok {
+  margin-top: 1px;
   background: #fff79e;
 }
 
@@ -59,7 +60,7 @@
 
 /* ============================> Grid ok layout <============================ */
 .confirm-grid-ok-container {
-  height: 230px;
+  height: 235px;
   display: grid;
   grid-template-rows: 30px 200px;
   font-size: 22px;
@@ -68,7 +69,8 @@
 
 .confirm-grid-ok-container .header-block1 {
   grid-row: 1;
-  font-size: 30px;
+  margin-bottom: 1px;
+  font-size: 28px;
   font-weight: bolder;
 }
 
