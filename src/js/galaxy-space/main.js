@@ -47,7 +47,7 @@ require(['jquery', 'ajax'], ($, ajax) => {
   require(['eventClickLink'])
   require(['eventUserStatus'])
 
-  ajax('GET', `http://localhost:8080/chest/`)
+  ajax('GET', `/chest/`)
     .then(data => {
       let chests = data.content
       for (let index in chests) {

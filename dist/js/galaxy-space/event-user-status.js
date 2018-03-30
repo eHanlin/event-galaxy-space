@@ -1,5 +1,5 @@
 define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', 'https://test.ehanlin.com.tw/ms-user-status/userStatus')
+  ajax('GET', '/ms-user-status/userStatus')
     .then((data) => {
       let name = data.name
       let studentCard = data.studentCard
@@ -9,14 +9,14 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log('========= 我就是id ========')
       console.log(`ex: ${data.id} 加e幣寶石或寶箱`)
 
-      $('.userStatus .login').css('display', 'none')
+      $('.userStatus .login').remove()
       $('.userStatus .name').append(`${name}`)
       $('.userStatus .studentCard').append(`${studentCard}`)
       $('.userStatus .logout').append(`登出`)
     })
 
   $('.userStatus .logout').on('click', () => {
-    ajax('PUT', 'https://test.ehanlin.com.tw/Users/521d946be4b0d765448570bd/!logout')
+    ajax('PUT', '/Users/521d946be4b0d765448570bd/!logout')
       .then(() => {
         window.location = 'https://' + window.location.hostname
       })

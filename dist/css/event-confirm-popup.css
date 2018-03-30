@@ -23,16 +23,25 @@
   cursor: pointer;
 }
 
+.confirm-popup-btn-gif,
+.confirm-popup-btn-ok,
+.confirm-popup-btn-dialog {
+  background: #fff79e;
+}
+
 .confirm-popup-btn-dialog {
   margin-top: 0;
-  background: #fff79e;
 }
 
 .confirm-popup-btn-gif {
   margin-top: 1px;
-  background: #fff79e;
 }
 
+.confirm-popup-btn-ok {
+  margin-top: 30px;
+}
+
+.confirm-popup-btn-ok:hover,
 .confirm-popup-btn-dialog:hover,
 .confirm-popup-btn-gif:hover {
   background: #604417;
@@ -70,6 +79,7 @@
 .confirm-grid-gif-container .header-block1 {
   grid-row: 1;
   margin-bottom: 1px;
+  color: #217dbb;
   font-size: 28px;
   font-weight: bolder;
 }

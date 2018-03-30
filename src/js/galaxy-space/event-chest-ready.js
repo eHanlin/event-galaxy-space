@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'eventStatusDo'], ($, ajax, eventStatusDo) => {
     let statusData = {
       status: 'READY'
     }
-    ajax('PUT', `http://localhost:8080/chest/status/${chest.id}`, statusData)
+    ajax('PUT', `/chest/status/${chest.id}`, statusData)
       .then(eventStatusDo.ready.bind(eventStatusDo.ready, chest, targets))
   }
 })

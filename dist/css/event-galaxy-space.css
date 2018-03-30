@@ -38,7 +38,7 @@
 .container .userStatus .logout,
 .container .userStatus .login {
   color: azure;
-  font-family: "微軟正黑體";
+  font-family: "微軟正黑體", fantasy;
   font-size: 18px;
 }
 
@@ -172,30 +172,39 @@
   width: 25%;
 }
 
-.container .display-coins {
+.container .total-assets {
   left: 50px;
-  top: 200px;
+  top: 210px;
+  height: 65px;
+  width: 410px;
 }
 
-.container .display-gems {
-  left: 290px;
-  top: 202px;
+.container .total-assets .display-coins {
+  background: url("https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/displayCoins.png") no-repeat;
+  background-size: contain;
+  height: 61px;
+  width: 187px;
 }
 
-.container .total-assets #coins {
+.container .total-assets .display-gems {
+  top: 2px;
+  right: 0;
+  background: url("https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/displayGems.png") no-repeat;
+  background-size: contain;
+  height: 57px;
+  width: 184px;
+}
+
+.container .display-coins #coins,
+.container .display-gems #gems {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-42%);
+  right: 13px;
   color: maroon;
-  font-size: 22px;
-  font-family: "微軟正黑體";
-  left: 120px;
-  top: 216px;
-}
-
-.container .total-assets #gems {
-  color: maroon;
-  font-size: 22px;
-  font-family: "微軟正黑體";
-  left: 360px;
-  top: 216px;
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: "微軟正黑體", fantasy;
 }
 
 /* ============================================> iPad ============================================>*/
@@ -204,99 +213,120 @@
   #galaxy-space-body {
     height: 1500px;
   }
+
   .container {
     width: 980px;
   }
+
   .container .userStatus .name {
     font-size: 16px;
     left: 760px;
     top: 25px;
     width: 50px;
   }
+
   .container .userStatus .studentCard {
     font-size: 16px;
     left: 670px;
     top: 25px;
     width: 50px;
   }
+
   .container .userStatus .login {
     font-size: 16px;
     left: 670px;
     top: 25px;
     width: 80px;
   }
+
   .container .userStatus .logout {
     font-size: 16px;
     left: 840px;
     top: 25px;
     width: 50px;
   }
+
   .container .userStatus .phoneCall {
     font-size: 16px;
     top: 55px;
     left: 670px;
   }
+
   .container .userStatus .meteor1 {
     left: 650px;
   }
+
   .container .userStatus .meteor2 {
     left: 650px;
   }
+
   .container .logo {
     width: 23%;
   }
+
   .container .logo_375 {
     width: 13%;
     left: 29px;
     top: 21.5px;
   }
+
   .container .logoFlag {
     width: 25%;
     left: 255px;
     top: 30px;
   }
+
   .container .fb {
     width: 4%;
     top: 20px;
   }
+
   .container .line {
     width: 4%;
     top: 80px;
   }
+
   .container .activity,
   .container .bank,
   .container .my-class,
   .container .free {
     width: 10%;
   }
+
   .container .activity {
     right: 420px;
   }
+
   .container .my-class {
     right: 180px;
   }
+
   .container .bank {
     right: 300px;
   }
-  .container .display-coins {
-    left: 40px;
-    top: 170px;
-    width: 180px;
+
+  .container .total-assets {
+    left: 50px;
+    top: 190px;
+    height: 50px;
+    width: 370px;
   }
-  .container .display-gems {
-    left: 270px;
-    top: 172px;
-    width: 180px;
+
+  .container .total-assets .display-coins {
+    height: 50px;
+    width: 155px;
   }
-  .container .total-assets #coins {
-    font-size: 21px;
-    left: 110px;
-    top: 186px;
+
+  .container .total-assets .display-gems {
+    top: 2px;
+    right: 20px;
+    height: 50px;
+    width: 154px;
   }
-  .container .total-assets #gems {
-    font-size: 21px;
-    left: 340px;
-    top: 186px;
+
+  .container .display-coins #coins,
+  .container .display-gems #gems {
+    font-size: 20px;
   }
 }
 
@@ -308,54 +338,65 @@
   #galaxy-space-body {
     height: 1700px;
   }
+
   .container {
     width: 375px;
   }
+
   .container .userStatus .name {
     font-size: 12px;
     top: 22px;
     left: 265px;
   }
+
   .container .userStatus .studentCard {
     font-size: 12px;
     top: 22px;
     left: 205px;
   }
+
   .container .userStatus .login {
     font-size: 12px;
     top: 22px;
     left: 205px;
   }
+
   .container .userStatus .logout {
     font-size: 12px;
     top: 22px;
     left: 315px;
   }
+
   .container .userStatus .phoneCall {
     font-size: 12px;
     top: 42px;
     left: 205px;
   }
+
   .container .userStatus .meteor1 {
     width: 90px;
     height: 35px;
     left: 190px;
     top: 8px;
   }
+
   .container .userStatus .meteor2 {
     width: 90px;
     height: 35px;
     left: 190px;
     top: 30px;
   }
+
   .container .logo {
     display: none;
   }
+
   .container .logo_375 {
     width: 38%;
     left: 20px;
     top: 10px;
   }
+
   .container .logoFlag {
     width: 50%;
     left: 100px;
@@ -363,19 +404,23 @@
     transform: rotate(-5deg);
     -webkit-transform: rotate(-5deg);
   }
+
   .container .fb {
     top: 105px;
     left: 310px;
     width: 8%;
   }
+
   .container .line {
     top: 145px;
     width: 8%;
   }
+
   .container .bank,
   .container .my-class {
     width: 20%;
   }
+
   .container .activity {
     width: 23%;
     left: 30px;
@@ -383,41 +428,51 @@
     transform: rotate(8deg);
     -webkit-transform: rotate(8deg);
   }
+
   .container .bank {
     left: 130px;
     top: 130px;
     transform: rotate(-8deg);
     -webkit-transform: rotate(-8deg);
   }
+
   .container .my-class {
     left: 220px;
     top: 120px;
   }
+
   .container .free {
     display: none;
   }
+
   .container .event-text {
     display: none;
   }
-  .container .display-coins {
-    left: 60px;
-    top: 230px;
-    width: 120px;
-  }
-  .container .display-gems {
-    left: 220px;
-    top: 230px;
-    width: 120px;
-  }
-  .container .total-assets #coins {
-    font-size: 18px;
-    left: 102px;
+
+  .container .total-assets {
+    left: 50px;
     top: 237px;
+    height: 50px;
+    width: 310px;
   }
-  .container .total-assets #gems {
-    font-size: 18px;
-    left: 262px;
-    top: 237px;
+
+  .container .total-assets .display-coins {
+    height: 43px;
+    width: 127px;
+  }
+
+  .container .total-assets .display-gems {
+    top: 1px;
+    right: 20px;
+    height: 42px;
+    width: 125px;
+  }
+
+  .container .display-coins #coins,
+  .container .display-gems #gems {
+    top: 49%;
+    right: 7px;
+    font-size: 17px;
   }
 }
 
