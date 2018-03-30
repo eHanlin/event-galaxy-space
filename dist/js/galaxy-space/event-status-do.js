@@ -37,6 +37,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       targets.countdown.css('display', 'none')
       targets.startBtn.css('display', 'none')
       targets.upgradeBtn.css('display', 'none')
+      targets.openNowBtn.css('display', 'none')
       targets.readyBtn.removeAttr('style')
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
