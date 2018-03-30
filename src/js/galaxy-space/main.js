@@ -65,8 +65,6 @@ require(['jquery', 'ajax'], ($, ajax) => {
         targets.openNowBtn = $(`.platform-${chest.colorPlatform} .open-now-btn`)
         targets.platformChest = $(`.platform-${chest.colorPlatform} .chest${chest.level}`)
 
-        targets.readyBtn.on('click', () => console.log('OPEN'))
-
         require(['eventDetermine'], eventDetermine => {
           eventDetermine(chest, targets)
         })

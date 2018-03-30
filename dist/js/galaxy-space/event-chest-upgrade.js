@@ -49,14 +49,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let title, gif
         console.log(content)
         if (content.isActivation && content.isActivation === 'false') {
-          console.log("GGGGGGG")
+          console.log('GGGGGGG')
           confirmPopup.ok('Oooooops 非正式會員喔',
             ` 試用會員無法升級囉！
               趕快開通課程，開高級寶箱吧 <a href="https://test.ehanlin.com.tw/courses_map.html">課程連結</a>`)
         } else if (content.isLevelUpSucceeded && content.isLevelUpSucceeded === 'true') {
           confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
         } else {
-          console.log("YYYY")
+          console.log('YYYY')
           transactionResult = content[0]
           if (transactionResult && transactionResult.memo.levelUpSuccess === 'true') {
             title = '升級成功'
