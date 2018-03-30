@@ -4,7 +4,7 @@ define(['jquery', 'swal'], ($, swal) => {
     width: '100%',
     customClass: 'confirm-popup-modal',
     buttonsStyling: false,
-    allowOutsideClick: false,
+    allowOutsideClick: false
   }
 
   let cloneCommonStyle = function (commonStyle) {
