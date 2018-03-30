@@ -1,7 +1,7 @@
 .start-confirm-grid-container {
   height: 250px;
   display: grid;
-  grid-template-columns: 5% 5% 80% 5% 5%;
+  grid-template-columns: 2% 8% 80% 8% 2%;
   grid-template-rows: 15% 10% 60% 15%;
   font-size: 23px;
   font-weight: bolder;
@@ -24,51 +24,30 @@
   font-weight: bolder;
 }
 
-.start-confirm-grid-container .img-block-left-btn {
-  grid-column: 2;
-  grid-row: 3;
-  margin-top: 40%;
-}
-
-.start-confirm-grid-container .img-block-left-btn .left-btn {
-  width: 50px;
-}
-
-.start-confirm-grid-container .img-block-award.block1 {
-  grid-column: 1 / span 5;
-  grid-row: 3;
-}
-
-.start-confirm-grid-container .img-block-award.block2 {
-  grid-column: 1 / span 5;
-  grid-row: 3;
-}
-
-.start-confirm-grid-container .img-block-award.block3 {
-  grid-column: 1 / span 5;
-  grid-row: 3;
-}
-.start-confirm-grid-container .img-block-award.block4 {
-  grid-column: 1 / span 5;
-  grid-row: 3;
-}
-.start-confirm-grid-container .img-block-award.block5 {
+.start-confirm-grid-container .img-block-award {
   grid-column: 1 / span 5;
   grid-row: 3;
 }
 
 .start-confirm-grid-container img[class^="img-award"] {
-  width: 145px;
+  width: 140px;
+}
+
+.start-confirm-grid-container .img-block-left-btn {
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: 50%;
 }
 
 .start-confirm-grid-container .img-block-right-btn {
   grid-column: 4;
   grid-row: 3;
-  margin-top: 40%;
+  margin-top: 50%;
 }
 
+.start-confirm-grid-container .img-block-left-btn .left-btn,
 .start-confirm-grid-container .img-block-right-btn .right-btn {
-  width: 50px;
+  width: 60px;
 }
 
 .start-confirm-grid-container .content-block4 {

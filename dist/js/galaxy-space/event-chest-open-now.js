@@ -2,31 +2,36 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
   return (chest, targets) => {
     let seconds
     ajax('GET', `/chest/coolDownTime/${chest.id}`)
-      .then(data => {
-        seconds = data.content
+      .then(jsonData => {
+        seconds = jsonData.content
         return ajax('GET', `/chest/condition/openImmediately`)
       })
-      .then(data => {
-        let openImmediatelyData = data.content
-        let consume = openImmediatelyData['content']
-        let everySecondsHour = 3600
-        let remainHours = Math.ceil(seconds / everySecondsHour)
-        let deductGems = remainHours * consume.everyHourDeductGems
+      .then(jsonData => {
+        let openImmediatelyData = jsonData.content
+        let openImmediatelyInfo = openImmediatelyData['content']
+        let secondsCycle = parseInt(openImmediatelyInfo.secondsCycle)
+        let spendGems = openImmediatelyInfo.spendGems
+        let cycles = Math.ceil(seconds / secondsCycle)
+        let popupContent
+        spendGems = spendGems * cycles
 
-        confirmPopup.dialog(`<h2>立即開啟寶箱需花費${deductGems}個寶石</h2><h3>確定要立即開啟寶箱嗎？<h3>`, () => {
+        popupContent = `
+          <div>
+            <h2 class="header-text">立即開啟寶箱需花費 ${spendGems} 個寶石</h2>
+            <h3>確定要立即開啟寶箱嗎？</h3>
+        </div>
+        `
+        confirmPopup.dialog(popupContent, () => {
           ajax('PUT', `/chest/open/immediately/${chest.id}`, {
-            deductGems: deductGems
+            spendGems: spendGems
           }).then(data => {
             let originalGems = $('#gems').text()
             let finalGems = data.content.finalGems
-            let insufficientGems = originalGems - deductGems
-            let statusData = {
-              status: 'OPEN'
-            }
-
+            let insufficientGems = originalGems - spendGems
             /* 檢查餘額是否足夠 */
             if (insufficientGems < 0) {
-              confirmPopup.confirm(`你的寶石不足${insufficientGems * -1}個`, `欠一屁股債了~ 快做題吧 !`, () => {})
+              let title = 'Oooooops 餘額不足喔！'
+              confirmPopup.ok(title, `還缺 ${insufficientGems} 寶石喔！`)
               return false
             }
 

@@ -67,6 +67,13 @@
   max-height: 250px;
 }
 
+.header-text {
+  margin-bottom: 1px;
+  color: #217dbb;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
 /* ============================> Grid ok layout <============================ */
 .confirm-grid-gif-container {
   height: 235px;
