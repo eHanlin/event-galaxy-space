@@ -19,13 +19,13 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
               <img class="openGifChest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">
-              <span class="gifTitle">恭喜你獲得了~</span>
+              <span class="gifTitle">恭喜你獲得了~ Beats Solo3 Wireless耳罩式耳機</span>
             </div>
             <div class="open-text-block3">
                 <img class="gifCoinsImg" src="./img/coin.svg">
                 <span class="coins">${gotCoins}</span>
                 <img class="gifGemsImg" src="./img/gem.svg">
-                <span class="gems">${gotGems}</span> 349580-2349780
+                <span class="gems">${gotGems}</span>
             </div>
             <div class="open-text-block4">
             <img class="yourGif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/award01.png">

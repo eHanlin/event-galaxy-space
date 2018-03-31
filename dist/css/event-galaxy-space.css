@@ -59,7 +59,7 @@
 .container .userStatus .name {
   left: 1020px;
   top: 25px;
-  width: 50px;
+  width: 120px;
   cursor: pointer;
 }
 
@@ -222,7 +222,7 @@
     font-size: 16px;
     left: 760px;
     top: 25px;
-    width: 50px;
+    width: 120px;
   }
 
   .container .userStatus .studentCard {
