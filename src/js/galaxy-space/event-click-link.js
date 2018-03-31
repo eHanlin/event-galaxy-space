@@ -28,5 +28,9 @@ define(['jquery'], $ => {
       window.open('https://docs.google.com/forms/d/1UywZQWyOc4XMPIfFKs8I2UpCa30dRXX164LYNs7zwss/', 'share')
       return false
     })
+    $('.activity').on('click', () => {
+      window.open('/event/galaxySpace/activity-notice.html', 'activity')
+      return false
+    })
   })
 })

@@ -1,0 +1,50 @@
+#galaxy-space-activity {
+  background-color: #00192D;
+  height: 1650px;
+}
+
+#galaxy-space-activity main {
+  position: absolute;
+}
+
+.container div,
+.container img,
+.container span,
+.container button,
+.container a,
+.container ul,
+.container li,
+.container p {
+  position: absolute;
+}
+
+.activity-main {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.activity-main {
+  background: url("https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/space.png") no-repeat;
+  background-size: contain;
+  width: 1080px;
+  height: 800px;
+}
+
+.activity-text .content-text .text {
+  color: azure;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 18px;
+}
+
+.openChestTime {
+  color: azure;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 18px;
+}
+
+.getAwards {
+  color: azure;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 18px;
+}

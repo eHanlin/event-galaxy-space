@@ -1,6 +1,6 @@
 body {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     margin: 0;
     overflow: hidden;
     background-image: radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);

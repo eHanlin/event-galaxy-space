@@ -28,6 +28,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
             let originalGems = $('#gems').text()
             let finalGems = data.content.finalGems
             let insufficientGems = originalGems - spendGems
+
             /* 檢查餘額是否足夠 */
             if (insufficientGems < 0) {
               let title = 'Oooooops 餘額不足喔！'

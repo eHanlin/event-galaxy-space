@@ -25,7 +25,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 <img class="gifCoinsImg" src="./img/coin.svg">
                 <span class="coins">${gotCoins}</span>
                 <img class="gifGemsImg" src="./img/gem.svg">
-                <span class="gems">${gotGems}</span>
+                <span class="gems">${gotGems}</span> 349580-2349780
             </div>
             <div class="open-text-block4">
             <img class="yourGif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/award01.png">
