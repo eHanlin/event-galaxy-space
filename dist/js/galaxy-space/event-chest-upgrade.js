@@ -1,6 +1,6 @@
 define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
   let eventChestUpgrade = {}
-  eventChestUpgrade.tip = (chest, targets) => {
+  eventChestUpgrade.ask = (chest, targets) => {
     let upLevel = chest.level + 1
 
     ajax('GET', `/chest/condition/level${upLevel}`, null)
@@ -11,7 +11,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png">
+              <img class="image-block1-chest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
@@ -24,13 +24,19 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
         `
-        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade, chest, targets))
+        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets))
       })
   }
 
   eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
-    ajax('GET', `/chest/checkBalance/level${upLevel}`, null)
+    ajax('GET', `/chest/condition/level${upLevel}`, null)
+      .then(jsonData => {
+        let levelInfo = jsonData.content.content
+        let coins = levelInfo.coins
+        let gems = levelInfo.gems
+        return ajax('GET', `http://localhost:8080/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
+      })
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
@@ -45,28 +51,40 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = jsonData.content
         let transactionResult
         let title, gif
+
         if (content.isActivation && content.isActivation === 'false') {
           confirmPopup.ok('Oooooops！ 無法再升級囉！',
-            ` 你目前還不是銀河探險隊的正式隊員，
-            馬上前往購買課程成為正式隊員再回來繼續升級寶箱拿獎品吧！ <a href="https://test.ehanlin.com.tw/courses_map.html">課程連結</a>`)
+            `你目前還不是銀河探險隊的正式隊員，
+            馬上前往購買課程成為正式隊員再回來繼續升級寶箱拿獎品吧！ 
+            <br/><a href="https://test.ehanlin.com.tw/courses_map.html">課程連結</a>`)
         } else if (content.isLevelUpSucceeded && content.isLevelUpSucceeded === 'true') {
           confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
         } else {
           transactionResult = content[0]
           if (transactionResult && transactionResult.memo.levelUpSuccess === 'true') {
             title = '升級成功'
-            gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+            gif = `<image class="confirm-popup-chest-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
           } else {
             title = '升級失敗'
-            gif = `<image class="confirm-popup-chest-gif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
+            gif = `<image class="confirm-popup-chest-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
           }
 
           confirmPopup.gifImage(title, gif, () => {
-            window.location.reload()
-            targets.platformChest.attr('src', `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/chest${upLevel}.png`)
-            targets.platformChest.attr('class', `chest${upLevel}`)
-            targets.upgradeBtn.css('display', 'none')
-            targets.startBtn.css('left', '27%')
+            let originalCoins = $('#coins').text()
+            let originalGems = $('#gems').text()
+            let spendCoins = transactionResult.coins
+            let spendGems = transactionResult.gems
+            let finalCoins = originalCoins - spendCoins
+            let finalGems = originalGems - spendGems
+
+            require(['eventCountUp'], (eventCountUp) => {
+              eventCountUp('coins', originalCoins, finalCoins)
+              eventCountUp('gems', originalGems, finalGems)
+            })
+
+            require(['eventChestGet'], (eventChestGet) => {
+              eventChestGet()
+            })
           })
         }
       })

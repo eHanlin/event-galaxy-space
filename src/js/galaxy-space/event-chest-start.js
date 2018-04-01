@@ -7,44 +7,43 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
 
     if (chest.level >= 2) {
       content = `
-      <div class="start-confirm-grid-container">
+        <div class="start-confirm-grid-container">
           <div class="content-block1">
             <span>寶箱準備啟動中...</span>
           </div>
-
+  
           <div class="content-block2">
             <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
-          </div>
-
+          </div>  
           <div class="img-block-left-btn">
-            <img class="left-btn" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/previous.png">
+            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/previous.png">
           </div>
-
+  
           <div class="img-block-right-btn">
-            <img class="right-btn" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/next.png">
+            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/next.png">
           </div>
-
+  
           <div class="content-block4">
             <span>你確定要啟動這個寶箱嗎？</span>
           </div>
-      </div>`
-    }
-
-    if (chest.level < 2) {
+        </div>
+      `
+    } else {
       content = `
-      <div>
+        <div>
           <h2 class="header-text">寶箱準備啟動中...</h2>
           <h3>你確定要啟動這個寶箱嗎？</h3>
-      </div>
+        </div>
       `
     }
 
     confirmPopup.dialog(content, () => {
-      ajax('PUT', `/chest/status/${chest.id}`, statusData)
+        ajax('PUT', `/chest/status/${chest.id}`, statusData)
           .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
-    }, () => { /* 取消 */ },
+      }, () => { /* 取消 */ },
       () => {
         if (chest.level < 2) return
+
         ajax('GET', `/chest/condition/chest${chest.level}`)
           .then(data => {
             let conditions = data.content
@@ -65,23 +64,23 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
 
               if (awardIndex < 5) {
                 awardsImg1 += `
-                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock1 = `<div class="img-block-award">${awardsImg1}</div>`
               } else if (awardIndex >= 5 && awardIndex < 10) {
                 awardsImg2 += `
-                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock2 = `<div class="img-block-award">${awardsImg2}</div>`
               } else if (awardIndex >= 10 && awardIndex < 15) {
                 awardsImg3 += `
-                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock3 = `<div class="img-block-award">${awardsImg3}</div>`
               } else if (awardIndex >= 15 && awardIndex < 20) {
                 awardsImg4 += `
-                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock4 = `<div class="img-block-award">${awardsImg4}</div>`
               } else if (awardIndex >= 20 && awardIndex < 25) {
                 awardsImg5 += `
-                  <img class="img-award${awardIndex}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
                 imgBlock5 = `<div class="img-block-award">${awardsImg5}</div>`
               }
             }

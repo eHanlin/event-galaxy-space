@@ -15,11 +15,11 @@ define(['require', 'jquery', 'w3'], (require, $, w3) => {
         let awardImg
 
         if (indexId < 10) {
-          awardImg = `<img src='https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/award0${indexId}.png' />`
+          awardImg = `<img src='https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/award0${indexId}.png' />`
         }
 
         if (indexId > 10) {
-          awardImg = `<img src='https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${awardId}.png' />`
+          awardImg = `<img src='https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png' />`
         }
 
         awardBlock.append(awardImg)

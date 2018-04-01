@@ -4,7 +4,7 @@ define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {
       let finalCoins = data.content.coins
       let finalGems = data.content.gems
 
-      eventCountUp('coins', finalCoins, finalCoins)
-      eventCountUp('gems', finalGems, finalGems)
+      eventCountUp('coins', 0, finalCoins)
+      eventCountUp('gems', 0, finalGems)
     })
 })

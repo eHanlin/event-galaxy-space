@@ -16,7 +16,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
-              <img class="openGifChest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
+              <img class="openGifChest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">
               <span class="gifTitle">恭喜你獲得了~ Beats Solo3 Wireless耳罩式耳機</span>
@@ -28,7 +28,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 <span class="gems">${gotGems}</span>
             </div>
             <div class="open-text-block4">
-            <img class="yourGif" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/award01.png">
+            <img class="yourGif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/award01.png">
             </div>
           </div>`
         require(['eventCountUp'], eventCountUp => {

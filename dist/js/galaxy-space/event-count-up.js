@@ -7,7 +7,7 @@ define(['countUp'], CountUp => {
     }
 
     let decimal = 0
-    let transitionDuration = 3
+    let transitionDuration = 5
     let transition = new CountUp(
       id,
       start,
