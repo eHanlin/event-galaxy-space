@@ -5,26 +5,19 @@ require(['config'], () => {
         .then((jsonData) => {
           return jsonData.content
         })
-        .then(() => {
-          let transactions = () => {
-            let data = []
+        .then((transactions) => {
+          let retrieve = () => {
             for (let i = 0; i < transactions.length; i++) {
-              data.push({
-                action: '123'
-              })
+              let data = transactions[i]
+              console.log(data)
             }
-            return data
           }
           $('#table').bootstrapTable({
-            data: transactions(),
+            data: retrieve(),
             striped: true,
             pageSize: 15,
             pageList: [15],
             pagination: true
-          })
-
-          $('section .fixed-table-container').css({
-            border: 0
           })
         })
     })

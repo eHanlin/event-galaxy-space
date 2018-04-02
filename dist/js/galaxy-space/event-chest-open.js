@@ -24,11 +24,11 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           awardTitle = `<span class="gif-title">${gainAward}</span>`
           awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
 
-          for(range in jsonContent.randomInRankRange) {
+          for (range in jsonContent.randomInRankRange) {
             randomInRankRange = `${jsonContent.randomInRankRange[range]} in ${range}`
           }
 
-          for(quantityRange in jsonContent.randomInQuantityRange) {
+          for (quantityRange in jsonContent.randomInQuantityRange) {
             randomInQuantityRange = `${jsonContent.randomInQuantityRange[quantityRange]} in ${quantityRange}`
           }
         }
@@ -54,19 +54,21 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         `
         confirmPopup.ok('', content, () => {
           if (luckyBag && luckyBag === true) {
-            ajax('PUT', `/chest/reward/luckyBag`, {awardId: gainAwardId})
+            ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId})
               .then(() => {
                 let gainCoins = jsonContent.coins
                 let gainGems = jsonContent.gems
                 let finalCoins = jsonContent.finalCoins
                 let finalGems = jsonContent.finalGems
                 let title = `
-                  <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
-                  <span class="coins">${gainCoins}</span>
-                  <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
-                  <span class="gems">${gainGems}</span>
+                  <div class="lucky-bag">
+                    <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+                    <span class="coins">${gainCoins}</span>
+                    <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+                    <span class="gems">${gainGems}</span>
+                  </div>
                 `
-                let bagImage = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/award/${gainAwardId}.img">`
+                let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
 
                 confirmPopup.image(title, bagImage, () => {
                   require(['eventCountUp'], (eventCountUp) => {

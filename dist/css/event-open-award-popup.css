@@ -55,3 +55,12 @@
   max-height: 90%;
   margin-top: 3px;
 }
+
+.lucky-bag .gems-img,
+.lucky-bag .coins-img {
+  width: 2%
+}
+
+.confirm-popup-lucky-bag {
+  height: 150px;
+}
