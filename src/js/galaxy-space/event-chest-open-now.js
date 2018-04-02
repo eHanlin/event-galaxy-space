@@ -40,16 +40,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
         }
       })
       .then(jsonData => {
-        let originalGems = $('#gems').text()
         let finalGems = jsonData.content.finalGems
 
         require(['eventCountUp'], eventCountUp => {
-          eventCountUp('gems', originalGems, finalGems)
+          eventCountUp('gems', $('#gems').text(), finalGems)
         })
 
         /* 倒數計時秒數設定為 1，讓寶箱變成 ready 狀態 */
         require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
-          eventCountdown(1, chest, targets, eventChestReady)
+          eventCountdown(0, chest, targets, eventChestReady)
         })
       })
   }

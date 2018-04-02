@@ -1,5 +1,5 @@
 define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', '/ms-user-status/userStatus')
+  ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
       let name = data.name
       let studentCard = data.studentCard
@@ -16,7 +16,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
     })
 
   $('.userStatus .logout').on('click', () => {
-    ajax('PUT', '/Users/521d946be4b0d765448570bd/!logout')
+    ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
       .then(() => {
         window.location = 'https://' + window.location.hostname
       })

@@ -4,40 +4,87 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
       status: 'OPEN'
     }
     ajax('PUT', `/chest/open/${chest.id}`, chestStatus)
-      .then((data) => {
-        let gotCoins = data.content.coins
-        let gotGems = data.content.gems
-        let finalCoins = data.content.finalCoins
-        let finalGems = data.content.finalGems
-        let originalCoins = finalCoins - gotCoins
-        let originalGems = finalGems - gotGems
+      .then((jsonData) => {
+        let jsonContent = jsonData.content
+        let finalCoins = jsonContent.finalCoins
+        let finalGems = jsonContent.finalGems
 
-        console.log(data)
+        /* 獲得禮物內容 */
+        let gainCoins = jsonContent.coins
+        let gainGems = jsonContent.gems
+        let gainAwardId = jsonContent.gainAwardId
+        let gainAward = jsonContent.gainAward
+
+        let luckyBag = false
+        let awardImg = '', awardTitle = '', randomInRankRange = '', randomInQuantityRange = ''
+
+        if (gainAwardId) {
+          let range, quantityRange
+          luckyBag = jsonContent.luckyBag
+          awardTitle = `<span class="gif-title">${gainAward}</span>`
+          awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
+
+          for(range in jsonContent.randomInRankRange) {
+            randomInRankRange = `${jsonContent.randomInRankRange[range]} in ${range}`
+          }
+
+          for(quantityRange in jsonContent.randomInQuantityRange) {
+            randomInQuantityRange = `${jsonContent.randomInQuantityRange[quantityRange]} in ${quantityRange}`
+          }
+        }
+
         let content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
               <img class="openGifChest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
-            <div class="open-text-block2">
-              <span class="gifTitle">恭喜你獲得了~ Beats Solo3 Wireless耳罩式耳機</span>
+            <div class="open-text-block2">恭喜你獲得了
+              <span class="gif-title">${awardTitle} ${randomInRankRange} ${randomInQuantityRange}</span>
             </div>
             <div class="open-text-block3">
-                <img class="gifCoinsImg" src="./img/coin.svg">
-                <span class="coins">${gotCoins}</span>
-                <img class="gifGemsImg" src="./img/gem.svg">
-                <span class="gems">${gotGems}</span>
+              <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+              <span class="coins">${gainCoins}</span>
+              <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+              <span class="gems">${gainGems}</span>
             </div>
             <div class="open-text-block4">
-            <img class="yourGif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/award01.png">
+              ${awardImg}
             </div>
-          </div>`
-        require(['eventCountUp'], eventCountUp => {
-          confirmPopup.ok('', content, () => {
-            targets.readyBtn.css('display', 'none')
-            targets.platformChest.remove()
-            eventCountUp('coins', originalCoins, finalCoins)
-            eventCountUp('gems', originalGems, finalGems)
-          })
+          </div>
+        `
+        confirmPopup.ok('', content, () => {
+          if (luckyBag && luckyBag === true) {
+            ajax('PUT', `/chest/reward/luckyBag`, {awardId: gainAwardId})
+              .then(() => {
+                let gainCoins = jsonContent.coins
+                let gainGems = jsonContent.gems
+                let finalCoins = jsonContent.finalCoins
+                let finalGems = jsonContent.finalGems
+                let title = `
+                  <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+                  <span class="coins">${gainCoins}</span>
+                  <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+                  <span class="gems">${gainGems}</span>
+                `
+                let bagImage = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/award/${gainAwardId}.img">`
+
+                confirmPopup.image(title, bagImage, () => {
+                  require(['eventCountUp'], (eventCountUp) => {
+                    targets.readyBtn.css('display', 'none')
+                    targets.platformChest.remove()
+                    eventCountUp('coins', $('#coins').text(), finalCoins)
+                    eventCountUp('gems', $('#gems').text(), finalGems)
+                  })
+                })
+              })
+          } else {
+            require(['eventCountUp'], (eventCountUp) => {
+              targets.readyBtn.css('display', 'none')
+              targets.platformChest.remove()
+              eventCountUp('coins', $('#coins').text(), finalCoins)
+              eventCountUp('gems', $('#gems').text(), finalGems)
+            })
+          }
         })
       })
   }

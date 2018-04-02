@@ -45,7 +45,7 @@ define(['jquery', 'swal'], ($, swal) => {
       })
     },
 
-    gifImage: (title, content, gifImageFn) => {
+    image: (title, content, gifImageFn) => {
       let gifStyle = cloneCommonStyle(commonStyle)
       gifStyle.title = ''
       gifStyle.html = `

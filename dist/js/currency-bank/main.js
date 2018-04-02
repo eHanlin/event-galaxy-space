@@ -5,11 +5,21 @@ require(['config'], () => {
         .then((jsonData) => {
           return jsonData.content
         })
-        .then((transactions) => {
+        .then(() => {
+          let transactions = () => {
+            let data = []
+            for (let i = 0; i < transactions.length; i++) {
+              data.push({
+                action: '123'
+              })
+            }
+            return data
+          }
           $('#table').bootstrapTable({
-            data: transactions,
+            data: transactions(),
             striped: true,
-            pageSize: 5,
+            pageSize: 15,
+            pageList: [15],
             pagination: true
           })
 

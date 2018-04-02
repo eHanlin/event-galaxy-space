@@ -63,13 +63,13 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           transactionResult = content[0]
           if (transactionResult && transactionResult.memo.levelUpSuccess === 'true') {
             title = '升級成功'
-            gif = `<image class="confirm-popup-chest-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+            gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
           } else {
             title = '升級失敗'
-            gif = `<image class="confirm-popup-chest-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
+            gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
           }
 
-          confirmPopup.gifImage(title, gif, () => {
+          confirmPopup.image(title, gif, () => {
             let originalCoins = $('#coins').text()
             let originalGems = $('#gems').text()
             let spendCoins = transactionResult.coins
@@ -77,13 +77,10 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             let finalCoins = originalCoins - spendCoins
             let finalGems = originalGems - spendGems
 
-            require(['eventCountUp'], (eventCountUp) => {
+            require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
+              eventChestGet()
               eventCountUp('coins', originalCoins, finalCoins)
               eventCountUp('gems', originalGems, finalGems)
-            })
-
-            require(['eventChestGet'], (eventChestGet) => {
-              eventChestGet()
             })
           })
         }

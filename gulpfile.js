@@ -20,16 +20,16 @@ function copyStaticTask (destination) {
   return function () {
     return gulp
       .src(
-      [
-        'src/*.html',
-        'src/js/**/*.js',
-        'src/img/**/*.png',
-        'src/img/**/*.gif',
-        'src/img/**/*.svg',
-        'src/css/**/*.css'
-      ], {
-        base: 'src'
-      }
+        [
+          'src/*.html',
+          'src/js/**/*.js',
+          'src/img/**/*.png',
+          'src/img/**/*.gif',
+          'src/img/**/*.svg',
+          'src/css/**/*.css'
+        ], {
+          base: 'src'
+        }
       )
       .pipe(gulp.dest(destination))
   }
@@ -97,7 +97,7 @@ function buildJS () {
   return deferred.promise
 }
 
-function devToBuildEnv () {
+function buildDevToEnv () {
   return gulp
     .src(['src/js/galaxy-space/*.js'], {
       base: './'
@@ -166,15 +166,19 @@ gulp.task('concatCss', function () {
   return deferred.promise
 })
 gulp.task('minifyImage', minifyImage('src/img/**/*.png'))
-gulp.task('buildEnvToDev', buildEnvToDev) // 開發
-gulp.task('buildDevToEnv', devToBuildEnv) // 正式 & 測試
+gulp.task('buildEnvToDev', buildEnvToDev)
+
+/* 開發 */
+gulp.task('buildDevToEnv', buildDevToEnv)
+
+/* 正式 & 測試 */
 gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
 gulp.task('package', function () {
-  var deferred = Q.defer()
+  let deferred = Q.defer()
   Q.fcall(function () {
     return templateUtil.logPromise(clean(dist))
   }).then(function () {
-    return templateUtil.logStream(devToBuildEnv)
+    return templateUtil.logStream(buildDevToEnv)
   }).then(function () {
     return templateUtil.logStream(copyStaticTask('dist'))
   }).then(function () {
