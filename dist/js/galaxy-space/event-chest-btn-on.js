@@ -1,7 +1,6 @@
 define(() => {
   return (chest, targets) => {
     /* requireJs進來，click後綁定自己將參數(chest, targets)傳入 */
-    console.log('2')
     /* 啟動按鈕 */
     require(['eventChestStart'], eventChestStart => {
       targets.startBtn.off('click')

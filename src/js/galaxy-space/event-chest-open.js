@@ -77,20 +77,22 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
 
                 confirmPopup.image(title, bagImage, () => {
-                  require(['eventCountUp', 'eventAward'], (eventCountUp, eventAward) => {
+                  require(['eventCountUp', 'eventAwardGet'], (eventCountUp, eventAwardGet) => {
                     targets.readyBtn.css('display', 'none')
                     targets.platformChest.remove()
                     eventCountUp('coins', $('#coins').text(), finalCoins)
                     eventCountUp('gems', $('#gems').text(), finalGems)
+                    eventAwardGet()
                   })
                 })
               })
           } else {
-            require(['eventCountUp', 'eventAward'], (eventCountUp, eventAward) => {
+            require(['eventCountUp', 'eventAwardGet'], (eventCountUp, eventAwardGet) => {
               targets.readyBtn.css('display', 'none')
               targets.platformChest.remove()
               eventCountUp('coins', $('#coins').text(), finalCoins)
               eventCountUp('gems', $('#gems').text(), finalGems)
+              eventAwardGet()
             })
           }
         }, openLuckyBagBtn)

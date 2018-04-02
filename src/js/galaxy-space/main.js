@@ -12,7 +12,8 @@ require.config({
     eventClickLink: ['./event-click-link'],
     eventTotalAssets: ['./event-total-assets'],
     eventSlideShow: ['./event-slide-show'],
-    eventAward: ['./event-award'],
+    eventAwardBox: ['./event-award-box'],
+    eventAwardGet: ['./event-award-get'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
 
@@ -49,13 +50,15 @@ require.config({
   }
 })
 
-require(['jquery', 'ajax'], ($, ajax) => {
+require(['jquery', 'ajax'], () => {
   /* 一開始沒有return function的 js 必須在這裡require */
   require(['eventClickLink'])
   require(['eventSlideShow'])
   require(['eventUserStatus'])
   require(['eventTotalAssets'])
-  require(['eventAward'])
+  require(['eventAwardBox', 'eventAwardGet'], (eventAwardBox, eventAwardGet) => {
+    eventAwardGet()
+  })
   require(['eventChestGet'], eventChestGet => {
     eventChestGet()
   })
