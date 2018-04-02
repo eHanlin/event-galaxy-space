@@ -45,7 +45,7 @@ define(['jquery', 'swal'], ($, swal) => {
       })
     },
 
-    image: (title, content, gifImageFn) => {
+    image: (title, content, gifImageFn, buttonText) => {
       let gifStyle = cloneCommonStyle(commonStyle)
       gifStyle.title = ''
       gifStyle.html = `
@@ -54,7 +54,7 @@ define(['jquery', 'swal'], ($, swal) => {
             <div class="content-block1 ">${content}</div>
           </div> 
         `
-      gifStyle.confirmButtonText = '我瞭解了'
+      gifStyle.confirmButtonText = buttonText ? buttonText : '我瞭解了'
       gifStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-gif'
       gifStyle.onOpen = () => {
         $('.swal2-header').remove()
@@ -67,11 +67,11 @@ define(['jquery', 'swal'], ($, swal) => {
       })
     },
 
-    ok: (title, content, okFn) => {
+    ok: (title, content, okFn, buttonText) => {
       let okStyle = cloneCommonStyle(commonStyle)
       okStyle.title = `<span style="color: #217dbb;">${title}</span>`
       okStyle.html = `<div style="font-weight: bolder">${content}</div>`
-      okStyle.confirmButtonText = '我瞭解了'
+      okStyle.confirmButtonText = buttonText ? buttonText : '我瞭解了'
       okStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-ok'
 
       return swal(okStyle).then((result) => {

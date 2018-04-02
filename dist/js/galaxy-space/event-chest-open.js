@@ -16,7 +16,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let gainAward = jsonContent.gainAward
 
         let luckyBag = false
-        let awardImg = '', awardTitle = '', randomInRankRange = '', randomInQuantityRange = ''
+        let awardImg = '', awardTitle = '', randomInRankRange = '', randomInQuantityRange = '', openLuckyBagBtn = ''
 
         if (gainAwardId) {
           let range, quantityRange
@@ -31,12 +31,16 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           for (quantityRange in jsonContent.randomInQuantityRange) {
             randomInQuantityRange = `${jsonContent.randomInQuantityRange[quantityRange]} in ${quantityRange}`
           }
+
+          if (luckyBag === true) {
+            openLuckyBagBtn = '打開福袋'
+          }
         }
 
         let content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
-              <img class="openGifChest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
+              <img class="open-gif-hest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">恭喜你獲得了
               <span class="gif-title">${awardTitle} ${randomInRankRange} ${randomInQuantityRange}</span>
@@ -53,9 +57,11 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           </div>
         `
         confirmPopup.ok('', content, () => {
-          if (luckyBag && luckyBag === true) {
+          /* 福袋內容 */
+          if (luckyBag === true) {
             ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId})
-              .then(() => {
+              .then((jsonData) => {
+                let jsonContent = jsonData.content
                 let gainCoins = jsonContent.coins
                 let gainGems = jsonContent.gems
                 let finalCoins = jsonContent.finalCoins
@@ -71,7 +77,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
 
                 confirmPopup.image(title, bagImage, () => {
-                  require(['eventCountUp'], (eventCountUp) => {
+                  require(['eventCountUp', 'eventAward'], (eventCountUp, eventAward) => {
                     targets.readyBtn.css('display', 'none')
                     targets.platformChest.remove()
                     eventCountUp('coins', $('#coins').text(), finalCoins)
@@ -80,14 +86,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 })
               })
           } else {
-            require(['eventCountUp'], (eventCountUp) => {
+            require(['eventCountUp', 'eventAward'], (eventCountUp, eventAward) => {
               targets.readyBtn.css('display', 'none')
               targets.platformChest.remove()
               eventCountUp('coins', $('#coins').text(), finalCoins)
               eventCountUp('gems', $('#gems').text(), finalGems)
             })
           }
-        })
+        }, openLuckyBagBtn)
       })
   }
 })

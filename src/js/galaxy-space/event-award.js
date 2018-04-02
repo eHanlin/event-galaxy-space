@@ -18,10 +18,11 @@ define(['require', 'jquery', 'w3'], (require, $, w3) => {
       }
     })
 
-  $('.right').on('click', event => {
+  $('.right').off('click').on('click', event => {
     slide.next()
   })
-  $('.left').on('click', event => {
+
+  $('.left').off('click').on('click', event => {
     slide.previous()
   })
 })
