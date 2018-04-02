@@ -1,20 +1,9 @@
 #galaxy-space-activity {
-  background-color: #00192D;
-  height: 1650px;
+  background-color: #000C1A;
+  height: 100%;
 }
 
 #galaxy-space-activity main {
-  position: absolute;
-}
-
-.container div,
-.container img,
-.container span,
-.container button,
-.container a,
-.container ul,
-.container li,
-.container p {
   position: absolute;
 }
 
@@ -31,20 +20,12 @@
   height: 800px;
 }
 
-.activity-text .content-text .text {
-  color: azure;
-  font-family: "微軟正黑體", fantasy;
-  font-size: 18px;
-}
-
-.openChestTime {
-  color: azure;
-  font-family: "微軟正黑體", fantasy;
-  font-size: 18px;
-}
-
-.getAwards {
-  color: azure;
-  font-family: "微軟正黑體", fantasy;
-  font-size: 18px;
+.returnToActivity {
+  position: absolute;
+  width: 10%;
+  top: 8px;
+  left: 950px;
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  cursor: pointer;
 }

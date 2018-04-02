@@ -1,5 +1,5 @@
 define(['jquery', 'ajax'], ($, ajax) => {
-  ajax('GET', '/ms-user-status/userStatus')
+  ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
       let name = data.name
       let studentCard = data.studentCard
