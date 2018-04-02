@@ -6,12 +6,24 @@ require(['config'], () => {
           return jsonData.content
         })
         .then((transactions) => {
+          // let retrieve = () => {
+          //   for (let i = 0; i < transactions.length; i++) {
+          //     let data = transactions[i]
+          //     console.log(data)
+          //   }
+          // }
           let retrieve = () => {
-            for (let i = 0; i < transactions.length; i++) {
-              let data = transactions[i]
+            let array = {}
+            for (let index in transactions) {
+              let data = transactions[index]
+              array.push({
+                action: '123'
+              })
               console.log(data)
             }
+            return array
           }
+
           $('#table').bootstrapTable({
             data: retrieve(),
             striped: true,

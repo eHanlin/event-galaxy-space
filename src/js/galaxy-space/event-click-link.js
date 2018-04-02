@@ -32,5 +32,9 @@ define(['jquery'], $ => {
       window.open('/event/galaxySpace/activity-notice.html', 'activity')
       return false
     })
+    $('.bank').on('click', () => {
+      window.open('/event/galaxySpace/currency-bank.html', 'ehanlinBank')
+      return false
+    })
   })
 })
