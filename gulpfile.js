@@ -103,14 +103,14 @@ function buildDevToEnv () {
       base: './'
     })
     .pipe(
-      replace(/[`](http:\/\/localhost:8080)\/([\w-/${.}]+)`/g, function (match, p1, p2) {
+      replace(/[`](http:\/\/localhost:8080)\/([\w-/${.?=}]+)`/g, function (match, p1, p2) {
         let buildEnv = `\`/${p2}\``
         console.log(`chest domain => ${match} to ${buildEnv}`)
         return buildEnv
       })
     )
     .pipe(
-      replace(/[`](http:\/\/localhost:9090)\/([\w-/${.}]+)`/g, function (match, p1, p2) {
+      replace(/[`](http:\/\/localhost:9090)\/([\w-/${.?=}]+)`/g, function (match, p1, p2) {
         let buildEnv = `\`/${p2}\``
         console.log(`currencyBank domain => ${match} to ${buildEnv}`)
         return buildEnv
@@ -125,14 +125,14 @@ function buildEnvToDev () {
       base: './'
     })
     .pipe(
-      replace(/[`]\/(chest)\/([\w-/${.}]*)`/g, function (match, p1, p2) {
+      replace(/[`]\/(chest)\/([\w-/${.?=}]*)`/g, function (match, p1, p2) {
         let dev = `\`http://localhost:8080/${p1}/${p2}\``
         console.log(`chest domain => ${match} to ${dev}`)
         return dev
       })
     )
     .pipe(
-      replace(/[`]\/(currencyBank)\/([\w-/${.}]*)`/g, function (match, p1, p2) {
+      replace(/[`]\/(currencyBank)\/([\w-/${.?=}]*)`/g, function (match, p1, p2) {
         let dev = `\`http://localhost:9090/${p1}/${p2}\``
         console.log(`currencyBank domain => ${match} to ${dev}`)
         return dev
