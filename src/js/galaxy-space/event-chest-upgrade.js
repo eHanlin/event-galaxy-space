@@ -35,7 +35,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let levelInfo = jsonData.content.content
         let coins = levelInfo.coins
         let gems = levelInfo.gems
-        return ajax('GET', `http://localhost:8080/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
+        return ajax('GET', `/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
       })
       .then(jsonData => {
         let insufficientMessage = jsonData.content
