@@ -80,7 +80,7 @@
 }
 
 .container .userStatus .logout {
-  left: 1100px;
+  left: 1170px;
   top: 25px;
   width: 50px;
   cursor: pointer;
@@ -241,7 +241,7 @@
 
   .container .userStatus .logout {
     font-size: 16px;
-    left: 840px;
+    left: 910px;
     top: 25px;
     width: 50px;
   }
@@ -364,7 +364,7 @@
   .container .userStatus .logout {
     font-size: 12px;
     top: 22px;
-    left: 315px;
+    left: 385px;
   }
 
   .container .userStatus .phoneCall {
