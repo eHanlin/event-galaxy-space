@@ -1,37 +1,39 @@
-require(['config'], () => {
-  require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], $ => {
-    require(['ajax'], ajax => {
-      ajax('GET', `http://localhost:9090/currencyBank/transaction`)
-        .then((jsonData) => {
-          return jsonData.content
-        })
-        .then((transactions) => {
-          // let retrieve = () => {
-          //   for (let i = 0; i < transactions.length; i++) {
-          //     let data = transactions[i]
-          //     console.log(data)
-          //   }
-          // }
-          let retrieve = () => {
-            let array = {}
-            for (let index in transactions) {
-              let data = transactions[index]
-              array.push({
-                action: '123'
-              })
-              console.log(data)
-            }
-            return array
-          }
+// require(['config'], () => {
+//   require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], $ => {
+//     require(['ajax', 'moment', 'momentLocales'], (ajax, moment1, momentLocale1s) => {
+//       moment.locale('zh-tw')
+//       ajax('GET', `http://localhost:9090/currencyBank/transaction`)
+//         .then((jsonData) => {
+//           return jsonData.content
+//         })
+//         .then((transactions) => {
+//           let retrieve = () => {
+//             let index
+//             for (index in transactions) {
+//               let transaction = transactions[index]
+//               let field
+//               for (field in transaction) {
+//                 let updateTime
+//                 let formatTime
+//                 if (field === 'updateTime') {
+//                   updateTime = transaction[field]
+//                   updateTime = new Date(Date.parse(updateTime))
+//                   formatTime = moment(updateTime.toString()).format('dddd')
+//                   console.log(formatTime)
+//                 }
+//               }
+//             }
+//             return transactions
+//           }
 
-          $('#table').bootstrapTable({
-            data: retrieve(),
-            striped: true,
-            pageSize: 15,
-            pageList: [15],
-            pagination: true
-          })
-        })
-    })
-  })
-})
+//           $('#table').bootstrapTable({
+//             data: retrieve(),
+//             striped: true,
+//             pageSize: 15,
+//             pageList: [15],
+//             pagination: true
+//           })
+//         })
+//     })
+//   })
+// })
