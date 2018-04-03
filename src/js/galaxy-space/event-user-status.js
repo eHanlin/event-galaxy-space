@@ -7,7 +7,6 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log('========= 我就是id ========')
       console.log(data.id)
       console.log('========= 我就是id ========')
-      console.log(`ex: ${data.id} 加e幣寶石或寶箱`)
 
       $('.userStatus .login').remove()
       $('.userStatus .name').append(`${name}`)
