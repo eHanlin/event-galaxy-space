@@ -15,8 +15,8 @@
 
 .box.right {
   display: block;
-  width: auto;
-  margin-left: 225px;
+  margin: auto;
+  margin-left: 0px;
 }
 
 .box {

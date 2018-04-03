@@ -11,7 +11,9 @@ define(() => {
       bootstrap: ['../lib/bootstrap.bundle.min'],
       bootstrapTable: ['../lib/bootstrap-table.min'],
       bootstrapTableTw: ['../lib/bootstrap-table-zh-TW.min'],
-      ajax: ['../module-utils/ajax']
+      ajax: ['../module-utils/ajax'],
+      moment: ['../lib/moment.min'],
+      momentLocales: ['../lib/moment-with-locales.min']
     }
   })
 })
