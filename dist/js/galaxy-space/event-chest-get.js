@@ -2,6 +2,8 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {
   return () => ajax('GET', `/chest/`)
     .then(data => {
       let chests = data.content
+      $(`.platform img[class^=chest]`).remove()
+
       for (let index in chests) {
         let chest = chests[index]
         let targets = {}
