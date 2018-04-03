@@ -219,13 +219,13 @@
 .container .service .service-message {
   top: 40px;
   left: 350px;
-  width: 680px;
+  width: 100%;
 }
 
 .container .service .service-message2 {
   top: 100px;
   left: 350px;
-  width: 680px;
+  width: 100%;
 }
 
 .container .service .shareBox {
@@ -448,7 +448,7 @@
     top: 85px;
     left: 305px;
     font-size: 17px;
-    width: 500px;
+    width: 400px;
   }
 
   .container .service .shareBox {
