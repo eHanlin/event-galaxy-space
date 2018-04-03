@@ -15,35 +15,22 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let gainAwardId = jsonContent.gainAwardId
         let gainAward = jsonContent.gainAward
 
-        let luckyBag = false
-        let awardImg = '', awardTitle = '', randomInRankRange = '', randomInQuantityRange = '', openLuckyBagBtn = ''
+        let luckyBag = jsonContent.luckyBag
+        let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
+        let content = ''
 
         if (gainAwardId) {
-          let range, quantityRange
-          luckyBag = jsonContent.luckyBag
           awardTitle = `<span class="gif-title">${gainAward}</span>`
           awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
-
-          for (range in jsonContent.randomInRankRange) {
-            randomInRankRange = `${jsonContent.randomInRankRange[range]} in ${range}`
-          }
-
-          for (quantityRange in jsonContent.randomInQuantityRange) {
-            randomInQuantityRange = `${jsonContent.randomInQuantityRange[quantityRange]} in ${quantityRange}`
-          }
-
-          if (luckyBag === true) {
-            openLuckyBagBtn = '打開福袋'
-          }
         }
 
-        let content = `
+        content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
               <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">恭喜你獲得了
-              <span class="gif-title">${awardTitle} ${randomInRankRange} ${randomInQuantityRange}</span>
+              <span class="gif-title">${awardTitle}</span>
             </div>
             <div class="open-text-block3">
               <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
@@ -56,17 +43,44 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             </div>
           </div>
         `
-        confirmPopup.ok('', content, () => {
-          /* 福袋內容 */
+
+        let afterOpen = (finalCoins, finalGems) => {
+          require(['eventCountUp'], (eventCountUp) => {
+            targets.readyBtn.css('display', 'none')
+            targets.platformChest.remove()
+            eventCountUp('coins', $('#coins').text(), finalCoins)
+            eventCountUp('gems', $('#gems').text(), finalGems)
+          })
+        }
+
+        if (gainAwardId && luckyBag === false) {
+          confirmPopup.dialog(content,
+            /* 導頁至領取㽪品 */
+            () => {
+              afterOpen(finalCoins, finalGems)
+              window.open('https://test.ehanlin.com.tw/Events/winner_info.html?id=space', 'winner_info')
+            },
+            /* confirmFn */
+            afterOpen.bind(afterOpen, finalCoins, finalGems),
+            /* onOpenFn */
+            () => {},
+            '回填領獎', '我瞭解了')
+        } else {
           if (luckyBag === true) {
-            ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId})
-              .then((jsonData) => {
-                let jsonContent = jsonData.content
-                let gainCoins = jsonContent.coins
-                let gainGems = jsonContent.gems
-                let finalCoins = jsonContent.finalCoins
-                let finalGems = jsonContent.finalGems
-                let title = `
+            openLuckyBagBtn = '打開福袋'
+          }
+
+          confirmPopup.ok('', content, () => {
+            /* 福袋內容 */
+            if (luckyBag === true) {
+              ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId})
+                .then((jsonData) => {
+                  let jsonContent = jsonData.content
+                  let gainCoins = jsonContent.coins
+                  let gainGems = jsonContent.gems
+                  let finalCoins = jsonContent.finalCoins
+                  let finalGems = jsonContent.finalGems
+                  let title = `
                   <div class="lucky-bag">
                     <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
                     <span class="coins">${gainCoins}</span>
@@ -74,28 +88,15 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                     <span class="gems">${gainGems}</span>
                   </div>
                 `
-                let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
+                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
 
-                confirmPopup.image(title, bagImage, () => {
-                  require(['eventCountUp', 'eventAwardGet'], (eventCountUp, eventAwardGet) => {
-                    targets.readyBtn.css('display', 'none')
-                    targets.platformChest.remove()
-                    eventCountUp('coins', $('#coins').text(), finalCoins)
-                    eventCountUp('gems', $('#gems').text(), finalGems)
-                    eventAwardGet()
-                  })
+                  confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
                 })
-              })
-          } else {
-            require(['eventCountUp', 'eventAwardGet'], (eventCountUp, eventAwardGet) => {
-              targets.readyBtn.css('display', 'none')
-              targets.platformChest.remove()
-              eventCountUp('coins', $('#coins').text(), finalCoins)
-              eventCountUp('gems', $('#gems').text(), finalGems)
-              eventAwardGet()
-            })
-          }
-        }, openLuckyBagBtn)
+            } else {
+              afterOpen(finalCoins, finalGems)
+            }
+          }, openLuckyBagBtn)
+        }
       })
   }
 })

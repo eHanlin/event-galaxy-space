@@ -17,14 +17,14 @@ define(['jquery', 'swal'], ($, swal) => {
   }
 
   return {
-    dialog: (content, confirmFn, cancelFn, onOpenFn) => {
+    dialog: (content, confirmFn, cancelFn, onOpenFn, confirmBtnText, cancelBtnText) => {
       let dialogStyle = cloneCommonStyle(commonStyle)
       dialogStyle.title = ''
       dialogStyle.html = content
       dialogStyle.showCancelButton = true
-      dialogStyle.confirmButtonText = '確定'
+      dialogStyle.confirmButtonText = confirmBtnText ? confirmBtnText : '確定'
       dialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-dialog'
-      dialogStyle.cancelButtonText = '我再想想'
+      dialogStyle.cancelButtonText = cancelBtnText ? cancelBtnText : '我再想想'
       dialogStyle.cancelButtonClass = 'confirm-popup-btn confirm-popup-btn-cancel'
       dialogStyle.reverseButtons = true
       dialogStyle.onOpen = () => {
