@@ -18,7 +18,7 @@ require(['config'], () => {
                   transaction['coins'] = transaction[field].coins ? transaction[field].coins : 0
                   transaction['gems'] = transaction[field].gems ? transaction[field].gems : 0
                 } else if (field === 'action') {
-                  if (transaction[field].indexOf('ADD') > 0) {
+                  if (transaction[field].indexOf('ADD') >= 0) {
                     transaction[field] = '增加'
                   } else {
                     transaction[field] = '消耗'

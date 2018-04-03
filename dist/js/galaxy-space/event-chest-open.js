@@ -40,7 +40,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
-              <img class="open-gif-hest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
+              <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">恭喜你獲得了
               <span class="gif-title">${awardTitle} ${randomInRankRange} ${randomInQuantityRange}</span>
