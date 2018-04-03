@@ -20,16 +20,16 @@ function copyStaticTask (destination) {
   return function () {
     return gulp
       .src(
-        [
-          'src/*.html',
-          'src/js/**/*.js',
-          'src/img/**/*.png',
-          'src/img/**/*.gif',
-          'src/img/**/*.svg',
-          'src/css/**/*.css'
-        ], {
-          base: 'src'
-        }
+      [
+        'src/*.html',
+        'src/js/**/*.js',
+        'src/img/**/*.png',
+        'src/img/**/*.gif',
+        'src/img/**/*.svg',
+        'src/css/**/*.css'
+      ], {
+        base: 'src'
+      }
       )
       .pipe(gulp.dest(destination))
   }
@@ -121,7 +121,7 @@ function buildDevToEnv () {
 
 function buildEnvToDev () {
   return gulp
-    .src(['src/js/galaxy-space/*.js'], {
+    .src(['src/js/galaxy-space/*.js', 'src/js/currency-bank/*.js'], {
       base: './'
     })
     .pipe(
