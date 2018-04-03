@@ -54,38 +54,74 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             let awardsImg3 = ''
             let awardsImg4 = ''
             let awardsImg5 = ''
+            let awardsImg6 = ''
+            let awardsImg7 = ''
             let imgBlock1 = ''
             let imgBlock2 = ''
             let imgBlock3 = ''
             let imgBlock4 = ''
             let imgBlock5 = ''
+            let imgBlock6 = ''
+            let imgBlock7 = ''
             for (let awardIndex in awards) {
               chestMatchAwards = awards[awardIndex]
 
-              if (awardIndex < 5) {
-                awardsImg1 += `
-                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                imgBlock1 = `<div class="img-block-award">${awardsImg1}</div>`
-              } else if (awardIndex >= 5 && awardIndex < 10) {
-                awardsImg2 += `
-                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                imgBlock2 = `<div class="img-block-award">${awardsImg2}</div>`
-              } else if (awardIndex >= 10 && awardIndex < 15) {
-                awardsImg3 += `
-                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                imgBlock3 = `<div class="img-block-award">${awardsImg3}</div>`
-              } else if (awardIndex >= 15 && awardIndex < 20) {
-                awardsImg4 += `
-                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                imgBlock4 = `<div class="img-block-award">${awardsImg4}</div>`
-              } else if (awardIndex >= 20 && awardIndex < 25) {
-                awardsImg5 += `
-                  <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                imgBlock5 = `<div class="img-block-award">${awardsImg5}</div>`
+              if (window.matchMedia('(max-width: 940px)').matches) {
+                if (awardIndex < 3) {
+                  awardsImg1 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock1 = `<div class="img-block-award">${awardsImg1}</div>`
+                } else if (awardIndex >= 3 && awardIndex < 6) {
+                  awardsImg2 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock2 = `<div class="img-block-award">${awardsImg2}</div>`
+                } else if (awardIndex >= 6 && awardIndex < 9) {
+                  awardsImg3 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock3 = `<div class="img-block-award">${awardsImg3}</div>`
+                } else if (awardIndex >= 9 && awardIndex < 12) {
+                  awardsImg4 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock4 = `<div class="img-block-award">${awardsImg4}</div>`
+                } else if (awardIndex >= 12 && awardIndex < 15) {
+                  awardsImg5 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock5 = `<div class="img-block-award">${awardsImg5}</div>`
+                } else if (awardIndex >= 15 && awardIndex < 18) {
+                  awardsImg6 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock6 = `<div class="img-block-award">${awardsImg6}</div>`
+                } else if (awardIndex >= 18 && awardIndex < 21) {
+                  awardsImg7 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock7 = `<div class="img-block-award">${awardsImg7}</div>`
+                }
+              } else {
+                if (awardIndex < 5) {
+                  awardsImg1 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock1 = `<div class="img-block-award">${awardsImg1}</div>`
+                } else if (awardIndex >= 5 && awardIndex < 10) {
+                  awardsImg2 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock2 = `<div class="img-block-award">${awardsImg2}</div>`
+                } else if (awardIndex >= 10 && awardIndex < 15) {
+                  awardsImg3 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock3 = `<div class="img-block-award">${awardsImg3}</div>`
+                } else if (awardIndex >= 15 && awardIndex < 20) {
+                  awardsImg4 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock4 = `<div class="img-block-award">${awardsImg4}</div>`
+                } else if (awardIndex >= 20 && awardIndex < 25) {
+                  awardsImg5 += `
+                      <img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                  imgBlock5 = `<div class="img-block-award">${awardsImg5}</div>`
+                }
               }
             }
 
-            $(`.img-block-left-btn`).after(`${imgBlock1}${imgBlock2}${imgBlock3}${imgBlock4}${imgBlock5}`)
+            $(`.img-block-left-btn`).after(`${imgBlock1}${imgBlock2}${imgBlock3}${imgBlock4}${imgBlock5}${imgBlock6}${imgBlock7}`)
             let slide = w3.slideshow(`.img-block-award`, 0)
 
             $('.right-btn').on('click', () => {
