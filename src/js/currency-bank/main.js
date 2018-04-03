@@ -1,7 +1,7 @@
 require(['config'], () => {
   require(['jquery', 'bootstrap', 'bootstrapTable', 'bootstrapTableTw'], $ => {
     require(['ajax', 'moment', 'momentLocales'], (ajax, moment, momentLocales) => {
-      ajax('GET', `http://localhost:9090/currencyBank/transaction`)
+      ajax('GET', `/currencyBank/transaction`)
         .then((jsonData) => {
           return jsonData.content
         })

@@ -99,7 +99,7 @@ function buildJS () {
 
 function buildDevToEnv () {
   return gulp
-    .src(['src/js/galaxy-space/*.js'], {
+    .src(['src/js/galaxy-space/*.js', 'src/js/currency-bank/*.js'], {
       base: './'
     })
     .pipe(
