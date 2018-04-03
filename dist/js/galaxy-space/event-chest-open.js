@@ -10,8 +10,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let finalGems = jsonContent.finalGems
 
         /* 獲得禮物內容 */
-        let gainCoins = jsonContent.coins
-        let gainGems = jsonContent.gems
+        let gainCoins = jsonContent.coins ? jsonContent.coins : 0
+        let gainGems = jsonContent.gems ? jsonContent.gems : 0
         let gainAwardId = jsonContent.gainAwardId
         let gainAward = jsonContent.gainAward
 
