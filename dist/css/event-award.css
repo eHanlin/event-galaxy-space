@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.container .award-box li[class^=border-box]  {
+.container .award-box li[class^=border-box] {
   width: 200px;
   height: 190px;
   list-style-type: none;
@@ -94,6 +94,7 @@
 .container .award-box .block img {
   width: 75%;
   left: 25px;
+  top: 8px;
 }
 
 .container .award-box .block span {
@@ -143,7 +144,13 @@
   left: 30px;
 }
 
-.container .slide-show-text {
+.container .award-show {
+  top: 0;
+  left: 10px;
+  height: 170px;
+}
+
+.container .slide-show-award-introduce {
   top: 1380px;
   left: 276px;
   width: 178px;
@@ -151,15 +158,15 @@
   z-index: 1;
 }
 
-.container .slide-show-text .award {
+.container .slide-show-award-introduce .award {
   color: black;
   font-size: 17px;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
-.container .slide-show-text .needChestLv {
+.container .slide-show-award-introduce .needChestLv {
   color: black;
   font-size: 17px;
   top: 45px;
@@ -167,15 +174,15 @@
   z-index: 1;
 }
 
-.container .slide-show-text .quantity {
-  color: black;
+.container .slide-show-award-introduce .quantity {
+  color: darkblue;
   font-size: 17px;
   top: 67px;
   left: 0;
   z-index: 1;
 }
 
-.container .slide-show-text .awardNotice {
+.container .slide-show-award-introduce .awardNotice {
   color: brown;
   font-size: 15px;
   top: 90px;
@@ -193,8 +200,8 @@
 .container .next {
   top: 1120px;
   left: 500px;
-  width: 100px;
   height: 100px;
+  width: 100px;
   z-index: 1;
   cursor: pointer;
 }
@@ -202,14 +209,14 @@
 .container .previous {
   top: 1220px;
   left: 500px;
-  width: 100px;
   height: 100px;
+  width: 100px;
   z-index: 1;
   cursor: pointer;
 }
 
 .container .service {
-  background: rgb(126, 206, 244, 0.9);
+  background: rgba(126, 206, 244, 0.9);
   border-radius: 300px;
   top: 1580px;
   height: 250px;
@@ -218,19 +225,25 @@
 
 .container .service .service-message {
   top: 40px;
-  left: 350px;
-  width: 100%;
+  left: 19%;
 }
 
-.container .service .service-message2 {
-  top: 100px;
-  left: 350px;
-  width: 100%;
+.container .service .service-message-text {
+  top: 102px;
+  left: 15%;
+  width: 75%;
+}
+
+.container .service .service-message,
+.container .service .service-message-text {
+  color: black;
+  font-size: 21px;
+  font-family: "微軟正黑體", fantasy;
 }
 
 .container .service .shareBox {
-  top: 10px;
-  left: 280px;
+  top: 12px;
+  left: 13%;
   width: 5%;
   transform: rotate(-5deg);
   -webkit-transform: rotate(-5deg);
@@ -245,13 +258,6 @@
 
 .container .service .shareBtn:hover {
   opacity: 0.6;
-}
-
-.container .service .service-message,
-.container .service .service-message2 {
-  color: black;
-  font-size: 20px;
-  font-family: "微軟正黑體", fantasy;
 }
 
 /* ============================> 禮物 <============================ */
@@ -383,9 +389,9 @@
     left: 10px;
   }
 
-  .container .nature {
+  .container .award-show {
     top: -110px;
-    width: 150px;
+    left: -10px;
     height: 150px;
   }
 
@@ -398,31 +404,31 @@
   .container .next {
     top: 920px;
     left: 390px;
-    width: 80px;
     height: 80px;
+    width: 80px;
   }
 
   .container .previous {
     top: 1000px;
     left: 390px;
-    width: 80px;
     height: 80px;
+    width: 80px;
   }
 
-  .container .slide-show-text {
+  .container .slide-show-award-introduce {
     top: 1130px;
     left: 192px;
     width: 156px;
     height: 122px;
   }
 
-  .container .slide-show-text .award,
-  .container .slide-show-text .needChestLv,
-  .container .slide-show-text .quantity {
+  .container .slide-show-award-introduce .award,
+  .container .slide-show-award-introduce .needChestLv,
+  .container .slide-show-award-introduce .quantity {
     font-size: 15px;
   }
 
-  .container .slide-show-text .awardNotice {
+  .container .slide-show-award-introduce .awardNotice {
     font-size: 12px;
   }
 
@@ -440,25 +446,19 @@
 
   .container .service .service-message {
     top: 30px;
-    left: 305px;
-    font-size: 17px;
+    font-size: 19px;
   }
 
-  .container .service .service-message2 {
+  .container .service .service-message-text {
     top: 85px;
-    left: 305px;
-    font-size: 17px;
-    width: 400px;
-  }
-
-  .container .service .shareBox {
-    top: 10px;
-    left: 250px;
+    font-size: 19px;
+    width: 72%;
   }
 
   .container .service .shareBtn {
     top: 150px;
     left: 450px;
+    width: 15%;
   }
 }
 
@@ -466,22 +466,22 @@
 
 /* ============================================> iPhone ============================================>*/
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 800px) {
   .container .chest-award-icon1 {
-    top: 850px;
+    top: 820px;
     left: 180px;
-    width: 6%;
+    width: 8%;
   }
 
   .container .stock-room1 {
-    top: 880px;
-    left: 100px;
-    width: 50%;
+    top: 865px;
+    left: 85px;
+    width: 55%;
   }
 
   .container .message1 {
     font-size: 17px;
-    top: 915px;
+    top: 900px;
     left: 65px;
   }
 
@@ -490,10 +490,10 @@
     left: 20px;
   }
 
-  .container .nature {
-    top: -40px;
-    width: 100px;
-    height: 100px;
+  .container .award-show {
+    top: -55px;
+    left: -5px;
+    height: 105px;
   }
 
   .container .award-box li[class^=border-box] {
@@ -524,7 +524,7 @@
 
   .container .border1 {
     top: 1350px;
-    left: 40px;
+    left: 28px;
     width: 150px;
     height: 150px;
   }
@@ -538,7 +538,7 @@
 
   .container .border3 {
     top: 1515px;
-    left: 40px;
+    left: 28px;
     width: 150px;
     height: 150px;
   }
@@ -574,52 +574,66 @@
 
   .container .right {
     top: 1480px;
+    right: 2px;
     width: 50px;
     height: 50px;
   }
 
   .container .left {
     top: 1480px;
-    right: 320px;
+    left: 2px;
     width: 50px;
     height: 50px;
   }
 
   .container .next {
     top: 945px;
-    left: 260px;
+    left: 270px;
     width: 60px;
     height: 60px;
   }
 
   .container .previous {
     top: 1005px;
-    left: 260px;
+    left: 270px;
     width: 60px;
     height: 60px;
   }
 
-  .container .slide-show-text {
-    display: none;
+  .container .slide-show-award-introduce {
+    top: 1090px;
+    left: 140px;
+    width: 130px;
+    height: 100px;
+  }
+
+  .container .slide-show-award-introduce .award {
+    font-size: 14px;
+  }
+
+  .container .slide-show-award-introduce .quantity {
+    top: 37px;
+    left: 0;
+    font-size: 14px;
   }
 
   .container .monster {
-    width: 250px;
-    height: 200px;
-    top: 990px;
-    left: 65px;
+    width: 290px;
+    height: 235px;
+    top: 970px;
+    left: 42px;
   }
 
   .container .chest-award-icon2 {
     top: 1200px;
     left: 180px;
-    width: 6%;
+    width: 8%;
   }
 
   .container .stock-room2 {
-    top: 1230px;
-    left: 100px;
-    width: 50%;
+    top: 1240px;
+    left: 90px;
+    width: 55%;
   }
 
   .container .message2 {
@@ -641,27 +655,24 @@
 
   .container .service .service-message {
     top: 15px;
-    left: 120px;
-    font-size: 10px;
+    left: 28%;
+    font-size: 14px;
   }
 
-  .container .service .service-message2 {
-    top: 55px;
-    left: 120px;
-    font-size: 10px;
-    width: 200px;
+  .container .service .service-message-text {
+    top: 47px;
+    left: 15%;
+    font-size: 14px;
   }
 
   .container .service .shareBox {
-    top: 5px;
-    left: 80px;
     width: 8%;
   }
 
   .container .service .shareBtn {
     top: 115px;
-    left: 160px;
-    width: 20%;
+    left: 130px;
+    width: 28%;
   }
 }
 

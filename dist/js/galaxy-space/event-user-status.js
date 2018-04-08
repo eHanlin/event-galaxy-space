@@ -8,26 +8,26 @@ define(['jquery', 'ajax'], ($, ajax) => {
       console.log(data.id)
       console.log('========= 我就是id ========')
 
-      $('.userStatus .login').remove()
-      $('.userStatus .name').append(`${name}`)
-      $('.userStatus .studentCard').append(`${studentCard}`)
-      $('.userStatus .logout').append(`登出`)
+      $('.user-status .login').remove()
+      $('.user-status .name').append(`${name}`)
+      $('.user-status .student-card').append(`${studentCard}`)
+      $('.user-status .logout').append(`登出`)
     })
 
-  $('.userStatus .logout').on('click', () => {
+  $('.user-status .logout').on('click', () => {
     ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
       .then(() => {
         window.location = 'https://' + window.location.hostname
       })
   })
 
-  $('.userStatus .name').on('click', () => {
+  $('.user-status .name').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
   })
-  $('.userStatus .studentCard').on('click', () => {
+  $('.user-status .student-card').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
   })
-  $('.userStatus .login').on('click', () => {
+  $('.user-status .login').on('click', () => {
     window.location.href = '/Users/login.html'
   })
 })

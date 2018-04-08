@@ -24,7 +24,13 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
         `
-        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets))
+        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets),
+          () => {
+            /* 重新綁定升級按鈕 */
+            require(['eventChestUpgrade'], eventChestUpgrade => {
+              targets.upgradeBtn.one('click', eventChestUpgrade.ask.bind(eventChestUpgrade.ask, chest, targets))
+            })
+          })
       })
   }
 
@@ -42,6 +48,12 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         if (insufficientMessage) {
           let title = 'Oooooops 餘額不足喔！'
           confirmPopup.ok(title, insufficientMessage)
+
+          /* 重新綁定升級按鈕 */
+          require(['eventChestUpgrade'], eventChestUpgrade => {
+            targets.upgradeBtn.one('click', eventChestUpgrade.ask.bind(eventChestUpgrade.ask, chest, targets))
+          })
+
           return $.Deferred().reject().promise()
         } else {
           return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
@@ -70,8 +82,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           }
 
           confirmPopup.image(title, gif, () => {
-            let originalCoins = $('#coins').text()
-            let originalGems = $('#gems').text()
+            let originalCoins = parseInt($('#coins').text())
+            let originalGems = parseInt($('#gems').text())
             let spendCoins = transactionResult.coins
             let spendGems = transactionResult.gems
             let finalCoins = originalCoins - spendCoins

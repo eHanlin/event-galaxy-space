@@ -1,7 +1,19 @@
 define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
+
+  $(window).resize(function () {
+    if (window.matchMedia('(max-width: 800px)').matches) {
+      $('.slide-show-award-introduce .needChestLv').hide()
+      $('.slide-show-award-introduce .awardNotice').hide()
+    } else {
+      $('.slide-show-award-introduce .needChestLv').show()
+      $('.slide-show-award-introduce .awardNotice').show()
+    }
+  })
+
   ajax('GET', `/chest/award/conditions`)
     .then(data => {
       let awards = data.content
+
       for (let index in awards) {
         let value = awards[index]
         let title = value.content.title
@@ -10,43 +22,56 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
         let notice = value.content.notice
         let awardId = value.id
         let howMany
+        let awardInfo
 
         if (quantity === 0) {
           howMany = '沒貨啦'
-        }
-        if (quantity > 0) {
+        } else if (quantity > 0) {
           howMany = '還有貨喔'
         }
-        $('.slide-show').append(`<img class="nature" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">`)
-        $('.slide-show-text')
-          .append(
-            `<span class="award">${title}</span>
-             <span class="quantity">庫存狀況：${howMany}</span>
-             <span class="needChestLv">所在寶箱：Lv${needChestLv}</span>
-             <span class="awardNotice">${notice}</span>`)
+
+        if (window.matchMedia('(max-width: 800px)').matches) {
+          awardInfo = `
+            <div class="slide-show">
+              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">
+            </div>
+            <div class="slide-show-award-introduce">
+              <span class="award">${title}</span>
+              <span class="quantity">庫存：${howMany}</span>
+              <span class="needChestLv"></span>
+              <span class="awardNotice"></span>
+            </div>
+          `
+        } else {
+          awardInfo = `
+            <div class="slide-show">
+              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">
+            </div>
+            <div class="slide-show-award-introduce">
+              <span class="award">${title}</span>
+              <span class="quantity">庫存：${howMany}</span>
+              <span class="needChestLv">所在寶箱：Lv${needChestLv}</span>
+              <span class="awardNotice">${notice}</span>
+            </div>
+          `
+        }
+
+        $('#award-info')
+          .append(awardInfo)
       }
 
-      let nature = w3.slideshow('.nature', 3000)
-      let award = w3.slideshow('.award', 3000)
-      let needChestLv = w3.slideshow('.needChestLv', 3000)
-      let quantity = w3.slideshow('.quantity', 3000)
-      let awardNotice = w3.slideshow('.awardNotice', 3000)
+      let awardShow = w3.slideshow('.award-show', 3000)
+      let awardIntroduce = w3.slideshow('.slide-show-award-introduce', 3000)
 
       // 上一個
       $('.previous').on('click', event => {
-        nature.next()
-        award.next()
-        needChestLv.next()
-        quantity.next()
-        awardNotice.next()
+        awardShow.next()
+        awardIntroduce.next()
       })
       // 下一個
       $('.next').on('click', event => {
-        nature.previous()
-        award.previous()
-        needChestLv.previous()
-        quantity.previous()
-        awardNotice.previous()
+        awardShow.previous()
+        awardIntroduce.previous()
       })
     })
 })

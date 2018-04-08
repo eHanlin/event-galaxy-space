@@ -30,6 +30,7 @@
 }
 
 .start-confirm-grid-container img[class^="img-award"] {
+  margin-top: 3px;
   width: 140px;
 }
 
@@ -56,4 +57,25 @@
   color: #217dbb;
   font-size: 18px;
   font-weight: bolder;
+}
+
+
+@media screen and (max-width: 500px) {
+  .start-confirm-grid-container {
+    grid-template-columns: 1px 50px 70% 50px 1px;
+    font-size: 21px;
+  }
+
+  .start-confirm-grid-container .content-block1 {
+    font-size: 19px;
+  }
+
+  .start-confirm-grid-container .content-block2 {
+    font-size: 16px;
+  }
+
+  .start-confirm-grid-container .img-block-left-btn .left-btn,
+  .start-confirm-grid-container .img-block-right-btn .right-btn {
+    width: 40px;
+  }
 }

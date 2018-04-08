@@ -32,64 +32,60 @@
   height: 800px;
 }
 
-.container .userStatus .name,
-.container .userStatus .studentCard,
-.container .userStatus .phoneCall,
-.container .userStatus .logout,
-.container .userStatus .login {
+.container .user-status {
+  left: 870px;
+  top: 6px;
+  height: 90px;
+  width: 25%;
   color: azure;
   font-family: "微軟正黑體", fantasy;
   font-size: 18px;
 }
 
-.container .userStatus .meteor1 {
-  left: 900px;
-  top: 8px;
-  height: 45px;
-  width: 110px;
+.container .user-status .meteor1 {
+  top: 0;
+  left: 0;
+  height: 45px
 }
 
-.container .userStatus .meteor2 {
-  left: 900px;
-  top: 38px;
+.container .user-status .meteor2 {
+  left: 0;
+  bottom: 0;
   height: 45px;
-  width: 110px;
 }
 
-.container .userStatus .name {
-  left: 1020px;
-  top: 25px;
-  width: 120px;
+.container .user-status .name {
+  left: 130px;
+  top: 12px;
+  width: 45%;
   cursor: pointer;
 }
 
-.container .userStatus .studentCard {
-  left: 920px;
-  top: 25px;
-  width: 50px;
+.container .user-status .student-card {
+  left: 6%;
+  top: 12px;
+  width: 30%;
   cursor: pointer;
   z-index: 1;
 }
 
-.container .userStatus .login {
-  left: 920px;
-  top: 25px;
-  width: 100px;
+.container .user-status .login {
+  left: 6%;
+  top: 12px;
   cursor: pointer;
   z-index: 1;
 }
 
-.container .userStatus .logout {
-  left: 1170px;
-  top: 25px;
-  width: 50px;
+.container .user-status .logout {
+  right: 0;
+  top: 12px;
   cursor: pointer;
 }
 
-.container .userStatus .phoneCall {
-  left: 920px;
-  top: 55px;
-  width: 300px;
+.container .user-status .phone-call {
+  left: 6%;
+  bottom: 2px;
+  width: 100%;
 }
 
 .container .logo {
@@ -218,46 +214,10 @@
     width: 980px;
   }
 
-  .container .userStatus .name {
+  .container .user-status {
+    left: 660px;
+    height: 80px;
     font-size: 16px;
-    left: 760px;
-    top: 25px;
-    width: 120px;
-  }
-
-  .container .userStatus .studentCard {
-    font-size: 16px;
-    left: 670px;
-    top: 25px;
-    width: 50px;
-  }
-
-  .container .userStatus .login {
-    font-size: 16px;
-    left: 670px;
-    top: 25px;
-    width: 80px;
-  }
-
-  .container .userStatus .logout {
-    font-size: 16px;
-    left: 910px;
-    top: 25px;
-    width: 50px;
-  }
-
-  .container .userStatus .phoneCall {
-    font-size: 16px;
-    top: 55px;
-    left: 670px;
-  }
-
-  .container .userStatus .meteor1 {
-    left: 650px;
-  }
-
-  .container .userStatus .meteor2 {
-    left: 650px;
   }
 
   .container .logo {
@@ -267,7 +227,7 @@
   .container .logo_375 {
     width: 13%;
     left: 29px;
-    top: 21.5px;
+    top: 21px;
   }
 
   .container .logoFlag {
@@ -334,7 +294,7 @@
 
 /* ============================================> iPhone ============================================>*/
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 800px) {
   #galaxy-space-body {
     height: 1700px;
   }
@@ -343,48 +303,21 @@
     width: 375px;
   }
 
-  .container .userStatus .name {
-    font-size: 12px;
-    top: 22px;
-    left: 265px;
+  .container .user-status {
+    top: 4px;
+    left: 170px;
+    width: 47%;
+    height: 60px;
+    font-size: 13px;
   }
 
-  .container .userStatus .studentCard {
-    font-size: 12px;
-    top: 22px;
-    left: 205px;
+  .container .user-status .meteor1,
+  .container .user-status .meteor2 {
+    height: 37px;
   }
 
-  .container .userStatus .login {
-    font-size: 12px;
-    top: 22px;
-    left: 205px;
-  }
-
-  .container .userStatus .logout {
-    font-size: 12px;
-    top: 22px;
-    left: 385px;
-  }
-
-  .container .userStatus .phoneCall {
-    font-size: 12px;
-    top: 42px;
-    left: 205px;
-  }
-
-  .container .userStatus .meteor1 {
-    width: 90px;
-    height: 35px;
-    left: 190px;
-    top: 8px;
-  }
-
-  .container .userStatus .meteor2 {
-    width: 90px;
-    height: 35px;
-    left: 190px;
-    top: 30px;
+  .container .user-status .name {
+    left: 88px;
   }
 
   .container .logo {

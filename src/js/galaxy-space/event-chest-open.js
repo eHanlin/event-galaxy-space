@@ -17,11 +17,26 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
         let luckyBag = jsonContent.luckyBag
         let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
-        let content = ''
+        let content, openTextBlock3 = '', openTextBlock4 = ''
 
         if (gainAwardId) {
           awardTitle = `<span class="gif-title">${gainAward}</span>`
           awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
+          openTextBlock3 = `
+            <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+            <span>${gainCoins}</span>
+            <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+            <span>${gainGems}</span>
+          `
+          openTextBlock4 = awardImg
+        } else {
+          openTextBlock4 = `
+            <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+            <span class="coins-lg">${gainCoins}</span>
+            <br/>
+            <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+            <span class="gems-lg">${gainGems}</span>
+          `
         }
 
         content = `
@@ -33,13 +48,10 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
               <span class="gif-title">${awardTitle}</span>
             </div>
             <div class="open-text-block3">
-              <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
-              <span class="coins">${gainCoins}</span>
-              <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
-              <span class="gems">${gainGems}</span>
+              ${openTextBlock3}
             </div>
             <div class="open-text-block4">
-              ${awardImg}
+              ${openTextBlock4}
             </div>
           </div>
         `
