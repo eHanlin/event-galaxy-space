@@ -93,14 +93,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                   let finalCoins = jsonContent.finalCoins
                   let finalGems = jsonContent.finalGems
                   let title = `
-                  <div class="lucky-bag">
-                    <span>福袋打開囉，得到 </span>
-                    <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
-                    <span>${gainCoins}</span>
-                    <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
-                    <span>${gainGems}</span>
-                  </div>
-                `
+                    <div class="lucky-bag">
+                      <span>福袋打開囉，得到 </span>
+                      <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+                      <span>${gainCoins}</span>
+                      <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+                      <span>${gainGems}</span>
+                    </div>
+                  `
                   let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
 
                   confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
