@@ -78,14 +78,14 @@
   margin-top: 27px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   .open-confirm-grid-container .open-text-block3 .gems-img,
   .open-confirm-grid-container .open-text-block3 .coins-img {
     width: 25px
   }
 
   .open-confirm-grid-container {
-    grid-template-columns: 8% 34% 50% 8%;
+    grid-template-columns: 8% 37% 47% 8%;
   }
 }
 
