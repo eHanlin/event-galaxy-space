@@ -38,9 +38,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
     }
 
     confirmPopup.dialog(content, () => {
-        ajax('PUT', `/chest/status/${chest.id}`, statusData)
+      ajax('PUT', `/chest/status/${chest.id}`, statusData)
           .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
-      }, () => { /* 取消 */ },
+    }, () => { /* 取消 */ },
       () => {
         if (chest.level < 2) return
 
