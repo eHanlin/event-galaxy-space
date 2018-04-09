@@ -27,7 +27,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
   }
 
   eventChestOpenNow.process = (chest, targets, spendGems) => {
-    console.log(spendGems)
     ajax('GET', `/chest/checkBalance?gems=${spendGems}`)
       .then(jsonData => {
         let insufficientMessage = jsonData.content
