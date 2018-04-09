@@ -29,11 +29,11 @@ define(['jquery'], $ => {
       return false
     })
     $('.activity').on('click', () => {
-      window.open('/event/galaxySpace/activity-notice.html', 'activity')
+      window.open('/event/space/activity-notice.html', 'activity')
       return false
     })
     $('.bank').on('click', () => {
-      window.open('/event/galaxySpace/currency-bank.html', 'ehanlinBank')
+      window.open('/event/space/currency-bank.html', 'ehanlinBank')
       return false
     })
   })
