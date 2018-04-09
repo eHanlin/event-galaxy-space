@@ -94,10 +94,11 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                   let finalGems = jsonContent.finalGems
                   let title = `
                   <div class="lucky-bag">
+                    <span>福袋打開囉，得到 </span>
                     <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
-                    <span class="coins">${gainCoins}</span>
+                    <span>${gainCoins}</span>
                     <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
-                    <span class="gems">${gainGems}</span>
+                    <span>${gainGems}</span>
                   </div>
                 `
                   let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
