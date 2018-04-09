@@ -101,7 +101,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                       <span>${gainGems}</span>
                     </div>
                   `
-                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/award/${gainAwardId}.png">`
+                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
 
                   confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
                 })
