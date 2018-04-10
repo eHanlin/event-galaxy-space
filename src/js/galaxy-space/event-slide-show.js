@@ -15,15 +15,16 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
       let awards = data.content
 
       for (let index in awards) {
-        let value = awards[index]
-        let title = value.content.title
-        let quantity = value.content.quantity
-        let needChestLv = value.content.needChestLv
-        let notice = value.content.notice
-        let awardId = value.id
+        let award = awards[index]
+        let awardContent = award.content
+        let title = awardContent.title
+        let quantity = parseInt(awardContent.quantity)
+        let needChestLv = awardContent.needChestLv
+        let notice = awardContent.notice
+        let awardId = award.id
         let howMany
         let awardInfo
-
+        g
         if (quantity === 0) {
           howMany = '沒貨啦'
         } else if (quantity > 0) {

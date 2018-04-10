@@ -85,7 +85,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok('', content, () => {
             /* 福袋內容 */
             if (luckyBag === true) {
-              ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId})
+              ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId, chestId: chest.id})
                 .then((jsonData) => {
                   let jsonContent = jsonData.content
                   let gainCoins = jsonContent.coins
