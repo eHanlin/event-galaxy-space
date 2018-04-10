@@ -24,7 +24,7 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
         let awardId = award.id
         let howMany
         let awardInfo
-        g
+
         if (quantity === 0) {
           howMany = '沒貨啦'
         } else if (quantity > 0) {
