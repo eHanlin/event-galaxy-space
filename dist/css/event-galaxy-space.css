@@ -212,6 +212,7 @@
 
   .container {
     width: 980px;
+    z-index: 1;
   }
 
   .container .user-status {

@@ -8,6 +8,7 @@
     "url": "https://github.com/eHanlin/event-galaxy-space.git"
   },
   "dependencies": {
+    "csspin": "^1.1.4",
     "moment": "^2.22.0"
   },
   "devDependencies": {

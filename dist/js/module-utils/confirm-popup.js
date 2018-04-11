@@ -34,15 +34,16 @@ define(['jquery', 'swal'], ($, swal) => {
         }
       }
 
-      return swal(dialogStyle).then((result) => {
-        if (result.value && confirmFn) {
-          confirmFn()
-        } else if (result.dismiss === swal.DismissReason.cancel) {
-          if (cancelFn) {
-            cancelFn()
+      return swal(dialogStyle)
+        .then((result) => {
+          if (result.value && confirmFn) {
+            confirmFn()
+          } else if (result.dismiss === swal.DismissReason.cancel) {
+            if (cancelFn) {
+              cancelFn()
+            }
           }
-        }
-      })
+        })
     },
 
     image: (title, content, gifImageFn, buttonText) => {

@@ -24,12 +24,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
         `
-        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets))
+        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest))
       })
   }
 
-  eventChestUpgrade.process = (chest, targets) => {
+  eventChestUpgrade.process = (chest) => {
     let upLevel = chest.level + 1
+    let loadingTarget = $('#loading')
+    loadingTarget.css('display', '')
     ajax('GET', `/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let levelInfo = jsonData.content.content
@@ -42,6 +44,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         if (insufficientMessage) {
           let title = 'Oooooops 餘額不足喔！'
           confirmPopup.ok(title, insufficientMessage)
+          loadingTarget.css('display', 'none')
           return $.Deferred().reject().promise()
         } else {
           return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
@@ -49,9 +52,6 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
       })
       .then(jsonData => {
         let content = jsonData.content
-        let transactionResult
-        let title, gif
-
         if (content.isActivation && content.isActivation === 'false') {
           confirmPopup.ok('Oooooops！ 無法再升級囉！',
             `你目前還不是銀河探險隊的正式隊員，
@@ -60,20 +60,12 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         } else if (content.isLevelUpSucceeded && content.isLevelUpSucceeded === 'true') {
           confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
         } else {
-          transactionResult = content[0]
-          if (transactionResult && transactionResult.memo.levelUpSuccess === 'true') {
-            title = '升級成功'
-            gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
-          } else {
-            title = '升級失敗'
-            gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
-          }
-
-          confirmPopup.image(title, gif, () => {
+          let result = eventChestUpgrade.determineLevelUpSuccess(content, chest)
+          confirmPopup.image(result.text, result.gif, () => {
             let originalCoins = parseInt($('#coins').text())
             let originalGems = parseInt($('#gems').text())
-            let spendCoins = transactionResult.coins
-            let spendGems = transactionResult.gems
+            let spendCoins = result.coins
+            let spendGems = result.gems
             let finalCoins = originalCoins - spendCoins
             let finalGems = originalGems - spendGems
 
@@ -85,6 +77,23 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           })
         }
       })
+      .done(() => {
+        loadingTarget.css('display', 'none')
+      })
   }
+
+  eventChestUpgrade.determineLevelUpSuccess = (content, chest) => {
+    let result = content[0]
+    let upLevel = chest.level + 1
+    if (result && result.memo.levelUpSuccess === 'true') {
+      result.text = '升級成功'
+      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+    } else {
+      result.text = '升級失敗'
+      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
+    }
+    return result
+  }
+
   return eventChestUpgrade
 })
