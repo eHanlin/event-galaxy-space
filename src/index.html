@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./css/event-confirm-popup.css">
     <link rel="stylesheet" href="./css/event-start-award-popup.css">
     <link rel="stylesheet" href="./css/event-open-award-popup.css">
+    <link rel="stylesheet" href="./css/event-loading.css">
+    <link rel="stylesheet" href="./css/csspin-balls.css">
   </head>
 
   <body id="galaxy-space-body">
@@ -260,41 +262,47 @@
              src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/shareBtn.png">
       </div>
 
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <filter id="silhouette">
-          <feColorMatrix type="matrix" values="0 0 0 0 0
-              0 0 0 0 0
-              0 0 0 0 0
-              -0.4 0.2 0 1 0 ">
-          </feColorMatrix>
-        </filter>
-      </svg>
 
-      <section style="display:none;">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest1.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest2.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest3.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest4.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest5.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest6.png">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail1.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail2.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail3.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail4.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail5.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess2.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess3.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess4.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess5.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess6.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest1.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest2.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest3.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest4.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest5.gif">
-        <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/popup/confirm.png">
-      </section>
     </main>
+
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <filter id="silhouette">
+        <feColorMatrix type="matrix" values="0 0 0 0 0
+              0 0 0 0 0
+              0 0 0 0 0
+               -0.4 0.2 0 1 0 ">
+        </feColorMatrix>
+      </filter>
+    </svg>
+    <section style="display:none;">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest1.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest2.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest3.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest4.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest5.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest6.png">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail1.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail2.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail3.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail4.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail5.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess2.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess3.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess4.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess5.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess6.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest1.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest2.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest3.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest4.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest5.gif">
+      <img src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/popup/confirm.png">
+    </section>
+    <section id="loading" style="display: none;">
+      <div class="animation">
+        <div class="cp-spinner cp-balls"></div>
+      </div>
+    </section>
   </body>
   <script data-main="./js/galaxy-space/main" src="./js/lib/require.js"></script>
 </html>
