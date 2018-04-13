@@ -8,7 +8,6 @@ define(['jquery', 'ajax'], ($, ajax) => {
       $('.user-status .login').remove()
       $('.user-status .name').append(`${name}&nbsp;&nbsp;登出`)
       $('.user-status .student-card').append(`${studentCard}`)
-      // $('.user-status .logout').append(`登出`)
     })
 
   $('.user-status .logout').on('click', () => {
