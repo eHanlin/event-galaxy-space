@@ -29,8 +29,7 @@ define(['jquery'], $ => {
       return false
     })
     $('.activity').on('click', () => {
-      window.open('/event/space/activity-notice.html', 'activity')
-      return false
+      window.location = '/event/space/activity-notice.html'
     })
     $('.bank').on('click', () => {
       window.open('/event/space/currency-bank.html', 'ehanlinBank')
