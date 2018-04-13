@@ -37,8 +37,7 @@
 
 #galaxy-drop-down .drop-down-main .coin {
   position: relative;
-  animation: returnCoin 3s infinite;
-  animation-direction: alternate;
+  animation: returnCoin 4s infinite;
   z-index: 1;
 }
 
@@ -59,18 +58,17 @@
   100% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    top: 90%;
+    top: 120%;
   }
 }
 
 #galaxy-drop-down .drop-down-main .gem {
   position: relative;
-  animation: returnGem 3s infinite;
-  animation-direction: alternate;
+  animation: rotatingGem 5s infinite;
   z-index: 1;
 }
 
-@keyframes returnGem {
+@keyframes rotatingGem {
   0% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
@@ -87,6 +85,6 @@
   100% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    top: 90%;
+    top: 120%;
   }
 }
