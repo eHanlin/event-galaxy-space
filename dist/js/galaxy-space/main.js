@@ -1,3 +1,5 @@
+'use strict';
+
 require.config({
   shim: {
     dialog: ['jquery'],
@@ -48,18 +50,18 @@ require.config({
       'jQuery': 'jquery'
     }
   }
-})
+});
 
-require(['jquery', 'ajax'], () => {
+require(['jquery', 'ajax'], function () {
   /* 一開始沒有return function的 js 必須在這裡require */
-  require(['eventClickLink'])
-  require(['eventSlideShow'])
-  require(['eventUserStatus'])
-  require(['eventTotalAssets'])
-  require(['eventAwardBox', 'eventAwardGet'], (eventAwardBox, eventAwardGet) => {
-    eventAwardGet()
-  })
-  require(['eventChestGet'], eventChestGet => {
-    eventChestGet()
-  })
-})
+  require(['eventClickLink']);
+  require(['eventSlideShow']);
+  require(['eventUserStatus']);
+  require(['eventTotalAssets']);
+  require(['eventAwardBox', 'eventAwardGet'], function (eventAwardBox, eventAwardGet) {
+    eventAwardGet();
+  });
+  require(['eventChestGet'], function (eventChestGet) {
+    eventChestGet();
+  });
+});

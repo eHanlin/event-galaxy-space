@@ -1,11 +1,13 @@
-define(['require', 'jquery', 'w3'], (require, $, w3) => {
-  let slide = w3.slideshow('.block', 0)
+'use strict';
 
-  $('.right').off('click').on('click', event => {
-    slide.next()
-  })
+define(['require', 'jquery', 'w3'], function (require, $, w3) {
+  var slide = w3.slideshow('.block', 0);
 
-  $('.left').off('click').on('click', event => {
-    slide.previous()
-  })
-})
+  $('.right').off('click').on('click', function (event) {
+    slide.next();
+  });
+
+  $('.left').off('click').on('click', function (event) {
+    slide.previous();
+  });
+});

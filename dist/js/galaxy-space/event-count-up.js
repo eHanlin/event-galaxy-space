@@ -1,22 +1,17 @@
-define(['countUp'], CountUp => {
+'use strict';
+
+define(['countUp'], function (CountUp) {
   return function (id, start, end) {
-    let options = {
+    var options = {
       useEasing: true,
       useGrouping: true,
       separator: ''
-    }
+    };
 
-    let decimal = 0
-    let transitionDuration = 5
-    let transition = new CountUp(
-      id,
-      start,
-      end,
-      decimal,
-      transitionDuration,
-      options
-    )
+    var decimal = 0;
+    var transitionDuration = 5;
+    var transition = new CountUp(id, start, end, decimal, transitionDuration, options);
 
-    transition.start()
-  }
-})
+    transition.start();
+  };
+});

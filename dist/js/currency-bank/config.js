@@ -1,4 +1,6 @@
-define(() => {
+'use strict';
+
+define(function () {
   require.config({
     shim: {
       bootstrap: ['jquery'],
@@ -15,5 +17,5 @@ define(() => {
       moment: ['../lib/moment.min'],
       momentLocales: ['../lib/moment-with-locales.min']
     }
-  })
-})
+  });
+});

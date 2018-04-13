@@ -1,7 +1,9 @@
-define(['jquery'], $ => {
+'use strict';
+
+define(['jquery'], function ($) {
   return function (type, url, data) {
     if (type !== 'GET') {
-      data = JSON.stringify(data)
+      data = JSON.stringify(data);
     }
 
     return $.ajax({
@@ -12,6 +14,6 @@ define(['jquery'], $ => {
       data: data,
       contentType: 'application/json; charset=UTF-8',
       dataType: 'json'
-    })
-  }
-})
+    });
+  };
+});

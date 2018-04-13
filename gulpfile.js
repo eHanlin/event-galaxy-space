@@ -85,7 +85,7 @@ function buildJS () {
   let deferred = Q.defer()
 
   Q.fcall(function () {
-    return templateUtil.logStream(babelJS(['dist/js/*.js']))
+    return templateUtil.logStream(babelJS(['dist/js/**/*.js']))
   })
     .then(function () {
       return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))

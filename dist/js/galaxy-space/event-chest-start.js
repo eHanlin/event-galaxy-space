@@ -1,104 +1,77 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, confirmPopup, eventStatusDo, w3) => {
-  return (chest, targets) => {
-    let content
-    let statusData = {
+'use strict';
+
+define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], function ($, ajax, confirmPopup, eventStatusDo, w3) {
+  return function (chest, targets) {
+    var content = void 0;
+    var statusData = {
       status: 'UNLOCKING'
-    }
+    };
 
     if (chest.level >= 2) {
-      content = `
-        <div class="start-confirm-grid-container">
-          <div class="content-block1">
-            <span>寶箱準備啟動中...</span>
-          </div>
-  
-          <div class="content-block2">
-            <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
-          </div>  
-          <div class="img-block-left-btn">
-            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/previous.png">
-          </div>
-  
-          <div class="img-block-right-btn">
-            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/next.png">
-          </div>
-  
-          <div class="content-block4">
-            <span>你確定要啟動這個寶箱嗎？</span>
-          </div>
-        </div>
-      `
+      content = '\n        <div class="start-confirm-grid-container">\n          <div class="content-block1">\n            <span>\u5BF6\u7BB1\u6E96\u5099\u555F\u52D5\u4E2D...</span>\n          </div>\n  \n          <div class="content-block2">\n            <span>\u76EE\u524D\u5BF6\u7BB1\u7B49\u7D1A\u70BALv' + chest.level + '\uFF0C\u958B\u555F\u9019\u500B\u5BF6\u7BB1\u53EF\u80FD\u7372\u5F97</span>\n          </div>  \n          <div class="img-block-left-btn">\n            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/previous.png">\n          </div>\n  \n          <div class="img-block-right-btn">\n            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/next.png">\n          </div>\n  \n          <div class="content-block4">\n            <span>\u4F60\u78BA\u5B9A\u8981\u555F\u52D5\u9019\u500B\u5BF6\u7BB1\u55CE\uFF1F</span>\n          </div>\n        </div>\n      ';
     } else {
-      content = `
-        <div>
-          <h2 class="header-text">寶箱準備啟動中...</h2>
-          <h3>你確定要啟動這個寶箱嗎？</h3>
-        </div>
-      `
+      content = '\n        <div>\n          <h2 class="header-text">\u5BF6\u7BB1\u6E96\u5099\u555F\u52D5\u4E2D...</h2>\n          <h3>\u4F60\u78BA\u5B9A\u8981\u555F\u52D5\u9019\u500B\u5BF6\u7BB1\u55CE\uFF1F</h3>\n        </div>\n      ';
     }
 
-    confirmPopup.dialog(content, () => {
-      ajax('PUT', `/chest/status/${chest.id}`, statusData)
-          .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
-    }, () => { /* 取消 */ },
-      () => {
-        if (chest.level < 2) return
+    confirmPopup.dialog(content, function () {
+      ajax('PUT', '/chest/status/' + chest.id, statusData).then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets));
+    }, function () {/* 取消 */}, function () {
+      if (chest.level < 2) return;
 
-        ajax('GET', `/chest/condition/chest${chest.level}`)
-          .then(data => {
-            let conditions = data.content
-            let awards = conditions.content.awards
-            let chestMatchAwards
+      ajax('GET', '/chest/condition/chest' + chest.level).then(function (data) {
+        var conditions = data.content;
+        var awards = conditions.content.awards;
+        var chestMatchAwards = void 0;
 
-            let awardsCount = awards.length
-            let limit = 0
-            let awardIndex
-            let awardImages = ''
-            let awardBlock = ''
+        var awardsCount = awards.length;
+        var limit = 0;
+        var awardIndex = void 0;
+        var awardImages = '';
+        var awardBlock = '';
 
-            if (window.matchMedia('(max-width: 500px)').matches) {
-              limit = 1
-            } else if (window.matchMedia('(max-width: 800px)').matches) {
-              limit = 3
-            } else {
-              limit = 5
-            }
+        if (window.matchMedia('(max-width: 500px)').matches) {
+          limit = 1;
+        } else if (window.matchMedia('(max-width: 800px)').matches) {
+          limit = 3;
+        } else {
+          limit = 5;
+        }
 
-            let composeAwardBlock = (awardIndex, limit, chestMatchAwards) => {
-              switch (awardIndex % limit) {
-                case (limit - 1) :
-                  awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                  awardBlock += `<div class="img-block-award">${awardImages}</div>`
-                  awardImages = ''
-                  break
+        var composeAwardBlock = function composeAwardBlock(awardIndex, limit, chestMatchAwards) {
+          switch (awardIndex % limit) {
+            case limit - 1:
+              awardImages += '<img class="img-award' + awardIndex + '" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/' + chestMatchAwards + '.png">';
+              awardBlock += '<div class="img-block-award">' + awardImages + '</div>';
+              awardImages = '';
+              break;
 
-                default:
-                  awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-              }
-            }
+            default:
+              awardImages += '<img class="img-award' + awardIndex + '" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/' + chestMatchAwards + '.png">';
+          }
+        };
 
-            for (awardIndex = 0; awardIndex < awards.length; awardIndex++) {
-              chestMatchAwards = awards[awardIndex]
+        for (awardIndex = 0; awardIndex < awards.length; awardIndex++) {
+          chestMatchAwards = awards[awardIndex];
 
-              if (awardIndex === awardsCount - 1) {
-                awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                awardBlock += `<div class="img-block-award">${awardImages}</div>`
-              } else {
-                composeAwardBlock(awardIndex, limit, chestMatchAwards)
-              }
-            }
+          if (awardIndex === awardsCount - 1) {
+            awardImages += '<img class="img-award' + awardIndex + '" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/' + chestMatchAwards + '.png">';
+            awardBlock += '<div class="img-block-award">' + awardImages + '</div>';
+          } else {
+            composeAwardBlock(awardIndex, limit, chestMatchAwards);
+          }
+        }
 
-            $('.img-block-left-btn').after(awardBlock)
-            let slide = w3.slideshow('.img-block-award', 0)
+        $('.img-block-left-btn').after(awardBlock);
+        var slide = w3.slideshow('.img-block-award', 0);
 
-            $('.right-btn').on('click', () => {
-              slide.next()
-            })
+        $('.right-btn').on('click', function () {
+          slide.next();
+        });
 
-            $('.left-btn').on('click', () => {
-              slide.previous()
-            })
-          })
-      })
-  }
-})
+        $('.left-btn').on('click', function () {
+          slide.previous();
+        });
+      });
+    });
+  };
+});
