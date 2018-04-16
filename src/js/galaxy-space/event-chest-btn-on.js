@@ -1,4 +1,4 @@
-define(() => {
+define(['jquery'], $ => {
   return (chest, targets) => {
     /* requireJs進來，click後綁定自己將參數(chest, targets)傳入 */
     /* 啟動按鈕 */
@@ -22,7 +22,15 @@ define(() => {
     /* 開啟寶箱 */
     require(['eventChestOpen'], eventChestOpen => {
       targets.readyBtn.off('click')
-      targets.readyBtn.on('click', eventChestOpen.bind(eventChestOpen, chest, targets))
+      targets.readyBtn.on('click', (event) => {
+        let currentTarget = event.currentTarget
+        event.preventDefault()
+        if (!$(currentTarget).attr('data-lockedAt')
+          || new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 1000) {
+          eventChestOpen(chest, targets)
+        }
+        $(currentTarget).attr('data-lockedAt', new Date().getTime())
+      })
     })
   }
 })

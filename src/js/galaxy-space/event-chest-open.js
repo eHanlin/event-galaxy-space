@@ -1,4 +1,16 @@
 define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
+  let determineNormallyOpen = (message) => {
+    let isNormallyOpen = true
+    if (message === 'Chest is already opened') {
+      confirmPopup.ok('Oooooops！', '此寶箱已經開啟過囉！')
+      isNormallyOpen = false
+    } else if (message === '寶箱正在運作中') {
+      confirmPopup.ok('Oooooops！', '寶箱正在運作中，請重新整理網頁')
+      isNormallyOpen = false
+    }
+    return isNormallyOpen
+  }
+
   return (chest, targets) => {
     let chestStatus = {
       status: 'OPEN'
@@ -18,6 +30,10 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let luckyBag = jsonContent.luckyBag
         let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
         let content, openTextBlock3 = '', openTextBlock4 = ''
+
+        if (!determineNormallyOpen(jsonData.message)) {
+          return
+        }
 
         if (gainAwardId) {
           awardTitle = `<span class="gif-title">${gainAward}</span>`
@@ -85,7 +101,12 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           confirmPopup.ok('', content, () => {
             /* 福袋內容 */
             if (luckyBag === true) {
-              ajax('PUT', `/chest/award/luckyBag`, {awardId: gainAwardId, chestId: chest.id})
+              ajax(
+                'PUT', `/chest/award/luckyBag`, {
+                  awardId: gainAwardId,
+                  chestId: chest.id,
+                  level: chest.level
+                })
                 .then((jsonData) => {
                   let jsonContent = jsonData.content
                   let gainCoins = jsonContent.coins
