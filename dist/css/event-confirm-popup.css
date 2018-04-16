@@ -179,4 +179,8 @@
     font-weight: bolder;
     padding: 5px 25px;
   }
+
+  .confirm-grid-gif-container .header-block1 {
+    font-size: 20px;
+  }
 }
