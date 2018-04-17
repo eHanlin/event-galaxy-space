@@ -113,7 +113,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                   let jsonContent = jsonData.content
                   let gainCoins, gainGems, finalCoins, finalGems, title
 
-                  if (message === 'Lucky bag is already opened') {
+                  if (jsonData.message === 'Lucky bag is already opened') {
                     confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
                     return
                   }
