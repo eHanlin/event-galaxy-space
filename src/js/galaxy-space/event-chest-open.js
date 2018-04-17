@@ -1,8 +1,10 @@
 define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
-  let determineNormallyOpen = (message) => {
+  let determineNormallyOpen = (message, targets) => {
     let isNormallyOpen = true
     if (message === 'Chest is already opened') {
       confirmPopup.ok('Oooooops！', '此寶箱已經開啟過囉！')
+      targets.readyBtn.css('display', 'none')
+      targets.platformChest.remove()
       isNormallyOpen = false
     } else if (message === '寶箱正在運作中') {
       confirmPopup.ok('Oooooops！', '寶箱正在運作中，請重新整理網頁')
@@ -31,7 +33,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
         let content, openTextBlock3 = '', openTextBlock4 = ''
 
-        if (!determineNormallyOpen(jsonData.message)) {
+        if (!determineNormallyOpen(jsonData.message, targets)) {
           return
         }
 
