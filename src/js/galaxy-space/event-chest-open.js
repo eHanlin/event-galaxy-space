@@ -111,11 +111,18 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                 })
                 .then((jsonData) => {
                   let jsonContent = jsonData.content
-                  let gainCoins = jsonContent.coins
-                  let gainGems = jsonContent.gems
-                  let finalCoins = jsonContent.finalCoins
-                  let finalGems = jsonContent.finalGems
-                  let title = `
+                  let gainCoins, gainGems, finalCoins, finalGems, title
+
+                  if (message === 'Lucky bag is already opened') {
+                    confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
+                    return
+                  }
+
+                  gainCoins = jsonContent.coins
+                  gainGems = jsonContent.gems
+                  finalCoins = jsonContent.finalCoins
+                  finalGems = jsonContent.finalGems
+                  title = `
                     <div class="lucky-bag">
                       <span>福袋打開囉，得到 </span>
                       <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
