@@ -38,9 +38,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
     }
 
     confirmPopup.dialog(content, () => {
-      ajax('PUT', `/chest/status/${chest.id}`, statusData)
-          .then(eventStatusDo.unLocking.bind(eventStatusDo.unLocking, chest, targets))
-    }, () => { /* 取消 */ },
+        ajax('PUT', `/chest/status/${chest.id}`, statusData)
+          .then(jsonData => {
+            if (jsonData.message === 'Status of chest is already change') {
+              confirmPopup.ok('Oooooops！', '此次寶箱操作，重複進行囉！')
+              return
+            }
+            eventStatusDo.unLocking(chest, targets)
+          })
+      }, () => { /* 取消 */ },
       () => {
         if (chest.level < 2) return
 
