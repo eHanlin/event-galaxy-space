@@ -25,7 +25,7 @@ define(['jquery'], $ => {
       return false
     })
     $('.shareBtn').on('click', () => {
-      window.open('https://docs.google.com/forms/d/e/1FAIpQLSdVDVKUFZT963-qgJZlzh0ldUUFFjrioqlXP5hdRx0n8EPaQQ/viewform', 'share')
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLScg3-0iDRE6a3te_soj0tCH7nk6R__OOE3skMQ5ooYAswoaSA/viewform', 'share')
       return false
     })
     $('.activity').on('click', () => {
