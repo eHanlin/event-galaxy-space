@@ -18,16 +18,16 @@ function copyStaticTask (destination) {
   return function () {
     return gulp
       .src(
-        [
-          'src/*.html',
-          'src/js/**/*.js',
-          'src/img/**/*.png',
-          'src/img/**/*.gif',
-          'src/img/**/*.svg',
-          'src/css/**/*.css'
-        ], {
-          base: 'src'
-        }
+      [
+        'src/*.html',
+        'src/js/**/*.js',
+        'src/img/**/*.png',
+        'src/img/**/*.gif',
+        'src/img/**/*.svg',
+        'src/css/**/*.css'
+      ], {
+        base: 'src'
+      }
       )
       .pipe(gulp.dest(destination))
   }
@@ -42,7 +42,9 @@ function clean (source) {
 function minifyJs (sourceJS) {
   return function () {
     return gulp
-      .src(sourceJS, {base: 'babel-temp'})
+      .src(sourceJS, {
+        base: 'babel-temp'
+      })
       .pipe(
         uglify({
           mangle: false
@@ -58,7 +60,9 @@ function minifyJs (sourceJS) {
 function minifyImage (sourceImage) {
   return function () {
     return gulp
-      .src(sourceImage, {base: 'src'})
+      .src(sourceImage, {
+        base: 'src'
+      })
       .pipe(cache(imageMin({
         use: [pngquant({
           speed: 7
@@ -71,7 +75,9 @@ function minifyImage (sourceImage) {
 function babelJS (sourceJS) {
   return function () {
     return gulp
-      .src(sourceJS, {base: 'dist'})
+      .src(sourceJS, {
+        base: 'dist'
+      })
       .pipe(babel())
       .pipe(gulp.dest('babel-temp'))
   }
@@ -80,10 +86,9 @@ function babelJS (sourceJS) {
 function buildJS () {
   let deferred = Q.defer()
 
-  Q
-    .fcall(function () {
-      return templateUtil.logStream(babelJS(['dist/js/galaxy-space/*.js', 'dist/js/currency-bank/*.js', 'dist/js/module-utils/*.js']))
-    })
+  Q.fcall(function () {
+    return templateUtil.logStream(babelJS(['dist/js/galaxy-space/*.js', 'dist/js/currency-bank/*.js', 'dist/js/module-utils/*.js']))
+  })
     .then(function () {
       return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))
     })
@@ -141,7 +146,9 @@ function buildEnvToDev () {
 /* 合併 CSS */
 function concatCss () {
   return function () {
-    return gulp.src('src/css/*.css', {base: 'src'})
+    return gulp.src('src/css/*.css', {
+      base: 'src'
+    })
       .pipe(concat('ehanlin-space-all.css'))
       .pipe(cleanCSS())
       .pipe(rename(function (path) {

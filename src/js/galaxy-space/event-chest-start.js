@@ -38,7 +38,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
     }
 
     confirmPopup.dialog(content, () => {
-        ajax('PUT', `/chest/status/${chest.id}`, statusData)
+      ajax('PUT', `/chest/status/${chest.id}`, statusData)
           .then(jsonData => {
             if (jsonData.message === 'Status of chest is already change') {
               confirmPopup.ok('Oooooops！', '此次寶箱操作，重複進行囉！請重新整理網頁')
@@ -46,21 +46,33 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             }
             eventStatusDo.unLocking(chest, targets)
           })
-      }, () => { /* 取消 */ },
+    }, () => { /* 取消 */ },
       () => {
         if (chest.level < 2) return
 
-        ajax('GET', `/chest/condition/chest${chest.level}`)
+        ajax('GET', `/chest/checkAwardsIsZero/chest${chest.level}`)
           .then(data => {
-            let conditions = data.content
-            let awards = conditions.content.awards
-            let chestMatchAwards
-
-            let awardsCount = awards.length
+            let awardsQuantity = data.content
             let limit = 0
+            let awardsCount
+            let quantity
             let awardIndex
+            let awardId
             let awardImages = ''
             let awardBlock = ''
+
+            let composeAwardBlock = (awardIndex, limit, awardId) => {
+              switch (awardIndex % limit) {
+                case (limit - 1):
+                  awardImages += `<img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">`
+                  awardBlock += `<div class="img-block-award">${awardImages}</div>`
+                  awardImages = ''
+                  break
+
+                default:
+                  awardImages += `<img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">`
+              }
+            }
 
             if (window.matchMedia('(max-width: 500px)').matches) {
               limit = 1
@@ -70,31 +82,30 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
               limit = 5
             }
 
-            let composeAwardBlock = (awardIndex, limit, chestMatchAwards) => {
-              switch (awardIndex % limit) {
-                case (limit - 1) :
-                  awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-                  awardBlock += `<div class="img-block-award">${awardImages}</div>`
-                  awardImages = ''
-                  break
-
-                default:
-                  awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
-              }
-            }
-
-            for (awardIndex = 0; awardIndex < awards.length; awardIndex++) {
-              chestMatchAwards = awards[awardIndex]
-
+            awardsCount = Object.keys(awardsQuantity).length
+            awardIndex = 0
+            for (let awardId in awardsQuantity) {
               if (awardIndex === awardsCount - 1) {
-                awardImages += `<img class="img-award${awardIndex}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${chestMatchAwards}.png">`
+                awardImages += `<img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">`
                 awardBlock += `<div class="img-block-award">${awardImages}</div>`
               } else {
-                composeAwardBlock(awardIndex, limit, chestMatchAwards)
+                composeAwardBlock(awardIndex, limit, awardId)
               }
+
+              awardIndex++
             }
 
             $('.img-block-left-btn').after(awardBlock)
+
+            $('img[class^=img-award]').each((index, element) => {
+              awardId = $(element).attr('data-award-id')
+              quantity = awardsQuantity[awardId]
+              if (quantity === 0) {
+                $(element).addClass('zero-quantity')
+              }
+            })
+            $('.zero-quantity').before('<img class="award-zero" src="./img/soldout.png">')
+
             let slide = w3.slideshow('.img-block-award', 0)
 
             $('.right-btn').on('click', () => {
