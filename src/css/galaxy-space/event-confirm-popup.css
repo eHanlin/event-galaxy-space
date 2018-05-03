@@ -86,6 +86,7 @@
 
 .confirm-grid-gif-container .header-block1 {
   grid-row: 1;
+  -ms-grid-row: 1;
   margin-bottom: 1px;
   color: #217dbb;
   font-size: 28px;
@@ -94,6 +95,7 @@
 
 .confirm-grid-gif-container .content-block1 {
   grid-row: 2;
+  -ms-grid-row: 2;
 }
 
 .confirm-popup-chest-img {
