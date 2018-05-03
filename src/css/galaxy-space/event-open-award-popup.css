@@ -98,6 +98,7 @@
 
   .open-confirm-grid-container {
     grid-template-columns: 8% 37% 47% 8%;
+    -ms-grid-columns: 8% 37% 47% 8%;
   }
 }
 
@@ -117,6 +118,7 @@
 
   .open-confirm-grid-container {
     grid-template-columns: 1px 35% 65% 1px;
+    -ms-grid-columns: 1px 35% 65% 1px;
   }
 
   .open-confirm-grid-container .open-text-block1 .open-gif-chest {
