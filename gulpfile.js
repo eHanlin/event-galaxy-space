@@ -99,7 +99,7 @@ const concatCss = sourceCss => {
 const replaceCss = () => {
   return gulp.src('./src/index.html', {base: './src'})
     .pipe(htmlReplace({
-      'css': './dist/css/ehanlin-galaxy-space.min.css',
+      'css': './css/ehanlin-galaxy-space.min.css',
     }))
     .pipe(gulp.dest(destination))
 }
