@@ -1,5 +1,5 @@
 define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {
-  ajax('GET', `/currencyBank/totalAssets/one`)
+  ajax('GET', `/currencyBank/totalAssets`)
     .then(data => {
       let finalCoins = data.content.coins
       let finalGems = data.content.gems

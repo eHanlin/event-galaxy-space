@@ -1,107 +1,126 @@
 const gulp = require('gulp')
 const templateUtil = require('gulp-template-util')
 const replace = require('gulp-replace')
+const htmlReplace = require('gulp-html-replace')
 const rename = require('gulp-rename')
 const babel = require('gulp-babel')
 const imageMin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
 const cache = require('gulp-cache')
-const cleanCSS = require('gulp-clean-css')
+const cleanCss = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify-es').default
 const del = require('del')
 const Q = require('q')
 
-const dist = 'dist'
+const destination = 'dist'
 
-function copyStaticTask (destination) {
-  return function () {
-    return gulp
-      .src(
+const copyStaticTask = destination => {
+  return gulp
+    .src(
       [
-        'src/*.html',
-        'src/js/**/*.js',
-        'src/img/**/*.png',
-        'src/img/**/*.gif',
-        'src/img/**/*.svg',
-        'src/css/**/*.css'
+        './src/*.html',
+        './src/js/**/*.js',
+        './src/img/**/*.png',
+        './src/img/**/*.gif',
+        './src/img/**/*.svg',
+        './src/css/**/*.css'
       ], {
-        base: 'src'
+        base: './src'
       }
-      )
-      .pipe(gulp.dest(destination))
-  }
+    )
+    .pipe(gulp.dest(destination))
 }
 
-function clean (source) {
-  return function () {
-    return del([source])
-  }
+const clean = source => {
+  return del([source])
 }
 
-function minifyJs (sourceJS) {
-  return function () {
-    return gulp
-      .src(sourceJS, {
-        base: 'babel-temp'
-      })
-      .pipe(
-        uglify({
-          mangle: false
-        }).on('error', function (error) {
-          console.log(error)
-        })
-      )
-      .pipe(gulp.dest(dist))
-  }
+const minifyJs = sourceJS => {
+  return gulp
+    .src(sourceJS, {
+      base: './babel-temp'
+    })
+    .pipe(
+      uglify({
+        mangle: false
+      }).on('error', console.error)
+    )
+    .pipe(gulp.dest(destination))
 }
 
 /* 壓縮圖片 */
-function minifyImage (sourceImage) {
-  return function () {
-    return gulp
-      .src(sourceImage, {
-        base: 'src'
-      })
-      .pipe(cache(imageMin({
-        use: [pngquant({
-          speed: 7
-        })]
-      })))
-      .pipe(gulp.dest(dist))
-  }
-}
-
-function babelJS (sourceJS) {
-  return function () {
-    return gulp
-      .src(sourceJS, {
-        base: 'dist'
-      })
-      .pipe(babel())
-      .pipe(gulp.dest('babel-temp'))
-  }
-}
-
-function buildJS () {
-  let deferred = Q.defer()
-
-  Q.fcall(function () {
-    return templateUtil.logStream(babelJS(['dist/js/galaxy-space/*.js', 'dist/js/currency-bank/*.js', 'dist/js/module-utils/*.js']))
-  })
-    .then(function () {
-      return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))
-    })
-    .then(function () {
-      return templateUtil.logPromise(clean('babel-temp'))
-    })
-
-  return deferred.promise
-}
-
-function buildDevToEnv () {
+const minifyImage = sourceImage => {
   return gulp
-    .src(['src/js/galaxy-space/*.js', 'src/js/currency-bank/*.js'], {
+    .src(sourceImage, {
+      base: 'src'
+    })
+    .pipe(
+      cache(
+        imageMin({
+          use: [pngquant({
+            speed: 7
+          })]
+        }))
+    )
+    .pipe(gulp.dest(destination))
+}
+
+const babelJs = sourceJS => {
+  return gulp
+    .src(sourceJS, {
+      base: './dist'
+    })
+    .pipe(babel())
+    .pipe(gulp.dest('./babel-temp'))
+}
+
+const buildJs = () => {
+  Q.fcall(templateUtil.logStream.bind(templateUtil.logStream,
+    babelJs.bind(babelJs, ['./dist/js/galaxy-space/*.js', './dist/js/currency-bank/*.js', './dist/js/module-utils/*.js'])))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, minifyJs.bind(minifyJs, './babel-temp/js/**/*.js')))
+    .then(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, './babel-temp')))
+
+  return Q.defer().promise
+}
+
+/* 合併 CSS */
+const concatCss = sourceCss => {
+  return gulp.src(sourceCss, {base: './src'})
+    .pipe(concat('ehanlin-galaxy-space.css'))
+    .pipe(cleanCss())
+    .pipe(rename(path => {
+      path.basename += '.min'
+    }))
+    .pipe(gulp.dest('./dist/css'))
+}
+
+/* 替換為合併後之 CSS */
+const replaceCss = () => {
+  return gulp.src('./src/index.html', {base: './src'})
+    .pipe(htmlReplace({
+      'css': './dist/css/ehanlin-galaxy-space.min.css',
+    }))
+    .pipe(gulp.dest(destination))
+}
+
+const buildCss = () => {
+  Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise,
+    clean.bind(clean, './dist/css/ehanlin-space-all.min.css')))
+    .then(templateUtil.logStream.bind(templateUtil.logStream,
+      concatCss.bind(concatCss,
+        ['./src/css/galaxy-space/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'])
+    ))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, replaceCss))
+    .then(templateUtil.logPromise.bind(templateUtil.logPromise,
+      clean.bind(clean, './dist/css/galaxy-space')))
+
+  return Q.defer().promise
+}
+
+const buildDevToEnv = () => {
+  return gulp
+    .src(['./src/js/galaxy-space/*.js', './src/js/currency-bank/*.js'], {
       base: './'
     })
     .pipe(
@@ -121,9 +140,10 @@ function buildDevToEnv () {
     .pipe(gulp.dest(''))
 }
 
-function buildEnvToDev () {
+/* 開發 */
+gulp.task('buildEnvToDev', () => {
   return gulp
-    .src(['src/js/galaxy-space/*.js', 'src/js/currency-bank/*.js'], {
+    .src(['./src/js/galaxy-space/*.js', './src/js/currency-bank/*.js'], {
       base: './'
     })
     .pipe(
@@ -141,59 +161,29 @@ function buildEnvToDev () {
       })
     )
     .pipe(gulp.dest(''))
-}
-
-/* 合併 CSS */
-function concatCss () {
-  return function () {
-    return gulp.src('src/css/*.css', {
-      base: 'src'
-    })
-      .pipe(concat('ehanlin-space-all.css'))
-      .pipe(cleanCSS())
-      .pipe(rename(function (path) {
-        path.basename += '.min'
-      }))
-      .pipe(gulp.dest('src/css'))
-      .pipe(gulp.dest('dist/css'))
-  }
-}
-
-gulp.task('concatCss', function () {
-  var deferred = Q.defer()
-  Q.fcall(function () {
-    return templateUtil.logPromise(clean('src/css/ehanlin-space-all.min.css'))
-  }).then(function () {
-    return templateUtil.logStream(concatCss())
-  })
-
-  return deferred.promise
 })
-gulp.task('minifyImage', minifyImage('src/img/**/*.png'))
-
-/* 開發 */
-gulp.task('buildEnvToDev', buildEnvToDev)
 
 /* 正式 */
 gulp.task('buildDevToEnv', buildDevToEnv)
 
-gulp.task('minifyJs', minifyJs('babel-temp/js/**/*.js'))
-gulp.task('babelJs', babelJS(['dist/js/galaxy-space/*.js', 'dist/js/currency-bank/*.js', 'dist/js/module-utils/*.js']))
-gulp.task('package', function () {
-  let deferred = Q.defer()
-  Q.fcall(function () {
-    return templateUtil.logPromise(clean(dist))
-  }).then(function () {
-    return templateUtil.logStream(buildDevToEnv)
-  }).then(function () {
-    return templateUtil.logStream(copyStaticTask('dist'))
-  }).then(function () {
-    return Q.all([
-      templateUtil.logStream(minifyImage('src/img/**/*.png')),
-      templateUtil.logStream(concatCss()),
-      templateUtil.logStream(buildJS)
-    ])
-  })
+gulp.task('concatCss', buildCss)
+gulp.task('minifyImage', minifyImage.bind(minifyImage, './src/img/**/*.png'))
+gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
+gulp.task('babelJs',
+  babelJs.bind(babelJs, ['./dist/js/galaxy-space/*.js', './dist/js/currency-bank/*.js', './dist/js/module-utils/*.js']))
 
-  return deferred.promise
+/* 打包 */
+gulp.task('package', () => {
+  Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, copyStaticTask.bind(copyStaticTask, destination)))
+    .then(() => {
+      return Q.all([
+        templateUtil.logStream(minifyImage.bind(minifyImage, './src/img/**/*.png')),
+        templateUtil.logPromise(buildCss),
+        templateUtil.logPromise(buildJs)
+      ])
+    })
+
+  return Q.defer().promise
 })

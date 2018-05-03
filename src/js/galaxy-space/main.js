@@ -37,6 +37,7 @@ require.config({
     swal: ['../lib/sweetalert2'],
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     countUp: ['../lib/countUp.min'],
+    bluebird: ['../lib/bluebird.min'],
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
@@ -52,6 +53,9 @@ require.config({
 
 require(['jquery', 'ajax'], () => {
   /* 一開始沒有return function的 js 必須在這裡require */
+  require(['bluebird'], function (Promise) {
+    window.Promise = Promise
+  })
   require(['eventClickLink'])
   require(['eventSlideShow'])
   require(['eventUserStatus'])
