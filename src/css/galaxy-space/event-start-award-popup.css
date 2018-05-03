@@ -1,6 +1,7 @@
 .start-confirm-grid-container {
   height: 250px;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 2% 8% 80% 8% 2%;
   -ms-grid-columns: 2% 8% 80% 8% 2%;
   grid-template-rows: 15% 10% 60% 15%;

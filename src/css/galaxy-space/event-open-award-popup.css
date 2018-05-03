@@ -2,6 +2,7 @@
   height: 220px;
   width: 100%;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 29% 19% 24% 28%;
   -ms-grid-columns: 29% 19% 24% 28%;
   grid-template-rows: 15% 15% 70%;

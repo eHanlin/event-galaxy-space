@@ -78,6 +78,7 @@
 .confirm-grid-gif-container {
   height: 235px;
   display: grid;
+  display: -ms-grid;
   grid-template-rows: 30px 200px;
   -ms-grid-rows: 30px 200px;
   font-size: 22px;
@@ -107,6 +108,7 @@
 .confirm-grid-upgrade-container {
   height: 230px;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 19% 30% 32% 19%;
   -ms-grid-columns: 19% 30% 32% 19%;
   grid-template-rows: repeat(3, 1fr);
