@@ -11,8 +11,10 @@ define(['jquery', 'ajax'], ($, ajax) => {
     })
 
   $('.user-status .logout').on('click', () => {
-    ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
+    ajax('PUT', `https://test.ehanlin.com.tw/Users/521d946be4b0d765448570bd/!logout`)
       .then(() => {
+        console.log('==========')
+        console.log(window.location.hostname)
         window.location = 'https://' + window.location.hostname
       })
   })
