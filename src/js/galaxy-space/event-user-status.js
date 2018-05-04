@@ -18,7 +18,10 @@ define(['jquery', 'ajax'], ($, ajax) => {
   })
 
   $('.user-status .name').on('click', () => {
-    window.location.href = '/my/owned/Courses.html'
+    ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
+      .then(() => {
+        window.location = 'https://' + window.location.hostname
+      })
   })
   $('.user-status .student-card').on('click', () => {
     window.location.href = '/my/owned/Courses.html'
