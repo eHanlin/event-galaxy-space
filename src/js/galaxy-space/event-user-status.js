@@ -4,7 +4,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       let name = data.name
       let studentCard = data.studentCard
 
-      console.log('-------- ' + data.id + ' --------')
+      console.log('--------- ' + data.id + ' ----------')
       $('.user-status .login').remove()
       $('.user-status .name').append(`${name}&nbsp;<span class="logout">登出</span>`)
       $('.user-status .student-card').append(`${studentCard}`)
