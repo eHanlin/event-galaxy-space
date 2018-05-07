@@ -104,7 +104,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
                 $(element).addClass('zero-quantity')
               }
             })
-            $('.zero-quantity').before('<img class="award-zero" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/soldout.png">')
+            $('.zero-quantity').before('<img class="award-zero" src="https://d220xxmclrx033.cloudfront.net/event-space/img/soldout.png">')
 
             let slide = w3.slideshow('.img-block-award', 0)
 

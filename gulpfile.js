@@ -13,18 +13,19 @@ const uglify = require('gulp-uglify-es').default
 const del = require('del')
 const Q = require('q')
 
-const destination = 'dist'
+const destination = './dist'
 
 const copyStaticTask = destination => {
   return gulp
     .src(
       [
         './src/*.html',
+        './src/css/**/*.css',
         './src/js/**/*.js',
         './src/img/**/*.png',
+        './src/img/**/*.jpg',
         './src/img/**/*.gif',
-        './src/img/**/*.svg',
-        './src/css/**/*.css'
+        './src/img/**/*.svg'
       ], {
         base: './src'
       }
@@ -53,7 +54,7 @@ const minifyJs = sourceJS => {
 const minifyImage = sourceImage => {
   return gulp
     .src(sourceImage, {
-      base: 'src'
+      base: './src'
     })
     .pipe(
       cache(
@@ -167,10 +168,10 @@ gulp.task('buildEnvToDev', () => {
 gulp.task('buildDevToEnv', buildDevToEnv)
 
 gulp.task('concatCss', buildCss)
-gulp.task('minifyImage', minifyImage.bind(minifyImage, './src/img/**/*.png'))
+gulp.task('minifyImage', minifyImage.bind(minifyImage, './src/img/**/*.@(jpg|png)'))
 gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
 gulp.task('babelJs',
-  babelJs.bind(babelJs, ['./dist/js/galaxy-space/*.js', './dist/js/currency-bank/*.js', './dist/js/module-utils/*.js']))
+  babelJs.bind(babelJs, './dist/js/@(galaxy-space|currency-bank|module-utils)/*.js'))
 
 /* 打包 */
 gulp.task('package', () => {
