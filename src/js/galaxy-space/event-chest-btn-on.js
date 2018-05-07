@@ -25,8 +25,8 @@ define(['jquery'], $ => {
       targets.readyBtn.on('click', (event) => {
         let currentTarget = event.currentTarget
         event.preventDefault()
-        if (!$(currentTarget).attr('data-lockedAt')
-          || new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 1000) {
+        if (!$(currentTarget).attr('data-lockedAt') ||
+          new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 1000) {
           eventChestOpen(chest, targets)
         }
         $(currentTarget).attr('data-lockedAt', new Date().getTime())
