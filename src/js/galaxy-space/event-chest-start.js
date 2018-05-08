@@ -112,7 +112,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
 
                 $(element)
                   .parent('div.start-show-award')
-                  .append('<img class="award-zero" src="https://d220xxmclrx033.cloudfront.net/event-space/img/soldout.png">')
+                  .append('<img class="award-zero" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/soldout.png">')
               }
             })
 

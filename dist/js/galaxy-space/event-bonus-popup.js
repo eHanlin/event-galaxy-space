@@ -1,0 +1,1 @@
+"use strict";define(["jquery","cookie"],function($,Cookie){Cookie.get("isBonusPopup")||($("#bonus-popup").addClass("bonus-popup-show"),setTimeout(function(){$("#bonus-popup img.forward-anchor").css("display","")},500),$("#bonus-popup #close-popup").on("click",function(event){event.preventDefault(),$("#bonus-popup").remove()}),Cookie.set("isBonusPopup",!0,{expire:1}))});

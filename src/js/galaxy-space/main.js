@@ -30,6 +30,7 @@ require.config({
     eventChestOpenNow: ['./event-chest-open-now'],
     eventChestOpen: ['./event-chest-open'],
     eventCountUp: ['./event-count-up'],
+    eventBonusPopup: ['./event-bonus-popup'],
 
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
@@ -38,6 +39,7 @@ require.config({
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     countUp: ['../lib/countUp.min'],
     bluebird: ['../lib/bluebird.min'],
+    cookie: ['../lib/js.cookie.min'],
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
@@ -66,4 +68,5 @@ require(['jquery', 'ajax'], () => {
   require(['eventChestGet'], eventChestGet => {
     eventChestGet()
   })
+  require(['eventBonusPopup'])
 })
