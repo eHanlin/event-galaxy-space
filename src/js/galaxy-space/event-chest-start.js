@@ -47,6 +47,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             eventStatusDo.unLocking(chest, targets)
           })
       }, () => { /* 取消 */ },
+      /* on open */
       () => {
         if (chest.level < 2) return
 
@@ -117,11 +118,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
 
             let slide = w3.slideshow('.img-block-award', 0)
 
-            $('.right-btn').on('click', () => {
+            $('.start-confirm-grid-container .right-btn').on('click', () => {
               slide.next()
             })
 
-            $('.left-btn').on('click', () => {
+            $('.start-confirm-grid-container .left-btn').on('click', () => {
               slide.previous()
             })
           })
