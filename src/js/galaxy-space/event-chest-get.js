@@ -2,6 +2,15 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {
   return () => ajax('GET', `/chest/`)
     .then(data => {
       let chests = data.content
+      /* 如果實體禮物贈完 回傳dataContent */
+      let dataContent = data.content
+
+      if (dataContent === 'luckyBagsAreZero') {
+        require(['eventAwardIsZero'], eventAwardIsZero => {
+          console.log('luckyBagsAreZero')
+        })
+      }
+
       $(`.platform img[class^=chest]`).remove()
 
       for (let index in chests) {

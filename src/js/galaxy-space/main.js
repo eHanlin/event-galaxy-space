@@ -16,6 +16,7 @@ require.config({
     eventAwardGet: ['./event-award-get'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
+    eventAwardIsZero: ['./event-award-is-zero'],
 
     /* 取回寶箱與判定狀態 */
     eventChestGet: ['./event-chest-get'],

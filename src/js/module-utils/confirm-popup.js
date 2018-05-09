@@ -22,9 +22,9 @@ define(['jquery', 'swal'], ($, swal) => {
       dialogStyle.title = ''
       dialogStyle.html = content
       dialogStyle.showCancelButton = true
-      dialogStyle.confirmButtonText = confirmBtnText ? confirmBtnText : '確定'
+      dialogStyle.confirmButtonText = confirmBtnText || '確定'
       dialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-dialog'
-      dialogStyle.cancelButtonText = cancelBtnText ? cancelBtnText : '我再想想'
+      dialogStyle.cancelButtonText = cancelBtnText || '我再想想'
       dialogStyle.cancelButtonClass = 'confirm-popup-btn confirm-popup-btn-cancel'
       dialogStyle.reverseButtons = true
       dialogStyle.onOpen = () => {
@@ -55,7 +55,7 @@ define(['jquery', 'swal'], ($, swal) => {
             <div class="content-block1 ">${content}</div>
           </div> 
         `
-      gifStyle.confirmButtonText = buttonText ? buttonText : '我瞭解了'
+      gifStyle.confirmButtonText = buttonText || '我瞭解了'
       gifStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-gif'
       gifStyle.onOpen = () => {
         $('.swal2-header').remove()
@@ -72,12 +72,26 @@ define(['jquery', 'swal'], ($, swal) => {
       let okStyle = cloneCommonStyle(commonStyle)
       okStyle.title = `<span style="color: #217dbb;">${title}</span>`
       okStyle.html = `<div style="font-weight: bolder">${content}</div>`
-      okStyle.confirmButtonText = buttonText ? buttonText : '我瞭解了'
+      okStyle.confirmButtonText = buttonText || '我瞭解了'
       okStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-ok'
 
       return swal(okStyle).then((result) => {
         if (result.value && okFn) {
           okFn()
+        }
+      })
+    },
+
+    awardIsZeroDialog: (title, content, awardIsZeroFun, buttonText) => {
+      let awardIsZeroDialogStyle = cloneCommonStyle(commonStyle)
+      awardIsZeroDialogStyle.title = `<span style="color: #217dbb;">${title}</span>`
+      awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
+      awardIsZeroDialogStyle.confirmButtonText = buttonText || '我瞭解了'
+      awardIsZeroDialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-awardZero'
+
+      return swal(awardIsZeroDialogStyle).then(result => {
+        if (result.value && awardIsZeroFun) {
+          awardIsZeroFun()
         }
       })
     }
