@@ -78,7 +78,7 @@ const babelJs = sourceJS => {
 
 const buildJs = () => {
   Q.fcall(templateUtil.logStream.bind(templateUtil.logStream,
-    babelJs.bind(babelJs, ['./dist/js/galaxy-space/*.js', './dist/js/currency-bank/*.js', './dist/js/module-utils/*.js'])))
+    babelJs.bind(babelJs, ['./dist/js/**/*.js', '!./dist/js/lib/*.js'])))
     .then(templateUtil.logStream.bind(templateUtil.logStream, minifyJs.bind(minifyJs, './babel-temp/js/**/*.js')))
     .then(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, './babel-temp')))
 

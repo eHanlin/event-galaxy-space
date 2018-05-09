@@ -1,0 +1,1 @@
+"use strict";$(function(){$(".returnToActivity").on("click",function(){window.location="/event/space"})});
