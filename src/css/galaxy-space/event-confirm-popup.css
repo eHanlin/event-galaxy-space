@@ -140,7 +140,7 @@
 
 .confirm-grid-upgrade-container .image-block1-chest {
   max-height: 100%;
-  filter: url('../../svg/silhouette.svg#silhouette');
+  filter: url('https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/svg/silhouette.svg#silhouette');
 }
 
 .confirm-grid-upgrade-container .content-block1 {
