@@ -201,10 +201,6 @@
 /* ============================================> iPad ============================================>*/
 
 @media screen and (max-width: 1280px) {
-  #galaxy-space-body {
-    -ms-overflow-x: visible;
-  }
-
   .container {
     width: 980px;
     z-index: 1;
@@ -291,10 +287,6 @@
 /* ============================================> iPhone ============================================>*/
 
 @media screen and (max-width: 800px) {
-  #galaxy-space-body {
-    -ms-overflow-x: visible;
-  }
-
   .container {
     width: 375px;
   }
