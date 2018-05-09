@@ -1,7 +1,5 @@
 #galaxy-space-body {
   background-color: #00192D;
-  /* background-color: rgb(75, 109, 137); */
-  height: 1650px;
 }
 
 #galaxy-space-body main {
@@ -22,7 +20,8 @@
 .horizontal-center {
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%,0%);
 }
 
 .container {
@@ -190,6 +189,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-42%);
+  -ms-transform: translateY(-42%);
   right: 13px;
   color: maroon;
   font-size: 25px;
@@ -200,10 +200,6 @@
 /* ============================================> iPad ============================================>*/
 
 @media screen and (max-width: 1280px) {
-  #galaxy-space-body {
-    height: 1500px;
-  }
-
   .container {
     width: 980px;
     z-index: 1;
@@ -290,10 +286,6 @@
 /* ============================================> iPhone ============================================>*/
 
 @media screen and (max-width: 800px) {
-  #galaxy-space-body {
-    height: 1700px;
-  }
-
   .container {
     width: 375px;
   }
