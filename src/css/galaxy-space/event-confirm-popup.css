@@ -133,7 +133,7 @@
 
 .confirm-grid-upgrade-container .image-block1-chest {
   max-height: 100%;
-  filter: url('#silhouette');
+  filter: url('../../svg/silhouette.svg#silhouette');
 }
 
 .confirm-grid-upgrade-container .content-block1 {

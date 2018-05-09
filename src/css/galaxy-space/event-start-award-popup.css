@@ -79,11 +79,7 @@
 }
 
 .start-confirm-grid-container img[class^="img-award"].zero-quantity {
-  filter: url('#greyscale');
-}
-
-.start-confirm-grid-container img[class^="img-award"].zero-quantity {
-  filter: url('#greyscale');
+  filter: url('../../svg/grayscale.svg#grayscale');
 }
 
 .start-confirm-grid-container .start-show-award {
