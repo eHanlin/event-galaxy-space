@@ -93,6 +93,12 @@ const concatCss = sourceCss => {
     .pipe(rename(path => {
       path.basename += '.min'
     }))
+    .pipe(
+      replace(/..\/(..\/img\/svg)\/([\w-]+.svg)/g, function (match, p1, p2) {
+        console.log(`chest domain => ${match} to ${p1}/${p2}`)
+        return `${p1}/${p2}`
+      })
+    )
     .pipe(gulp.dest('./dist/css'))
 }
 

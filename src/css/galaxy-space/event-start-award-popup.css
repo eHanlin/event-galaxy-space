@@ -79,7 +79,7 @@
 }
 
 .start-confirm-grid-container img[class^="img-award"].zero-quantity {
-  filter: url('https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/svg/grayscale.svg#grayscale');
+  filter: url('../../img/svg/grayscale.svg#grayscale');
 }
 
 .start-confirm-grid-container .start-show-award {
