@@ -25,6 +25,7 @@
 
 .confirm-popup-btn-gif,
 .confirm-popup-btn-ok,
+.confirm-popup-btn-awardZero,
 .confirm-popup-btn-dialog {
   background: #fff79e;
 }
@@ -41,8 +42,13 @@
   margin-top: 10px;
 }
 
+.confirm-popup-btn-awardZero {
+  margin-top: 10px;
+}
+
 .confirm-popup-btn-ok:hover,
 .confirm-popup-btn-dialog:hover,
+.confirm-popup-btn-awardZero:hover,
 .confirm-popup-btn-gif:hover {
   background: #604417;
   color: #ffffff;
@@ -75,6 +81,7 @@
 }
 
 /* ============================> Grid ok layout <============================ */
+
 .confirm-grid-gif-container {
   height: 235px;
   display: grid;
@@ -179,7 +186,6 @@
   .confirm-grid-upgrade-container {
     font-size: 20px;
   }
-
   .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 78%;
   }
@@ -190,11 +196,9 @@
     grid-template-columns: 1% 1% 97% 1%;
     -ms-grid-columns: 1% 1% 97% 1%;
   }
-
   .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 0;
   }
-
   .confirm-popup-btn {
     border-radius: 5px;
     margin-top: 0;
@@ -204,7 +208,6 @@
     font-weight: bolder;
     padding: 5px 25px;
   }
-
   .confirm-grid-gif-container .header-block1 {
     font-size: 20px;
   }
