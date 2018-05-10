@@ -5,8 +5,8 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => {
   if (!isBonusPopup) {
     ajax('GET', `/chest/condition/bonusPopup`)
       .then(jsonData => {
-        let image = jsonData.content.content.image
-        bonusPopupTarget.css('background-image', `url(${image})`);
+        // let image = jsonData.content.content.image
+        bonusPopupTarget.css('background-image', `url(${image})`)
         bonusPopupTarget.addClass('bonus-popup-show')
         setTimeout(() => {
           $('#bonus-popup img.forward-anchor').css('display', '')
@@ -18,7 +18,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => {
         })
 
         Cookie.set('isBonusPopup', true, {
-          expire: 1,
+          expire: 1
         })
       })
   }

@@ -38,7 +38,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
     }
 
     confirmPopup.dialog(content, () => {
-        ajax('PUT', `/chest/status/${chest.id}`, statusData)
+      ajax('PUT', `/chest/status/${chest.id}`, statusData)
           .then(jsonData => {
             if (jsonData.message === 'Status of chest is already change') {
               confirmPopup.ok('Oooooops！', '此次寶箱操作，重複進行囉！請重新整理網頁')
@@ -46,7 +46,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             }
             eventStatusDo.unLocking(chest, targets)
           })
-      }, () => { /* 取消 */ },
+    }, () => { /* 取消 */ },
       /* on open */
       () => {
         if (chest.level < 2) return
