@@ -33,7 +33,7 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
         if (window.matchMedia('(max-width: 800px)').matches) {
           awardInfo = `
             <div class="slide-show">
-              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">
+              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">
             </div>
             <div class="slide-show-award-introduce">
               <span class="award">${title}</span>
@@ -45,7 +45,7 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
         } else {
           awardInfo = `
             <div class="slide-show">
-              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">
+              <img class="award-show" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">
             </div>
             <div class="slide-show-award-introduce">
               <span class="award">${title}</span>

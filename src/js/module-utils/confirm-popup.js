@@ -1,6 +1,6 @@
 define(['jquery', 'swal'], ($, swal) => {
   let commonStyle = {
-    background: 'url(https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/popup/confirm.png) repeat center center / contain',
+    background: 'url(https://d220xxmclrx033.cloudfront.net/event-space/img/popup/confirm.png) repeat center center / contain',
     width: '100%',
     customClass: 'confirm-popup-modal',
     buttonsStyling: false,

@@ -1,25 +1,21 @@
-define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {
+define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, eventChestBtnOn, eventAwardsAreZero) => {
   return () => ajax('GET', `/chest/`)
-    .then(data => {
-      let chests = data.content
-      /* 如果實體禮物贈完 回傳dataContent */
-      let dataContent = data.content
+    .then((jsonData, run = true) => {
+      let chests
 
-      if (dataContent === 'luckyBagsAreZero') {
-        require(['eventAwardIsZero'], eventAwardIsZero => {
-          console.log('luckyBagsAreZero')
-        })
-      }
+      eventAwardsAreZero(jsonData.message, jsonData.content)
+      if (!run)
+        return
 
+      chests = jsonData.content
       $(`.platform img[class^=chest]`).remove()
-
       for (let index in chests) {
         let chest = chests[index]
         let targets = {}
 
         targets.platform = $(`.platform-${chest.colorPlatform}`)
         targets.platform
-          .append(`<img class="chest${chest.level}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest${chest.level}.png">`)
+          .append(`<img class="chest${chest.level}" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/chest${chest.level}.png">`)
 
         targets.countdown = $(`.platform-${chest.colorPlatform} .countdown`)
         targets.startBtn = $(`.platform-${chest.colorPlatform} .start-btn`)

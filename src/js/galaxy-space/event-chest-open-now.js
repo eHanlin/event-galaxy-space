@@ -42,7 +42,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPop
         let finalGems = jsonData.content.finalGems
 
         require(['eventCountUp'], eventCountUp => {
-          eventCountUp('gems', $('#gems').text(), finalGems)
+          eventCountUp('gems', parseInt($('#gems').text()), finalGems)
         })
 
         /* 倒數計時秒數設定為 1，讓寶箱變成 ready 狀態 */

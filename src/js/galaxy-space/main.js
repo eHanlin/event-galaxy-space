@@ -16,7 +16,6 @@ require.config({
     eventAwardGet: ['./event-award-get'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
-    eventAwardIsZero: ['./event-award-is-zero'],
 
     /* 取回寶箱與判定狀態 */
     eventChestGet: ['./event-chest-get'],
@@ -30,8 +29,10 @@ require.config({
     eventChestReady: ['./event-chest-ready'],
     eventChestOpenNow: ['./event-chest-open-now'],
     eventChestOpen: ['./event-chest-open'],
+
     eventCountUp: ['./event-count-up'],
     eventBonusPopup: ['./event-bonus-popup'],
+    eventAwardsAreZero: ['./event-awards-are-zero'],
 
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],

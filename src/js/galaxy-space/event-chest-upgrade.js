@@ -11,7 +11,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/chest${upLevel}.png">
+              <img class="image-block1-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/chest${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
@@ -62,8 +62,6 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         } else {
           let result = eventChestUpgrade.determineLevelUpSuccess(content, chest)
           confirmPopup.image(result.text, result.gif, () => {
-            let originalCoins = parseInt($('#coins').text())
-            let originalGems = parseInt($('#gems').text())
             let spendCoins = result.coins
             let spendGems = result.gems
             let finalCoins = originalCoins - spendCoins
@@ -71,8 +69,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
             require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
               eventChestGet()
-              eventCountUp('coins', originalCoins, finalCoins)
-              eventCountUp('gems', originalGems, finalGems)
+              eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
+              eventCountUp('gems', parseInt($('#gems').text()), finalGems)
             })
           })
         }
@@ -87,10 +85,10 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
     let upLevel = chest.level + 1
     if (result && result.memo.levelUpSuccess === 'true') {
       result.text = '升級成功'
-      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
     } else {
       result.text = '升級失敗'
-      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
+      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
     }
     return result
   }

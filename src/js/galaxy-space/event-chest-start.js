@@ -16,11 +16,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
           </div>  
           <div class="img-block-left-btn">
-            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/previous.png">
+            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
           </div>
   
           <div class="img-block-right-btn">
-            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/next.png">
+            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
           </div>
   
           <div class="content-block4">
@@ -51,7 +51,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
       () => {
         if (chest.level < 2) return
 
-        ajax('GET', `/chest/checkAwardIsZero/chest${chest.level}`)
+        ajax('GET', `/chest/showAwardsWhenStart/chest${chest.level}`)
           .then(data => {
             let awardsQuantity = data.content
             let limit = 0
@@ -87,7 +87,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             awardIndex = 0
             for (let awardId in awardsQuantity) {
               let awardImage = `<div class="start-show-award">
-                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${awardId}.png">
+                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">
                 </div>
               `
 
@@ -106,13 +106,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
             $('img[class^=img-award]').each((index, element) => {
               awardId = $(element).attr('data-award-id')
               quantity = awardsQuantity[awardId]
+
+              /* 如果禮物為 0，在禮物圖附加上送完的註記 */
               if (quantity === 0) {
                 $(element)
                   .addClass('zero-quantity')
 
                 $(element)
                   .parent('div.start-show-award')
-                  .append('<img class="award-zero" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/soldout.png">')
+                  .append('<img class="award-zero" src="https://d220xxmclrx033.cloudfront.net/event-space/img/soldout.png">')
               }
             })
 

@@ -38,7 +38,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
       targets.readyBtn.removeAttr('style')
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
-      targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/readyChest${chest.level}.png`)
+      targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)
     },
 
     open: (chest, targets) => {

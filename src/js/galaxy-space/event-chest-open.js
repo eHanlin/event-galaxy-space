@@ -39,20 +39,20 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
 
         if (gainAwardId) {
           awardTitle = `<span class="gif-title">${gainAward}</span>`
-          awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
+          awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
           openTextBlock3 = `
-            <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+            <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
             <span>${gainCoins}</span>
-            <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+            <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
             <span>${gainGems}</span>
           `
           openTextBlock4 = awardImg
         } else {
           openTextBlock4 = `
-            <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+            <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
             <span class="coins-lg">${gainCoins}</span>
             <br/>
-            <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+            <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
             <span class="gems-lg">${gainGems}</span>
           `
         }
@@ -60,7 +60,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
-              <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/chest/open/openChest${chest.level}.gif">
+              <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${chest.level}.gif">
             </div>
             <div class="open-text-block2">恭喜你獲得了
               <span class="gif-title">${awardTitle}</span>
@@ -78,8 +78,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           require(['eventCountUp'], (eventCountUp) => {
             targets.readyBtn.css('display', 'none')
             targets.platformChest.remove()
-            eventCountUp('coins', $('#coins').text(), finalCoins)
-            eventCountUp('gems', $('#gems').text(), finalGems)
+            eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
+            eventCountUp('gems', parseInt($('#gems').text()), finalGems)
           })
         }
 
@@ -125,13 +125,13 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                   title = `
                     <div class="lucky-bag">
                       <span>福袋打開囉，得到 </span>
-                      <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/coin.svg">
+                      <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
                       <span>${gainCoins}</span>
-                      <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/gem.svg">
+                      <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
                       <span>${gainGems}</span>
                     </div>
                   `
-                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/award/${gainAwardId}.png">`
+                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
 
                   confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
                 })

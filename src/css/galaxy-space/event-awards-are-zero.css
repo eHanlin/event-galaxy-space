@@ -1,0 +1,21 @@
+.awards-are-zero-grid-container {
+  height: 190px;
+  width: 100%;
+  display: grid;
+  display: -ms-grid;
+  grid-template-rows: repeat(5, 1fr);
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+.awards-are-zero-grid-container .result-summary-block {
+  grid-row: 5;
+  -ms-grid-row: 5;
+}
+
+.awards-are-zero-grid-container img.gems-img,
+.awards-are-zero-grid-container img.coins-img {
+  width: 30px;
+  height: 30px;
+}
