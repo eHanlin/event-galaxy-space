@@ -32,19 +32,9 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
         `
 
       confirmPopup.awardIsZeroDialog('禮物已經全數發送完囉，結算所擁有寶箱', content, () => {
-        $('.shining-block').show()
-
-        for (let index = 1; index < 31; index++) {
-          $('.shining-block .shining-coins')
-            .append(`<img class="coins${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/coinGif.gif">`)
-        }
-        for (let index = 1; index < 21; index++) {
-          $('.shining-block .shining-gems')
-            .append(`<img class="gems${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/gemGif.gif">`)
-        }
+        // $('.shining-block').show()
 
         require(['eventCountUp'], eventCountUp => {
-          console.log()
           eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
           eventCountUp('gems', parseInt($('#gems').text()), finalGems)
         })

@@ -4,217 +4,217 @@
 
 #galaxy-space-body .shining-block {
   top: 0;
-  left: 50%;
+  right: 50px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins1 {
-  position: relative;
+  position: absolute;
   animation: coin1 3.6s forwards;
   z-index: 1;
-  left: -930%;
+  right: 930px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins2 {
-  position: relative;
+  position: absolute;
   animation: coin2 4s forwards;
   z-index: 1;
-  left: -750%;
+  right: -750px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins3 {
-  position: relative;
+  position: absolute;
   animation: coin3 6s forwards;
   z-index: 1;
-  left: -480%;
+  right: -480px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins4 {
-  position: relative;
+  position: absolute;
   animation: coin4 5s forwards;
   z-index: 1;
-  left: -280%;
+  right: -280px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins5 {
-  position: relative;
+  position: absolute;
   animation: coin5 6.5s forwards;
   z-index: 1;
-  left: -130%;
+  right: -130px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins6 {
-  position: relative;
+  position: absolute;
   animation: coin6 4.5s forwards;
   z-index: 1;
-  left: 130%;
+  right: 130px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins7 {
-  position: relative;
+  position: absolute;
   animation: coin7 3.4s forwards;
   z-index: 1;
-  left: 320%;
+  right: 320px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins8 {
-  position: relative;
+  position: absolute;
   animation: coin8 4.8s forwards;
   z-index: 1;
-  left: 530%;
+  right: 530px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins9 {
-  position: relative;
+  position: absolute;
   animation: coin9 4.1s forwards;
   z-index: 1;
-  left: 730%;
+  right: 730px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins10 {
-  position: relative;
+  position: absolute;
   animation: coin10 3.3s forwards;
   z-index: 1;
-  left: 815%;
+  right: 815px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins11 {
-  position: relative;
+  position: absolute;
   animation: coin11 4.3s forwards;
   z-index: 1;
-  left: 920%;
+  right: 920px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins12 {
-  position: relative;
+  position: absolute;
   animation: coin12 3.3s forwards;
   z-index: 1;
-  left: 1190%;
+  right: 1190px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins13 {
-  position: relative;
+  position: absolute;
   animation: coin13 3.5s forwards;
   z-index: 1;
-  left: 80%;
+  right: 80px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins14 {
-  position: relative;
+  position: absolute;
   animation: coin14 4.4s forwards;
   z-index: 1;
-  left: 190%;
+  right: 190px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins15 {
-  position: relative;
+  position: absolute;
   animation: coin15 3.7s forwards;
   z-index: 1;
-  left: -317%;
+  right: -317px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins16 {
-  position: relative;
+  position: absolute;
   animation: coin16 4.2s forwards;
   z-index: 1;
-  left: -190%;
+  right: -190px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins17 {
-  position: relative;
+  position: absolute;
   animation: coin17 4.8s forwards;
   z-index: 1;
-  left: -490%;
+  right: -490px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins18 {
-  position: relative;
+  position: absolute;
   animation: coin18 3.2s forwards;
   z-index: 1;
-  left: -990%;
+  right: -990px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins19 {
-  position: relative;
+  position: absolute;
   animation: coin19 4s forwards;
   z-index: 1;
-  left: -679%;
+  right: -679px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins20 {
-  position: relative;
+  position: absolute;
   animation: coin20 3.3s forwards;
   z-index: 1;
-  left: -790%;
+  right: -790px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins21 {
-  position: relative;
+  position: absolute;
   animation: coin21 3.3s forwards;
   z-index: 1;
-  left: -1790%;
+  right: -1790px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins22 {
-  position: relative;
+  position: absolute;
   animation: coin22 5s forwards;
   z-index: 1;
-  left: -1894%;
+  right: -1894px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins23 {
-  position: relative;
+  position: absolute;
   animation: coin23 3.9s forwards;
   z-index: 1;
-  left: -1563%;
+  right: -1563px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins24 {
-  position: relative;
+  position: absolute;
   animation: coin24 4.1s forwards;
   z-index: 1;
-  left: -1690%;
+  right: -1690px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins25 {
-  position: relative;
+  position: absolute;
   animation: coin25 5s forwards;
   z-index: 1;
-  left: 1330%;
+  right: 1330px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins26 {
-  position: relative;
+  position: absolute;
   animation: coin26 4.5s forwards;
   z-index: 1;
-  left: 1771%;
+  right: 1771px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins27 {
-  position: relative;
+  position: absolute;
   animation: coin27 3.3s forwards;
   z-index: 1;
-  left: 1790%;
+  right: 1790px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins28 {
-  position: relative;
+  position: absolute;
   animation: coin28 3.6s forwards;
   z-index: 1;
-  left: 1894%;
+  right: 1894px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins29 {
-  position: relative;
+  position: absolute;
   animation: coin29 3.9s forwards;
   z-index: 1;
-  left: 1563%;
+  right: 1563px;
 }
 
 #galaxy-space-body .shining-block .shining-coins .coins30 {
-  position: relative;
+  position: absolute;
   animation: coin30 4.1s forwards;
   z-index: 1;
-  left: 1690%;
+  right: 1690px;
 }
 
 @keyframes coin1 {
@@ -1272,143 +1272,143 @@
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems1 {
-  position: relative;
+  position: absolute;
   animation: gem1 4s forwards;
   z-index: 1;
-  left: -1560%;
+  right: -1560px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems2 {
-  position: relative;
+  position: absolute;
   animation: gem2 4.2s forwards;
   z-index: 1;
-  left: -1440%;
+  right: -1440px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems3 {
-  position: relative;
+  position: absolute;
   animation: gem3 3.5s forwards;
   z-index: 1;
-  left: -1670%;
+  right: -1670px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems4 {
-  position: relative;
+  position: absolute;
   animation: gem4 3.5s forwards;
   z-index: 1;
-  left: -1430%;
+  right: -1430px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems5 {
-  position: relative;
+  position: absolute;
   animation: gem5 3.1s forwards;
   z-index: 1;
-  left: -870%;
+  right: -870px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems6 {
-  position: relative;
+  position: absolute;
   animation: gem6 2.8s forwards;
   z-index: 1;
-  left: -570%;
+  right: -570px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems7 {
-  position: relative;
+  position: absolute;
   animation: gem7 3.8s forwards;
   z-index: 1;
-  left: -650%;
+  right: -650px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems8 {
-  position: relative;
+  position: absolute;
   animation: gem8 3.3s forwards;
   z-index: 1;
-  left: -490%;
+  right: -490px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems9 {
-  position: relative;
+  position: absolute;
   animation: gem9 2.6s forwards;
   z-index: 1;
-  left: -630%;
+  right: -630px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems10 {
-  position: relative;
+  position: absolute;
   animation: gem10 4.1s forwards;
   z-index: 1;
-  left: -1120%;
+  right: -1120px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems11 {
-  position: relative;
+  position: absolute;
   animation: gem11 4.9s forwards;
   z-index: 1;
-  left: 143%;
+  right: 143px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems12 {
-  position: relative;
+  position: absolute;
   animation: gem12 3.6s forwards;
   z-index: 1;
-  left: 229%;
+  right: 229px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems13 {
-  position: relative;
+  position: absolute;
   animation: gem13 3.8s forwards;
   z-index: 1;
-  left: 379%;
+  right: 379px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems14 {
-  position: relative;
+  position: absolute;
   animation: gem14 4.6s forwards;
   z-index: 1;
-  left: 529%;
+  right: 529px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems15 {
-  position: relative;
+  position: absolute;
   animation: gem15 4s forwards;
   z-index: 1;
-  left: 639%;
+  right: 639px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems16 {
-  position: relative;
+  position: absolute;
   animation: gem16 5s forwards;
   z-index: 1;
-  left: 771%;
+  right: 771px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems17 {
-  position: relative;
+  position: absolute;
   animation: gem17 4.2s forwards;
   z-index: 1;
-  left: 863%;
+  right: 863px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems18 {
-  position: relative;
+  position: absolute;
   animation: gem18 3.7s forwards;
   z-index: 1;
-  left: 1229%;
+  right: 1229px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems19 {
-  position: relative;
+  position: absolute;
   animation: gem19 3.9s forwards;
   z-index: 1;
-  left: 1479%;
+  right: 1479px;
 }
 
 #galaxy-space-body .shining-block .shining-gems .gems20 {
-  position: relative;
+  position: absolute;
   animation: gem20 4.1s forwards;
   z-index: 1;
-  left: 1829%;
+  right: 1829px;
 }
 
 @keyframes gem1 {

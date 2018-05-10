@@ -4,8 +4,7 @@ define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, ev
       let chests
 
       eventAwardsAreZero(jsonData.message, jsonData.content)
-      if (!run)
-        return
+      if (!run) { return }
 
       chests = jsonData.content
       $(`.platform img[class^=chest]`).remove()

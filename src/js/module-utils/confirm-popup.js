@@ -84,11 +84,29 @@ define(['jquery', 'swal'], ($, swal) => {
 
     awardIsZeroDialog: (title, content, awardIsZeroFun, buttonText) => {
       let awardIsZeroDialogStyle = cloneCommonStyle(commonStyle)
+      awardIsZeroDialogStyle.height = '80%'
       awardIsZeroDialogStyle.title = `<span style="color: #217dbb;">${title}</span>`
       awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
       awardIsZeroDialogStyle.confirmButtonText = buttonText || '我瞭解了'
       awardIsZeroDialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-awardZero'
-
+      awardIsZeroDialogStyle.onOpen = () => {
+        $('.swal2-content').append(
+          `
+          <div class="shining-block">
+            <div class="shining-coins"></div>
+            <div class="shining-gems"></div>
+          </div>
+          `
+        )
+        for (let index = 1; index < 31; index++) {
+          $('.shining-block .shining-coins')
+            .append(`<img class="coins${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/coinGif.gif">`)
+        }
+        for (let index = 1; index < 21; index++) {
+          $('.shining-block .shining-gems')
+            .append(`<img class="gems${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/gemGif.gif">`)
+        }
+      }
       return swal(awardIsZeroDialogStyle).then(result => {
         if (result.value && awardIsZeroFun) {
           awardIsZeroFun()
