@@ -8,7 +8,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
       let resultInfo = multiResultInfo[i]
       resultBlocks += `
         <div>
-          等級 ${resultInfo.chestLevel} 寶箱獲得
+          Lv ${resultInfo.chestLevel} 寶箱獲得
           <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
           <span>${resultInfo.coins}</span>
           <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
@@ -26,12 +26,15 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
           <div class="awards-are-zero-grid-container">
             ${resultBlocks}
             <div class="result-summary-block">
-              總共獲得金幣 ${totalCoins}，寶石 ${totalGems} 
+                總計 
+                <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">${totalCoins} 
+                <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">${totalGems}<br>
+                請至雲端銀行確認
             </div>
           </div>
         `
 
-      confirmPopup.awardIsZeroDialog('禮物已經全數發送完囉，結算所擁有寶箱', content, () => {
+      confirmPopup.awardIsZeroDialog('寶藏已被隊員們探索完畢，請靜待下次開放探索時間<br>總部已將您的寶箱結算', content, () => {
         // $('.shining-block').show()
 
         require(['eventCountUp'], eventCountUp => {

@@ -9,9 +9,18 @@
   font-weight: bolder;
 }
 
+.awards-are-zero-grid-container div span {
+  display: inline-block;
+  width: 60px;
+}
+
 .awards-are-zero-grid-container .result-summary-block {
   grid-row: 5;
   -ms-grid-row: 5;
+}
+
+.confirm-popup-modal-award-is-zero {
+  height: 520px;
 }
 
 .result-summary-block {
@@ -22,4 +31,18 @@
 .awards-are-zero-grid-container img.coins-img {
   width: 35px;
   height: 35px;
+}
+
+@media screen and (max-width: 550px) {
+  .awards-are-zero-grid-container {
+    font-size: 18px;
+  }
+  .awards-are-zero-grid-container img.gems-img,
+  .awards-are-zero-grid-container img.coins-img {
+    width: 28px;
+    height: 28px;
+  }
+  .award-is-zero-title {
+    font-size: 18px;
+  }
 }

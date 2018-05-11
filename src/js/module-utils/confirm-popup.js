@@ -91,9 +91,9 @@ define(['jquery', 'swal'], ($, swal) => {
         allowOutsideClick: false
       }
       let awardIsZeroDialogStyle = cloneCommonStyle(commonStyle)
-      awardIsZeroDialogStyle.title = `<span style="color: #217dbb;">${title}</span>`
+      awardIsZeroDialogStyle.title = `<span class="award-is-zero-title" style="color: #217dbb;">${title}</span>`
       awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
-      awardIsZeroDialogStyle.confirmButtonText = buttonText || '我瞭解了'
+      awardIsZeroDialogStyle.confirmButtonText = buttonText || '好的'
       awardIsZeroDialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-awardZero'
       awardIsZeroDialogStyle.onOpen = () => {
         $('.swal2-content').append(
