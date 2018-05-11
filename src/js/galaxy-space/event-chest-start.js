@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, confirmPopup, eventStatusDo, w3) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, confirmPopup, eventStatusDo, w3) => {// eslint-disable-line
   return (chest, targets) => {
     let content
     let statusData = {

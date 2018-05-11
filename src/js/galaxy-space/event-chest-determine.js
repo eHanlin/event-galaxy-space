@@ -1,4 +1,4 @@
-define(['require', 'jquery', 'eventStatusDo'], (require, $, eventStatusDo) => {
+define(['require', 'jquery', 'eventStatusDo'], (require, $, eventStatusDo) => {// eslint-disable-line
   return (chest, targets) => {
     switch (chest.status) {
       case 'LOCKED':

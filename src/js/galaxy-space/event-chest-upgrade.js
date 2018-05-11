@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {// eslint-disable-line
   let eventChestUpgrade = {}
   eventChestUpgrade.ask = (chest, targets) => {
     let upLevel = chest.level + 1

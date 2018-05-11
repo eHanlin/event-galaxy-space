@@ -1,4 +1,4 @@
-define(['jquery', 'swal'], ($, swal) => {
+define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
   let commonStyle = {
     background: 'url(https://d220xxmclrx033.cloudfront.net/event-space/img/popup/confirm.png) repeat center center / contain',
     width: '100%',

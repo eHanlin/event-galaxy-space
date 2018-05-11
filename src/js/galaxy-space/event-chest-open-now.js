@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo'], ($, ajax, confirmPopup) => {// eslint-disable-line
   let eventChestOpenNow = {}
   eventChestOpenNow.ask = (chest, targets) => {
     let seconds

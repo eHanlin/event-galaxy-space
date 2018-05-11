@@ -1,4 +1,4 @@
-define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {
+define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {// eslint-disable-line
   $(window).resize(function () {
     if (window.matchMedia('(max-width: 800px)').matches) {
       $('.slide-show-award-introduce .needChestLv').hide()

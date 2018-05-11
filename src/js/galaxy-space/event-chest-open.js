@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {// eslint-disable-line
   let determineNormallyOpen = (message, targets) => {
     let isNormallyOpen = true
     if (message === 'Chest is already opened') {
@@ -30,8 +30,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         let gainAward = jsonContent.gainAward
 
         let luckyBag = jsonContent.luckyBag
-        let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
-        let content, openTextBlock3 = '', openTextBlock4 = ''
+        let awardImg = '', awardTitle = '', openLuckyBagBtn = ''// eslint-disable-line
+        let content, openTextBlock3 = '', openTextBlock4 = ''// eslint-disable-line
 
         if (!determineNormallyOpen(jsonData.message, targets)) {
           return

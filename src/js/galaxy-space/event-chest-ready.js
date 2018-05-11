@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'eventChestGet', 'confirmPopup'], ($, ajax, eventChestGet, confirmPopup) => {
+define(['jquery', 'ajax', 'eventChestGet', 'confirmPopup'], ($, ajax, eventChestGet, confirmPopup) => {// eslint-disable-line
   return (chest) => {
     let statusData = {
       status: 'READY'

@@ -1,4 +1,4 @@
-define(['countUp'], CountUp => {
+define(['countUp'], CountUp => {// eslint-disable-line
   return function (id, start, end) {
     let options = {
       useEasing: true,

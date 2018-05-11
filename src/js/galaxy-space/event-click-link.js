@@ -1,4 +1,4 @@
-define(['jquery'], $ => {
+define(['jquery'], $ => {// eslint-disable-line
   $(() => {
     $('.fb').on('click', () => {
       window.open('https://www.facebook.com/ehanlin.com.tw/', 'ehanlinFB')

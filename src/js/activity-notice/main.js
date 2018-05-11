@@ -1,5 +1,5 @@
-$(() => {
-  $(".returnToActivity").on("click", () => {
-    window.location = "/event/space"
+$(() => {// eslint-disable-line
+  $('.returnToActivity').on('click', () => {// eslint-disable-line
+    window.location = '/event/space'
   })
 })

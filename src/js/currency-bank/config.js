@@ -1,4 +1,4 @@
-define(() => {
+define(() => {// eslint-disable-line
   require.config({
     shim: {
       bootstrap: ['jquery'],

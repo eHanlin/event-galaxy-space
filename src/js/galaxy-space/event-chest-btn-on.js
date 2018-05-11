@@ -1,4 +1,4 @@
-define(['jquery'], $ => {
+define(['jquery'], $ => {// eslint-disable-line
   return (chest, targets) => {
     /* requireJs進來，click後綁定自己將參數(chest, targets)傳入 */
     /* 啟動按鈕 */
