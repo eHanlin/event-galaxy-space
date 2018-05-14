@@ -64,6 +64,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {// eslint
           confirmPopup.image(result.text, result.gif, () => {
             let spendCoins = result.coins
             let spendGems = result.gems
+            let originalCoins = parseInt($('#coins').text())
+            let originalGems = parseInt($('#gems').text())
             let finalCoins = originalCoins - spendCoins
             let finalGems = originalGems - spendGems
 
