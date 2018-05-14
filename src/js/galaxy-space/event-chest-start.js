@@ -51,7 +51,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3'], ($, ajax, conf
       () => {
         if (chest.level < 2) return
 
-        ajax('GET', `/chest/showAwardsWhenStart/chest${chest.level}`)
+        ajax('GET', `/chest/checkAwardIsZero/chest${chest.level}`)
           .then(data => {
             let awardsQuantity = data.content
             let limit = 0
