@@ -1,4 +1,4 @@
-define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => {
+define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-line
   let isBonusPopup = Cookie.get('isBonusPopup')
   let bonusPopupTarget = $('#bonus-popup')
 

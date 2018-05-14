@@ -1,4 +1,4 @@
-define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
+define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
   return (message, multiResultInfo) => {
     let resultBlocks = ''
     let totalCoins = 0
@@ -30,7 +30,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
                 總計 
                 <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">${totalCoins} 
                 <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">${totalGems}<br>
-                請至雲端銀行確認
+                請至雲端銀行確認，您的資產未來活動中仍可繼續使用
             </div>
           </div>
         `

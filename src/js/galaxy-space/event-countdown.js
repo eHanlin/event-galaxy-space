@@ -1,4 +1,4 @@
-define(['jquery', 'jqueryCountDown'], ($, jqueryCountDown) => {
+define(['jquery', 'jqueryCountDown'], ($, jqueryCountDown) => {// eslint-disable-line
   return (seconds, chest, targets, callback) => {
     targets.countdown.countDown({
       timeInSecond: seconds,

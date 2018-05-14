@@ -18,17 +18,17 @@ const destination = './dist'
 const copyStaticTask = destination => {
   return gulp
     .src(
-      [
-        './src/*.html',
-        './src/css/**/*.css',
-        './src/js/**/*.js',
-        './src/img/**/*.png',
-        './src/img/**/*.jpg',
-        './src/img/**/*.gif',
-        './src/img/**/*.svg'
-      ], {
-        base: './src'
-      }
+    [
+      './src/*.html',
+      './src/css/**/*.css',
+      './src/js/**/*.js',
+      './src/img/**/*.png',
+      './src/img/**/*.jpg',
+      './src/img/**/*.gif',
+      './src/img/**/*.svg'
+    ], {
+      base: './src'
+    }
     )
     .pipe(gulp.dest(destination))
 }
@@ -106,7 +106,7 @@ const concatCss = sourceCss => {
 const replaceCss = () => {
   return gulp.src('./src/index.html', {base: './src'})
     .pipe(htmlReplace({
-      'css': './css/ehanlin-galaxy-space.min.css',
+      'css': './css/ehanlin-galaxy-space.min.css'
     }))
     .pipe(gulp.dest(destination))
 }

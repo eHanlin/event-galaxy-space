@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, eventChestBtnOn, eventAwardsAreZero) => {
+define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, eventChestBtnOn, eventAwardsAreZero) => {// eslint-disable-line
   return () => ajax('GET', `/chest/`)
     .then((jsonData) => {
       let chests

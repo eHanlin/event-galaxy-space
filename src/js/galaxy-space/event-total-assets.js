@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {
-  ajax('GET', `/currencyBank/totalAssets`)
+define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {// eslint-disable-line
+  ajax('GET', `/currencyBank/totalAssets/one`)
     .then(data => {
       let finalCoins = data.content.coins
       let finalGems = data.content.gems

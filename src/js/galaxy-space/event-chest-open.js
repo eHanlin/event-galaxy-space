@@ -6,16 +6,14 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardsAr
           let jsonContent = jsonData.content
           let finalCoins = jsonContent.finalCoins
           let finalGems = jsonContent.finalGems
-
           /* 獲得禮物內容 */
           let gainCoins = jsonContent.coins ? jsonContent.coins : 0
           let gainGems = jsonContent.gems ? jsonContent.gems : 0
           let gainAwardId = jsonContent.gainAwardId
           let gainAward = jsonContent.gainAward
-
           let luckyBag = jsonContent.luckyBag
-          let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
-          let content, openTextBlock3 = '', openTextBlock4 = ''
+          let awardImg = '', awardTitle = '', openLuckyBagBtn = ''// eslint-disable-line
+          let content, openTextBlock3 = '', openTextBlock4 = ''// eslint-disable-line
 
           if (eventChestInspection(jsonData.message, jsonData.content)) {
             return

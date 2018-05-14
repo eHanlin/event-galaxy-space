@@ -1,4 +1,4 @@
-define(['jquery', 'ajax'], ($, ajax) => {
+define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
   return {
     locked: (chest, targets) => {
       targets.startBtn.removeAttr('style')

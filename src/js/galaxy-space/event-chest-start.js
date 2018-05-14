@@ -4,34 +4,31 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3', 'eventChestInsp
       let content
       if (chest.level >= 2) {
         content = `
-        <div class="start-confirm-grid-container">
-          <div class="content-block1">
-            <span>寶箱準備啟動中...</span>
+          <div class="start-confirm-grid-container">
+            <div class="content-block1">
+              <span>寶箱準備啟動中...</span>
+            </div>
+            <div class="content-block2">
+              <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
+            </div>  
+            <div class="img-block-left-btn">
+              <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
+            </div>
+            <div class="img-block-right-btn">
+              <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
+            </div>
+            <div class="content-block4">
+              <span>你確定要啟動這個寶箱嗎？</span>
+            </div>
           </div>
-  
-          <div class="content-block2">
-            <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
-          </div>  
-          <div class="img-block-left-btn">
-            <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
-          </div>
-  
-          <div class="img-block-right-btn">
-            <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
-          </div>
-  
-          <div class="content-block4">
-            <span>你確定要啟動這個寶箱嗎？</span>
-          </div>
-        </div>
-      `
+        `
       } else {
         content = `
-        <div>
-          <h2 class="header-text">寶箱準備啟動中...</h2>
-          <h3>你確定要啟動這個寶箱嗎？</h3>
-        </div>
-      `
+          <div>
+            <h2 class="header-text">寶箱準備啟動中...</h2>
+            <h3>你確定要啟動這個寶箱嗎？</h3>
+          </div>
+        `
       }
 
       confirmPopup.dialog(content, () => {

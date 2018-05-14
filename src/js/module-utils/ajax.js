@@ -1,4 +1,4 @@
-define(['jquery'], $ => {
+define(['jquery'], $ => {// eslint-disable-line
   return function (type, url, data) {
     if (type !== 'GET') {
       data = JSON.stringify(data)

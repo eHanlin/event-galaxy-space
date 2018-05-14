@@ -1,4 +1,4 @@
-define(['require', 'jquery', 'w3'], (require, $) => {
+define(['require', 'jquery', 'w3'], (require, $) => {// eslint-disable-line
   return () => {
     let ajax = require('ajax')
     ajax('GET', `/chest/award`)
