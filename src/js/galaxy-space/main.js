@@ -27,8 +27,9 @@ require.config({
     eventChestUpgrade: ['./event-chest-upgrade'],
     eventChestStart: ['./event-chest-start'],
     eventChestReady: ['./event-chest-ready'],
-    eventChestOpenNow: ['./event-chest-open-now'],
+    eventChestOpenImmediately: ['./event-chest-open-immediately'],
     eventChestOpen: ['./event-chest-open'],
+    eventChestInspection: ['./event-chest-inspection'],
 
     eventCountUp: ['./event-count-up'],
     eventBonusPopup: ['./event-bonus-popup'],

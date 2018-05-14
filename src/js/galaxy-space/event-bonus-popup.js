@@ -5,7 +5,12 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => {
   if (!isBonusPopup) {
     ajax('GET', `/chest/condition/bonusPopup`)
       .then(jsonData => {
-        let image = jsonData.content.content.image
+        let bonusPopupContent = jsonData.content.content
+        let image
+        if (!bonusPopupContent.show) {
+          return
+        }
+        image = jsonData.content.content.image
         bonusPopupTarget.css('background-image', `url(${image})`)
         bonusPopupTarget.addClass('bonus-popup-show')
         setTimeout(() => {

@@ -20,7 +20,7 @@ define(['jquery', 'ajax'], ($, ajax) => {
           targets.upgradeBtn.css('display', 'none')
           targets.readyBtn.css('display', 'none')
           targets.openNowBtn.removeAttr('style')
-          targets.platformChest.css('filter', 'grayscale(100%)')
+          targets.platformChest.css('filter', 'url("#grayscale")')
 
           $('.start-btn').css('display', 'none')
           $('.upgrade-btn').css('left', '27%')

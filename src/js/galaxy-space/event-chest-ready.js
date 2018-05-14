@@ -1,15 +1,13 @@
-define(['jquery', 'ajax', 'eventChestGet', 'confirmPopup'], ($, ajax, eventChestGet, confirmPopup) => {
+define(['jquery', 'ajax', 'eventChestGet', 'eventChestInspection'], ($, ajax, eventChestGet, eventChestInspection) => {
   return (chest) => {
-    let statusData = {
+    let statusInfo = {
       status: 'READY'
     }
-    ajax('PUT', `/chest/status/${chest.id}`, statusData)
+    ajax('POST', `/chest/ready/${chest.id}`, statusInfo)
       .then((jsonData) => {
-        if (jsonData.message === 'Status of chest is already change') {
-          confirmPopup.ok('Oooooops！', '此次寶箱操作，重複進行囉！請重新整理網頁')
+        if (eventChestInspection(jsonData.message, jsonData.content)) {
           return
         }
-
         eventChestGet()
       })
   }

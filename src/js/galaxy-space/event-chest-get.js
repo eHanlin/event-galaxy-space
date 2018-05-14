@@ -1,10 +1,10 @@
 define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, eventChestBtnOn, eventAwardsAreZero) => {
   return () => ajax('GET', `/chest/`)
-    .then((jsonData, run = true) => {
+    .then((jsonData) => {
       let chests
-
-      eventAwardsAreZero(jsonData.message, jsonData.content)
-      if (!run) { return }
+      if (eventAwardsAreZero(jsonData.message, jsonData.content)) {
+        return
+      }
 
       chests = jsonData.content
       $(`.platform img[class^=chest]`).remove()

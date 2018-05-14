@@ -8,9 +8,9 @@ define(['jquery'], $ => {
     })
 
     /* 立即開啟按鈕 */
-    require(['eventChestOpenNow'], eventChestOpenNow => {
+    require(['eventChestOpenImmediately'], eventChestOpenImmediately => {
       targets.openNowBtn.off('click')
-      targets.openNowBtn.on('click', eventChestOpenNow.ask.bind(eventChestOpenNow.ask, chest, targets))
+      targets.openNowBtn.on('click', eventChestOpenImmediately.ask.bind(eventChestOpenImmediately.ask, chest, targets))
     })
 
     /* 升級按鈕 */

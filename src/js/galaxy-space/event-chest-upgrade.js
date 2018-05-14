@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, confirmPopup, eventChestInspection) => {
   let eventChestUpgrade = {}
   eventChestUpgrade.ask = (chest, targets) => {
     let upLevel = chest.level + 1
@@ -51,44 +51,40 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
         }
       })
       .then(jsonData => {
-        let content = jsonData.content
-        if (content.isActivation && content.isActivation === 'false') {
-          confirmPopup.ok('Oooooops！ 無法再升級囉！',
-            `你目前還不是銀河探險隊的正式隊員，
-            馬上前往購買課程成為正式隊員再回來繼續升級寶箱拿獎品吧！ 
-            <br/><a href="https://test.ehanlin.com.tw/courses_map.html">課程連結</a>`)
-        } else if (content.isLevelUpSucceeded && content.isLevelUpSucceeded === 'true') {
-          confirmPopup.ok('Oooooops 此寶箱已經升級過囉', '')
-        } else {
-          let result = eventChestUpgrade.determineLevelUpSuccess(content, chest)
-          confirmPopup.image(result.text, result.gif, () => {
-            let spendCoins = result.coins
-            let spendGems = result.gems
-            let finalCoins = originalCoins - spendCoins
-            let finalGems = originalGems - spendGems
-
-            require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
-              eventChestGet()
-              eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
-              eventCountUp('gems', parseInt($('#gems').text()), finalGems)
-            })
-          })
+        if (eventChestInspection(jsonData.message, jsonData.content)) {
+          return
         }
+
+        let result = eventChestUpgrade.determineLevelUpSuccess(jsonData.content)
+        confirmPopup.image(result.text, result.gif, () => {
+          let originalCoins = parseInt($('#coins').text())
+          let originalGems = parseInt($('#gems').text())
+          let spendCoins = result.coins
+          let spendGems = result.gems
+          let finalCoins = originalCoins - spendCoins
+          let finalGems = originalGems - spendGems
+
+          require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
+            eventChestGet()
+            eventCountUp('coins', originalCoins, finalCoins)
+            eventCountUp('gems', originalGems, finalGems)
+          })
+        })
       })
       .done(() => {
         loadingTarget.css('display', 'none')
       })
   }
 
-  eventChestUpgrade.determineLevelUpSuccess = (content, chest) => {
+  eventChestUpgrade.determineLevelUpSuccess = (content) => {
     let result = content[0]
-    let upLevel = chest.level + 1
+    let upLevel = parseInt(result.memo.upLevel)
     if (result && result.memo.levelUpSuccess === 'true') {
       result.text = '升級成功'
       result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
     } else {
       result.text = '升級失敗'
-      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${chest.level}.gif">`
+      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${upLevel - 1}.gif">`
     }
     return result
   }

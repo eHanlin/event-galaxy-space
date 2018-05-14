@@ -17,14 +17,15 @@
 .awards-are-zero-grid-container .result-summary-block {
   grid-row: 5;
   -ms-grid-row: 5;
+  margin-top: 10px;
 }
 
-.confirm-popup-modal-award-is-zero {
+.awards-are-zero-confirm-popup-modal {
   height: 520px;
 }
 
-.result-summary-block {
-  margin-top: 10px;
+.awards-are-zero-title {
+  font-size: 23px;
 }
 
 .awards-are-zero-grid-container img.gems-img,
@@ -37,12 +38,15 @@
   .awards-are-zero-grid-container {
     font-size: 18px;
   }
+
   .awards-are-zero-grid-container img.gems-img,
   .awards-are-zero-grid-container img.coins-img {
     width: 28px;
     height: 28px;
   }
-  .award-is-zero-title {
+
+  .awards-are-zero-title {
+    color: #217dbb;
     font-size: 18px;
   }
 }

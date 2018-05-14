@@ -1,63 +1,49 @@
-define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
-  let determineNormallyOpen = (message, targets) => {
-    let isNormallyOpen = true
-    if (message === 'Chest is already opened') {
-      confirmPopup.ok('Oooooops！', '此寶箱已經開啟過囉！')
-      targets.readyBtn.css('display', 'none')
-      targets.platformChest.remove()
-      isNormallyOpen = false
-    } else if (message === '寶箱正在運作中') {
-      confirmPopup.ok('Oooooops！', '寶箱正在運作中，請重新整理網頁')
-      isNormallyOpen = false
-    }
-    return isNormallyOpen
-  }
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardsAreZero'],
+  ($, ajax, confirmPopup, eventChestInspection, eventAwardsAreZero) => {
+    return (chest, targets) => {
+      ajax('POST', `/chest/open/${chest.id}`)
+        .then((jsonData) => {
+          let jsonContent = jsonData.content
+          let finalCoins = jsonContent.finalCoins
+          let finalGems = jsonContent.finalGems
 
-  return (chest, targets) => {
-    let chestStatus = {
-      status: 'OPEN'
-    }
-    ajax('PUT', `/chest/open/${chest.id}`, chestStatus)
-      .then((jsonData) => {
-        let jsonContent = jsonData.content
-        let finalCoins = jsonContent.finalCoins
-        let finalGems = jsonContent.finalGems
+          /* 獲得禮物內容 */
+          let gainCoins = jsonContent.coins ? jsonContent.coins : 0
+          let gainGems = jsonContent.gems ? jsonContent.gems : 0
+          let gainAwardId = jsonContent.gainAwardId
+          let gainAward = jsonContent.gainAward
 
-        /* 獲得禮物內容 */
-        let gainCoins = jsonContent.coins ? jsonContent.coins : 0
-        let gainGems = jsonContent.gems ? jsonContent.gems : 0
-        let gainAwardId = jsonContent.gainAwardId
-        let gainAward = jsonContent.gainAward
+          let luckyBag = jsonContent.luckyBag
+          let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
+          let content, openTextBlock3 = '', openTextBlock4 = ''
 
-        let luckyBag = jsonContent.luckyBag
-        let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
-        let content, openTextBlock3 = '', openTextBlock4 = ''
+          if (eventChestInspection(jsonData.message, jsonData.content)) {
+            return
+          } else if (eventAwardsAreZero(jsonData.message, jsonData.content)) {
+            return
+          }
 
-        if (!determineNormallyOpen(jsonData.message, targets)) {
-          return
-        }
-
-        if (gainAwardId) {
-          awardTitle = `<span class="gif-title">${gainAward}</span>`
-          awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
-          openTextBlock3 = `
+          if (gainAwardId) {
+            awardTitle = `<span class="gif-title">${gainAward}</span>`
+            awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
+            openTextBlock3 = `
             <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
             <span>${gainCoins}</span>
             <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
             <span>${gainGems}</span>
           `
-          openTextBlock4 = awardImg
-        } else {
-          openTextBlock4 = `
+            openTextBlock4 = awardImg
+          } else {
+            openTextBlock4 = `
             <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
             <span class="coins-lg">${gainCoins}</span>
             <br/>
             <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
             <span class="gems-lg">${gainGems}</span>
           `
-        }
+          }
 
-        content = `
+          content = `
           <div class="open-confirm-grid-container">
             <div class="open-text-block1">
               <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${chest.level}.gif">
@@ -74,55 +60,55 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
           </div>
         `
 
-        let afterOpen = (finalCoins, finalGems) => {
-          require(['eventCountUp'], (eventCountUp) => {
-            targets.readyBtn.css('display', 'none')
-            targets.platformChest.remove()
-            eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
-            eventCountUp('gems', parseInt($('#gems').text()), finalGems)
-          })
-        }
-
-        if (gainAwardId && luckyBag === false) {
-          confirmPopup.dialog(content,
-            /* 導頁至領取㽪品 */
-            () => {
-              afterOpen(finalCoins, finalGems)
-              window.open('https://test.ehanlin.com.tw/Events/winner_info.html?id=space', 'winner_info')
-            },
-            /* confirmFn */
-            afterOpen.bind(afterOpen, finalCoins, finalGems),
-            /* onOpenFn */
-            () => {},
-            '回填領獎', '我瞭解了')
-        } else {
-          if (luckyBag === true) {
-            openLuckyBagBtn = '打開福袋'
+          let afterOpen = (finalCoins, finalGems) => {
+            require(['eventCountUp'], (eventCountUp) => {
+              targets.readyBtn.css('display', 'none')
+              targets.platformChest.remove()
+              eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
+              eventCountUp('gems', parseInt($('#gems').text()), finalGems)
+            })
           }
 
-          confirmPopup.ok('', content, () => {
-            /* 福袋內容 */
+          if (gainAwardId && luckyBag === false) {
+            confirmPopup.dialog(content,
+              /* 導頁至領取㽪品 */
+              () => {
+                afterOpen(finalCoins, finalGems)
+                window.open('https://test.ehanlin.com.tw/Events/winner_info.html?id=space', 'winner_info')
+              },
+              /* confirmFn */
+              afterOpen.bind(afterOpen, finalCoins, finalGems),
+              /* onOpenFn */
+              () => {},
+              '回填領獎', '我瞭解了')
+          } else {
             if (luckyBag === true) {
-              ajax(
-                'PUT', `/chest/award/luckyBag`, {
-                  awardId: gainAwardId,
-                  chestId: chest.id,
-                  level: chest.level
-                })
-                .then((jsonData) => {
-                  let jsonContent = jsonData.content
-                  let gainCoins, gainGems, finalCoins, finalGems, title
+              openLuckyBagBtn = '打開福袋'
+            }
 
-                  if (jsonData.message === 'Lucky bag is already opened') {
-                    confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
-                    return
-                  }
+            confirmPopup.ok('', content, () => {
+              /* 福袋內容 */
+              if (luckyBag === true) {
+                ajax(
+                  'POST', `/chest/award/luckyBag/${chest.id}`, {
+                    awardId: gainAwardId,
+                    chestId: chest.id,
+                    level: chest.level
+                  })
+                  .then((jsonData) => {
+                    let jsonContent = jsonData.content
+                    let gainCoins, gainGems, finalCoins, finalGems, title
 
-                  gainCoins = jsonContent.coins
-                  gainGems = jsonContent.gems
-                  finalCoins = jsonContent.finalCoins
-                  finalGems = jsonContent.finalGems
-                  title = `
+                    if (jsonData.message === 'Lucky bag is already opened') {
+                      confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
+                      return
+                    }
+
+                    gainCoins = jsonContent.coins
+                    gainGems = jsonContent.gems
+                    finalCoins = jsonContent.finalCoins
+                    finalGems = jsonContent.finalGems
+                    title = `
                     <div class="lucky-bag">
                       <span>福袋打開囉，得到 </span>
                       <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
@@ -131,15 +117,15 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => {
                       <span>${gainGems}</span>
                     </div>
                   `
-                  let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
+                    let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
 
-                  confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
-                })
-            } else {
-              afterOpen(finalCoins, finalGems)
-            }
-          }, openLuckyBagBtn)
-        }
-      })
-  }
-})
+                    confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
+                  })
+              } else {
+                afterOpen(finalCoins, finalGems)
+              }
+            }, openLuckyBagBtn)
+          }
+        })
+    }
+  })

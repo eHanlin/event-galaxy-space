@@ -86,12 +86,12 @@ define(['jquery', 'swal'], ($, swal) => {
       let commonStyle = {
         background: 'url(https://d220xxmclrx033.cloudfront.net/event-space/img/popup/confirm.png) repeat center center / contain',
         width: '100%',
-        customClass: 'confirm-popup-modal-award-is-zero',
+        customClass: 'awards-are-zero-confirm-popup-modal',
         buttonsStyling: false,
         allowOutsideClick: false
       }
       let awardIsZeroDialogStyle = cloneCommonStyle(commonStyle)
-      awardIsZeroDialogStyle.title = `<span class="award-is-zero-title" style="color: #217dbb;">${title}</span>`
+      awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${title}</span>`
       awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
       awardIsZeroDialogStyle.confirmButtonText = buttonText || '好的'
       awardIsZeroDialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-awardZero'

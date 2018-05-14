@@ -21,6 +21,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
       finalGems = resultInfo.finalGems
     }
 
+    let isAwardsAreZero = false
     if (message === 'All awards are zero') {
       let content = `
           <div class="awards-are-zero-grid-container">
@@ -35,15 +36,16 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {
         `
 
       confirmPopup.awardIsZeroDialog('寶藏已被隊員們探索完畢，請靜待下次開放探索時間<br>總部已將您的寶箱結算', content, () => {
-        // $('.shining-block').show()
-
         require(['eventCountUp'], eventCountUp => {
           eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
           eventCountUp('gems', parseInt($('#gems').text()), finalGems)
         })
+        $(`.platform img[class^=chest]`).remove()
       })
 
-      run = false
+      isAwardsAreZero = true
     }
+
+    return isAwardsAreZero
   }
 })
