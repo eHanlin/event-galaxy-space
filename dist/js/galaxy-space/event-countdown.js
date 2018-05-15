@@ -1,1 +1,1 @@
-"use strict";define(["jquery","jqueryCountDown"],function($,jqueryCountDown){return function(seconds,chest,targets,callback){targets.countdown.countDown({timeInSecond:seconds,displayTpl:"{hour}時 {minute}分 {second}秒",limit:"hour",callback:callback.bind(callback,chest,targets)})}});
+"use strict";define(["jquery","jqueryCountDown"],function(){return function(seconds,chest,targets,callback){targets.countdown.countDown({timeInSecond:seconds,displayTpl:"{hour}時 {minute}分 {second}秒",limit:"hour",callback:callback.bind(callback,chest,targets)})}});

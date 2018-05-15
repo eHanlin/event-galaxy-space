@@ -1,20 +1,16 @@
-define(['require', 'jquery', 'eventStatusDo'], (require, $, eventStatusDo) => {// eslint-disable-line
-  return (chest, targets) => {
+define(['jquery', 'eventChestStatusDo'], ($, eventChestStatusDo) => {// eslint-disable-line
+  return (chest, targets, isUnlockingChestExisted) => {
     switch (chest.status) {
       case 'LOCKED':
-        eventStatusDo.locked(chest, targets)
+        eventChestStatusDo.locked(chest, targets, isUnlockingChestExisted)
         break
 
       case 'UNLOCKING':
-        eventStatusDo.unLocking(chest, targets)
+        eventChestStatusDo.unLocking(chest, targets)
         break
 
       case 'READY':
-        eventStatusDo.ready(chest, targets)
-        break
-
-      case 'OPEN':
-        eventStatusDo.open(chest, targets)
+        eventChestStatusDo.ready(chest, targets)
         break
     }
   }

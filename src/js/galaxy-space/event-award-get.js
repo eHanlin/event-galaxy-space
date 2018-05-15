@@ -1,6 +1,5 @@
-define(['require', 'jquery', 'w3'], (require, $) => {// eslint-disable-line
+define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
   return () => {
-    let ajax = require('ajax')
     ajax('GET', `/chest/award`)
       .then((data) => {
         let awards = data.content
@@ -18,6 +17,17 @@ define(['require', 'jquery', 'w3'], (require, $) => {// eslint-disable-line
           awardBlock.append(`<span class="awardSum">${value}</span>`)
           index++
         }
+      })
+      .then(() => {
+        let slide = w3.slideshow('.block', 0)
+
+        $('.right').off('click').on('click', () => {
+          slide.next()
+        })
+
+        $('.left').off('click').on('click', () => {
+          slide.previous()
+        })
       })
   }
 })

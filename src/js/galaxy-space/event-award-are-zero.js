@@ -28,8 +28,9 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
             ${resultBlocks}
             <div class="result-summary-block">
                 總計 
-                <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">${totalCoins} 
-                <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">${totalGems}<br>
+                <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg"> ${totalCoins} 
+                <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg"> ${totalGems}
+                <br/>
                 請至雲端銀行確認，您的資產未來活動中仍可繼續使用
             </div>
           </div>
@@ -40,7 +41,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
           eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
           eventCountUp('gems', parseInt($('#gems').text()), finalGems)
         })
-        $(`.platform img[class^=chest]`).remove()
+        $('.platform img:not(img[class$=position]), .platform div').remove()
       })
 
       isAwardsAreZero = true

@@ -12,8 +12,6 @@ require.config({
     eventClickLink: ['./event-click-link'],
     eventTotalAssets: ['./event-total-assets'],
     eventSlideShow: ['./event-slide-show'],
-    eventAwardBox: ['./event-award-box'],
-    eventAwardGet: ['./event-award-get'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
 
@@ -21,7 +19,7 @@ require.config({
     eventChestGet: ['./event-chest-get'],
     eventChestDetermine: ['./event-chest-determine'],
     eventChestBtnOn: ['./event-chest-btn-on'],
-    eventStatusDo: ['./event-status-do'],
+    eventChestStatusDo: ['./event-chest-status-do'],
 
     /* 寶箱 action */
     eventChestUpgrade: ['./event-chest-upgrade'],
@@ -31,9 +29,11 @@ require.config({
     eventChestOpen: ['./event-chest-open'],
     eventChestInspection: ['./event-chest-inspection'],
 
+    eventAwardAreZero: ['./event-award-are-zero'],
+    eventAwardGet: ['./event-award-get'],
+
     eventCountUp: ['./event-count-up'],
     eventBonusPopup: ['./event-bonus-popup'],
-    eventAwardsAreZero: ['./event-awards-are-zero'],
 
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
@@ -65,7 +65,7 @@ require(['jquery', 'ajax'], () => {
   require(['eventSlideShow'])
   require(['eventUserStatus'])
   require(['eventTotalAssets'])
-  require(['eventAwardBox', 'eventAwardGet'], (eventAwardBox, eventAwardGet) => {
+  require(['eventAwardGet'], (eventAwardGet) => {
     eventAwardGet()
   })
   require(['eventChestGet'], eventChestGet => {

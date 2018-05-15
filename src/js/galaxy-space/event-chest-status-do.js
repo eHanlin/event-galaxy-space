@@ -1,12 +1,15 @@
 define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
   return {
-    locked: (chest, targets) => {
-      targets.startBtn.removeAttr('style')
-      targets.upgradeBtn.removeAttr('style')
-
-      if (chest.level === 6) {
-        targets.upgradeBtn.css('display', 'none')
-        targets.startBtn.css('left', '27%')
+    locked: (chest, targets, isUnlockingChestExisted) => {
+      if (isUnlockingChestExisted) {
+        if (chest.level !== 6) {
+          targets.upgradeBtn.css({display: '', left: '27%'})
+        }
+      } else if (chest.level === 6) {
+        targets.startBtn.css({display: '', left: '27%'})
+      } else {
+        targets.startBtn.removeAttr('style')
+        targets.upgradeBtn.removeAttr('style')
       }
     },
 
@@ -16,14 +19,15 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
+          $('.start-btn').css('display', 'none')
+          $('.upgrade-btn').css('left', '27%')
+
           targets.startBtn.css('display', 'none')
           targets.upgradeBtn.css('display', 'none')
           targets.readyBtn.css('display', 'none')
           targets.openNowBtn.removeAttr('style')
           targets.platformChest.css('filter', 'url("#grayscale")')
 
-          $('.start-btn').css('display', 'none')
-          $('.upgrade-btn').css('left', '27%')
           require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
             eventCountdown(seconds, chest, targets, eventChestReady)
           })
@@ -39,12 +43,6 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
       targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)
-    },
-
-    open: (chest, targets) => {
-      targets.openNowBtn.css('display', 'none')
-      targets.countdown.css('display', 'none')
-      targets.platformChest.remove()
     }
   }
 })

@@ -78,8 +78,8 @@
   font-weight: bolder;
 }
 
-.start-confirm-grid-container img[class^="img-award"].zero-quantity {
-  filter: url('#grayscale');
+.start-confirm-grid-container img[class^=img-award].zero-quantity {
+  filter: url(#grayscale);
 }
 
 .start-confirm-grid-container .start-show-award {

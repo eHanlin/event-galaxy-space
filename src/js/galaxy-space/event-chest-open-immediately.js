@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup'],
-  ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'],
+  ($, ajax, confirmPopup, eventChestInspection) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.ask = (chest, targets) => {
       let seconds
@@ -40,6 +40,10 @@ define(['jquery', 'ajax', 'confirmPopup'],
           }
         })
         .then(jsonData => {
+          if (eventChestInspection(jsonData.message, jsonData.content)) {
+            return
+          }
+
           let finalGems = jsonData.content.finalGems
           require(['eventCountUp'], eventCountUp => {
             eventCountUp('gems', parseInt($('#gems').text()), finalGems)

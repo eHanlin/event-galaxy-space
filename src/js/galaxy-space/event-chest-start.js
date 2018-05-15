@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3', 'eventChestInspection', 'eventAwardsAreZero'],
-  ($, ajax, confirmPopup, eventStatusDo, w3, eventChestInspection, eventAwardsAreZero) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'],
+  ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets) => {
       let content
       if (chest.level >= 2) {
@@ -39,11 +39,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventStatusDo', 'w3', 'eventChestInsp
             .then(jsonData => {
               if (eventChestInspection(jsonData.message, jsonData.content)) {
                 return
-              } else if (eventAwardsAreZero(jsonData.message, jsonData.content)) {
+              } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
                 return
               }
 
-              eventStatusDo.unLocking(chest, targets)
+              eventChestStatusDo.unLocking(chest, targets)
             })
         }, () => { /* 取消 */ },
         /* on open */

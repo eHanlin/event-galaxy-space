@@ -1,5 +1,5 @@
-define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {// eslint-disable-line
-  $(window).resize(function () {
+define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAreZero) => {// eslint-disable-line
+  $(window).resize(() => {
     if (window.matchMedia('(max-width: 800px)').matches) {
       $('.slide-show-award-introduce .needChestLv').hide()
       $('.slide-show-award-introduce .awardNotice').hide()
@@ -10,8 +10,12 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {// eslint-disable-line
   })
 
   ajax('GET', `/chest/award/conditions`)
-    .then(data => {
-      let awards = data.content
+    .then(jsonData => {
+      let awards = jsonData.content
+
+      if (eventAwardAreZero(jsonData.message, jsonData.content)) {
+        return
+      }
 
       for (let index in awards) {
         let award = awards[index]
@@ -64,12 +68,12 @@ define(['jquery', 'w3', 'ajax'], ($, w3, ajax) => {// eslint-disable-line
       let awardIntroduce = w3.slideshow('.slide-show-award-introduce', 3000)
 
       // 上一個
-      $('.previous').on('click', event => {
+      $('.previous').on('click', () => {
         awardShow.next()
         awardIntroduce.next()
       })
       // 下一個
-      $('.next').on('click', event => {
+      $('.next').on('click', () => {
         awardShow.previous()
         awardIntroduce.previous()
       })

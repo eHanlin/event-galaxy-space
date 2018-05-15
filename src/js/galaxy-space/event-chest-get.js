@@ -1,13 +1,12 @@
-define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, eventChestBtnOn, eventAwardsAreZero) => {// eslint-disable-line
+define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// eslint-disable-line
   return () => ajax('GET', `/chest/`)
     .then((jsonData) => {
       let chests
-      if (eventAwardsAreZero(jsonData.message, jsonData.content)) {
-        return
-      }
+      let isUnlockingChestExisted = false
 
       chests = jsonData.content
       $(`.platform img[class^=chest]`).remove()
+
       for (let index in chests) {
         let chest = chests[index]
         let targets = {}
@@ -23,8 +22,12 @@ define(['jquery', 'ajax', 'eventChestBtnOn', 'eventAwardsAreZero'], ($, ajax, ev
         targets.openNowBtn = $(`.platform-${chest.colorPlatform} .open-now-btn`)
         targets.platformChest = $(`.platform-${chest.colorPlatform} .chest${chest.level}`)
 
+        if (chest.status === 'UNLOCKING') {
+          isUnlockingChestExisted = true
+        }
+
         require(['eventChestDetermine'], eventChestDetermine => {
-          eventChestDetermine(chest, targets)
+          eventChestDetermine(chest, targets, isUnlockingChestExisted)
         })
 
         eventChestBtnOn(chest, targets)

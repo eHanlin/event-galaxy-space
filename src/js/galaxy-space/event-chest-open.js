@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardsAreZero'],
-  ($, ajax, confirmPopup, eventChestInspection, eventAwardsAreZero) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'],
+  ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets) => {
       ajax('POST', `/chest/open/${chest.id}`)
         .then((jsonData) => {
@@ -17,7 +17,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardsAr
 
           if (eventChestInspection(jsonData.message, jsonData.content)) {
             return
-          } else if (eventAwardsAreZero(jsonData.message, jsonData.content)) {
+          } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
             return
           }
 

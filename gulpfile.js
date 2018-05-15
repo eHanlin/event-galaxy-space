@@ -18,17 +18,17 @@ const destination = './dist'
 const copyStaticTask = destination => {
   return gulp
     .src(
-    [
-      './src/*.html',
-      './src/css/**/*.css',
-      './src/js/**/*.js',
-      './src/img/**/*.png',
-      './src/img/**/*.jpg',
-      './src/img/**/*.gif',
-      './src/img/**/*.svg'
-    ], {
-      base: './src'
-    }
+      [
+        './src/*.html',
+        './src/css/**/*.css',
+        './src/js/**/*.js',
+        './src/img/**/*.png',
+        './src/img/**/*.jpg',
+        './src/img/**/*.gif',
+        './src/img/**/*.svg'
+      ], {
+        base: './src'
+      }
     )
     .pipe(gulp.dest(destination))
 }
@@ -94,7 +94,7 @@ const concatCss = sourceCss => {
       path.basename += '.min'
     }))
     .pipe(
-      replace(/..\/(..\/img\/svg)\/([\w-]+.svg)/g, function (match, p1, p2) {
+      replace(/..\/(..\/img\/svg)\/([\w-]+.svg)/g, (match, p1, p2) => {
         console.log(`chest domain => ${match} to ${p1}/${p2}`)
         return `${p1}/${p2}`
       })
@@ -131,14 +131,14 @@ const buildDevToEnv = () => {
       base: './'
     })
     .pipe(
-      replace(/[`](http:\/\/localhost:8080)\/([\w-/${.?=&}]+)`/g, function (match, p1, p2) {
+      replace(/[`](http:\/\/localhost:8080)\/([\w-/${.?=&}]+)`/g, (match, p1, p2) => {
         let buildEnv = `\`/${p2}\``
         console.log(`chest domain => ${match} to ${buildEnv}`)
         return buildEnv
       })
     )
     .pipe(
-      replace(/[`](http:\/\/localhost:9090)\/([\w-/${.?=&}]+)`/g, function (match, p1, p2) {
+      replace(/[`](http:\/\/localhost:9090)\/([\w-/${.?=&}]+)`/g, (match, p1, p2) => {
         let buildEnv = `\`/${p2}\``
         console.log(`currencyBank domain => ${match} to ${buildEnv}`)
         return buildEnv
@@ -154,14 +154,14 @@ gulp.task('buildEnvToDev', () => {
       base: './'
     })
     .pipe(
-      replace(/[`]\/(chest)\/([\w-/${.?=&}]*)`/g, function (match, p1, p2) {
+      replace(/[`]\/(chest)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
         let dev = `\`http://localhost:8080/${p1}/${p2}\``
         console.log(`chest domain => ${match} to ${dev}`)
         return dev
       })
     )
     .pipe(
-      replace(/[`]\/(currencyBank)\/([\w-/${.?=&}]*)`/g, function (match, p1, p2) {
+      replace(/[`]\/(currencyBank)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
         let dev = `\`http://localhost:9090/${p1}/${p2}\``
         console.log(`currencyBank domain => ${match} to ${dev}`)
         return dev
