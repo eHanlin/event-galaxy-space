@@ -26,7 +26,7 @@
 }
 
 .container {
-  background: url("https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/space.png") no-repeat;
+  background: url("https://d220xxmclrx033.cloudfront.net/event-space/img/space.png") no-repeat;
   background-size: contain;
   width: 1280px;
   height: 800px;
@@ -170,7 +170,7 @@
 }
 
 .container .total-assets .display-coins {
-  background: url("https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/displayCoins.png") no-repeat;
+  background: url("https://d220xxmclrx033.cloudfront.net/event-space/img/displayCoins.png") no-repeat;
   background-size: contain;
   height: 61px;
   width: 187px;
@@ -179,7 +179,7 @@
 .container .total-assets .display-gems {
   top: 2px;
   right: 0;
-  background: url("https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/displayGems.png") no-repeat;
+  background: url("https://d220xxmclrx033.cloudfront.net/event-space/img/displayGems.png") no-repeat;
   background-size: contain;
   height: 57px;
   width: 184px;

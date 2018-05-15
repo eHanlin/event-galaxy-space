@@ -1,1 +1,1 @@
-"use strict";define(["jquery","ajax","eventCountUp"],function($,ajax,eventCountUp){ajax("GET","/currencyBank/totalAssets").then(function(data){var finalCoins=data.content.coins,finalGems=data.content.gems;eventCountUp("coins",0,finalCoins),eventCountUp("gems",0,finalGems)})});
+"use strict";define(["jquery","ajax","eventCountUp"],function(n,t,e){t("GET","/currencyBank/totalAssets").then(function(n){var t=n.content.coins,c=n.content.gems;e("coins",0,t),e("gems",0,c)})});

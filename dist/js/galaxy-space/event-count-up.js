@@ -1,1 +1,1 @@
-"use strict";define(["countUp"],function(CountUp){return function(id,start,end){new CountUp(id,start,end,0,5,{useEasing:!0,useGrouping:!0,separator:""}).start()}});
+"use strict";define(["countUp"],function(n){return function(t,e,u){new n(t,e,u,0,5,{useEasing:!0,useGrouping:!0,separator:""}).start()}});

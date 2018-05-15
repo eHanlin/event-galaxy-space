@@ -1,1 +1,1 @@
-"use strict";define(["jquery","ajax","eventChestGet","eventChestInspection"],function($,ajax,eventChestGet,eventChestInspection){return function(chest){ajax("POST","/chest/ready/"+chest.id,{status:"READY"}).then(function(jsonData){eventChestInspection(jsonData.message,jsonData.content)||eventChestGet()})}});
+"use strict";define(["jquery","ajax","eventChestGet","eventChestInspection"],function(e,t,n,s){return function(e){t("POST","/chest/ready/"+e.id,{status:"READY"}).then(function(e){s(e.message,e.content)||n()})}});

@@ -1,1 +1,1 @@
-"use strict";define(["jquery","confirmPopup"],function($,confirmPopup){return function(message,checkResult){var isAbnormally=!1;return"Chest operate abnormally by user"===message&&(isAbnormally=!0,confirmPopup.ok("Oooooops！",checkResult,function(){window.location.reload()})),isAbnormally}});
+"use strict";define(["jquery","confirmPopup"],function(o,n){return function(o,r){var e=!1;return"Chest operate abnormally by user"===o&&(e=!0,n.ok("Oooooops！",r,function(){window.location.reload()})),e}});

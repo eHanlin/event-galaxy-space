@@ -1,6 +1,5 @@
 #bonus-popup {
   position: absolute;
-  /*background: url("https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-galaxy-space/img/bonus/nature.png") no-repeat;*/
   background-size: contain;
   height: 650px;
   width: 650px;
@@ -13,7 +12,7 @@
 }
 
 #bonus-popup .forward-anchor {
-  cursor: url(https://d220xxmclrx033.cloudfront.net/event-galaxy-space/img/hand.png), pointer;
+  cursor: url(https://d220xxmclrx033.cloudfront.net/event-space/img/hand.png), pointer;
   position: absolute;
   bottom: -1.5%;
   width: 220px;

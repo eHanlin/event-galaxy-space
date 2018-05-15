@@ -15,17 +15,14 @@ const Q = require('q')
 
 const destination = './dist'
 
-const copyStaticTask = destination => {
+const copyStatic = destination => {
   return gulp
     .src(
       [
         './src/*.html',
         './src/css/**/*.css',
         './src/js/**/*.js',
-        './src/img/**/*.png',
-        './src/img/**/*.jpg',
-        './src/img/**/*.gif',
-        './src/img/**/*.svg'
+        './src/img/**/*.@(jpg|png|gif|svg)',
       ], {
         base: './src'
       }
@@ -44,13 +41,12 @@ const minifyJs = sourceJS => {
     })
     .pipe(
       uglify({
-        mangle: false
+        mangle: true
       }).on('error', console.error)
     )
     .pipe(gulp.dest(destination))
 }
 
-/* 壓縮圖片 */
 const minifyImage = sourceImage => {
   return gulp
     .src(sourceImage, {
@@ -102,7 +98,7 @@ const concatCss = sourceCss => {
     .pipe(gulp.dest('./dist/css'))
 }
 
-/* 替換為合併後之 CSS */
+/* 將 index.html include 的所有 CSS 替換為合併後之 CSS */
 const replaceCss = () => {
   return gulp.src('./src/index.html', {base: './src'})
     .pipe(htmlReplace({
@@ -179,11 +175,10 @@ gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
 gulp.task('babelJs',
   babelJs.bind(babelJs, './dist/js/@(galaxy-space|currency-bank|module-utils)/*.js'))
 
-/* 打包 */
 gulp.task('package', () => {
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
     .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
-    .then(templateUtil.logStream.bind(templateUtil.logStream, copyStaticTask.bind(copyStaticTask, destination)))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, copyStatic.bind(copyStatic, destination)))
     .then(() => {
       return Q.all([
         templateUtil.logStream(minifyImage.bind(minifyImage, './src/img/**/*.png')),

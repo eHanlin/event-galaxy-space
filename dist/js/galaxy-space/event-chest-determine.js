@@ -1,1 +1,1 @@
-"use strict";define(["jquery","eventChestStatusDo"],function($,eventChestStatusDo){return function(chest,targets,isUnlockingChestExisted){switch(chest.status){case"LOCKED":eventChestStatusDo.locked(chest,targets,isUnlockingChestExisted);break;case"UNLOCKING":eventChestStatusDo.unLocking(chest,targets);break;case"READY":eventChestStatusDo.ready(chest,targets)}}});
+"use strict";define(["jquery","eventChestStatusDo"],function(e,t){return function(e,s,c){switch(e.status){case"LOCKED":t.locked(e,s,c);break;case"UNLOCKING":t.unLocking(e,s);break;case"READY":t.ready(e,s)}}});
