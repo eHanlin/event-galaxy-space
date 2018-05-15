@@ -1,4 +1,4 @@
-define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
+define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
   return () => {
     ajax('GET', `/chest/award`)
       .then((data) => {
