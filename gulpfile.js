@@ -89,12 +89,6 @@ const concatCss = sourceCss => {
     .pipe(rename(path => {
       path.basename += '.min'
     }))
-    .pipe(
-      replace(/..\/(..\/img\/svg)\/([\w-]+.svg)/g, (match, p1, p2) => {
-        console.log(`chest domain => ${match} to ${p1}/${p2}`)
-        return `${p1}/${p2}`
-      })
-    )
     .pipe(gulp.dest('./dist/css'))
 }
 
@@ -123,7 +117,7 @@ const buildCss = () => {
 
 const buildDevToEnv = () => {
   return gulp
-    .src(['./src/js/galaxy-space/*.js', './src/js/currency-bank/*.js'], {
+    .src(['./src/js/@(galaxy-space|currency-bank)/*.js', './src/index.html'], {
       base: './'
     })
     .pipe(
@@ -143,10 +137,41 @@ const buildDevToEnv = () => {
     .pipe(gulp.dest(''))
 }
 
+const replaceComponentPath = envDir => {
+  return gulp
+    .src(['./src/index.html'], {
+      base: './'
+    })
+    .pipe(
+      replace(/common_webcomponent\/(current.SNAPSHOT|current)/g, (match) => {
+        let buildEnv = `common_webcomponent\/${envDir}`
+        console.log(`replace ${match} to ${buildEnv}`)
+        return buildEnv
+      })
+    )
+    .pipe(gulp.dest(''))
+}
+
+const package = componentDir => {
+  Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, replaceComponentPath.bind(replaceComponentPath, componentDir)))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, copyStatic.bind(copyStatic, destination)))
+    .then(() => {
+      return Q.all([
+        templateUtil.logStream(minifyImage.bind(minifyImage, './src/img/**/*.png')),
+        templateUtil.logPromise(buildCss),
+        templateUtil.logPromise(buildJs)
+      ])
+    })
+
+  return Q.defer().promise
+}
+
 /* 開發 */
 gulp.task('buildEnvToDev', () => {
   return gulp
-    .src(['./src/js/galaxy-space/*.js', './src/js/currency-bank/*.js'], {
+    .src(['./src/js/@(galaxy-space|currency-bank)/*.js', './src/index.html'], {
       base: './'
     })
     .pipe(
@@ -163,6 +188,13 @@ gulp.task('buildEnvToDev', () => {
         return dev
       })
     )
+    .pipe(
+      replace(/common_webcomponent\/(current.SNAPSHOT|current)/g, (match) => {
+        let dev = `common_webcomponent\/current.SNAPSHOT`
+        console.log(`replace ${match} to ${dev}`)
+        return dev
+      })
+    )
     .pipe(gulp.dest(''))
 })
 
@@ -175,17 +207,5 @@ gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
 gulp.task('babelJs',
   babelJs.bind(babelJs, './dist/js/@(galaxy-space|currency-bank|module-utils)/*.js'))
 
-gulp.task('package', () => {
-  Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
-    .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
-    .then(templateUtil.logStream.bind(templateUtil.logStream, copyStatic.bind(copyStatic, destination)))
-    .then(() => {
-      return Q.all([
-        templateUtil.logStream(minifyImage.bind(minifyImage, './src/img/**/*.png')),
-        templateUtil.logPromise(buildCss),
-        templateUtil.logPromise(buildJs)
-      ])
-    })
-
-  return Q.defer().promise
-})
+gulp.task('packageTest', package.bind(package, 'current.SNAPSHOT'))
+gulp.task('packageProd', package.bind(package, 'current'))
