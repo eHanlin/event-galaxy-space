@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'],
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets) => {
       ajax('POST', `/chest/open/${chest.id}`)
@@ -12,8 +12,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           let gainAwardId = jsonContent.gainAwardId
           let gainAward = jsonContent.gainAward
           let luckyBag = jsonContent.luckyBag
-          let awardImg = '', awardTitle = '', openLuckyBagBtn = ''// eslint-disable-line
-          let content, openTextBlock3 = '', openTextBlock4 = ''// eslint-disable-line
+          let awardImg = '', // eslint-disable-line
+            awardTitle = '',
+            openLuckyBagBtn = ''
+          let content, openTextBlock3 = '', // eslint-disable-line
+            openTextBlock4 = ''
 
           if (eventChestInspection(jsonData.message, jsonData.content)) {
             return
@@ -88,11 +91,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
               /* 福袋內容 */
               if (luckyBag === true) {
                 ajax(
-                  'POST', `/chest/award/luckyBag/${chest.id}`, {
-                    awardId: gainAwardId,
-                    chestId: chest.id,
-                    level: chest.level
-                  })
+                    'POST', `/chest/award/luckyBag/${chest.id}`, {
+                      awardId: gainAwardId,
+                      chestId: chest.id,
+                      level: chest.level
+                    })
                   .then((jsonData) => {
                     let jsonContent = jsonData.content
                     let gainCoins, gainGems, finalCoins, finalGems, title

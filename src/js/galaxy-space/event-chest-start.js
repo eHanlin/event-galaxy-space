@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'],
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets) => {
       let content
@@ -32,10 +32,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       }
 
       confirmPopup.dialog(content, () => {
-          let statusInfo = {
-            status: 'UNLOCKING'
-          }
-          ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
+        let statusInfo = {
+          status: 'UNLOCKING'
+        }
+        ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
             .then(jsonData => {
               if (eventChestInspection(jsonData.message, jsonData.content)) {
                 return
@@ -45,7 +45,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
 
               eventChestStatusDo.unLocking(chest, targets)
             })
-        }, () => { /* 取消 */ },
+      }, () => { /* 取消 */ },
         /* on open */
         () => {
           if (chest.level < 2) return

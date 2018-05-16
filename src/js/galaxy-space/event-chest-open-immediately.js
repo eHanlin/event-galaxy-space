@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'],
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestInspection) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.ask = (chest, targets) => {
@@ -36,7 +36,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'],
             confirmPopup.ok(title, insufficientMessage)
             return $.Deferred().reject().promise()
           } else {
-            return ajax('PUT', `/chest/open/immediately/${chest.id}`, {spendGems: spendGems})
+            return ajax('PUT', `/chest/open/immediately/${chest.id}`, {
+              spendGems: spendGems
+            })
           }
         })
         .then(jsonData => {
