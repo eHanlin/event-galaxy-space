@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
+define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAreZero) => {// eslint-disable-line
   return () => {
     ajax('GET', `/chest/award`)
       .then((data) => {
@@ -28,6 +28,13 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
         $('.left').off('click').on('click', () => {
           slide.previous()
         })
+
+        return ajax('GET', `/chest/award/sufficient`)
+      })
+      .then((jsonData) => {
+        if (eventAwardAreZero(jsonData.message, jsonData.content)) {
+          return
+        }
       })
   }
 })

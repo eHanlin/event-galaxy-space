@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAreZero) => {// eslint-disable-line
+define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
   $(window).resize(() => {
     if (window.matchMedia('(max-width: 800px)').matches) {
       $('.slide-show-award-introduce .needChestLv').hide()
@@ -12,10 +12,6 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAr
   ajax('GET', `/chest/award/conditions`)
     .then(jsonData => {
       let awards = jsonData.content
-
-      if (eventAwardAreZero(jsonData.message, jsonData.content)) {
-        return
-      }
 
       for (let index in awards) {
         let award = awards[index]
