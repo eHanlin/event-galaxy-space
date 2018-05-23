@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="./css/ehanlin-galaxy-space.min.css">
   </head>
 
-  <body id="galaxy-space-body" ng-app="" ng-init="linkS3 = 'https://d220xxmclrx033.cloudfront.net/event-space/img/'">
+  <body id="galaxy-space-body" ng-app="ehanlinSpace"
+        ng-init="linkS3 = 'https://d220xxmclrx033.cloudfront.net/event-space/img/'">
     <main class="container horizontal-center">
       <div class="user-status" ng-init="memberLogin='會員登入';phoneNumer='免費諮詢專線：0800-0088-11'">
         <img class="meteor1" ng-src="{{linkS3}}meteor.png">
@@ -228,12 +229,6 @@
     </section>
 
     <section id="bonus-popup">
-      <a id="close-popup" href="#">
-        <img class="forward-anchor forward-event" style="display: none" ng-src="{{linkS3}}bonus/forward-event.png">
-      </a>
-      <a href="https://www.ehanlin.com.tw/Users/login.html">
-        <img class="forward-anchor forward-course" style="display: none" ng-src="{{linkS3}}bonus/forward-course.png">
-      </a>
     </section>
     <svg xmlns="http://www.w3.org/2000/svg">
       <filter id="grayscale">
@@ -257,7 +252,10 @@
     </svg>
   </body>
   <script src="./js/lib/angular-1.6.9.min.js"></script>
+  <script>
+    var ehanlinSpace = angular.module('ehanlinSpace', [])
+  </script>
   <script data-main="./js/galaxy-space/main" src="./js/lib/require.js"></script>
   <script type="text/javascript"
-          src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/common_webcomponent/current/js/ehanlin-social.js"></script>
+          src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/common_webcomponent/current.SNAPSHOT/js/ehanlin-social.js"></script>
 </html>

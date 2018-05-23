@@ -13,13 +13,9 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
         image = jsonData.content.content.image
         bonusPopupTarget.css('background-image', `url(${image})`)
         bonusPopupTarget.addClass('bonus-popup-show')
-        setTimeout(() => {
-          $('#bonus-popup img.forward-anchor').css('display', '')
-        }, 1000)
 
-        $('#bonus-popup #close-popup').on('click', event => {
-          event.preventDefault()
-          $('#bonus-popup').remove()
+        $('#bonus-popup').on('click', event => {
+          $(event.currentTarget).remove()
         })
 
         Cookie.set('isBonusPopup', true, {
