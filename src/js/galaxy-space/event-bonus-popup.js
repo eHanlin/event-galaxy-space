@@ -3,14 +3,13 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
   let bonusPopupTarget = $('#bonus-popup')
 
   if (!isBonusPopup) {
-    ajax('GET', `/chest/condition/bonusPopup`)
+    ajax('GET', `/currencyMission/admin/eventRule`)
       .then(jsonData => {
-        let bonusPopupContent = jsonData.content.content
-        let image
-        if (!bonusPopupContent.show) {
+        let image = jsonData.content
+        if (!image) {
           return
         }
-        image = jsonData.content.content.image
+
         bonusPopupTarget.css('background-image', `url(${image})`)
         bonusPopupTarget.addClass('bonus-popup-show')
 
