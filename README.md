@@ -27,8 +27,8 @@ gulp packageProd
 使用 [jQuery v3](https://sweetalert2.github.io) + [RequireJs](http://requirejs.org/)，以 AMD 方式將 JavaScript 模組化，可參考主要程式進入點 [galaxy-space main.js](src/js/galaxy-space/main.js)。
 
 ## 好用的第三方元件
-[BootStrap v4](https://getbootstrap.com) 響應式網頁的 UI 框架，用於呈現雲端銀行的交易頁面。
-[BootStrap Table](http://bootstrap-table.wenzhixin.net.cn) 使用 BootStrap 製作的 Table 元件，可彈性製作 Table 內容與制定樣式，並可在 table 內實現 CRUD 功能。目前用於呈現雲端銀行的交易 table 中。
-[SweetAlert2](https://sweetalert2.github.io) 可訂製的 popup 彈跳視窗。
-[w3](http://webdevable.com/w3schools/w3js/default.html) w3 school 製作的元件，輕量且有許多互動效果的功能，用於呈現禮物的幻燈片效果。
+[BootStrap v4](https://getbootstrap.com) 響應式網頁的 UI 框架，用於呈現雲端銀行的交易頁面。    
+[BootStrap Table](http://bootstrap-table.wenzhixin.net.cn) 使用 BootStrap 製作的 Table 元件，可彈性製作 Table 內容與制定樣式，並可在 table 內實現 CRUD 功能。目前用於呈現雲端銀行的交易 table 中。    
+[SweetAlert2](https://sweetalert2.github.io) 可訂製的 popup 彈跳視窗。    
+[w3](http://webdevable.com/w3schools/w3js/default.html) w3 school 製作的元件，輕量且有許多互動效果的功能，用於呈現禮物的幻燈片效。    
 [countUp](https://inorganik.github.io/countUp.js/) 呈現數字遞增或遞減的動畫效果。
