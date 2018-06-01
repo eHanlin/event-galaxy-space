@@ -120,7 +120,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                   `
                     let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
 
-                    confirmPopup.image(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
+                    confirmPopup.luckyBagImage(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
                   })
               } else {
                 afterOpen(finalCoins, finalGems)

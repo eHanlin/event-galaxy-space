@@ -32,9 +32,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAr
         return ajax('GET', `/chest/award/sufficient`)
       })
       .then((jsonData) => {
-        if (eventAwardAreZero(jsonData.message, jsonData.content)) {
-          return
-        }
+        eventAwardAreZero(jsonData.message, jsonData.content)
       })
   }
 })

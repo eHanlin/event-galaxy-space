@@ -56,7 +56,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
         }
 
         let result = eventChestUpgrade.determineLevelUpSuccess(jsonData.content)
-        confirmPopup.image(result.text, result.gif, () => {
+        confirmPopup.levelUpImage(result.text, result.gif, () => {
           let originalCoins = parseInt($('#coins').text())
           let originalGems = parseInt($('#gems').text())
           let spendCoins = result.coins
@@ -81,10 +81,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
     let upLevel = parseInt(result.memo.upLevel)
     if (result && result.memo.levelUpSuccess === 'true') {
       result.text = '升級成功'
-      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+      result.gif = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
     } else {
-      result.text = '升級失敗'
-      result.gif = `<image class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${upLevel - 1}.gif">`
+      if(window.matchMedia('(max-width: 550px)').matches) {
+        result.text = '升級失敗'
+      } else {
+        result.text = `<img class="confirm-popup-chest-level-up-failed" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/level-up-failed.gif">`
+      }
+
+      result.gif = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${upLevel - 1}.gif">`
     }
     return result
   }

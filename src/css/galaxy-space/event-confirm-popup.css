@@ -83,15 +83,28 @@
 /* ============================> Grid ok layout <============================ */
 
 .confirm-grid-gif-container {
-  height: 235px;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 20% 60% 20%;
   -ms-grid-columns: 20% 60% 20%;
-  grid-template-rows: 30px 200px;
-  -ms-grid-rows: 30px 200px;
   font-size: 22px;
   font-weight: normal;
+}
+
+.lucky-bag-height {
+  height: 235px;
+  grid-template-rows: 32px 200px;
+  -ms-grid-rows: 32px 200px;
+}
+
+.level-up-modal {
+  height: 440px;
+}
+
+.level-up-height {
+  height: 300px;
+  grid-template-rows: 95px 200px;
+  -ms-grid-rows: 95px 200px;
 }
 
 .confirm-grid-gif-container .header-block1 {
@@ -113,7 +126,15 @@
 }
 
 .confirm-popup-chest-img {
-  height: 210px;
+  height: 200px;
+}
+
+.confirm-popup-chest-img {
+  height: 200px;
+}
+
+.confirm-popup-chest-level-up-failed {
+  height: 95px;
 }
 
 /* ============================> Grid Dialog layout <============================ */
@@ -186,6 +207,7 @@
   .confirm-grid-upgrade-container {
     font-size: 20px;
   }
+
   .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 78%;
   }
@@ -196,9 +218,11 @@
     grid-template-columns: 1% 1% 97% 1%;
     -ms-grid-columns: 1% 1% 97% 1%;
   }
+
   .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 0;
   }
+
   .confirm-popup-btn {
     border-radius: 5px;
     margin-top: 0;
@@ -208,6 +232,7 @@
     font-weight: bolder;
     padding: 5px 25px;
   }
+
   .confirm-grid-gif-container .header-block1 {
     font-size: 20px;
   }
