@@ -8,14 +8,3 @@ deploy:
     skip_cleanup: true
     on:
         tags: true
-
-deploy:
-  provider: gcs
-  access_key_id: ${GCS_ID}
-  secret_access_key: ${GCS_KEY}
-  bucket: tutor-events
-  skip_cleanup: true
-  acl: public-read
-  local-dir: dist
-  on:
-    tags: true
