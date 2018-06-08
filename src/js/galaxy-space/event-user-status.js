@@ -1,5 +1,5 @@
 define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
-  ajax('GET', `https://www.ehanlin.com.tw/ms-user-status/userStatus`)
+  ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
       let name = data.name
       let studentCard = data.studentCard
