@@ -1,19 +1,31 @@
-const gulp = require('gulp')
-const templateUtil = require('gulp-template-util')
-const replace = require('gulp-replace')
-const htmlReplace = require('gulp-html-replace')
-const rename = require('gulp-rename')
-const babel = require('gulp-babel')
-const imageMin = require('gulp-imagemin')
-const pngquant = require('imagemin-pngquant')
-const cache = require('gulp-cache')
-const cleanCss = require('gulp-clean-css')
-const concat = require('gulp-concat')
-const uglify = require('gulp-uglify-es').default
-const del = require('del')
 const Q = require('q')
+const del = require('del')
+const gulp = require('gulp')
+const babel = require('gulp-babel')
+const cache = require('gulp-cache')
+const concat = require('gulp-concat')
+const rename = require('gulp-rename')
+const replace = require('gulp-replace')
+const uglify = require('gulp-uglify-es').default
+const imageMin = require('gulp-imagemin')
+const cleanCss = require('gulp-clean-css')
+const gcPub = require('gulp-gcloud-publish')
+const pngquant = require('imagemin-pngquant')
+const Storage = require('@google-cloud/storage')
+const htmlReplace = require('gulp-html-replace')
+const templateUtil = require('gulp-template-util')
 
 const destination = './dist'
+
+let bucketName = 'tutor-events'
+let projectId = 'tutor-204108'
+let keyFilename = './tutor.json'
+let projectName = 'space'
+
+const storage = new Storage({
+  projectId: projectId,
+  keyFilename: keyFilename
+})
 
 const copyStatic = destination => {
   return gulp
@@ -22,11 +34,10 @@ const copyStatic = destination => {
         './src/*.html',
         './src/css/**/*.css',
         './src/js/**/*.js',
-        './src/img/**/*.@(jpg|png|gif|svg)',
+        './src/img/**/*.@(jpg|png|gif|svg)'
       ], {
         base: './src'
-      }
-    )
+      })
     .pipe(gulp.dest(destination))
 }
 
@@ -39,11 +50,10 @@ const minifyJs = sourceJS => {
     .src(sourceJS, {
       base: './babel-temp'
     })
-    .pipe(
-      uglify({
+    .pipe(uglify({
         mangle: true
-      }).on('error', console.error)
-    )
+      })
+      .on('error', console.error))
     .pipe(gulp.dest(destination))
 }
 
@@ -52,14 +62,11 @@ const minifyImage = sourceImage => {
     .src(sourceImage, {
       base: './src'
     })
-    .pipe(
-      cache(
-        imageMin({
-          use: [pngquant({
-            speed: 7
-          })]
-        }))
-    )
+    .pipe(cache(imageMin({
+      use: [pngquant({
+        speed: 7
+      })]
+    })))
     .pipe(gulp.dest(destination))
 }
 
@@ -155,7 +162,7 @@ const replaceComponentPath = envDir => {
     .pipe(gulp.dest(''))
 }
 
-const package = componentDir => { 
+let package = componentDir => {
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
     .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
     .then(templateUtil.logStream.bind(templateUtil.logStream, replaceComponentPath.bind(replaceComponentPath, componentDir)))
@@ -170,6 +177,61 @@ const package = componentDir => {
 
   return Q.defer().promise
 }
+
+let removeEmptyFiles = () => {
+  let array = [
+    'img',
+    'css',
+    'js',
+    'css/activity-notice',
+    'css/currency-bank',
+    'css/lib',
+    'img/activeNotice',
+    'img/award',
+    'img/bonus',
+    'img/chest',
+    'img/currencyBank',
+    'img/popup',
+    'js/activity-notice',
+    'js/currency-bank',
+    'js/galaxy-space',
+    'js/lib',
+    'js/module-utils'
+  ]
+  array.forEach(emptyFiles => {
+    storage
+      .bucket(bucketName)
+      .file(`/event/${projectName}/${emptyFiles}`)
+      .delete()
+      .then(() => {
+        console.log(`gs://${bucketName}/${emptyFiles} deleted.`)
+      })
+      .catch(err => {
+        console.error('ERROR:', err)
+      })
+  })
+}
+
+gulp.task('uploadGcp', () => {
+  return gulp.src(['dist/**/*'])
+    .pipe(gcPub({
+      bucket: bucketName,
+      keyFilename: keyFilename,
+      projectId: projectId,
+      base: `/event/${projectName}`,
+      public: true,
+      transformDestination: path => {
+        return path
+      },
+      metadata: {
+        cacheControl: 'max-age=315360000, no-transform, public'
+      }
+    }))
+})
+
+gulp.task('removeEmptyFiles', () => {
+  removeEmptyFiles()
+})
 
 /* 開發 */
 gulp.task('buildEnvToDev', () => {

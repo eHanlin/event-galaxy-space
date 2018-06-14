@@ -1,4 +1,4 @@
-define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
+define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
   ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
       let name = data.name

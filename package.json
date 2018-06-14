@@ -11,6 +11,7 @@
     "@google-cloud/storage": "^1.7.0",
     "csspin": "^1.1.4",
     "fs": "0.0.1-security",
+    "gulp-gcloud-publish": "^2.0.0",
     "moment": "^2.22.0"
   },
   "devDependencies": {
