@@ -4,7 +4,7 @@
 ## 切換環境
 > 使用 gulp task 來切換環境，參考 [gulpfile](gulpfile.js)
 
-```Shell
+```shell
 # 本機
 gulp buildEnvToDev
 
@@ -15,7 +15,7 @@ gulp buildDevToEnv
 ## 部署
 > 用 gulp 指定環境並打包，將程式碼 push 到 github 中，並加入 tag，Travis CI 會透過 event server 部署至測試或正式環境中。
 
-```Shell
+```shell
 # 打包至測試環境
 gulp packageTest
 
