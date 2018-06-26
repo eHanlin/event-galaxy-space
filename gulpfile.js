@@ -17,10 +17,11 @@ const templateUtil = require('gulp-template-util')
 
 const destination = './dist'
 
-let bucketName = 'tutor-events'
+let bucketNameForTest = 'tutor-events-test'
+let bucketNameForProd = 'tutor-events'
 let projectId = 'tutor-204108'
-let keyFilename = './tutor.json'
-let projectName = 'space'
+let keyFilename = 'tutor.json'
+let projectName = 'event/space/'
 
 const storage = new Storage({
   projectId: projectId,
@@ -178,60 +179,34 @@ let package = componentDir => {
   return Q.defer().promise
 }
 
-let removeEmptyFiles = () => {
-  let array = [
-    'img',
-    'css',
-    'js',
-    'css/activity-notice',
-    'css/currency-bank',
-    'css/lib',
-    'img/activeNotice',
-    'img/award',
-    'img/bonus',
-    'img/chest',
-    'img/currencyBank',
-    'img/popup',
-    'js/activity-notice',
-    'js/currency-bank',
-    'js/galaxy-space',
-    'js/lib',
-    'js/module-utils'
-  ]
-  array.forEach(emptyFiles => {
-    storage
-      .bucket(bucketName)
-      .file(`/event/${projectName}/${emptyFiles}`)
-      .delete()
-      .then(() => {
-        console.log(`gs://${bucketName}/${emptyFiles} deleted.`)
-      })
-      .catch(err => {
-        console.error('ERROR:', err)
-      })
-  })
-}
-
-gulp.task('uploadGcp', () => {
-  return gulp.src(['dist/**/*'])
+let uploadGCS = bucketName => {
+  return gulp
+    .src([
+      './dist/*.html',
+      './dist/css/**/*.css',
+      './dist/js/**/*.js',
+      // './dist/lib/**/*.@(js|json)',
+      './dist/img/**/*.@(jpg|png|gif|svg)'
+    ], {
+      base: `${__dirname}/dist/`
+    })
     .pipe(gcPub({
       bucket: bucketName,
       keyFilename: keyFilename,
+      base: projectName,
       projectId: projectId,
-      base: `/event/${projectName}`,
       public: true,
-      transformDestination: path => {
-        return path
-      },
       metadata: {
-        cacheControl: 'max-age=315360000, no-transform, public'
+        cacheControl: 'private, no-transform'
       }
     }))
-})
+}
 
-gulp.task('removeEmptyFiles', () => {
-  removeEmptyFiles()
-})
+/* upload to test */
+gulp.task('uploadGcpTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
+
+/* upload to prod */
+gulp.task('uploadGcpProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 
 /* 開發 */
 gulp.task('buildEnvToDev', () => {
