@@ -145,7 +145,7 @@ const buildDevToEnv = () => {
         return buildEnv
       })
     )
-    .pipe(gulp.dest(''))
+    .pipe(gulp.dest('./'))
 }
 
 const replaceComponentPath = envDir => {
@@ -160,10 +160,10 @@ const replaceComponentPath = envDir => {
         return buildEnv
       })
     )
-    .pipe(gulp.dest(''))
+    .pipe(gulp.dest('./'))
 }
 
-let package = componentDir => {
+let packageProject = componentDir => {
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, destination)))
     .then(templateUtil.logStream.bind(templateUtil.logStream, buildDevToEnv))
     .then(templateUtil.logStream.bind(templateUtil.logStream, replaceComponentPath.bind(replaceComponentPath, componentDir)))
@@ -235,7 +235,7 @@ gulp.task('buildEnvToDev', () => {
         return dev
       })
     )
-    .pipe(gulp.dest(''))
+    .pipe(gulp.dest('./'))
 })
 
 /* 正式 */
@@ -247,5 +247,5 @@ gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
 gulp.task('babelJs',
   babelJs.bind(babelJs, './dist/js/@(galaxy-space|currency-bank|module-utils)/*.js'))
 
-gulp.task('packageTest', package.bind(package, 'current.SNAPSHOT'))
-gulp.task('packageProd', package.bind(package, 'current'))
+gulp.task('packageTest', packageProject.bind(packageProject, 'current.SNAPSHOT'))
+gulp.task('packageProd', packageProject.bind(packageProject, 'current'))
