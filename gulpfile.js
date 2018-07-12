@@ -202,11 +202,12 @@ let uploadGCS = bucketName => {
     }))
 }
 
+
 /* upload to test */
-gulp.task('uploadGcpTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
+gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
 
 /* upload to prod */
-gulp.task('uploadGcpProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
+gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 
 /* 開發 */
 gulp.task('buildEnvToDev', () => {

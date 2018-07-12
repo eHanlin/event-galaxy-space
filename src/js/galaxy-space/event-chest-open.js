@@ -75,7 +75,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
               /* 導頁至領取㽪品 */
               () => {
                 afterOpen(finalCoins, finalGems)
-                window.open('https://test.ehanlin.com.tw/Events/winner_info.html?id=space', 'winner_info')
+                window.open('/Events/winner_info.html?id=space', 'winner_info')
               },
               /* confirmFn */
               afterOpen.bind(afterOpen, finalCoins, finalGems),
