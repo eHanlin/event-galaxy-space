@@ -31,11 +31,12 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         `
       }
 
-      confirmPopup.dialog(content, () => {
-        let statusInfo = {
-          status: 'UNLOCKING'
-        }
-        ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
+      let dialogAttr = {
+        confirmFn: () => {
+          let statusInfo = {
+            status: 'UNLOCKING'
+          }
+          ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
             .then(jsonData => {
               if (eventChestInspection(jsonData.message, jsonData.content)) {
                 return
@@ -45,9 +46,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
 
               eventChestStatusDo.unLocking(chest, targets)
             })
-      }, () => { /* 取消 */ },
-        /* on open */
-        () => {
+        },
+
+        onOpenFn: () => {
           if (chest.level < 2) return
 
           ajax('GET', `/chest/showAwardsWhenStart/chest${chest.level}`)
@@ -127,6 +128,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
                 slide.previous()
               })
             })
-        })
+        }
+      }
+
+      confirmPopup.dialog(content, dialogAttr)
     }
   })

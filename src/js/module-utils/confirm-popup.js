@@ -17,21 +17,27 @@ define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
   }
 
   let confirmPopup = {}
-  confirmPopup.dialog = (content, confirmFn, cancelFn, onOpenFn, confirmBtnText, cancelBtnText) => {
+  confirmPopup.dialog = (content,
+                         {
+                           confirmFn = () => {},
+                           cancelFn = () => {},
+                           onOpenFn = () => {},
+                           confirmBtnText = '確定',
+                           cancelBtnText = '我再想想',
+                           isShowCancelButton = true
+                         } = {}) => {
     let dialogStyle = cloneCommonStyle(commonStyle)
     dialogStyle.title = ''
     dialogStyle.html = content
-    dialogStyle.showCancelButton = true
-    dialogStyle.confirmButtonText = confirmBtnText || '確定'
+    dialogStyle.showCancelButton = isShowCancelButton
+    dialogStyle.confirmButtonText = confirmBtnText
     dialogStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-dialog'
-    dialogStyle.cancelButtonText = cancelBtnText || '我再想想'
+    dialogStyle.cancelButtonText = cancelBtnText
     dialogStyle.cancelButtonClass = 'confirm-popup-btn confirm-popup-btn-cancel'
     dialogStyle.reverseButtons = true
     dialogStyle.onOpen = () => {
       $('.swal2-header').remove()
-      if (onOpenFn) {
-        onOpenFn()
-      }
+      onOpenFn()
     }
 
     return swal(dialogStyle)
@@ -39,9 +45,7 @@ define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
         if (result.value && confirmFn) {
           confirmFn()
         } else if (result.dismiss === swal.DismissReason.cancel) {
-          if (cancelFn) {
-            cancelFn()
-          }
+          cancelFn()
         }
       })
   }

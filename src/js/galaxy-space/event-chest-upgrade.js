@@ -24,7 +24,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
             <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
           </div>
         `
-        confirmPopup.dialog(content, eventChestUpgrade.process.bind(eventChestUpgrade.process, chest))
+        confirmPopup.dialog(content,
+          {
+            confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest)
+          })
       })
   }
 
@@ -83,7 +86,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
       result.text = '升級成功'
       result.gif = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
     } else {
-      if(window.matchMedia('(max-width: 550px)').matches) {
+      if (window.matchMedia('(max-width: 550px)').matches) {
         result.text = '升級失敗'
       } else {
         result.text = `<img class="confirm-popup-chest-level-up-failed" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/level-up-failed.gif">`

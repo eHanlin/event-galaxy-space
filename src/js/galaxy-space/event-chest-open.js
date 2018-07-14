@@ -62,7 +62,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
         `
 
           let afterOpen = (finalCoins, finalGems) => {
-            require(['eventCountUp'], (eventCountUp) => {
+            require(['eventCountUp'], eventCountUp => {
               targets.readyBtn.css('display', 'none')
               targets.platformChest.remove()
               eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
@@ -71,17 +71,19 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           }
 
           if (gainAwardId && luckyBag === false) {
-            confirmPopup.dialog(content,
+            let dialogAttr = {
               /* 導頁至領取㽪品 */
-              () => {
+              confirmFn: () => {
                 afterOpen(finalCoins, finalGems)
                 window.open('/Events/winner_info.html?id=space', 'winner_info')
               },
-              /* confirmFn */
-              afterOpen.bind(afterOpen, finalCoins, finalGems),
-              /* onOpenFn */
-              () => {},
-              '回填領獎', '我瞭解了')
+
+              cancelFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
+              confirmBtnText: '回填領獎',
+              cancelBtnText: '我瞭解了'
+            }
+
+            confirmPopup.dialog(content, dialogAttr)
           } else {
             if (luckyBag === true) {
               openLuckyBagBtn = '打開福袋'
@@ -90,18 +92,17 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
             confirmPopup.ok('', content, () => {
               /* 福袋內容 */
               if (luckyBag === true) {
-                ajax(
-                    'POST', `/chest/award/luckyBag/${chest.id}`, {
-                      awardId: gainAwardId,
-                      chestId: chest.id,
-                      level: chest.level
-                    })
-                  .then((jsonData) => {
+                ajax('POST', `/chest/award/luckyBag/${chest.id}`,
+                  {
+                    awardId: gainAwardId,
+                    chestId: chest.id,
+                    level: chest.level
+                  })
+                  .then(jsonData => {
                     let jsonContent = jsonData.content
                     let gainCoins, gainGems, finalCoins, finalGems, title
 
-                    if (jsonData.message === 'Lucky bag is already opened') {
-                      confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
+                    if (eventChestInspection(jsonData.message, jsonData.content)) {
                       return
                     }
 

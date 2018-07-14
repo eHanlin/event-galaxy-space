@@ -52,8 +52,8 @@ const minifyJs = sourceJS => {
       base: './babel-temp'
     })
     .pipe(uglify({
-        mangle: true
-      })
+      mangle: true
+    })
       .on('error', console.error))
     .pipe(gulp.dest(destination))
 }
@@ -82,7 +82,7 @@ const babelJs = sourceJS => {
 
 const buildJs = () => {
   Q.fcall(templateUtil.logStream.bind(templateUtil.logStream,
-      babelJs.bind(babelJs, ['./dist/js/**/*.js', '!./dist/js/lib/*.js'])))
+    babelJs.bind(babelJs, ['./dist/js/**/*.js', '!./dist/js/lib/*.js'])))
     .then(templateUtil.logStream.bind(templateUtil.logStream, minifyJs.bind(minifyJs, './babel-temp/js/**/*.js')))
     .then(templateUtil.logPromise.bind(templateUtil.logPromise, clean.bind(clean, './babel-temp')))
 
@@ -92,8 +92,8 @@ const buildJs = () => {
 /* 合併 CSS */
 const concatCss = sourceCss => {
   return gulp.src(sourceCss, {
-      base: './src'
-    })
+    base: './src'
+  })
     .pipe(concat('ehanlin-galaxy-space.css'))
     .pipe(cleanCss())
     .pipe(rename(path => {
@@ -105,8 +105,8 @@ const concatCss = sourceCss => {
 /* 將 index.html include 的所有 CSS 替換為合併後之 CSS */
 const replaceCss = () => {
   return gulp.src('./src/index.html', {
-      base: './src'
-    })
+    base: './src'
+  })
     .pipe(htmlReplace({
       'css': './css/ehanlin-galaxy-space.min.css'
     }))
@@ -115,7 +115,7 @@ const replaceCss = () => {
 
 const buildCss = () => {
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise,
-      clean.bind(clean, './dist/css/ehanlin-space-all.min.css')))
+    clean.bind(clean, './dist/css/ehanlin-space-all.min.css')))
     .then(templateUtil.logStream.bind(templateUtil.logStream,
       concatCss.bind(concatCss, ['./src/css/galaxy-space/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'])
     ))
@@ -202,13 +202,6 @@ let uploadGCS = bucketName => {
     }))
 }
 
-
-/* upload to test */
-gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
-
-/* upload to prod */
-gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
-
 /* 開發 */
 gulp.task('buildEnvToDev', () => {
   return gulp
@@ -250,3 +243,9 @@ gulp.task('babelJs',
 
 gulp.task('packageTest', packageProject.bind(packageProject, 'current.SNAPSHOT'))
 gulp.task('packageProd', packageProject.bind(packageProject, 'current'))
+
+/* upload to test */
+gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
+
+/* upload to prod */
+gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))

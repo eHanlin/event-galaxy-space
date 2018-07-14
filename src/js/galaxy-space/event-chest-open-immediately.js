@@ -23,7 +23,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
               <h3>確定要立即開啟寶箱嗎？</h3>
             </div>
           `
-          confirmPopup.dialog(popupContent, eventChestOpenImmediately.process.bind(eventChestOpenImmediately.process, chest, targets, spendGems))
+          confirmPopup.dialog(popupContent,
+            {
+              confirmFn: eventChestOpenImmediately.process.bind(eventChestOpenImmediately.process, chest, targets, spendGems)
+            }
+          )
         })
     }
 

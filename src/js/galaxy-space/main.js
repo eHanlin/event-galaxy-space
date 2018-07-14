@@ -34,7 +34,7 @@ require.config({
 
     eventCountUp: ['./event-count-up'],
     eventBonusPopup: ['./event-bonus-popup'],
-
+    eventOpenFinalPage: ['./event-open-final-page'],
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
     w3: ['../lib/w3'],
@@ -72,4 +72,5 @@ require(['jquery', 'ajax'], () => {
     eventChestGet()
   })
   require(['eventBonusPopup'])
+  require(['eventOpenFinalPage'])
 })
