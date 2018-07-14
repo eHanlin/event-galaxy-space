@@ -1,6 +1,7 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'],
   ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets) => {
+      let coins, gems
       let title =
         `
     <img style="position:absolute; left:200px; top:20px;" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail2.gif">
@@ -27,19 +28,16 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
       let autoOpenedFunc = (index) => {
         ajax('GET', `http://localhost:8080/chest/autoOpened`)
           .then(jsonData => {
-            let jsonContent = jsonData.content
+            let jsonDataContent = jsonData.content
             let finalCoins = 5234
             let finalGems = 2443
-
-            console.log(jsonContent)
-
             /* 獲得禮物內容 */
-            let chestId = jsonContent[index].chestId
-            let gainCoins = jsonContent[index].coins
-            let gainGems = jsonContent[index].gems
-            let gainAwardId = jsonContent[index].gainAwardId
-            let gainAward = jsonContent[index].gainAward
-            let luckyBag = jsonContent[index].luckyBag
+            let chestId = jsonDataContent[index].chestId
+            let gainCoins = jsonDataContent[index].coins
+            let gainGems = jsonDataContent[index].gems
+            let gainAwardId = jsonDataContent[index].gainAwardId
+            let gainAward = jsonDataContent[index].gainAward
+            let luckyBag = jsonDataContent[index].luckyBag
             let awardImg = '',
               awardTitle = '',
               openLuckyBagBtn = ''
@@ -125,24 +123,27 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                       })
                     .then((jsonData) => {
                       let jsonContent = jsonData.content
-                      let gainCoins, gainGems, finalCoins, finalGems, title
+                      let finalCoins, finalGems, title
 
                       if (jsonData.message === 'Lucky bag is already opened') {
                         confirmPopup.ok('Oooooops！', '福袋已經開啟過囉！')
                         return
                       }
 
-                      gainCoins = jsonContent.coins
-                      gainGems = jsonContent.gems
+                      // gainCoins = jsonContent.coins
+                      // gainGems = jsonContent.gems
                       finalCoins = jsonContent.finalCoins
                       finalGems = jsonContent.finalGems
+
+                      coins = jsonDataContent[index].luckyBagGain.coins
+                      gems = jsonDataContent[index].luckyBagGain.gems
                       title = `
                       <div class="lucky-bag">
                         <span>福袋打開囉，得到 </span>
                         <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
-                        <span>${gainCoins}</span>
+                        <span>${coins}</span>
                         <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
-                        <span>${gainGems}</span>
+                        <span>${gems}</span>
                       </div>
                     `
                       let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
