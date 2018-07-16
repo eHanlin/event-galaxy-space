@@ -21,12 +21,11 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         let chestIds = []
         for (let i = 0; i < jsonDataContent.length; i++) {
           chestIds.push(jsonDataContent[i].chestId)
-          console.log(chestIds)
         }
         confirmPopup.ok('', okContent, () => {
-          ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
+          ajax('POST', `http://localhost:8080/chest/award/notePopupAutoOpened`, chestIds)
             .then(data => {
-              console.log(data)
+              window.location.reload()
             })
         })
         return
@@ -98,7 +97,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
           /* 福袋內容 */
           if (luckyBag === true) {
             ajax(
-                'POST', `/chest/award/luckyBag/${chestId}`, {
+                'POST', `http://localhost:8080/chest/award/luckyBag/${chestId}`, {
                   awardId: gainAwardId,
                   chestId: chestId,
                   level: level
@@ -136,7 +135,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
     }
 
     confirmPopup.ok('', title, () => {
-      ajax('GET', `/chest/autoOpened`)
+      ajax('GET', `http://localhost:8080/chest/autoOpened`)
         .then(jsonData => {
           let openedChestsIndex = 0
           let openedChestsCount = jsonData.content.length
