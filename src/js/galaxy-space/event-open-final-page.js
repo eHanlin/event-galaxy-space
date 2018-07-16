@@ -1,12 +1,5 @@
 define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventTotalAssets'],
   (require, $, ajax, confirmPopup, eventChestInspection, eventTotalAssets) => {
-    let title =
-      `
-    <span style="font-size:22px; top:150px;">
-    經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，在這片土地上，<br>有一些厲害的魔法師居住著，透過他們的魔法將封存
-    的寶箱都打開啦!趕快來看看你獲得了哪些寶藏吧!
-    </span><br><br><br>
-    `
     let okContent =
       `
       <span style="font-size:24px;">哇!獲得了好多寶藏呢~記得在7/20之前完成資料回填，贈品將會在8/6開始陸續寄出。<br>
@@ -26,7 +19,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         confirmPopup.ok('', okContent, () => {
           ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
             .then(data => {
-              console.log(data)
+              window.location.reload()
             })
         })
         return
@@ -98,11 +91,11 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
           /* 福袋內容 */
           if (luckyBag === true) {
             ajax(
-                'POST', `/chest/award/luckyBag/${chestId}`, {
-                  awardId: gainAwardId,
-                  chestId: chestId,
-                  level: level
-                })
+              'POST', `/chest/award/luckyBag/${chestId}`, {
+                awardId: gainAwardId,
+                chestId: chestId,
+                level: level
+              })
               .then((jsonData) => {
                 let jsonContent = jsonData.content
                 let title, gainCoins, gainGems
@@ -135,12 +128,34 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       }
     }
 
-    confirmPopup.ok('', title, () => {
-      ajax('GET', `/chest/autoOpened`)
-        .then(jsonData => {
-          let openedChestsIndex = 0
+    ajax('GET', `/chest/autoOpened`)
+      .then(
+        jsonData => {
           let openedChestsCount = jsonData.content.length
-          autoOpenedFunc(jsonData.content, openedChestsIndex, openedChestsCount)
-        })
-    }, '確認')
+          let openedChestsIndex
+          if (openedChestsCount > 0) {
+            let content =
+              `
+              <span style="font-size:22px; top:150px;">
+              經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，在這片土地上，<br>有一些厲害的魔法師居住著，透過他們的魔法將封存
+              的寶箱都打開啦!趕快來看看你獲得了哪些寶藏吧!
+              </span><br><br><br>
+            `
+            openedChestsIndex = 0
+            confirmPopup.ok('', content,
+              autoOpenedFunc.bind(autoOpenedFunc, jsonData.content, openedChestsIndex, openedChestsCount), '確認')
+          }
+        }
+      )
+
+    // confirmPopup.ok('', title, () => {
+    //   ajax('GET', `/chest/autoOpened`)
+    //     .then(jsonData => {
+    //       let openedChestsIndex = 0
+    //       let openedChestsCount = jsonData.content.length
+    //
+    //
+    //       autoOpenedFunc(jsonData.content, openedChestsIndex, openedChestsCount)
+    //     })
+    // }, '確認')
   })
