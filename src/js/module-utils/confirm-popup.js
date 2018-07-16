@@ -1,4 +1,4 @@
-define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
+define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
   let commonStyle = {
     background: 'url(https://d220xxmclrx033.cloudfront.net/event-space/img/popup/confirm.png) repeat center center / contain',
     width: '100%',
@@ -17,15 +17,14 @@ define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
   }
 
   let confirmPopup = {}
-  confirmPopup.dialog = (content,
-                         {
-                           confirmFn = () => {},
-                           cancelFn = () => {},
-                           onOpenFn = () => {},
-                           confirmBtnText = '確定',
-                           cancelBtnText = '我再想想',
-                           isShowCancelButton = true
-                         } = {}) => {
+  confirmPopup.dialog = (content, {
+    confirmFn = () => {},
+    cancelFn = () => {},
+    onOpenFn = () => {},
+    confirmBtnText = '確定',
+    cancelBtnText = '我再想想',
+    isShowCancelButton = true
+  } = {}) => {
     let dialogStyle = cloneCommonStyle(commonStyle)
     dialogStyle.title = ''
     dialogStyle.html = content
@@ -79,12 +78,13 @@ define(['jquery', 'swal'], ($, swal) => {// eslint-disable-line
   confirmPopup.levelUpImage = (title, content, gifImageFn, buttonText) => {
     let gifStyle = confirmPopup.image(buttonText)
     gifStyle.customClass = 'level-up-modal'
-    gifStyle.html = `
+    gifStyle.html =
+      `
         <div class="confirm-grid-gif-container level-up-height">
           <div class="header-block1">${title}</div>
           <div class="content-block1 ">${content}</div>
         </div> 
-    `
+      `
     return swal(gifStyle).then((result) => {
       if (result.value && gifImageFn) {
         gifImageFn()

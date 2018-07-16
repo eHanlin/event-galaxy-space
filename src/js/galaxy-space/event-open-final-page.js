@@ -2,12 +2,10 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
   (require, $, ajax, confirmPopup, eventChestInspection, eventTotalAssets) => {
     let title =
       `
-    <img style="position:absolute; left:200px; top:20px;" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail2.gif">
-    <span style="position:absolute; font-size:22px; left:500px; top:150px;">
-    經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，<br>
-    在這片土地上，有一些厲害的魔法師居住著，透過他們的魔法將封存<br>
+    <span style="font-size:22px; top:150px;">
+    經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，在這片土地上，<br>有一些厲害的魔法師居住著，透過他們的魔法將封存
     的寶箱都打開啦!趕快來看看你獲得了哪些寶藏吧!
-    </span><br><br><br><br><br><br><br><br>
+    </span><br><br><br>
     `
     let okContent =
       `
@@ -20,7 +18,17 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
 
     let autoOpenedFunc = (jsonDataContent, openedChestsIndex, openedChestsCount) => {
       if (openedChestsIndex > openedChestsCount - 1) {
-        confirmPopup.ok('', okContent)
+        let chestIds = []
+        for (let i = 0; i < jsonDataContent.length; i++) {
+          chestIds.push(jsonDataContent[i].chestId)
+          console.log(chestIds)
+        }
+        confirmPopup.ok('', okContent, () => {
+          ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
+            .then(data => {
+              console.log(data)
+            })
+        })
         return
       }
 
@@ -32,8 +40,11 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       let gainAwardId = jsonDataContent[openedChestsIndex].gainAwardId
       let gainAward = jsonDataContent[openedChestsIndex].gainAward
       let luckyBag = jsonDataContent[openedChestsIndex].luckyBag
-      let awardImg = '', awardTitle = '', openLuckyBagBtn = ''
-      let content, openTextBlock3 = '', openTextBlock4 = ''
+      let awardImg = '',
+        awardTitle = '',
+        openLuckyBagBtn = ''
+      let content, openTextBlock3 = '',
+        openTextBlock4 = ''
 
       if (gainAwardId) {
         awardTitle = `<span class="gif-title">${gainAward}</span>`
@@ -87,11 +98,11 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
           /* 福袋內容 */
           if (luckyBag === true) {
             ajax(
-              'POST', `/chest/award/luckyBag/${chestId}`, {
-                awardId: gainAwardId,
-                chestId: chestId,
-                level: level
-              })
+                'POST', `/chest/award/luckyBag/${chestId}`, {
+                  awardId: gainAwardId,
+                  chestId: chestId,
+                  level: level
+                })
               .then((jsonData) => {
                 let jsonContent = jsonData.content
                 let title, gainCoins, gainGems
