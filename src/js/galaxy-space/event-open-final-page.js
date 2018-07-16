@@ -1,5 +1,5 @@
 define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventTotalAssets'],
-  (require, $, ajax, confirmPopup, eventChestInspection, eventTotalAssets) => {
+  (require, $, ajax, confirmPopup, eventChestInspection) => {
     let okContent =
       `
       <span style="font-size:24px;">哇!獲得了好多寶藏呢~記得在7/20之前完成資料回填，贈品將會在8/6開始陸續寄出。<br>
@@ -14,11 +14,10 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         let chestIds = []
         for (let i = 0; i < jsonDataContent.length; i++) {
           chestIds.push(jsonDataContent[i].chestId)
-          console.log(chestIds)
         }
         confirmPopup.ok('', okContent, () => {
           ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
-            .then(data => {
+            .then(() => {
               window.location.reload()
             })
         })
@@ -96,6 +95,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
                 chestId: chestId,
                 level: level
               })
+
               .then((jsonData) => {
                 let jsonContent = jsonData.content
                 let title, gainCoins, gainGems
@@ -145,17 +145,5 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
             confirmPopup.ok('', content,
               autoOpenedFunc.bind(autoOpenedFunc, jsonData.content, openedChestsIndex, openedChestsCount), '確認')
           }
-        }
-      )
-
-    // confirmPopup.ok('', title, () => {
-    //   ajax('GET', `/chest/autoOpened`)
-    //     .then(jsonData => {
-    //       let openedChestsIndex = 0
-    //       let openedChestsCount = jsonData.content.length
-    //
-    //
-    //       autoOpenedFunc(jsonData.content, openedChestsIndex, openedChestsCount)
-    //     })
-    // }, '確認')
+        })
   })
