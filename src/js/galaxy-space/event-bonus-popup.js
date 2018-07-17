@@ -1,5 +1,5 @@
 define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-line
-  let isBonusPopup = Cookie.get('isBonusPopup')
+  let isBonusPopupImg = Cookie.get('isBonusPopupImg')
   let bonusPopupTarget = $('#bonus-popup')
 
   let popupHandler = (image) => {
@@ -10,7 +10,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
       $(event.currentTarget).remove()
     })
 
-    Cookie.set('isBonusPopup', true, {
+    Cookie.set('isBonusPopupImg', true, {
       expire: 1
     })
   }
@@ -27,7 +27,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
       })
   }
 
-  if (!isBonusPopup) {
+  if (!isBonusPopupImg) {
     ajax('GET', `/currencyMission/admin/eventRule`)
       .then(jsonData => {
         let image = jsonData.content
@@ -37,5 +37,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
           popupHandler(image)
         }
       })
+  } else {
+    Cookie.remove('isBonusPopupImg')
   }
 })
