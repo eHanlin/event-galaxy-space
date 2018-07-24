@@ -1,4 +1,4 @@
-define(['jquery'], $ => {// eslint-disable-line
+define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
   $(() => {
     $('.fb').on('click', () => {
       window.open('https://www.facebook.com/ehanlin.com.tw/', 'ehanlinFB')
@@ -21,7 +21,12 @@ define(['jquery'], $ => {// eslint-disable-line
       return false
     })
     $('.return-btn').on('click', () => {
-      window.open('/Events/winner_info.html?id=space', 'returnAward')
+      confirmPopup.dialog('<h1>回填時間已結束！</h1>',
+        {
+          isShowCancelButton: false
+        })
+
+      //window.open('/Events/winner_info.html?id=space', 'returnAward')
       return false
     })
     $('.shareBtn').on('click', () => {
